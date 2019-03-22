@@ -1,0 +1,391 @@
+#in void-packages repo
+#find -maxdepth 1 -mindepth 1 -type d |
+#  xargs find {} -maxdepth 1 -mindepth 1 -name files |
+#  xargs find -L {} -maxdepth 1 -mindepth 1 -type d |
+#  xargs find {}/ -maxdepth 1 -mindepth 1 -name run -printf '%h\n'
+3proxy ./3proxy/files/3proxy
+consolekit ./ConsoleKit2/files/consolekit
+eternalterminal ./EternalTerminal/files/etserver
+radius ./FreeRADIUS/files/FreeRADIUS
+#./GCP-Guest-Environment/files/GCP-Guest-Initialization
+#./GCP-Guest-Environment/files/GCP-ip-forwarding
+#./GCP-Guest-Environment/files/GCP-clock-skew
+#./GCP-Guest-Environment/files/GCP-accounts
+networkmanager ./NetworkManager/files/NetworkManager
+popcorn ./PopCorn/files/statrepo
+popcorn ./PopCorn/files/pqueryd
+popcorn ./PopCorn/files/popcorn
+acpi ./acpid/files/acpid
+alertmanager ./alertmanager/files/alertmanager
+alfred ./alfred/files/batadv-vis
+alfred ./alfred/files/alfred
+alsa ./alsa-utils/files/alsa
+android ./android-tools/files/adb
+anope ./anope/files/anope
+tomcat ./apache-tomcat/files/apache-tomcat
+apache ./apache/files/apache
+#./ardor/files/ardor
+#./ardor/files/ardor-tor
+armagetronad ./armagetronad/files/armagetronad-dedicated
+arptables ./arptables/files/arptables
+#./asus-kbd-backlight/files/asus-kbd
+at ./at/files/at
+atop ./atop/files/atop
+audit ./audit/files/auditd
+audit ./audit/files/auditctl
+autofs ./autofs/files/autofs
+#./autox/files/autox
+avahi ./avahi/files/avahi-daemon
+bacula ./bacula-common/files/bacula-dir
+bacula ./bacula-common/files/bacula-fd
+bacula ./bacula-common/files/bacula-sd
+barrier ./barrier/files/barriers
+barrier ./barrier/files/barrierc
+beanstalkd ./beanstalkd/files/beanstalkd
+#./beard/files/beard
+#./bftpd/files/bftpd
+bind ./bind/files/named
+chronograf ./chronograf/files/chronograf
+#./binfmt-support/files/binfmt-support not applicable
+bird ./bird/files/bird
+bitlbee ./bitlbee/files/bitlbee
+blackbox_exporter ./blackbox_exporter/files/blackbox_exporter
+bluetooth-alsa ./bluez-alsa/files/bluez-alsa
+bluetooth ./bluez/files/bluetoothd
+boinc ./boinc/files/boinc
+bolt ./bolt/files/boltd
+brltty ./brltty/files/brltty
+chrony ./chrony/files/chronyd
+#./bro/files/bro
+bumblebee ./bumblebee/files/bumblebeed
+burp ./burp-server/files/burp-server
+#./burp2-server/files/burp2-server same as burp
+busybox ./busybox/files/busybox-klogd
+busybox ./busybox/files/busybox-ntpd
+busybox ./busybox/files/busybox-syslogd
+cachefilesd ./cachefilesd/files/cachefilesd
+caddy ./caddy/files/caddy
+canto-daemon ./canto-next/files/canto-daemon
+cgmanager ./cgmanager/files/cgmanager
+cgminer ./cgminer/files/cgminer
+ckb ./ckb-next/files/ckb-next-daemon
+clockspeed ./clockspeed/files/clockspeed
+clockspeed ./clockspeed/files/taiclockd
+clockspeed ./clockspeed/files/clockspeed_adjust
+cntlm ./cntlm/files/cntlm
+collectd ./collectd/files/collectd
+connman ./connman/files/connmand
+containerd ./containerd/files/containerd
+coturn ./coturn/files/coturnserver
+couchdb ./couchdb/files/couchdb
+#./couchpotato/files/couchpotato
+criu ./criu/files/criu
+cronie ./cronie/files/cronie
+cups ./cups-filters/files/cups-browsed
+cups ./cups/files/cupsd
+darkhttpd ./darkhttpd/files/darkhttpd
+#./dbus-elogind/files/dbus same as dbus
+dbus ./dbus/files/dbus
+dcron ./dcron/files/dcron
+ddclient ./ddclient/files/ddclient
+deluge ./deluge/files/deluge-web
+deluge ./deluge/files/deluged
+dhcp ./dhcp/files/dhcpd4
+dhcp ./dhcp/files/dhclient
+dhcp ./dhcp/files/dhcpd6
+dhcpcd ./dhcpcd/files/dhcpcd
+dhcpcd ./dhcpcd/files/dhcpcd-eth0
+#./dht-node/files/dht-node
+dictd ./dictd/files/dictd
+diod ./diod/files/diod
+distcc ./distcc/files/distccd
+dkimproxy ./dkimproxy/files/dkimproxy_in
+dkimproxy ./dkimproxy/files/dkimproxy_out
+dnscrypt-proxy ./dnscrypt-proxy/files/dnscrypt-proxy
+dnsmasq ./dnsmasq/files/dnsmasq
+docker ./docker/files/docker
+dovecot ./dovecot/files/dovecot
+#./dq/files/dqcache
+drbd-utils ./drbd-utils/files/drbd
+dropbear ./dropbear/files/dropbear
+earlyoom ./earlyoom/files/earlyoom
+ebtables ./ebtables/files/ebtables
+edac-utils ./edac-utils/files/edac
+elasticsearch ./elasticsearch/files/elasticsearch
+#./elog/files/elogd
+espeakup ./espeakup/files/espeakup
+etcd ./etcd/files/etcd
+udev ./eudev/files/udevd
+fail2ban ./fail2ban/files/fail2ban
+fastd ./fastd/files/fastd
+fcron ./fcron/files/fcron
+fiche ./fiche/files/fiche
+flannel ./flannel/files/flannel
+freeipmi ./freeipmi/files/ipmiseld
+freeipmi ./freeipmi/files/bmc-watchdog
+freeipmi ./freeipmi/files/ipmidetectd
+frp ./frp/files/frps
+frp ./frp/files/frpc
+frr ./frr/files/staticd
+frr ./frr/files/frr-generic
+frr ./frr/files/sharpd
+frr ./frr/files/zebra
+frr ./frr/files/pimd
+frr ./frr/files/ospfd
+frr ./frr/files/ripngd
+frr ./frr/files/ldpd
+frr ./frr/files/ripd
+frr ./frr/files/bgpd
+frr ./frr/files/bfdd
+frr ./frr/files/nhrpd
+frr ./frr/files/pbrd
+frr ./frr/files/babeld
+frr ./frr/files/ospf6d
+frr ./frr/files/isisd
+frr ./frr/files/eigrpd
+frr ./frr/files/fabricd
+fwknop ./fwknop/files/fwknopd
+gdm ./gdm/files/gdm
+geomyidae ./geomyidae/files/geomyidae
+gerbera ./gerbera/files/gerbera
+gitea ./gitea/files/gitea
+#./glibc/files/nscd
+glusterfs ./glusterfs/files/glusterd
+glusterfs ./glusterfs/files/glusterfsd
+gogs ./gogs/files/gogs
+gpm ./gpm/files/gpm
+gpsd ./gpsd/files/gpsd
+grafana ./grafana/files/grafana
+h2o ./h2o/files/h2o
+haproxy ./haproxy/files/haproxy
+haveged ./haveged/files/haveged
+hddtemp ./hddtemp/files/hddtemp
+hiawatha ./hiawatha/files/hiawatha
+hitch ./hitch/files/hitch
+hostapd ./hostapd/files/hostapd
+hyperion ./hyperion/files/hyperiond
+i2pd ./i2pd/files/i2pd
+i8kutils ./i8kutils/files/i8kmon
+icinga2 ./icinga2/files/icinga2
+iio-sensor-proxy ./iio-sensor-proxy/files/iio-sensor-proxy
+#./inadyn/files/inadyn
+incron ./incron/files/incron
+influxdb ./influxdb/files/influxdb
+inspircd ./inspircd/files/inspircd
+iptables ./iptables/files/iptables
+iptables ./iptables/files/ip6tables
+ipvsadm ./ipvsadm/files/ipvsadm
+irqbalance ./irqbalance/files/irqbalance
+iwd ./iwd/files/iwd
+jenkins ./jenkins/files/jenkins
+kapacitor ./kapacitor/files/kapacitor
+kea ./kea/files/kea-dhcp-ddns
+kea ./kea/files/kea-dhcp6
+kea ./kea/files/kea-dhcp4
+keepalived ./keepalived/files/keepalived
+#./kodi-rpi/files/xbmc-standalone raspberry pi package
+kubernetes ./kubernetes/files/kube-apiserver
+kubernetes ./kubernetes/files/kubelet
+kubernetes ./kubernetes/files/kube-proxy
+kubernetes ./kubernetes/files/kube-scheduler
+kubernetes ./kubernetes/files/kube-controller-manager
+laptop-mode ./laptop-mode/files/laptop-mode
+#./ldm/files/ldm
+cgroups ./libcgroup/files/cgred
+libratbag ./libratbag/files/ratbagd
+libvirt ./libvirt/files/virtlockd
+libvirt ./libvirt/files/virtlogd
+libvirt ./libvirt/files/libvirtd
+lightdm ./lightdm/files/lightdm
+lighttpd ./lighttpd/files/lighttpd
+#./linux-tools/files/freefall
+usbip ./linux-tools/files/usbipd
+lm_sensors ./lm_sensors/files/fancontrol
+lsyncd ./lsyncd/files/lsyncd
+lvm ./lvm2/files/dmeventd
+lvm ./lvm2/files/lvmetad
+lxc ./lxc/files/lxc-autostart
+lxcfs ./lxcfs/files/lxcfs
+#./lxd-lts/files/lxd same as lxd
+lxd ./lxd/files/lxd
+lxdm ./lxdm/files/lxdm
+#./mDNSResponder/files/mdnsd
+#./mDNSResponder/files/dnsextd
+mariadb ./mariadb/files/mysqld
+mbpfan ./mbpfan/files/mbpfan
+mcelog ./mcelog/files/mcelog
+mdadm ./mdadm/files/mdadm
+metalog ./metalog/files/metalog
+minidlna ./minidlna/files/minidlnad
+#./miniflux/files/miniflux
+minio ./minio/files/minio
+#./minissdpd/files/minissdpd can't run in foreground without patch
+#./miniupnpd/files/miniupnpd can't run in foreground without patch
+kerberos ./mit-krb5/files/kadmind
+kerberos ./mit-krb5/files/krb5kdc
+monero ./monero/files/monerod
+monit ./monit/files/monit
+monkeyd ./monkey/files/monkey
+moosefs ./moosefs/files/mfsmaster
+moosefs ./moosefs/files/mfschunkserver
+moosefs ./moosefs/files/mfsmetalogger
+mopidy ./mopidy/files/mopidy
+mpd ./mpd/files/mpd
+mpdscribble ./mpdscribble/files/mpdscribble
+munge ./munge/files/munge
+musl-nscd ./musl-nscd/files/nscd
+mysql ./mysql/files/mysqld
+nbd ./nbd/files/nbd
+#./ndhc/files/ndhc
+netdata ./netdata/files/netdata
+nut ./network-ups-tools/files/upsmon
+nut ./network-ups-tools/files/upsd
+nut ./network-ups-tools/files/upsdrvctl
+nfs ./nfs-utils/files/rpcsvcgssd
+nfs ./nfs-utils/files/statd
+nfs ./nfs-utils/files/rpcidmapd
+nfs ./nfs-utils/files/rpcgssd
+nfs ./nfs-utils/files/nfs-server
+nfs ./nfs-utils/files/rpcblkmapd
+nftables ./nftables/files/nftables
+#./ngetty/files/ngetty
+nginx ./nginx/files/nginx
+ngircd ./ngircd/files/ngircd
+nix ./nix/files/nix-daemon
+node_exporter ./node_exporter/files/node_exporter
+#./nodm/files/nodm
+#./noip2/files/noip2 can't run in foreground without patch
+nrpe ./nrpe/files/nrpe
+nsd ./nsd/files/nsd
+nss-pam-ldapd ./nss-pam-ldapd/files/nslcd
+ntp ./ntp/files/isc-ntpd
+nullmailer ./nullmailer/files/nullmailer
+#./nxt/files/nxt-tor
+#./nxt/files/nxt
+#./odroid-u2-base/files/odroid-led
+ofono ./ofono/files/ofonod
+oidentd ./oidentd/files/oidentd
+olsrd ./olsrd/files/olsrd
+vmware ./open-vm-tools/files/vmtoolsd
+openldap ./openldap/files/slapd
+openntpd ./openntpd/files/openntpd
+opensmtpd ./opensmtpd/files/opensmtpd
+openssh ./openssh/files/sshd
+openvswitch ./openvswitch/files/ovs-vswitchd
+openvswitch ./openvswitch/files/ovsdb-server
+orientdb ./orientdb/files/orientdb
+pcsc-lite ./pcsclite/files/pcscd
+php ./php/files/php-fpm
+polipo ./polipo/files/polipo
+#./polkit-elogind/files/polkitd same as polkitd
+policykit ./polkit/files/polkitd
+postfix ./postfix/files/postfix
+postgresql ./postgresql/files/postgresql
+preload ./preload/files/preload
+#./pritunl-client/files/pritunl-client
+privoxy ./privoxy/files/privoxy
+prometheus ./prometheus/files/prometheus
+prosody ./prosody/files/prosody
+pulseaudio ./pulseaudio/files/pulseaudio
+puppet ./puppet/files/puppet
+puppet ./puppet/files/puppetmaster
+qemu-guest-agent ./qemu/files/qemu-ga
+quassel ./quassel/files/quasselcore
+radeon-profile-daemon ./radeon-profile-daemon/files/radeon-profile-daemon
+#./radicale2/files/radicale same as radicale
+radicale ./radicale/files/radicale
+radvd ./radvd/files/radvd
+redis ./redis/files/redis
+rest-server ./rest-server/files/rest-server
+rkt ./rkt/files/rkt-metadata
+rmilter ./rmilter/files/rmilter
+rng-tools ./rng-tools/files/rngd
+rpcbind ./rpcbind/files/rpcbind
+rspamd ./rspamd/files/rspamd
+rsync ./rsync/files/rsyncd
+rsyslog ./rsyslog/files/rsyslogd
+rtkit ./rtkit/files/rtkit
+salt ./salt/files/salt-master
+salt ./salt/files/salt-syndic
+salt ./salt/files/salt-api
+salt ./salt/files/salt-minion
+samba ./samba/files/smbd
+samba ./samba/files/nmbd
+#./scron/files/scron
+sddm ./sddm/files/sddm
+shadowsocks-libev ./shadowsocks-libev/files/shadowsocks-libev-server
+shadowsocks-libev ./shadowsocks-libev/files/shadowsocks-libev-client
+shorewall ./shorewall/files/shorewall6
+shorewall ./shorewall/files/shorewall
+#./sickbeard/files/sickbeard
+#./sklogw/files/sklogw
+slim ./slim/files/slim
+smartmontools ./smartmontools/files/smartd
+snapper ./snapper/files/snapperd
+sndio ./sndio/files/sndiod
+spamassassin ./spamassassin/files/spamd
+spampd ./spampd/files/spampd
+spice-vdagent ./spice-vdagent/files/spice-vdagentd
+spreed-webrtc ./spreed-webrtc/files/spreed-webrtc-server
+squid ./squid/files/squid
+sshguard ./sshguard/files/sshguard-socklog
+sslh ./sslh/files/sslh
+sssd ./sssd/files/sssd
+strongswan ./strongswan/files/strongswan
+#./stubby/files/stubby
+subversion ./subversion/files/svnserve
+suricata ./suricata/files/suricata
+#./sv-netmount/files/netmount void specific
+syncthing ./syncthing/files/relaysrv
+synergy ./synergy/files/synergyc
+synergy ./synergy/files/synergys
+taskd ./taskd/files/taskd
+telegraf ./telegraf/files/telegraf
+thermald ./thermald/files/thermald
+thinkfan ./thinkfan/files/thinkfan
+thttpd ./thttpd/files/thttpd
+tinc ./tinc/files/tincd
+tinyproxy ./tinyproxy/files/tinyproxy
+tinyssh ./tinyssh/files/tinysshd
+tlp ./tlp/files/tlp
+tlsdate ./tlsdate/files/tlsdated
+tor ./tor/files/tor
+transmission ./transmission/files/transmission-daemon
+trousers ./trousers/files/tcsd
+tuntox ./tuntox/files/tuntox
+twoftpd ./twoftpd/files/twoftpd-anon
+ufw ./ufw/files/ufw
+#./ulatencyd/files/ulatencyd
+ulogd ./ulogd/files/ulogd
+umurmur ./umurmur/files/umurmurd
+unbound ./unbound/files/unbound
+uptimed ./uptimed/files/uptimed
+#./usbarmory-base/files/dhcpcd-usb0 void specific
+usbmuxd ./usbmuxd/files/usbmuxd
+uuid ./util-linux/files/uuidd
+vault ./vault/files/vault
+virtualbox ./virtualbox-ose/files/vboxwebsrv
+virtualbox ./virtualbox-ose/files/vboxservice
+vnstat ./vnstat/files/vnstatd
+vsftpd ./vsftpd/files/vsftpd
+vsftpd ./vsftpd/files/vsftpd-ipv6
+watchdog ./watchdog/files/watchdog
+wesnoth ./wesnoth/files/wesnothd
+wicd ./wicd/files/wicd
+wpa_actiond ./wpa_actiond/files/wpa_actiond
+wpa_supplicant ./wpa_supplicant/files/wpa_supplicant
+xdm ./xdm/files/xdm
+xen ./xen/files/xenstored
+xen ./xen/files/xenconsoled
+xen ./xen/files/xen
+xinetd ./xinetd/files/xinetd
+xl2tpd ./xl2tpd/files/xl2tpd
+#./xq-api/files/xq-api void specific
+#./yggdrasil/files/yggdrasil
+zabbix ./zabbix/files/zabbix-proxy
+zabbix ./zabbix/files/zabbix-server
+zabbix ./zabbix/files/zabbix-agent
+zerotier ./zerotier-one/files/zerotier
+znc ./znc/files/znc
+zookeeper ./zookeeper/files/zookeeper
+gitlab-runner ./gitlab-runner/files/gitlab-runner
