@@ -8,6 +8,7 @@ HOMEPAGE="https://artixlinux.org/"
 SRC_URI="
 	https://gitea.artixlinux.org/artix/runit-rc/archive/master.tar.gz -> runit-rc-master.tar.gz
 	https://gitea.artixlinux.org/artix/runit-artix/archive/master.tar.gz -> runit-artix-master.tar.gz
+	https://github.com/void-linux/void-runit/archive/master.tar.gz -> void-runit-master.tar.gz
 "
 
 LICENSE="BSD-2"
@@ -36,6 +37,9 @@ src_compile() {
 
 	cd "${S}/runit-artix"
 	emake BINDIR=/bin RCLIBDIR=/etc/rc SVDIR=/etc/sv SERVICEDIR=/run/runit/service
+
+	cd "${S}/void-runit-master"
+	emake
 }
 
 src_install() {
@@ -44,4 +48,12 @@ src_install() {
 
 	cd "${S}/runit-artix"
 	emake DESTDIR="${D}" BINDIR=/bin RCLIBDIR=/etc/rc SVDIR=/etc/sv SERVICEDIR=/run/runit/service install
+
+	cd "${S}/void-runit-master"
+	dosbin halt shutdown
+	dosym halt /sbin/poweroff
+	dosym halt /sbin/reboot
+	doman shutdown.8 halt.8
+	dosym halt.8 /usr/share/man/man8/poweroff
+	dosym halt.8 /usr/share/man/man8/reboot
 }
