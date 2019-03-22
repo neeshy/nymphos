@@ -389,3 +389,4 @@ zerotier ./zerotier-one/files/zerotier
 znc ./znc/files/znc
 zookeeper ./zookeeper/files/zookeeper
 gitlab-runner ./gitlab-runner/files/gitlab-runner
+#./glider/files/glider

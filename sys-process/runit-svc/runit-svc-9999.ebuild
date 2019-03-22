@@ -659,21 +659,21 @@ zookeeper zookeeper/files/zookeeper"
 	printf '%s' "${files}" | while IFS=' ' read -r use dir; do
 		if use "${use}"; then
 			srv="$(basename "${dir}")"
-			insinto "/etc/runit/sv"
+			insinto "/etc/sv"
 			doins -r "${dir}"
-			fperms 0755 "/etc/runit/sv/${srv}/run"
+			fperms 0755 "/etc/sv/${srv}/run"
 			if [ -r "${dir}/check" ]; then
-				fperms 0755 "/etc/runit/sv/${srv}/check"
+				fperms 0755 "/etc/sv/${srv}/check"
 			fi
 			if [ -r "${dir}/finish" ]; then
-				fperms 0755 "/etc/runit/sv/${srv}/finish"
+				fperms 0755 "/etc/sv/${srv}/finish"
 			fi
 			if [ -d "${dir}/log" ]; then
-				fperms 0755 "/etc/runit/sv/${srv}/log/run"
+				fperms 0755 "/etc/sv/${srv}/log/run"
 			fi
-                        for file in $(find "${dir}" -name '*.sh'); do
+			for file in $(find "${dir}" -name '*.sh'); do
 				name="$(basename "${file}")"
-				fperms 0755 "/etc/runit/sv/${srv}/${name}"
+				fperms 0755 "/etc/sv/${srv}/${name}"
 			done
 		fi
 	done
