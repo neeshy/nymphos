@@ -1,0 +1,22 @@
+--- a/script/modules-load.in
++++ b/script/modules-load.in
+@@ -5,7 +5,7 @@ export PATH=/bin:/sbin
+ 
+ {
+ # Parameters passed as modules-load= or rd.modules-load= in kernel command line.
+-sed -nr 's/,/\n/;s/(.* |^)(rd\.)?modules-load=([^ ]*).*/\3/p' /proc/cmdline
++sed -nr 's/,/\n/g;s/(.* |^)(rd\.)?modules-load=([^ ]*).*/\3/p' /proc/cmdline
+ 
+ # Find files /{etc,run,usr/lib}/modules-load.d/*.conf in that order.
+ find -L /etc/modules-load.d /run/modules-load.d /usr/lib/modules-load.d \
+--- a/sv.d/binfmt.in
++++ b/sv.d/binfmt.in
+@@ -10,7 +10,7 @@ mount_binfmt(){
+     for path in /usr/lib/binfmt.d /etc/binfmt.d /run/binfmt.d; do
+         [[ ! -d $path ]] && continue
+         [[ -z "$(ls $path)" ]] && continue
+-        grep "^:" $path/* | \
++        grep -h "^:" $path/* | \
+             while read -r line; do
+                 printf "%s" "$line" > /proc/sys/fs/binfmt_misc/register || return 1
+             done
