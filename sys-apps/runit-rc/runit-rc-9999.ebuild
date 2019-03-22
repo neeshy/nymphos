@@ -9,13 +9,18 @@ SRC_URI="
 	https://gitea.artixlinux.org/artix/runit-rc/archive/master.tar.gz -> runit-rc-master.tar.gz
 	https://gitea.artixlinux.org/artix/runit-artix/archive/master.tar.gz -> runit-artix-master.tar.gz
 "
+
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS=""
-S="${WORKDIR}"
+
 RDEPEND="sys-process/runit"
 
+S="${WORKDIR}"
+
 src_prepare() {
+	eapply_user
+
 	cd "${S}/runit-rc"
 	eapply "${FILESDIR}/${PN}-bugfixes.patch"
 	eapply "${FILESDIR}/${PN}-network.patch"
@@ -23,8 +28,6 @@ src_prepare() {
 	cd "${S}/runit-artix"
 	eapply "${FILESDIR}/${PN}-rc.shutdown.patch"
 	eapply "${FILESDIR}/${PN}-ctrlaltdel.patch"
-
-	eapply_user
 }
 
 src_compile() {
@@ -32,7 +35,7 @@ src_compile() {
 	emake BINDIR=/bin RCLIBDIR=/etc/rc
 
 	cd "${S}/runit-artix"
-	emake BINDIR=/bin RCLIBDIR=/etc/rc
+	emake BINDIR=/bin RCLIBDIR=/etc/rc SVDIR=/etc/sv SERVICEDIR=/run/runit/service
 }
 
 src_install() {
@@ -40,5 +43,5 @@ src_install() {
 	emake DESTDIR="${D}" BINDIR=/bin RCLIBDIR=/etc/rc install
 
 	cd "${S}/runit-artix"
-	emake DESTDIR="${D}" BINDIR=/bin RCLIBDIR=/etc/rc install
+	emake DESTDIR="${D}" BINDIR=/bin RCLIBDIR=/etc/rc SVDIR=/etc/sv SERVICEDIR=/run/runit/service install
 }
