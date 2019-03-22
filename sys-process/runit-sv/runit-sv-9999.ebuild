@@ -6,11 +6,10 @@ EAPI="7"
 DESCRIPTION="Runit service scripts from the Void Linux project"
 HOMEPAGE="https://voidlinux.org/"
 SRC_URI="https://github.com/void-linux/void-packages/archive/master.tar.gz -> void-packages-master.tar.gz"
+
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS=""
-S="${WORKDIR}/void-packages-master/srcpkgs"
-
 IUSE="
 	3proxy acpi alertmanager alfred alsa android anope apache armagetronad
 	arptables at atop audit autofs avahi bacula barrier beanstalkd bind bird
@@ -42,6 +41,7 @@ IUSE="
 	wpa_actiond wpa_supplicant xdm xen xinetd xl2tpd zabbix zerotier znc zookeeper
 "
 REQUIRED_USE="|| ( ${IUSE} )"
+
 RDEPEND="
 	sys-process/runit
 	3proxy? ( net-proxy/3proxy )
@@ -315,6 +315,8 @@ RDEPEND="
 	znc? ( net-irc/znc )
 	zookeeper? ( sys-cluster/zookeeper )
 "
+
+S="${WORKDIR}/void-packages-master/srcpkgs"
 
 src_install() {
 	files="3proxy 3proxy/files/3proxy
