@@ -13,7 +13,6 @@ SRC_URI="https://github.com/mikf/gallery-dl/releases/download/v1.8.0/gallery_dl-
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 

@@ -14,21 +14,19 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 IUSE="static"
 
-PATCHES=(
-	"${FILESDIR}/clearmem.patch"
-	"${FILESDIR}/headers.h"
-	"${FILESDIR}/servicedir.patch"
-	"${FILESDIR}/svlogd.patch"
-	"${FILESDIR}/utmpset-time_t.patch"
-)
-
-S="${WORKDIR}/admin/${P}"
+S="${WORKDIR}/admin/${P}/src"
 
 src_prepare() {
+	eapply -p2 "${FILESDIR}/clearmem.patch"
+	eapply -p1 "${FILESDIR}/headers.patch"
+	eapply -p2 "${FILESDIR}/servicedir.patch"
+	eapply -p2 "${FILESDIR}/svlogd.patch"
+	eapply -p2 "${FILESDIR}/utmpset-time_t.patch"
+
 	default
 
 	# we either build everything or nothing static
-	sed -i -e 's:-static: :' src/Makefile
+	sed -i -e 's:-static: :' Makefile
 
 	# see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=726008
 	[[ ${COMPILER} == "diet" ]] &&
@@ -39,8 +37,8 @@ src_prepare() {
 src_configure() {
 	use static && append-ldflags -static
 
-	echo "$(tc-getCC) ${CFLAGS}"  > src/conf-cc
-	echo "$(tc-getCC) ${LDFLAGS}" > src/conf-ld
+	echo "$(tc-getCC) ${CFLAGS}"  > conf-cc
+	echo "$(tc-getCC) ${LDFLAGS}" > conf-ld
 }
 
 src_install() {
@@ -48,8 +46,8 @@ src_install() {
 	dobin chpst runsv runsvchdir runsvdir sv svlogd
 	dosbin runit-init runit utmpset
 
-	DOCS=( package/{CHANGES,README,THANKS,TODO} )
-	HTML_DOCS=( doc/*.html )
+	DOCS=( ../package/{CHANGES,README,THANKS,TODO} )
+	HTML_DOCS=( ../doc/*.html )
 	einstalldocs
-	doman man/*.[18]
+	doman ../man/*.[18]
 }

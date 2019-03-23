@@ -52,3 +52,23 @@ add missing headers for misc funcs and types
  #include <sys/types.h>
  #include "seek.h"
  
+--- a/chpst.c
++++ b/chpst.c
+@@ -3,6 +3,7 @@
+ #include <sys/time.h>
+ #include <sys/resource.h>
+ #include <unistd.h>
++#include <grp.h>
+ #include "sgetopt.h"
+ #include "error.h"
+ #include "strerr.h"
+--- a/svlogd.c
++++ b/svlogd.c
+@@ -8,6 +8,7 @@
+ #include <dirent.h>
+ #include <unistd.h>
+ #include <stdio.h>
++#include <string.h>
+ #include "pmatch.h"
+ #include "fmt_ptime.h"
+ #include "alloc.h"

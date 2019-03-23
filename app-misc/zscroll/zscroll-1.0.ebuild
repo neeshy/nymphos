@@ -9,12 +9,18 @@ inherit distutils-r1
 
 DESCRIPTION="A text scroller for panels or terminals"
 HOMEPAGE="https://github.com/noctuid/zscroll"
-SRC_URI="https://github.com/noctuid/zscroll/archive/v${PV}.tar.gz"
+SRC_URI="https://github.com/noctuid/zscroll/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS=""
+IUSE="zsh"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
-PATCHES=( "${FILESDIR}/${PN}-license.patch" )
+src_prepare() {
+	eapply "${FILESDIR}/${PN}-license.patch"
+	if ! use zsh; then
+		eapply "${FILESDIR}/${PN}-zsh.patch"
+	fi
+	default
+}

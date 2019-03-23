@@ -5,23 +5,23 @@ EAPI="7"
 
 DESCRIPTION="Artix Linux system initialization and shutdown for runit"
 HOMEPAGE="https://artixlinux.org/"
+RC_COMMIT="a6df81b8fbda1e5611a71e80fd61259291154ec9"
+ARTIX_COMMIT="8eec042261ed661616b451ab7335f22fdf33a5d3"
+VOID_COMMIT="0566391df8c9c93f75ad99d94c8a19abe379908b"
 SRC_URI="
-	https://gitea.artixlinux.org/artix/runit-rc/archive/master.tar.gz -> runit-rc-master.tar.gz
-	https://gitea.artixlinux.org/artix/runit-artix/archive/master.tar.gz -> runit-artix-master.tar.gz
-	https://github.com/void-linux/void-runit/archive/master.tar.gz -> void-runit-master.tar.gz
+	https://gitea.artixlinux.org/artix/runit-rc/archive/${RC_COMMIT}.tar.gz -> runit-rc-${RC_COMMIT}.tar.gz
+	https://gitea.artixlinux.org/artix/runit-artix/archive/${ARTIX_COMMIT}.tar.gz -> runit-artix-${ARTIX_COMMIT}.tar.gz
+	https://github.com/void-linux/void-runit/archive/${VOID_COMMIT}.tar.gz -> void-runit-${VOID_COMMIT}.tar.gz
 "
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS=""
 
 RDEPEND="sys-process/runit"
 
 S="${WORKDIR}"
 
 src_prepare() {
-	eapply_user
-
 	cd "${S}/runit-rc"
 	eapply "${FILESDIR}/${PN}-bugfixes.patch"
 	eapply "${FILESDIR}/${PN}-network.patch"
@@ -29,6 +29,9 @@ src_prepare() {
 	cd "${S}/runit-artix"
 	eapply "${FILESDIR}/${PN}-rc.shutdown.patch"
 	eapply "${FILESDIR}/${PN}-ctrlaltdel.patch"
+
+	cd "${S}"
+	eapply_user
 }
 
 src_compile() {
@@ -38,7 +41,7 @@ src_compile() {
 	cd "${S}/runit-artix"
 	emake BINDIR=/bin RCLIBDIR=/etc/rc SVDIR=/etc/sv SERVICEDIR=/run/runit/service
 
-	cd "${S}/void-runit-master"
+	cd "${S}/void-runit-${VOID_COMMIT}"
 	emake
 }
 
@@ -49,7 +52,8 @@ src_install() {
 	cd "${S}/runit-artix"
 	emake DESTDIR="${D}" BINDIR=/bin RCLIBDIR=/etc/rc SVDIR=/etc/sv SERVICEDIR=/run/runit/service install
 
-	cd "${S}/void-runit-master"
+	cd "${S}/void-runit-${VOID_COMMIT}"
+	into /
 	dosbin halt shutdown
 	dosym halt /sbin/poweroff
 	dosym halt /sbin/reboot

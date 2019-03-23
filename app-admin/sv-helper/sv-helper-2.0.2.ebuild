@@ -5,11 +5,10 @@ EAPI="7"
 
 DESCRIPTION="Helper for runit-as-pid1 systems"
 HOMEPAGE="https://github.com/rubyists/sv-helper"
-SRC_URI="https://github.com/rubyists/sv-helpers/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/rubyists/sv-helper/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
 
 RDEPEND="sys-process/runit"
 
