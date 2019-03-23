@@ -219,7 +219,6 @@ app-text/extract_url
 app-text/highlight
 app-text/lesspipe
 app-text/mupdf
-app-text/ots
 app-text/pandoc
 app-text/pstotext
 app-text/tesseract
