@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-DESCRIPTION="Artix Linux system initialization and shutdown for runit"
+DESCRIPTION="System initialization and shutdown scripts for runit from the Artix Linux project"
 HOMEPAGE="https://artixlinux.org/"
 RC_COMMIT="a6df81b8fbda1e5611a71e80fd61259291154ec9"
 ARTIX_COMMIT="8eec042261ed661616b451ab7335f22fdf33a5d3"
