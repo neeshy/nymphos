@@ -14,9 +14,16 @@ EGIT_REPO_URI="https://github.com/noctuid/zscroll.git"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+IUSE="zsh"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
-PATCHES=( "${FILESDIR}/${PN}-license.patch" )
-
 S="${WORKDIR}/${PN}"
+
+src_prepare() {
+	eapply "${FILESDIR}/${PN}-license.patch"
+	if ! use zsh; then
+		eapply "${FILESDIR}/${PN}-zsh.patch"
+	fi
+	default
+}

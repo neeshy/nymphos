@@ -9,7 +9,7 @@ SRC_URI="https://github.com/void-linux/void-packages/archive/master.tar.gz -> vo
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="
 	3proxy acpi alertmanager alfred alsa android anope apache armagetronad
 	arptables at atop audit autofs avahi bacula barrier beanstalkd bind bird
@@ -673,9 +673,8 @@ zookeeper zookeeper/files/zookeeper"
 			if [ -d "${dir}/log" ]; then
 				fperms 0755 "/etc/sv/${srv}/log/run"
 			fi
-			for file in $(find "${dir}" -name '*.sh'); do
-				name="$(basename "${file}")"
-				fperms 0755 "/etc/sv/${srv}/${name}"
+			for file in $(find "${dir}" -name '*.sh' -printf '%P\n'); do
+				fperms 0755 "/etc/sv/${srv}/${file}"
 			done
 		fi
 	done
