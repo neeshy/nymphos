@@ -8,12 +8,10 @@
 */*::cloveros-overlay
 */*::deadbeef-overlay
 */*::dotnet
-*/*::elementary
 */*::erayd
 */*::eroen
 */*::farmboy0
 */*::fkmclane
-*/*::flatpak-overlay
 */*::gamerlay
 */*::genthree
 */*::haarp

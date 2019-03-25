@@ -7,9 +7,7 @@ app-crypt/qca::libressl
 dev-perl/Net-SSLeay::libressl
 
 games-emulation/pcsx2::cloveros-overlay # pcsx2-9999::gentoo with added "src_configure() { local mycmakeargs=( -DDISABLE_ADVANCE_SIMD=ON ) }"
-games-emulation/rpcs3::cloveros-overlay # rpcs3-0.0.5::jm-overlay with added "src_configure() { local mycmakeargs=( -DUSE_NATIVE_INSTRUCTIONS=OFF ) }" and turned into git
 app-emulation/winetricks::cloveros-overlay # winetricks-9999::gentoo with removed RDEPEND="x11-misc/xdg-utils"
-mate-base/mate::cloveros-overlay # mate-1.22::gentoo with removed "extras? ( sys-apps/gnome-disk-utility:0 )"
 media-gfx/meh::cloveros-overlay # taken from media-gfx/meh::lanodanOverlay
 media-video/vidcutter::cloveros-overlay # media-video/vidcutter::jorgicio with removed RDEPEND=">=dev-python/PyQt5-5.7[dbus]"
 media-gfx/nip2::cloveros-overlay
@@ -78,11 +76,9 @@ dev-dotnet/xdt-for-monodevelop::dotnet
 dev-dotnet/referenceassemblies-pcl::dotnet
 
 www-client/waterfox::poly-c
-x11-themes/sddm-gentoo-black-theme::poly-c
 
 games-misc/ckmame::linxon
 net-misc/youtube-dl-gui::linxon
-sys-apps/psensor::linxon
 net-misc/youtube-comment-downloader::linxon
 net-misc/ripme::linxon
 dev-python/twodict::linxon
@@ -99,8 +95,6 @@ games-fps/chocolate-doom::vampire
 games-emulation/citra::vampire
 
 games-emulation/sdlmame::jorgicio
-media-gfx/flameshot::jorgicio
-media-video/flowblade::jorgicio
 media-plugins/gimp-paint-studio::jorgicio
 net-im/telegram-cli::jorgicio
 sys-process/gtop::jorgicio
@@ -149,14 +143,6 @@ x11-misc/clipster::fkmclane
 net-vpn/zeronet::raiagent
 app-misc/powerline::raiagent
 
-pantheon-base/plank::elementary
-x11-themes/plank-theme-pantheon::elementary
-
-sys-apps/flatpak::flatpak-overlay
-sys-apps/xdg-desktop-portal::flatpak-overlay
-sys-apps/xdg-desktop-portal-gtk::flatpak-overlay
-sys-fs/libostree::flatpak-overlay
-
 sys-kernel/dkms::farmboy0
 
 www-client/torbrowser::torbrowser
@@ -168,14 +154,11 @@ app-shells/fzf::rasdark
 www-client/palemoon::rasdark
 x11-drivers/xf86-video-sis671::rasdark
 
-x11-libs/bamf::elementary
-
 x11-terms/termite::eroen
 x11-libs/vte::eroen # termite
 
 dev-db/dbeaver-bin::erayd
 
-kde-plasma/plasma-applet-active-window-control::abendbrot
 dev-lang/rgbds::abendbrot
 games-emulation/retroarch::abendbrot
 games-emulation/retroarch-assets::abendbrot
