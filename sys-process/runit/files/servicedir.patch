@@ -6,7 +6,7 @@ diff -Naur runit-2.1.2/src/sv.c runit-2.1.2/src/sv.c
  char *action;
  char *acts;
 -char *varservice ="/service/";
-+char *varservice ="/run/runit/service/";
++char *varservice ="/var/service/";
  char **service;
  char **servicex;
  unsigned int services;

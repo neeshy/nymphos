@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -81,4 +81,3 @@ pkg_postinst() {
 	[[ -x $(type -P gtk-update-icon-cache) ]] \
 		|| elog "Install x11-libs/gtk+:2 for the gtk-update-icon-cache command."
 }
-
