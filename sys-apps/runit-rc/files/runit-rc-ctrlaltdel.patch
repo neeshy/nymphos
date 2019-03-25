@@ -1,11 +1,13 @@
---- a/script/ctrlaltdel.in
-+++ b/script/ctrlaltdel.in
-@@ -4,7 +4,7 @@ PATH=/usr/bin:/usr/sbin
- MSG="System is going down..."
+--- a/script/rc.conf.in
++++ b/script/rc.conf.in
+@@ -27,6 +27,10 @@
  
- # We check for this file in stage3 to halt or reboot
--touch @RUNDIR@/reboot
-+touch @RUNDIR@/halt
+ # HAVE_CONTROLLER1_GROUPS="true"
  
- # Proceed with shutdown process
- echo "$MSG" | wall
++# This switch controls the resulting behavior when ctrlaltdel is executed
++# Set REBOOT to "true" to reboot instead of halt
++# REBOOT=""
++
+ # The following options control the static network configuration
+ #   - NET_INTERFACE: name of device (required)
+ #   - NET_ADDRESS: IP address (required)

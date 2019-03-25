@@ -9,10 +9,9 @@ SRC_URI="https://github.com/rubyists/sv-helper/archive/${PV}.tar.gz -> ${P}.tar.
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="amd64 x86"
 
 RDEPEND="sys-process/runit"
-
-PATCHES=( "${FILESDIR}/svdir.patch" )
 
 src_install() {
 	exeinto /bin

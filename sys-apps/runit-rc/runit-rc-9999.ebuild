@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-DESCRIPTION="System initialization and shutdown scripts for runit from the Artix Linux project"
+DESCRIPTION="System startup/shutdown scripts for runit from the Artix Linux project"
 HOMEPAGE="https://artixlinux.org/"
 RC_COMMIT="a6df81b8fbda1e5611a71e80fd61259291154ec9"
 ARTIX_COMMIT="8eec042261ed661616b451ab7335f22fdf33a5d3"
@@ -16,6 +16,7 @@ SRC_URI="
 
 LICENSE="BSD-2"
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="sys-process/runit"
 
@@ -23,12 +24,14 @@ S="${WORKDIR}"
 
 src_prepare() {
 	cd "${S}/runit-rc"
-	eapply "${FILESDIR}/${PN}-bugfixes.patch"
-	eapply "${FILESDIR}/${PN}-network.patch"
+	eapply "${FILESDIR}/runit-rc-bugfixes.patch"
+	eapply "${FILESDIR}/runit-rc-network.patch"
+	eapply "${FILESDIR}/runit-rc-ctrlaltdel.patch"
 
 	cd "${S}/runit-artix"
-	eapply "${FILESDIR}/${PN}-rc.shutdown.patch"
-	eapply "${FILESDIR}/${PN}-ctrlaltdel.patch"
+	eapply "${FILESDIR}/runit-artix-rc.shutdown.patch"
+	eapply "${FILESDIR}/runit-artix-ctrlaltdel.patch"
+	eapply "${FILESDIR}/runit-artix-servicedir.patch"
 
 	cd "${S}"
 	eapply_user
@@ -39,7 +42,7 @@ src_compile() {
 	emake BINDIR=/bin RCLIBDIR=/etc/rc
 
 	cd "${S}/runit-artix"
-	emake BINDIR=/bin RCLIBDIR=/etc/rc SVDIR=/etc/sv SERVICEDIR=/run/runit/service
+	emake BINDIR=/bin RCLIBDIR=/etc/rc SVDIR=/etc/sv SERVICEDIR=/var/service
 
 	cd "${S}/void-runit-${VOID_COMMIT}"
 	emake
@@ -50,7 +53,7 @@ src_install() {
 	emake DESTDIR="${D}" BINDIR=/bin RCLIBDIR=/etc/rc install
 
 	cd "${S}/runit-artix"
-	emake DESTDIR="${D}" BINDIR=/bin RCLIBDIR=/etc/rc SVDIR=/etc/sv SERVICEDIR=/run/runit/service install
+	emake DESTDIR="${D}" BINDIR=/bin RCLIBDIR=/etc/rc SVDIR=/etc/sv SERVICEDIR=/var/service install
 
 	cd "${S}/void-runit-${VOID_COMMIT}"
 	into /

@@ -1,7 +1,7 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="4"
+EAPI="5"
 
 WEBAPP_MANUAL_SLOT="yes"
 
@@ -26,7 +26,7 @@ RDEPEND="
 	libressl? ( dev-libs/libressl:0= )
 	virtual/httpd-cgi
 	highlight? ( || ( dev-python/pygments app-text/highlight ) )
-	lua? ( jit? ( dev-lang/luajit ) !jit? ( dev-lang/lua ) )
+	lua? ( jit? ( dev-lang/luajit ) !jit? ( dev-lang/lua:* ) )
 "
 # ebuilds without WEBAPP_MANUAL_SLOT="yes" are broken
 DEPEND="${RDEPEND}

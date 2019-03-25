@@ -13,6 +13,7 @@ SRC_URI="https://github.com/noctuid/zscroll/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="BSD-2"
 SLOT="0"
+KEYWORDS="amd64 x86"
 IUSE="zsh"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
