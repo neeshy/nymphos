@@ -658,10 +658,10 @@ zerotier zerotier-one/files/zerotier
 znc znc/files/znc
 zookeeper zookeeper/files/zookeeper"
 
+	insinto "/etc/sv"
 	printf '%s' "${files}" | while IFS=' ' read -r use dir; do
 		if use "${use}"; then
 			srv="$(basename "${dir}")"
-			insinto "/etc/sv"
 			doins -r "${dir}"
 			fperms 0755 "/etc/sv/${srv}/run"
 			if [ -r "${dir}/check" ]; then
