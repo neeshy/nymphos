@@ -27,6 +27,7 @@
 */*::mva
 */*::optmzr
 */*::pixlra
+*/*::pentoo
 */*::poly-c
 */*::raiagent
 */*::rasdark
