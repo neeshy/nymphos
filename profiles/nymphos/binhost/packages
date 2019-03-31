@@ -286,7 +286,6 @@ dev-util/geany
 dev-util/geany-plugins
 dev-util/jenkins-bin
 dev-util/lldb
-dev-util/lxqt-build-tools
 dev-util/patchutils
 dev-util/plan9port
 dev-util/re2c
@@ -413,8 +412,15 @@ games-util/zdbsp
 gnome-extra/gnome-calculator
 kde-frameworks/breeze-icons-rcc
 lxde-base/lxappearance
+lxde-base/lxde-common
+lxde-base/lxde-icon-theme
+lxde-base/lxinput
+lxde-base/lxmenu-data
+lxde-base/lxpanel
+lxde-base/lxrandr
 lxde-base/lxtask
 lxde-base/lxterminal
+lxde-base/menu-cache
 mail-client/alpine
 mail-client/mutt
 mail-client/neomutt
@@ -1122,6 +1128,7 @@ x11-misc/lemonbar
 x11-misc/lsw
 x11-misc/menumaker
 x11-misc/nitrogen
+x11-misc/obconf
 x11-misc/obmenu
 x11-misc/parcellite
 x11-misc/pcmanfm
