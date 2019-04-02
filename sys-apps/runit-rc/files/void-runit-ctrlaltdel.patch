@@ -1,0 +1,25 @@
+--- a/ctrlaltdel
++++ b/ctrlaltdel
+@@ -4,7 +4,9 @@ PATH=/usr/bin:/usr/sbin
+ MSG="System is going down..."
+ 
+ # We check for this file in stage3 to halt or reboot
+-touch /run/runit/reboot
++if [ -z "$HALT" ]; then
++    touch /run/runit/reboot
++fi
+ 
+ # Proceed with shutdown process
+ echo "$MSG" | wall
+--- a/rc.conf
++++ b/rc.conf
+@@ -28,6 +28,9 @@
+ # Amount of ttys which should be setup.
+ #TTYS=
+ 
++# Halt instead of reboot when ctrl+alt+delete is pressed
++#HALT="true"
++
+ # Static networking settings
+ #NET_INTERFACE=
+ #NET_ADDRESS=
