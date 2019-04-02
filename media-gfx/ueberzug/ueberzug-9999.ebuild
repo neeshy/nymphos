@@ -11,7 +11,7 @@ DESCRIPTION="A command line utility which display images in X11 terminals"
 HOMEPAGE="https://github.com/seebye/ueberzug"
 EGIT_REPO_URI="https://github.com/seebye/ueberzug.git"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
