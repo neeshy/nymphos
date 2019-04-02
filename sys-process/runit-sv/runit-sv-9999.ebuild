@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="
 	3proxy acpi alertmanager alfred alsa android anope apache armagetronad
-	arptables at atop audit autofs avahi bacula barrier beanstalkd bind bird
+	arptables at atop audit autofs avahi bacula barrier beanstalkd bind binfmt bird
 	bitlbee blackbox_exporter bluetooth bluetooth-alsa boinc bolt brltty bumblebee
 	burp busybox cachefilesd caddy canto-daemon cgmanager cgminer cgroups
 	chronograf chrony ckb clockspeed cntlm collectd connman consolekit containerd
@@ -63,6 +63,7 @@ RDEPEND="
 	barrier? ( x11-misc/barrier )
 	beanstalkd? ( app-misc/beanstalkd )
 	bind? ( net-dns/bind )
+	binfmt? ( sys-apps/binfmt-support )
 	bird? ( net-misc/bird )
 	bitlbee? ( net-im/bitlbee )
 	blackbox_exporter? ( app-metrics/blackbox_exporter )
@@ -343,6 +344,7 @@ barrier barrier/files/barrierc
 barrier barrier/files/barriers
 beanstalkd beanstalkd/files/beanstalkd
 bind bind/files/named
+binfmt binfmt-support/files/binfmt-support
 bird bird/files/bird
 bitlbee bitlbee/files/bitlbee
 blackbox_exporter blackbox_exporter/files/blackbox_exporter

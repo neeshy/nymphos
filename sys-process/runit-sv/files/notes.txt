@@ -46,7 +46,7 @@ beanstalkd ./beanstalkd/files/beanstalkd
 #./bftpd/files/bftpd
 bind ./bind/files/named
 chronograf ./chronograf/files/chronograf
-#./binfmt-support/files/binfmt-support not applicable
+binfmt ./binfmt-support/files/binfmt-support
 bird ./bird/files/bird
 bitlbee ./bitlbee/files/bitlbee
 blackbox_exporter ./blackbox_exporter/files/blackbox_exporter
