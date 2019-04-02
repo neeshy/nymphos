@@ -11,7 +11,7 @@ DESCRIPTION="A command line utility which display images in X11 terminals"
 HOMEPAGE="https://github.com/seebye/ueberzug"
 SRC_URI="https://github.com/seebye/ueberzug/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
