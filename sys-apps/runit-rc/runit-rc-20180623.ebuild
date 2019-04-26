@@ -31,7 +31,7 @@ src_install() {
 
 	# put man pages in the correct location
 	dodir /usr
-	mv "${D}/share" "${D}/usr/"
+	mv "${D}/share" "${D}/usr"
 	# remove dracut configuration
 	rm -rf "${D}/lib"
 
