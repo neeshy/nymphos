@@ -12,7 +12,7 @@ SRC_URI="https://xwax.org/releases/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ppc ppc64 ~x86"
-IUSE="alsa jack oss cdda mp3 +fallback"
+IUSE="alsa jack oss cdda mp3 pam +fallback"
 
 REQUIRED_USE="|| ( cdda mp3 fallback )
 	|| ( alsa jack oss )"
@@ -22,6 +22,7 @@ DEPEND="
 	media-libs/libsdl
 	media-libs/sdl-ttf
 	sys-libs/glibc
+	pam? ( sys-libs/pam )
 	alsa? ( media-libs/alsa-lib )
 	cdda? ( media-sound/cdparanoia )
 	fallback? ( virtual/ffmpeg )
@@ -58,6 +59,10 @@ src_compile() {
 	emake EXECDIR="\$(BINDIR)" VERSION="${PV}" xwax
 }
 
+pkg_preinst() {
+	use pam && enewgroup ${PN}
+}
+
 src_install() {
 	# This is easier than setting all the environment variables
 	# needed, running the sed script required to get the man directory
@@ -68,6 +73,11 @@ src_install() {
 	doman xwax.1 || die "failed to install man page"
 
 	dodoc ${DOCS} || die "failed to install docs"
+
+	if use pam; then
+		insinto "/etc/security/limits.d"
+		newins "${FILESDIR}/xwax-etc-security-limits.conf" xwax.conf
+	fi
 }
 
 pkg_postinst() {
