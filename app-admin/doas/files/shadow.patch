@@ -1,42 +1,33 @@
 diff --git a/Makefile b/Makefile
-index 5664df5..aee83f0 100644
+index 5664df5..1df5629 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -1,13 +1,13 @@
- CC?=clang
- YACC?=yacc
+@@ -3,11 +3,10 @@ YACC?=yacc
  BIN=doas
--PREFIX?=/usr/local
-+PREFIX?=/usr
+ PREFIX?=/usr/local
  OBJECTS=doas.o env.o execvpe.o reallocarray.o y.tab.o
 -CFLAGS+=-DUSE_PAM -DDOAS_CONF=\"${PREFIX}/etc/doas.conf\" 
 -LDFLAGS+=-lpam
-+CFLAGS+=-DHAVE_CRYPT_H -DUSE_SHADOW -DDOAS_CONF=\"/etc/doas.conf\" 
++CFLAGS+=-DHAVE_CRYPT_H -DUSE_SHADOW -DDOAS_CONF=\"${PREFIX}/etc/doas.conf\"
 +LDFLAGS+=-lcrypt -lbsd
  UNAME_S := $(shell uname -s)
  ifeq ($(UNAME_S),Linux)
 -    LDFLAGS+=-lpam_misc
-+    LDFLAGS+=
      OBJECTS+=strlcat.o strlcpy.o
      CFLAGS+=-D_GNU_SOURCE
  endif
-@@ -23,7 +23,7 @@ env.o: doas.h env.c
- 
- execvpe.o: doas.h execvpe.c
- 
--doas.o: doas.h doas.c parse.y
-+doas.o: doas.h doas.c parse.y 
- 
- reallocarray.o: doas.h reallocarray.c
- 
-@@ -42,3 +42,7 @@ install: all
- clean:
- 	rm -f $(BIN) $(OBJECTS) y.tab.c
+@@ -39,6 +38,10 @@ install: all
+ 	mkdir -p $(PREFIX)/man/man5
+ 	cp doas.conf.5 $(PREFIX)/man/man5/
  
 +uninstall:
 +	rm $(PREFIX)/bin/$(BIN)
 +	rm $(PREFIX)/man/man1/doas.1
 +	rm $(PREFIX)/man/man5/doas.conf.5
++
+ clean:
+ 	rm -f $(BIN) $(OBJECTS) y.tab.c
+-
 diff --git a/doas.c b/doas.c
 index 23e1a9e..9622e83 100644
 --- a/doas.c
