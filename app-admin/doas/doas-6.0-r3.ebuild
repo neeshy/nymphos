@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
-	use pam || epatch "${FILESDIR}/shadow.patch"
+	use pam || eapply "${FILESDIR}/shadow.patch"
 	default
 }
 
