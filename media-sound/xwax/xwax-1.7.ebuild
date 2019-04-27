@@ -81,7 +81,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "Be sure to add any users that will be using ${PN} to the"
-	elog "\"${PN}\" group. Doing so will allow processes that user"
-	elog "runs to request realtime priority."
+	if use pam; then
+		elog "Be sure to add any users that will be using ${PN} to the"
+		elog "\"${PN}\" group. Doing so will allow processes that user"
+		elog "runs to request realtime priority."
+	fi
 }
