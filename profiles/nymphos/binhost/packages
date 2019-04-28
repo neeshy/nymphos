@@ -113,6 +113,7 @@ app-emulation/virt-manager
 app-emulation/virtualbox
 app-emulation/virtualbox-additions
 app-emulation/virtualbox-extpack-oracle
+app-emulation/wine-proton
 app-emulation/winetricks
 app-emulation/xen
 app-eselect/eselect-repository
@@ -197,8 +198,10 @@ app-portage/unsymlink-lib
 app-shells/bash-completion
 app-shells/bashish
 app-shells/dash
+app-shells/fast-syntax-highlighting
 app-shells/fish
 app-shells/fzf
+app-shells/fzy
 app-shells/gentoo-zsh-completions
 app-shells/loksh
 app-shells/mcfly
@@ -207,7 +210,9 @@ app-shells/mpv-bash-completion
 app-shells/thefuck
 app-shells/tmux-bash-completion
 app-shells/zsh
+app-shells/zsh-autosuggestions
 app-shells/zsh-completions
+app-shells/zsh-history-substring-search
 app-shells/zsh-syntax-highlighting
 app-text/agrep
 app-text/antiword
@@ -309,6 +314,7 @@ games-action/extreme-tuxracer
 games-action/supertuxkart
 games-action/violetland
 games-arcade/blobby
+games-arcade/stepmania
 games-arcade/tecnoballz
 games-board/crafty
 games-board/eboard
@@ -425,6 +431,7 @@ lxde-base/lxtask
 lxde-base/lxterminal
 lxde-base/menu-cache
 mail-client/alpine
+mail-client/claws-mail
 mail-client/mutt
 mail-client/neomutt
 mail-client/thunderbird
@@ -1003,6 +1010,7 @@ sys-apps/rng-tools
 sys-apps/setserial
 sys-apps/sg3_utils
 sys-apps/smartmontools
+sys-apps/the_silver_searcher
 sys-apps/usermode-utilities
 sys-apps/vbetool
 sys-block/buffer
@@ -1068,6 +1076,7 @@ sys-process/runit-sv
 virtual/wine
 www-apps/otrs
 www-apps/trac
+www-client/basilisk
 www-client/dillo
 www-client/elinks
 www-client/firefox

@@ -30,9 +30,13 @@ x11-misc/bumblebee::seden
 
 games-emulation/reicast::lanodanOverlay
 x11-plugins/purple-discord::lanodanOverlay
+app-emulation/wine-proton::lanodanOverlay
 gui-wm/waymonad::lanodanOverlay
+games-arcade/stepmania::lanodanOverlay
 
 x11-libs/gtk+:3::mv
+app-shells/zsh-autosuggestions::mv
+app-shells/fast-syntax-highlighting::mv
 
 dev-util/eclipse-sdk-bin::ssnb
 
@@ -343,3 +347,5 @@ media-plugins/vapoursynth-astdr::vapoursynth
 #media-plugins/vapoursynth-kagefunc::vapoursynth
 media-plugins/vapoursynth-hysteria::vapoursynth
 media-plugins/vapoursynth-curve::vapoursynth
+
+app-shells/zsh-history-substring-search::ROKO__
