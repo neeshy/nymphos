@@ -337,6 +337,7 @@ subversion ./subversion/files/svnserve
 suricata ./suricata/files/suricata
 #./sv-netmount/files/netmount void specific
 syncthing ./syncthing/files/relaysrv
+synapse ./synapse/files/synapse
 synergy ./synergy/files/synergyc
 synergy ./synergy/files/synergys
 taskd ./taskd/files/taskd
