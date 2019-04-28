@@ -34,8 +34,8 @@ IUSE="
 	radius radvd redis rest-server rkt rmilter rng-tools rpcbind rspamd rsync
 	rsyslog rtkit salt samba sddm shadowsocks-libev shorewall slim smartmontools
 	snapper sndio spamassassin spampd spice-vdagent spreed-webrtc squid sshguard
-	sslh sssd strongswan subversion suricata syncthing synergy taskd telegraf
-	thermald thinkfan thttpd tinc tinyproxy tinyssh tlp tlsdate tomcat tor
+	sslh sssd strongswan subversion suricata syncthing synapse synergy taskd
+	telegraf thermald thinkfan thttpd tinc tinyproxy tinyssh tlp tlsdate tomcat tor
 	transmission trousers tuntox twoftpd udev ufw ulogd umurmur unbound uptimed
 	usbip usbmuxd uuid vault virtualbox vmware vnstat vsftpd watchdog wesnoth wicd
 	wpa_actiond wpa_supplicant xdm xen xinetd xl2tpd zabbix zerotier znc zookeeper
@@ -271,6 +271,7 @@ RDEPEND="
 	subversion? ( dev-vcs/subversion )
 	suricata? ( net-analyzer/suricata )
 	syncthing? ( net-p2p/syncthing )
+	synapse? ( net-im/synapse )
 	synergy? ( x11-misc/synergy )
 	taskd? ( app-misc/taskd )
 	telegraf? ( net-analyzer/telegraf )
@@ -608,6 +609,7 @@ strongswan strongswan/files/strongswan
 subversion subversion/files/svnserve
 suricata suricata/files/suricata
 syncthing syncthing/files/relaysrv
+synapse synapse/files/synapse
 synergy synergy/files/synergyc
 synergy synergy/files/synergys
 taskd taskd/files/taskd
