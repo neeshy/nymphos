@@ -5,7 +5,7 @@ EAPI="5"
 
 inherit autotools eutils toolchain-funcs git-2
 
-[[ -z "${DOAS_STATE_DIR}" ]] && DOAS_STATE_DIR="/var/cache/${PN}/"
+[[ -z "${DOAS_STATE_DIR}" ]] && DOAS_STATE_DIR="/var/cache/${PN}"
 
 DESCRIPTION="Run commands as super user or another user, alternative to sudo from OpenBSD"
 
@@ -26,20 +26,22 @@ src_prepare() {
 	default
 }
 
+DDOAS_STATE_DIR='-DDOAS_STATE_DIR=\"/var/cache/doas\"'
+
 src_compile() {
-	emake V=1 AR="$(tc-getAR)" CC="$(tc-getCC)" CFLAGS="-DDOAS_STATE_DIR=${DOAS_STATE_DIR} ${CFLAGS}" LDFLAGS="${LDFLAGS}"
+	emake V=1 AR="$(tc-getAR)" CC="$(tc-getCC)" CFLAGS="${DDOAS_STATE_DIR} ${CFLAGS}" LDFLAGS="${LDFLAGS}"
 }
 
 src_install() {
 	insinto /usr/bin
 	doins ${PN}
 	fowners root:root /usr/bin/${PN}
-	fperms 4755 /usr/bin/${PN}
+	fperms 6755 /usr/bin/${PN}
 
 	doman doas.1
 	doman doas.conf.5
 
 	keepdir "${DOAS_STATE_DIR}"
 	fowners root:root "${DOAS_STATE_DIR}"
-	fperms 700 "${DOAS_STATE_DIR}"
+	fperms 0700 "${DOAS_STATE_DIR}"
 }
