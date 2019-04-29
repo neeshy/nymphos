@@ -18,4 +18,4 @@ KEYWORDS="~amd64 ~x86"
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND=">=media-video/ffmpeg-2.0.0"
 
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}/${PN}.py"
