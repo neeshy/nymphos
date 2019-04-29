@@ -30,6 +30,9 @@ S="${WORKDIR}/void-runit-${PV}"
 src_install() {
 	emake DESTDIR="${D}" PREFIX=/ install
 
+	# compatibility symlink
+	dosym /run/runit/runsvdir/current /var/service
+
 	# put man pages in the correct location
 	dodir /usr
 	mv "${D}/share" "${D}/usr"
