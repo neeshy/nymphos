@@ -45,7 +45,7 @@
 +PATH=/usr/sbin:/usr/bin:/sbin:/bin
  MSG="System is going down..."
  
- # We check for this file in stage3 to halt or reboot
+ [ -r /etc/rc.conf ] && . /etc/rc.conf
 --- a/halt.c
 +++ b/halt.c
 @@ -52,21 +52,21 @@ int main(int argc, char *argv[]) {
