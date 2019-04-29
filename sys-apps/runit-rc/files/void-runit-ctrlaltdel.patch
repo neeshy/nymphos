@@ -1,8 +1,11 @@
 --- a/ctrlaltdel
 +++ b/ctrlaltdel
-@@ -4,7 +4,9 @@ PATH=/usr/bin:/usr/sbin
+@@ -3,8 +3,12 @@
+ PATH=/usr/bin:/usr/sbin
  MSG="System is going down..."
  
++[ -r /etc/rc.conf ] && . /etc/rc.conf
++
  # We check for this file in stage3 to halt or reboot
 -touch /run/runit/reboot
 +if [ -z "$HALT" ]; then
