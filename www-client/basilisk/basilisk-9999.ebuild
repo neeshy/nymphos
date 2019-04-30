@@ -326,6 +326,9 @@ src_configure() {
 	export MOZ_TELEMETRY_REPORTING=0
 	export MOZ_ADDON_SIGNING=1
 	export MOZ_REQUIRE_SIGNING=0
+
+	# Doubt this works lol
+	export MOZ_PGO=1
 }
 
 src_compile() {
