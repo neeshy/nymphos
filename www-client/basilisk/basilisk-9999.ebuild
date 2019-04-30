@@ -22,6 +22,7 @@ IUSE="
 	+pie
 	+alsa
 	dbus
+	-pgo
 	-stylo
 	-necko-wifi
 	-webrtc
@@ -327,8 +328,10 @@ src_configure() {
 	export MOZ_ADDON_SIGNING=1
 	export MOZ_REQUIRE_SIGNING=0
 
-	# Doubt this works lol
-	export MOZ_PGO=1
+	if use pgo; then
+		# Doubt this works lol
+		export MOZ_PGO=1
+	fi
 }
 
 src_compile() {
