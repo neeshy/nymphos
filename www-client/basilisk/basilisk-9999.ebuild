@@ -15,14 +15,24 @@ SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 IUSE="
 	+official-branding
-	+optimize cpu_flags_x86_sse cpu_flags_x86_sse2
+	-optimize-with-cflags
+	+optimize cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_ssse3
 	debug -valgrind +shared-js +jemalloc threads
+	gold
+	+pie
+	+alsa
 	dbus
+	-stylo
 	-necko-wifi
+	-webrtc
+	-gamepad
+	-webspeech
+	-accessibility
 	+gtk2 -gtk3
 	pulseaudio
 	+devtools
 	+gconf
+	-system-nspr -system-icu -system-hunspell -system-ffi
 	-system-sqlite -system-cairo -system-pixman -system-libevent
 	-system-vpx -system-compress -system-images -system-nss
 "
@@ -93,6 +103,10 @@ RDEPEND="
 	system-pixman? ( x11-libs/pixman )
 	system-sqlite? ( >=dev-db/sqlite-3.13.0[secure-delete] )
 	system-vpx? ( >=media-libs/libvpx-1.5.0 )
+	system-ffi? ( dev-ruby/ffi )
+	system-nspr? ( dev-libs/nspr )
+	system-hunspell? ( app-text/hunspell )
+	system-icu? ( dev-libs/icu )
 "
 
 REQUIRED_USE="
@@ -118,6 +132,8 @@ src_configure() {
 	# Basic configuration:
 	mozconfig_init
 
+	mozconfig_enable release
+
 	mozconfig_disable updater install-strip
 
 	if use official-branding; then
@@ -127,6 +143,14 @@ src_configure() {
 
 	# System-* flags
 	# Some options aren't in configure.in anymore (e.g. webp, spelling)
+	if use system-nspr; then
+		mozconfig_with system-nspr
+	fi
+
+	if use system-icu; then
+		mozconfig_with system-icu
+	fi
+
 	if use system-compress; then
 		mozconfig_with system-zlib
 		mozconfig_with system-bz2
@@ -161,14 +185,28 @@ src_configure() {
 		mozconfig_enable system-pixman
 	fi
 
+	if use system-ffi; then
+		mozconfig_enable system-ffi
+	fi
+
+	if use system-hunspell; then
+		mozconfig_enable system-hunspell
+	fi
+
 	# Common flags
 	if use optimize; then
-		O='-O2'
-		if use cpu_flags_x86_sse && use cpu_flags_x86_sse2; then
+		#O='-O2'
+		O='-O3'
+		if use cpu_flags_x86_ssse3; then
+			O="${O} -mssse3 -mfpmath=both"
+		fi
+
+		if ! use cpu_flags_x86_ssse3 &&
+		use cpu_flags_x86_sse && use cpu_flags_x86_sse2; then
 			O="${O} -msse2 -mfpmath=sse"
 		fi
 		mozconfig_enable "optimize=\"${O}\""
-		filter-flags '-O*' '-msse2' '-mfpmath=sse'
+		filter-flags '-O*' '-msse2' '-mssse3' '-mfpmath=*'
 	else
 		mozconfig_disable optimize
 	fi
@@ -180,6 +218,44 @@ src_configure() {
 	if use debug; then
 		mozconfig_var MOZ_DEBUG_SYMBOLS 1
 		mozconfig_enable "debug-symbols=\"-gdwarf-2\""
+	else
+		mozconfig_disable debug
+		mozconfig_disable debug-symbols
+		mozconfig_disable parental-controls
+		mozconfig_disable tests
+		mozconfig_disable crashreporter
+	fi
+
+	if ! use stylo; then
+		mozconfig_disable stylo
+	fi
+
+	if use alsa; then
+		mozconfig_enable alsa
+	fi
+
+	if use gold; then
+		mozconfig_enable gold
+	fi
+
+	if use pie; then
+		mozconfig_enable pie
+	fi
+
+	if ! use webrtc; then
+		mozconfig_disable webrtc
+	fi
+
+	if ! use gamepad; then
+		mozconfig_disable gamepad
+	fi
+
+	if ! use webspeech; then
+		mozconfig_disable webspeech
+	fi
+
+	if ! use accessibility; then
+		mozconfig_disable accessibility
 	fi
 
 	if ! use shared-js; then
@@ -243,6 +319,13 @@ src_configure() {
 
 	# Disable mach notifications, which also cause sandbox access violations:
 	export MOZ_NOSPAM=1
+
+	# Security settings lifted from arch PKGBUILD
+	export MOZ_DATA_REPORTING=0
+	export MOZILLA_OFFICIAL=0
+	export MOZ_TELEMETRY_REPORTING=0
+	export MOZ_ADDON_SIGNING=1
+	export MOZ_REQUIRE_SIGNING=0
 }
 
 src_compile() {
