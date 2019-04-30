@@ -196,8 +196,8 @@ src_configure() {
 
 	# Common flags
 	if use optimize; then
-		#O='-O2'
-		O='-O3'
+		O='-O2'
+		#O='-O3'
 		if use cpu_flags_x86_ssse3; then
 			O="${O} -mssse3 -mfpmath=both"
 		fi
