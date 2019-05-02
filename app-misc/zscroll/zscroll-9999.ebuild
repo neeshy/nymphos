@@ -9,7 +9,7 @@ inherit distutils-r1 git-r3
 
 DESCRIPTION="A text scroller for panels or terminals"
 HOMEPAGE="https://github.com/noctuid/zscroll"
-EGIT_REPO_URI="https://github.com/noctuid/zscroll.git"
+EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="BSD-2"
 SLOT="0"
@@ -17,8 +17,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="zsh"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
-
-S="${WORKDIR}/${PN}"
 
 src_prepare() {
 	eapply "${FILESDIR}/${PN}-license.patch"

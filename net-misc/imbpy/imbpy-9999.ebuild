@@ -9,7 +9,7 @@ inherit distutils-r1 git-r3
 
 DESCRIPTION="A python interface for imageboards"
 HOMEPAGE="https://gitgud.io/ring/imbpy"
-EGIT_REPO_URI="https://gitgud.io/ring/imbpy.git"
+EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="ISC"
 SLOT="0"
