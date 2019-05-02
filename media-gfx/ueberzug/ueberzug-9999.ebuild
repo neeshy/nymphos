@@ -9,7 +9,7 @@ inherit distutils-r1 git-r3
 
 DESCRIPTION="A command line utility which display images in X11 terminals"
 HOMEPAGE="https://github.com/seebye/ueberzug"
-EGIT_REPO_URI="https://github.com/seebye/ueberzug.git"
+EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -26,5 +26,3 @@ RDEPEND="
 "
 
 PATCHES=( "${FILESDIR}/${PN}-pillow.patch" )
-
-S="${WORKDIR}/${PN}"

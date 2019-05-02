@@ -9,7 +9,7 @@ inherit distutils-r1 git-r3
 
 DESCRIPTION="A command line interface for 8chan"
 HOMEPAGE="https://gitgud.io/ring/infinityctl"
-EGIT_REPO_URI="https://gitgud.io/ring/infinityctl.git"
+EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="GPL-3+"
 SLOT="0"

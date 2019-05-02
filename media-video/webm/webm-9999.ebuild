@@ -9,7 +9,7 @@ inherit distutils-r1 git-r3
 
 DESCRIPTION="Cross-platform command-line WebM converter"
 HOMEPAGE="https://github.com/Kagami/webm.py"
-EGIT_REPO_URI="https://github.com/Kagami/webm.py.git"
+EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="CC0-1.0"
 SLOT="0"
@@ -17,5 +17,3 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND=">=media-video/ffmpeg-2.0.0"
-
-S="${WORKDIR}/${PN}.py"
