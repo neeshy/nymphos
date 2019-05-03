@@ -26,19 +26,21 @@ IUSE="
 	jenkins kapacitor kea keepalived kerberos kubernetes laptop libratbag libvirt
 	lightdm lighttpd lm_sensors lsyncd lvm lxc lxcfs lxd lxdm mariadb mbpfan mcelog
 	mdadm metalog minidlna minio monero monit monkeyd moosefs mopidy mpd
-	mpdscribble munge musl-nscd mysql nbd netdata networkmanager nfs nftables nginx
-	ngircd nix node_exporter nrpe nsd nss-pam-ldapd ntp nullmailer nut ofono
-	oidentd olsrd openldap openntpd opensmtpd openssh openvswitch orientdb
-	pcsc-lite php policykit polipo popcorn postfix postgresql preload privoxy
-	prometheus prosody pulseaudio puppet qemu-guest-agent quassel radeon radicale
-	radius radvd redis rest-server rkt rmilter rng-tools rpcbind rspamd rsync
-	rsyslog rtkit salt samba sddm shadowsocks-libev shorewall slim smartmontools
-	snapper sndio spamassassin spampd spice-vdagent spreed-webrtc squid sshguard
-	sslh sssd strongswan subversion suricata syncthing synapse synergy taskd
-	telegraf thermald thinkfan thttpd tinc tinyproxy tinyssh tlp tlsdate tomcat tor
-	transmission trousers tuntox twoftpd udev ufw ulogd umurmur unbound uptimed
-	usbip usbmuxd uuid vault virtualbox vmware vnstat vsftpd watchdog wesnoth wicd
-	wpa_actiond wpa_supplicant xdm xen xinetd xl2tpd zabbix zerotier znc zookeeper
+	mpdscribble munge musl-nscd mysql nbd ndppd netdata networkmanager nfs
+	nftables nginx ngircd nix node_exporter nrpe nsd nss-pam-ldapd ntp
+	nullmailer nut ofono oidentd olsrd openldap openntpd opensmtpd openssh
+	openvswitch orientdb pcsc-lite php policykit polipo popcorn postfix
+	postgresql preload privoxy prometheus prosody pulseaudio puppet
+	qemu-guest-agent quassel radeon radicale radius radvd redis rest-server
+	rkt rmilter rng-tools rpcbind rspamd rsync rsyslog rtkit salt samba sddm
+	shadowsocks-libev shorewall slim smartmontools snapper sndio spamassassin
+	spampd spice-vdagent spreed-webrtc squid sshguard sslh sssd strongswan
+	subversion suricata syncthing synapse synergy taskd telegraf thermald
+	thinkfan thttpd tinc tinyproxy tinyssh tlp tlsdate tomcat tor
+	transmission trousers tuntox twoftpd udev ufw ulogd umurmur unbound
+	uptimed usbip usbmuxd uuid vault virtualbox vmware vnstat vsftpd watchdog
+	wesnoth wicd wpa_actiond wpa_supplicant xdm xen xinetd xl2tpd zabbix
+	zerotier znc zookeeper
 "
 REQUIRED_USE="|| ( ${IUSE} )"
 
@@ -198,6 +200,7 @@ RDEPEND="
 	musl-nscd? ( sys-libs/musl-nscd )
 	mysql? ( dev-db/mysql )
 	nbd? ( sys-block/nbd )
+	ndppd? ( net-misc/ndppd )
 	netdata? ( net-analyzer/netdata )
 	networkmanager? ( net-misc/networkmanager )
 	nfs? ( net-fs/nfs-utils )
@@ -519,6 +522,7 @@ munge munge/files/munge
 musl-nscd musl-nscd/files/nscd
 mysql mysql/files/mysqld
 nbd nbd/files/nbd
+ndppd ndppd/files/ndppd
 netdata netdata/files/netdata
 networkmanager NetworkManager/files/NetworkManager
 nfs nfs-utils/files/nfs-server
