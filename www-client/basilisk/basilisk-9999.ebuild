@@ -16,6 +16,7 @@ LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 IUSE="
 	+official-branding
 	-optimize-with-cflags
+	+privacy
 	+optimize cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_ssse3
 	debug -valgrind +shared-js +jemalloc threads
 	gold
@@ -119,12 +120,12 @@ REQUIRED_USE="
 
 src_prepare() {
 	# Ensure that our plugins dir is enabled by default:
-	sed -i -e "s:/usr/lib/mozilla/plugins:/usr/lib/nsbrowser/plugins:" \
-		"${S}/xpcom/io/nsAppFileLocationProvider.cpp" \
-		|| die "sed failed to replace plugin path for 32bit!"
-	sed -i -e "s:/usr/lib64/mozilla/plugins:/usr/lib64/nsbrowser/plugins:" \
-		"${S}/xpcom/io/nsAppFileLocationProvider.cpp" \
-		|| die "sed failed to replace plugin path for 64bit!"
+	#sed -i -e "s:/usr/lib/mozilla/plugins:/usr/lib/nsbrowser/plugins:" \
+	#	"${S}/xpcom/io/nsAppFileLocationProvider.cpp" \
+	#	|| die "sed failed to replace plugin path for 32bit!"
+	#sed -i -e "s:/usr/lib64/mozilla/plugins:/usr/lib64/nsbrowser/plugins:" \
+	#	"${S}/xpcom/io/nsAppFileLocationProvider.cpp" \
+	#	|| die "sed failed to replace plugin path for 64bit!"
 
 	default
 }
@@ -133,13 +134,28 @@ src_configure() {
 	# Basic configuration:
 	mozconfig_init
 
-	mozconfig_enable release
+	mozconfig_enable release strip
 
 	mozconfig_disable updater install-strip
+
+	if use privacy; then
+		mozconfig_disable eme
+		mozconfig_disable parental-controls
+		mozconfig_disable safe-browsing
+		mozconfig_disable b2g-camera
+		mozconfig_disable b2g-ril
+		mozconfig_disable b2g-bt
+		mozconfig_disable mozril-geoloc
+		mozconfig_disable nfc
+		mozconfig_disable synth-pico
+		mozconfig_disable url-classifier
+		mozconfig_disable userinfo
+	fi
 
 	if use official-branding; then
 		official-branding_warning
 		mozconfig_enable official-branding
+		mozconfig_enable private-build
 	fi
 
 	# System-* flags
@@ -196,18 +212,18 @@ src_configure() {
 
 	# Common flags
 	if use optimize; then
-		O='-O2'
+		#O='-O2'
 		#O='-O3'
-		if use cpu_flags_x86_ssse3; then
-			O="${O} -mssse3 -mfpmath=both"
-		fi
+		#if use cpu_flags_x86_ssse3; then
+		#	O="${O} -mssse3 -mfpmath=both"
+		#fi
 
-		if ! use cpu_flags_x86_ssse3 &&
-		use cpu_flags_x86_sse && use cpu_flags_x86_sse2; then
-			O="${O} -msse2 -mfpmath=sse"
-		fi
-		mozconfig_enable "optimize=\"${O}\""
-		filter-flags '-O*' '-msse2' '-mssse3' '-mfpmath=*'
+		#if ! use cpu_flags_x86_ssse3 &&
+		#use cpu_flags_x86_sse && use cpu_flags_x86_sse2; then
+		#	O="${O} -msse2 -mfpmath=sse"
+		#fi
+		mozconfig_enable "optimize=\"${CFLAGS} ${CPU_FLAGS_X86}\""
+		#filter-flags '-O*' '-msse2' '-mssse3' '-mfpmath=*'
 	else
 		mozconfig_disable optimize
 	fi
@@ -253,6 +269,8 @@ src_configure() {
 
 	if ! use webspeech; then
 		mozconfig_disable webspeech
+		mozconfig_disable webspeechtestbackend
+		mozconfig_disable synth-speechd
 	fi
 
 	if ! use accessibility; then
@@ -323,15 +341,19 @@ src_configure() {
 
 	# Security settings lifted from arch PKGBUILD
 	export MOZ_DATA_REPORTING=0
-	export MOZILLA_OFFICIAL=0
+	export MOZILLA_OFFICIAL=1
 	export MOZ_TELEMETRY_REPORTING=0
 	export MOZ_ADDON_SIGNING=1
+	export MOZ_CRASHREPORTER=0
 	export MOZ_REQUIRE_SIGNING=0
+	export MOZ_SERVICES_HEALTHREPORT=0
 
 	if use pgo; then
 		# Doubt this works lol
 		export MOZ_PGO=1
 	fi
+
+
 }
 
 src_compile() {
