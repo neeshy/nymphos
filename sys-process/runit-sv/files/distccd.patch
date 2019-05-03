@@ -1,0 +1,11 @@
+--- a/distcc/files/distccd/run
++++ b/distcc/files/distccd/run
+@@ -4,7 +4,7 @@
+ OPTIONS="--no-detach"
+ OPTIONS="$OPTIONS --daemon"
+ OPTIONS="$OPTIONS --user $USER"
+-ALLOW_FILE=/etc/distcc/clients.allow
++ALLOW_FILE=/etc/distcc/hosts
+ if [ -f "$ALLOW_FILE" ]; then
+         ALLOW_OPTIONS=$(sed -e 's/#.*$//' -e '/^\s*$/d' -e 's/^/--allow /' < $ALLOW_FILE)
+ fi
