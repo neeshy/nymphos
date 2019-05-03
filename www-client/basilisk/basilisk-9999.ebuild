@@ -222,7 +222,7 @@ src_configure() {
 		#use cpu_flags_x86_sse && use cpu_flags_x86_sse2; then
 		#	O="${O} -msse2 -mfpmath=sse"
 		#fi
-		mozconfig_enable "optimize=\"${CFLAGS} ${CPU_FLAGS_X86}\""
+		mozconfig_enable "optimize=\"${CFLAGS}\""
 		#filter-flags '-O*' '-msse2' '-mssse3' '-mfpmath=*'
 	else
 		mozconfig_disable optimize
