@@ -323,15 +323,9 @@ RDEPEND="
 	zookeeper? ( sys-cluster/zookeeper )
 "
 
-S="${WORKDIR}/${P}/srcpkgs"
+PATCHES=( "${FILESDIR}" )
 
-src_prepare() {
-	local patch
-	for patch in "${FILESDIR}"/*.patch; do
-		eapply "${patch}"
-	done
-	default
-}
+S="${WORKDIR}/${P}/srcpkgs"
 
 src_install() {
 	files="3proxy 3proxy/files/3proxy
