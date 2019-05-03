@@ -321,11 +321,11 @@ src_configure() {
 	# so disabling it until the cause can be tracked down. It most likely
 	# has something to do with the sandbox since the issue goes away when
 	# building with FEATURES="-sandbox -usersandbox".
-	mozconfig_disable precompiled-startupcache
+	#mozconfig_disable precompiled-startupcache
 
 	# Mainly to prevent system's NSS/NSPR from taking precedence over
 	# the built-in ones:
-	append-ldflags -Wl,-rpath="$EPREFIX/usr/$(get_libdir)/basilisk"
+	#append-ldflags -Wl,-rpath="$EPREFIX/usr/$(get_libdir)/basilisk"
 
 	export MOZBUILD_STATE_PATH="${WORKDIR}/mach_state"
 	mozconfig_var PYTHON $(which python2)
