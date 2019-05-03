@@ -237,6 +237,7 @@ musl-nscd ./musl-nscd/files/nscd
 mysql ./mysql/files/mysqld
 nbd ./nbd/files/nbd
 #./ndhc/files/ndhc
+ndppd ./ndppd/files/ndppd
 netdata ./netdata/files/netdata
 nut ./network-ups-tools/files/upsmon
 nut ./network-ups-tools/files/upsd
