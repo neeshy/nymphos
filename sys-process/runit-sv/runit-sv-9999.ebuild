@@ -3,9 +3,11 @@
 
 EAPI="7"
 
+inherit git-r3
+
 DESCRIPTION="Runit service scripts from the Void Linux project"
 HOMEPAGE="https://voidlinux.org/"
-SRC_URI="https://github.com/void-linux/void-packages/archive/master.tar.gz -> void-packages-master.tar.gz"
+EGIT_REPO_URI="https://github.com/void-linux/void-packages.git"
 
 LICENSE="BSD-2"
 SLOT="0"
@@ -321,7 +323,15 @@ RDEPEND="
 	zookeeper? ( sys-cluster/zookeeper )
 "
 
-S="${WORKDIR}/void-packages-master/srcpkgs"
+S="${WORKDIR}/${P}/srcpkgs"
+
+src_prepare() {
+	local patch
+	for patch in "${FILESDIR}"/*.patch; do
+		eapply "${patch}"
+	done
+	default
+}
 
 src_install() {
 	files="3proxy 3proxy/files/3proxy
@@ -666,6 +676,7 @@ zerotier zerotier-one/files/zerotier
 znc znc/files/znc
 zookeeper zookeeper/files/zookeeper"
 
+	local use dir srv
 	insinto "/etc/sv"
 	printf '%s' "${files}" | while IFS=' ' read -r use dir; do
 		if use "${use}"; then
