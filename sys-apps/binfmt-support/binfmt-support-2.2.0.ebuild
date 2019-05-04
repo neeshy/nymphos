@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit autotools
+inherit autotools git-r3
 
 DESCRIPTION="Support for extra binary formats"
 HOMEPAGE="http://binfmt-support.nongnu.org/"
@@ -21,6 +21,16 @@ DEPENDS="
 	virtual/pkgconfig
 "
 RDEPENDS="systemd? ( sys-apps/systemd )"
+
+src_unpack() {
+	default
+
+	cd "${S}" || die
+	local GNULIB_URI="https://git.savannah.gnu.org/git/gnulib.git"
+	local GNULIB_REVISION="$(. bootstrap.conf >/dev/null; echo "${GNULIB_REVISION}")"
+	git-r3_fetch "${GNULIB_URI}" "${GNULIB_REVISION}"
+	git-r3_checkout "${GNULIB_URI}" gnulib
+}
 
 src_prepare() {
 	default
