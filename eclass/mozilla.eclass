@@ -38,7 +38,10 @@ mozilla_pkg_setup() {
 ###
 
 pozconfig_init() {
-	echo "ac_add_options --enable-application=browser" > "${S}/.mozconfig"
+	cat << EOF > "${S}/.mozconfig"
+ac_add_options --enable-application=browser
+ac_add_options --prefix=/usr
+EOF
 }
 
 pozconfig() {
