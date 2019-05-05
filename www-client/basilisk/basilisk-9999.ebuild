@@ -272,9 +272,15 @@ src_install() {
 	rm -f "${D}/usr/lib/${PN}-${ver}/${PN}-bin"
 	dosym "${PN}" "/usr/lib/${PN}-${ver}/${PN}-bin"
 
-	local size icon_path
-	icon_path="${S}/application/${PN}/branding/$(usex official-branding official unofficial)"
-	for size in 16 22 24 32 64 48 256; do
+	local size sizes icon_path
+	if use official-branding; then
+		icon_path="${S}/application/${PN}/branding/official"
+		sizes="16 22 24 32 64 48 256"
+	else
+		icon_path="${S}/application/${PN}/branding/unofficial"
+		sizes="16 32 48"
+	fi
+	for size in $sizes; do
 	    insinto "/usr/share/icons/hicolor/${size}x${size}/apps"
 	    newins "${icon_path}/default${size}.png" "${PN}.png"
 	done
