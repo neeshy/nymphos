@@ -19,13 +19,13 @@ fi
 
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="zsh"
+IUSE="zsh-completion"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
 src_prepare() {
 	eapply "${FILESDIR}/${PN}-license.patch"
-	if ! use zsh; then
+	if ! use zsh-completion; then
 		eapply "${FILESDIR}/${PN}-zsh.patch"
 	fi
 	default
