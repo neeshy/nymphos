@@ -6,8 +6,8 @@ EAPI="7"
 inherit autotools toolchain-funcs
 
 DESCRIPTION="Simple screen locker"
-HOMEPAGE="https://i3wm.org/i3lock/"
-SRC_URI="https://i3wm.org/${PN}/${P}.tar.bz2"
+HOMEPAGE="https://i3wm.org/${PN}/"
+SRC_URI="${HOMEPAGE}${P}.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0"

@@ -11,7 +11,6 @@ EGIT_REPO_URI="https://github.com/void-linux/void-packages.git"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 IUSE="
 	3proxy acpi alertmanager alfred alsa android anope apache armagetronad
 	arptables at atop audit autofs avahi bacula barrier beanstalkd bind binfmt bird

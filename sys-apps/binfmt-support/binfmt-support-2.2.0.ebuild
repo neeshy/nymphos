@@ -6,8 +6,8 @@ EAPI="7"
 inherit autotools git-r3
 
 DESCRIPTION="Support for extra binary formats"
-HOMEPAGE="http://binfmt-support.nongnu.org/"
-SRC_URI="https://git.savannah.gnu.org/cgit/binfmt-support.git/snapshot/binfmt-support-${PV}.tar.gz"
+HOMEPAGE="http://${PN}.nongnu.org/"
+SRC_URI="https://git.savannah.gnu.org/cgit/${PN}.git/snapshot/${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"

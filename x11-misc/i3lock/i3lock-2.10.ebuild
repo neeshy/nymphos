@@ -6,9 +6,9 @@ EAPI="7"
 inherit toolchain-funcs
 
 DESCRIPTION="Simple screen locker"
-HOMEPAGE="https://i3wm.org/i3lock/"
+HOMEPAGE="https://i3wm.org/${PN}/"
 SRC_URI="
-	https://i3wm.org/${PN}/${P}.tar.bz2
+	${HOMEPAGE}${P}.tar.bz2
 	!pam? ( https://slackbuilds.org/slackbuilds/14.2/desktop/i3lock/i3lock-2.10-no-pam.patch )
 "
 

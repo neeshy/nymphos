@@ -8,7 +8,7 @@ inherit autotools eutils toolchain-funcs git-r3
 [[ -z "${DOAS_STATE_DIR}" ]] && DOAS_STATE_DIR="/var/cache/${PN}"
 
 DESCRIPTION="Run commands as super user or another user, alternative to sudo from OpenBSD"
-HOMEPAGE="https://github.com/multiplexd/doas"
+HOMEPAGE="https://github.com/multiplexd/${PN}"
 EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="ISC"

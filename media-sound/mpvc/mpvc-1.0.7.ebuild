@@ -32,11 +32,12 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="An mpc-like cli tool for mpv"
-HOMEPAGE="https://gitlab.com/mpv-ipc/mpvc"
-SRC_URI="https://gitlab.com/mpv-ipc/mpvc/-/archive/v${PV}/mpvc-v${PV}.tar.gz -> ${P}.tar.gz
+HOMEPAGE="https://gitlab.com/${PN}-ipc/${PN}"
+SRC_URI="${HOMEPAGE}/-/archive/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz
 $(cargo_crate_uris ${CRATES})"
 
 RESTRICT="mirror"
+
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="amd64 x86"
