@@ -15,6 +15,7 @@ if [[ "${PV}" = 9999 ]]; then
 else
 	SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${PN}.py-${PV}.tar.gz"
 	KEYWORDS="amd64 x86"
+	S="${WORKDIR}/${PN}.py-${PV}"
 fi
 
 LICENSE="CC0-1.0"
@@ -22,5 +23,3 @@ SLOT="0"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND=">=media-video/ffmpeg-2.0.0"
-
-S="${WORKDIR}/${PN}.py-${PV}"
