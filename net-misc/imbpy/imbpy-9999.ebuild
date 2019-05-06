@@ -8,12 +8,11 @@ PYTHON_COMPAT=( python3_7 )
 inherit distutils-r1 git-r3
 
 DESCRIPTION="A python interface for imageboards"
-HOMEPAGE="https://gitgud.io/ring/imbpy"
+HOMEPAGE="https://gitgud.io/ring/${PN}"
 EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND="

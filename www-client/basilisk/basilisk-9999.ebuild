@@ -5,13 +5,20 @@ EAPI="7"
 
 REQUIRED_BUILDSPACE='9G'
 
-inherit mozilla git-r3 eutils flag-o-matic desktop
+inherit mozilla eutils flag-o-matic desktop
 
 DESCRIPTION="Basilisk Web Browser"
 HOMEPAGE="https://www.basilisk-browser.org/"
+if [[ "${PV}" = 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/MoonchildProductions/UXP.git"
+else
+	SRC_URI="https://github.com/MoonchildProductions/UXP/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="amd64 x86"
+fi
 
-SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
+SLOT="0"
 IUSE="
 	+official-branding
 	-private-build
@@ -41,16 +48,6 @@ IUSE="
 	-system-ffi -system-sqlite -system-cairo -system-pixman -system-libevent
 	-system-libvpx -system-zlib -system-bzip2 -system-jpeg -system-png
 "
-
-EGIT_REPO_URI="https://github.com/MoonchildProductions/UXP.git"
-
-if [[ "${PV}" = 9999 ]]; then
-	EGIT_BRANCH="Basilisk-release"
-	KEYWORDS="~amd64 ~x86"
-else
-	EGIT_COMMIT="v${PV}"
-	KEYWORDS="amd64 x86"
-fi
 
 RESTRICT="mirror"
 

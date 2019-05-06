@@ -7,7 +7,7 @@ inherit toolchain-funcs flag-o-matic
 
 DESCRIPTION="A UNIX init scheme with service supervision"
 HOMEPAGE="http://smarden.org/runit/"
-SRC_URI="http://smarden.org/runit/${P}.tar.gz"
+SRC_URI="${HOMEPAGE}${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
