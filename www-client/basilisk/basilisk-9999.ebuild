@@ -13,8 +13,9 @@ if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/MoonchildProductions/UXP.git"
 else
-	SRC_URI="https://github.com/MoonchildProductions/UXP/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/MoonchildProductions/UXP/archive/v${PV}.tar.gz -> UXP-${PV}.tar.gz"
 	KEYWORDS="amd64 x86"
+	S="${WORKDIR}/UXP-${PV}"
 fi
 
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
