@@ -293,7 +293,7 @@ RDEPEND="
 	trousers? ( app-crypt/trousers )
 	tuntox? ( net-vpn/tuntox )
 	twoftpd? ( net-ftp/twoftpd )
-	udev? ( sys-fs/udev )
+	udev? ( virtual/udev )
 	ufw? ( net-firewall/ufw )
 	ulogd? ( app-admin/ulogd )
 	umurmur? ( media-sound/umurmur )
