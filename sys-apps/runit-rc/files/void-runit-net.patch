@@ -1,12 +1,13 @@
 --- /dev/null
 +++ b/core-services/06-net.sh
-@@ -0,0 +1,8 @@
+@@ -0,0 +1,9 @@
 +# vim: set ts=4 sw=4 et:
 +
-+if [ -n $NET_INTERFACE ] && [ -n $NET_ADDRESS ] && [ -n $NET_GATEWAY ]; then
++if [ -n "$NET_INTERFACE" ] && [ -n "$NET_ADDRESS" ] && [ -n "$NET_GATEWAY" ]; then
 +    msg "Setting up network interface..."
 +    ip link set dev "$NET_INTERFACE" up && \
-+    ip addr add "$NET_ADDRESS/${NET_NETMASK:-24}" brd "${NET_BROADCAST:-+}" dev "$NET_INTERFACE" && \
++    ip addr add "$NET_ADDRESS/${NET_NETMASK:-24}" \
++        brd "${NET_BROADCAST:-+}" dev "$NET_INTERFACE" && \
 +    ip route add default via "$NET_GATEWAY"
 +fi
 --- a/rc.conf
