@@ -3,7 +3,7 @@
 
 EAPI="7"
 
-inherit cmake-utils
+inherit cmake-utils desktop
 
 DESCRIPTION="Advanced rhythm game, designed for both home and arcade use"
 HOMEPAGE="http://www.stepmania.com/"
@@ -54,29 +54,43 @@ src_configure() {
 	# Minimaid tries to use pre-built static libraries (x86 only, often fails to link)
 	# TTY input fails to compile
 	local mycmakeargs=(
+		-DCMAKE_INSTALL_PREFIX=/opt
 		-DWITH_ALSA="$(usex alsa)"
 		-DWITH_CRASH_HANDLER="$(usex crash-handler)"
 		-DWITH_FFMPEG="$(usex ffmpeg)"
-		-DWITH_FULL_RELEASE="NO"
+		-DWITH_FULL_RELEASE=NO
 		-DWITH_GLES2="$(usex gles2)"
-		-DWITH_GPL_LIBS="YES"
+		-DWITH_GPL_LIBS=YES
 		-DWITH_GTK2="$(usex gtk)"
 		-DWITH_JACK="$(usex jack)"
 		-DWITH_JPEG="$(usex jpeg)"
-		-DWITH_LTO="NO"
-		-DWITH_MINIMAID="NO"
+		-DWITH_LTO=NO
+		-DWITH_MINIMAID=NO
 		-DWITH_MP3="$(usex mp3)"
 		-DWITH_NETWORKING="$(usex networking)"
 		-DWITH_OGG="$(usex ogg)"
 		-DWITH_OSS="$(usex oss)"
 		-DWITH_PARALLEL_PORT="$(usex parport)"
-		-DWITH_PORTABLE_TOMCRYPT="YES"
-		-DWITH_PROFILING="NO"
+		-DWITH_PORTABLE_TOMCRYPT=YES
+		-DWITH_PROFILING=NO
 		-DWITH_PULSEAUDIO="$(usex pulseaudio)"
 		-DWITH_SSE2="$(usex cpu_flags_x86_sse2)"
 		-DWITH_SYSTEM_FFMPEG="$(usex ffmpeg)"
-		-DWITH_TTY="NO"
+		-DWITH_TTY=NO
 		-DWITH_WAV="$(usex wav)"
 	)
 	cmake-utils_src_configure
+}
+
+src_install() {
+	cmake-utils_src_install
+	newbin "${FILESDIR}/${P}.sh" "${PN}"
+	domenu "${PN}.desktop"
+	local size
+	for size in 16 22 24 32 36 48 64 72 96 128 192 256; do
+		insinto "/usr/share/icons/hicolor/${size}x${size}/apps"
+		doins "icons/hicolor/${size}x${size}/apps/${PN}-ssc.png"
+	done
+	insinto "/usr/share/icons/hicolor/scalable/apps"
+	doins "icons/hicolor/scalable/apps/${PN}-ssc.svg"
 }
