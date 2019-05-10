@@ -18,14 +18,27 @@ inherit golang-build
 
 LICENSE="MIT"
 SLOT="0"
+IUSE="optimize examples"
 
 DEPEND="
 	dev-go/termbox-go
 	dev-go/go-runewidth
 "
 
+src_compile() {
+	if use optimize; then
+		export CGO_ENABLED="0"
+		EGO_BUILD_FLAGS="-ldflags=-s"
+	fi
+	golang-build_src_compile
+}
+
 src_install() {
-	default
+	dobin "${PN}"
 	doman "src/${EGO_PN}/${PN}.1"
 	dodoc "src/${EGO_PN}/README.md"
+	if use examples; then
+		docinto examples
+		dodoc "src/${EGO_PN}/etc/"{lf.fish,lf.vim,lfcd.fish,lfcd.sh,lfrc.example}
+	fi
 }
