@@ -26,6 +26,6 @@ DEPEND="
 
 src_install() {
 	default
-	doman "${PN}.1"
-	dodoc README.md
+	doman "src/${EGO_PN}/${PN}.1"
+	dodoc "src/${EGO_PN}/README.md"
 }
