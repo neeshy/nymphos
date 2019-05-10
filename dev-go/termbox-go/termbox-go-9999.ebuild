@@ -11,3 +11,5 @@ HOMEPAGE="https://${EGO_PN}"
 
 LICENSE="MIT"
 SLOT="0"
+
+DEPEND="dev-go/go-runewidth"
