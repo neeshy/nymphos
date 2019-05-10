@@ -1,7 +1,7 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="7"
 
 inherit cmake-utils
 
@@ -49,11 +49,6 @@ DEPEND="
 "
 
 S="${WORKDIR}/${P/_beta/-b}"
-
-src_prepare() {
-	# Remove third-party librairies
-	sed 's;add_subdirectory(extern);;' CMakeLists.txt || die
-}
 
 src_configure() {
 	# Minimaid tries to use pre-built static libraries (x86 only, often fails to link)
