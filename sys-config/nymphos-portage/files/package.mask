@@ -21,6 +21,7 @@
 */*::lanodanOverlay
 */*::libressl
 */*::linxon
+*/*::lto-overlay
 */*::lua
 */*::luke-jr
 */*::mv
