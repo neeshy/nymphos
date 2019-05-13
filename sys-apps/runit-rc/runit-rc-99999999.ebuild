@@ -33,19 +33,18 @@ PATCHES=(
 S="${WORKDIR}/void-runit-${PV}"
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX=/ install
+	emake DESTDIR="${D}" PREFIX=/usr install
 
-	# compatibility symlink
-	dosym /run/runit/runsvdir/current /var/service
-
-	# put man pages in the correct location
-	dodir /usr
-	mv "${D}/share" "${D}/usr"
+	# put sbin in the root
+	mv "${D}/usr/sbin" "${D}"
 	# remove dracut configuration
-	rm -rf "${D}/lib"
+	rm -rf "${D}/usr/lib"
 
 	keepdir /etc/zzz.d/{suspend,resume}
 	dodoc README.md
+
+	# compatibility symlink
+	dosym /run/runit/runsvdir/current /var/service
 	# provide init
 	dosym runit-init /sbin/init
 }
