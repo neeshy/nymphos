@@ -349,3 +349,5 @@ media-plugins/vapoursynth-hysteria::vapoursynth
 media-plugins/vapoursynth-curve::vapoursynth
 
 app-shells/zsh-history-substring-search::ROKO__
+
+app-portage/lto-rebuild::lto-overlay

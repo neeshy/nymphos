@@ -43,4 +43,5 @@ sys-fs/multipath-tools
 sys-fs/ntfs3g
 sys-fs/reiserfsprogs
 sys-fs/xfsprogs
+sys-kernel/linux-firmware
 www-client/links
