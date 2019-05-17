@@ -4,6 +4,7 @@ app-admin/clsync
 app-admin/conky
 app-admin/consul
 app-admin/cpulimit
+app-admin/doas
 app-admin/eclean-kernel
 app-admin/entr
 app-admin/gkrellm
@@ -145,6 +146,7 @@ app-misc/fsearch
 app-misc/fslint
 app-misc/gentoo
 app-misc/icdiff
+app-misc/lf
 app-misc/mat2
 app-misc/mc
 app-misc/neofetch
@@ -163,6 +165,7 @@ app-misc/tmux-mem-cpu-load
 app-misc/toilet
 app-misc/wipe
 app-misc/xmind
+app-misc/zscroll
 app-mobilephone/gammu
 app-mobilephone/heimdall
 app-mobilephone/wammu
@@ -685,6 +688,7 @@ media-gfx/qiv
 media-gfx/sane-frontends
 media-gfx/scrot
 media-gfx/sxiv
+media-gfx/ueberzug
 media-gfx/viewnior
 media-gfx/w3mimgfb
 media-gfx/xsane
@@ -748,6 +752,7 @@ media-sound/mpd
 media-sound/mpdas
 media-sound/mpg321
 media-sound/mps-youtube
+media-sound/mpvc
 media-sound/mumble
 media-sound/ncmpc
 media-sound/ncmpcpp
@@ -883,6 +888,7 @@ net-misc/dhcpcd
 net-misc/electron-cash
 net-misc/electrum
 net-misc/freerdp
+net-misc/gallery-dl
 net-misc/geoipupdate
 net-misc/gerbera
 net-misc/gofish
@@ -1075,6 +1081,7 @@ sys-process/parallel
 sys-process/runit
 sys-process/runit-sv
 virtual/wine
+www-apps/cgit
 www-apps/otrs
 www-apps/trac
 www-client/basilisk
@@ -1099,6 +1106,7 @@ www-servers/apache
 www-servers/lighttpd
 www-servers/nginx
 www-servers/onionshare
+www-servers/spawn-fcgi
 www-servers/thttpd
 www-servers/tomcat
 www-servers/varnish
@@ -1172,6 +1180,7 @@ x11-misc/wbarconf
 x11-misc/wmctrl
 x11-misc/wmname
 x11-misc/x11vnc
+x11-misc/xbanish
 x11-misc/xbindkeys
 x11-misc/xcalib
 x11-misc/xclip
