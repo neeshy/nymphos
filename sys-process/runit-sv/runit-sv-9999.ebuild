@@ -12,36 +12,274 @@ EGIT_REPO_URI="https://github.com/void-linux/void-packages.git"
 LICENSE="BSD-2"
 SLOT="0"
 IUSE="
-	3proxy acpi alertmanager alfred alsa android anope apache armagetronad
-	arptables at atop audit autofs avahi bacula barrier beanstalkd bind binfmt bird
-	bitlbee blackbox_exporter bluetooth bluetooth-alsa boinc bolt brltty bumblebee
-	burp busybox cachefilesd caddy canto-daemon cgmanager cgminer cgroups
-	chronograf chrony ckb clockspeed cntlm collectd connman consolekit containerd
-	coturn couchdb criu cronie cups darkhttpd dbus dcron ddclient deluge dhcp
-	dhcpcd dictd diod distcc dkimproxy dnscrypt-proxy dnsmasq docker dovecot
-	drbd-utils dropbear earlyoom ebtables edac-utils elasticsearch espeakup etcd
-	eternalterminal fail2ban fastd fcron fiche flannel freeipmi frp frr fwknop gdm
-	geomyidae gerbera gitea gitlab-runner glusterfs gogs gpm gpsd grafana h2o
-	haproxy haveged hddtemp hiawatha hitch hostapd hyperion i2pd i8kutils icinga2
-	iio-sensor-proxy incron influxdb inspircd iptables ipvsadm irqbalance iwd
-	jenkins kapacitor kea keepalived kerberos kubernetes laptop libratbag libvirt
-	lightdm lighttpd lm_sensors lsyncd lvm lxc lxcfs lxd lxdm mariadb mbpfan mcelog
-	mdadm metalog minidlna minio monero monit monkeyd moosefs mopidy mpd
-	mpdscribble munge musl-nscd mysql nbd ndppd netdata networkmanager nfs
-	nftables nginx ngircd nix node_exporter nrpe nsd nss-pam-ldapd ntp
-	nullmailer nut ofono oidentd olsrd openldap openntpd opensmtpd openssh
-	openvswitch orientdb pcsc-lite php policykit polipo popcorn postfix
-	postgresql preload privoxy prometheus prosody pulseaudio puppet
-	qemu-guest-agent quassel radeon radicale radius radvd redis rest-server
-	rkt rmilter rng-tools rpcbind rspamd rsync rsyslog rtkit salt samba sddm
-	shadowsocks-libev shorewall slim smartmontools snapper sndio spamassassin
-	spampd spice-vdagent spreed-webrtc squid sshguard sslh sssd strongswan
-	subversion suricata syncthing synapse synergy taskd telegraf thermald
-	thinkfan thttpd tinc tinyproxy tinyssh tlp tlsdate tomcat tor
-	transmission trousers tuntox twoftpd udev ufw ulogd umurmur unbound
-	uptimed usbip usbmuxd uuid vault virtualbox vmware vnstat vsftpd watchdog
-	wesnoth wicd wpa_actiond wpa_supplicant xdm xen xinetd xl2tpd zabbix
-	zerotier znc zookeeper
+	3proxy
+	acpi
+	alertmanager
+	alfred
+	alsa
+	android
+	anope
+	apache
+	armagetronad
+	arptables
+	at
+	atop
+	audit
+	autofs
+	avahi
+	bacula
+	barrier
+	beanstalkd
+	bind
+	binfmt
+	bird
+	bitlbee
+	blackbox_exporter
+	bluetooth
+	bluetooth-alsa
+	boinc
+	bolt
+	brltty
+	bumblebee
+	burp
+	busybox
+	cachefilesd
+	caddy
+	canto-daemon
+	cgmanager
+	cgminer
+	cgroups
+	chronograf
+	chrony
+	ckb
+	clockspeed
+	cntlm
+	collectd
+	connman
+	consolekit
+	containerd
+	coturn
+	couchdb
+	criu
+	cronie
+	cups
+	darkhttpd
+	dbus
+	dcron
+	ddclient
+	deluge
+	dhcp
+	dhcpcd
+	dictd
+	diod
+	distcc
+	dkimproxy
+	dnscrypt-proxy
+	dnsmasq
+	docker
+	dovecot
+	drbd-utils
+	dropbear
+	earlyoom
+	ebtables
+	edac-utils
+	elasticsearch
+	espeakup
+	etcd
+	eternalterminal
+	fail2ban
+	fastd
+	fcron
+	fiche
+	flannel
+	freeipmi
+	frp
+	frr
+	fwknop
+	gdm
+	geomyidae
+	gerbera
+	gitea
+	gitlab-runner
+	glusterfs
+	gogs
+	gpm
+	gpsd
+	grafana
+	h2o
+	haproxy
+	haveged
+	hddtemp
+	hiawatha
+	hitch
+	hostapd
+	hyperion
+	i2pd
+	i8kutils
+	icinga2
+	iio-sensor-proxy
+	incron
+	influxdb
+	inspircd
+	iptables
+	ipvsadm
+	irqbalance
+	iwd
+	jenkins
+	kapacitor
+	kea
+	keepalived
+	kerberos
+	kubernetes
+	laptop
+	libratbag
+	libvirt
+	lightdm
+	lighttpd
+	lm_sensors
+	lsyncd
+	lvm
+	lxc
+	lxcfs
+	lxd
+	lxdm
+	mariadb
+	mbpfan
+	mcelog
+	mdadm
+	metalog
+	minidlna
+	minio
+	monero
+	monit
+	monkeyd
+	moosefs
+	mopidy
+	mpd
+	mpdscribble
+	munge
+	musl-nscd
+	mysql
+	nbd
+	ndppd
+	netdata
+	networkmanager
+	nfs
+	nftables
+	nginx
+	ngircd
+	nix
+	node_exporter
+	nrpe
+	nsd
+	nss-pam-ldapd
+	ntp
+	nullmailer
+	nut
+	ofono
+	oidentd
+	olsrd
+	openldap
+	openntpd
+	opensmtpd
+	openssh
+	openvswitch
+	orientdb
+	pcsc-lite
+	php
+	policykit
+	polipo
+	popcorn
+	postfix
+	postgresql
+	preload
+	privoxy
+	prometheus
+	prosody
+	pulseaudio
+	puppet
+	qemu-guest-agent
+	quassel
+	radeon
+	radicale
+	radius
+	radvd
+	redis
+	rest-server
+	rkt
+	rmilter
+	rng-tools
+	rpcbind
+	rspamd
+	rsync
+	rsyslog
+	rtkit
+	salt
+	samba
+	sddm
+	shadowsocks-libev
+	shorewall
+	slim
+	smartmontools
+	snapper
+	sndio
+	spamassassin
+	spampd
+	spice-vdagent
+	spreed-webrtc
+	squid
+	sshguard
+	sslh
+	sssd
+	strongswan
+	subversion
+	suricata
+	synapse
+	syncthing
+	synergy
+	taskd
+	telegraf
+	thermald
+	thinkfan
+	thttpd
+	tinc
+	tinyproxy
+	tinyssh
+	tlp
+	tlsdate
+	tomcat
+	tor
+	transmission
+	trousers
+	tuntox
+	twoftpd
+	udev
+	ufw
+	ulogd
+	umurmur
+	unbound
+	uptimed
+	usbip
+	usbmuxd
+	uuid
+	vault
+	virtualbox
+	vmware
+	vnstat
+	vsftpd
+	watchdog
+	wesnoth
+	wicd
+	wpa_actiond
+	wpa_supplicant
+	xdm
+	xen
+	xinetd
+	xl2tpd
+	zabbix
+	zerotier
+	znc
+	zookeeper
 "
 REQUIRED_USE="|| ( ${IUSE} )"
 
@@ -274,8 +512,8 @@ RDEPEND="
 	strongswan? ( net-vpn/strongswan )
 	subversion? ( dev-vcs/subversion )
 	suricata? ( net-analyzer/suricata )
-	syncthing? ( net-p2p/syncthing )
 	synapse? ( net-im/synapse )
+	syncthing? ( net-p2p/syncthing )
 	synergy? ( x11-misc/synergy )
 	taskd? ( app-misc/taskd )
 	telegraf? ( net-analyzer/telegraf )
@@ -615,8 +853,8 @@ sssd sssd/files/sssd
 strongswan strongswan/files/strongswan
 subversion subversion/files/svnserve
 suricata suricata/files/suricata
-syncthing syncthing/files/relaysrv
 synapse synapse/files/synapse
+syncthing syncthing/files/relaysrv
 synergy synergy/files/synergyc
 synergy synergy/files/synergys
 taskd taskd/files/taskd
