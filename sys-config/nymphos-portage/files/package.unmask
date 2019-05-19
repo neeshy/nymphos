@@ -110,6 +110,7 @@ x11-misc/clipit::jorgicio
 media-fonts/emojione-color-font::jorgicio
 media-fonts/twemoji-color-font::jorgicio
 media-gfx/lsix::jorgicio
+x11-themes/numix-frost-theme::jorgicio
 
 games-util/steam-launcher::steam-overlay
 
