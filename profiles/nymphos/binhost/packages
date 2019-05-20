@@ -252,6 +252,7 @@ dev-java/icedtea
 dev-java/junit
 dev-java/maven-bin
 dev-lang/R
+dev-lang/gnat-gpl
 dev-lang/go
 dev-lang/open-cobol
 dev-lang/php
