@@ -118,6 +118,14 @@ media-fonts/gohufont::4nykey
 media-fonts/tewi-font::4nykey
 media-plugins/gimp-plugin-bimp::4nykey
 app-shells/zsh-syntax-highlighting::4nykey
+media-fonts/source-code-pro::4nykey
+media-fonts/source-emoji::4nykey
+media-fonts/source-han-code-jp::4nykey
+media-fonts/source-han-sans::4nykey
+media-fonts/source-han-serif::4nykey
+media-fonts/source-pro::4nykey
+media-fonts/source-sans-pro::4nykey
+media-fonts/source-serif-pro::4nykey
 
 media-sound/deadbeef::deadbeef-overlay
 media-plugins/deadbeef-plugins-meta::deadbeef-overlay

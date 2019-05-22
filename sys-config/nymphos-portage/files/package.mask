@@ -60,3 +60,6 @@ app-emulation/wine-staging::gentoo # bobwya
 
 x11-libs/vte:2.91::gentoo # ::eroen, termite
 net-misc/megatools::gentoo # jm-overlay
+
+media-fonts/source-pro::gentoo # 4nykey
+media-fonts/source-han-sans::gentoo # 4nykey
