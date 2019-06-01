@@ -44,12 +44,4 @@ KEYWORDS="amd64 x86"
 
 RDEPEND="media-video/mpv"
 
-PATCHES=(
-	"${FILESDIR}/0001-Use-1-indexing-and-fix-type-error.patch"
-	"${FILESDIR}/0002-Allow-for-multiple-files-to-be-added-to-the-playlist.patch"
-	"${FILESDIR}/0003-Spawn-an-mpv-instance-one-isn-t-available-and-the-ad.patch"
-	"${FILESDIR}/0004-Improve-conditionals.patch"
-	"${FILESDIR}/0005-Add-the-ability-to-wait-on-property-changes.patch"
-)
-
 S="${WORKDIR}/${PN}-v${PV}"
