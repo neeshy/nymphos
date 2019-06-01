@@ -21,8 +21,4 @@ RDEPEND="
 	media-gfx/imagemagick
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-scrape-unix_original.patch"
-	"${FILESDIR}/${PN}-filename-length-fix.patch"
-	"${FILESDIR}/${PN}-setup.py.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-setup.py.patch" )

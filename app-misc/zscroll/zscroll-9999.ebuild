@@ -25,8 +25,6 @@ DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
 src_prepare() {
 	eapply "${FILESDIR}/${PN}-license.patch"
-	if ! use zsh-completion; then
-		eapply "${FILESDIR}/${PN}-zsh.patch"
-	fi
+	use zsh-completion || eapply "${FILESDIR}/${PN}-zsh.patch"
 	default
 }

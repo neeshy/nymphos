@@ -24,9 +24,7 @@ RDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/void-runit-net.patch"
 	"${FILESDIR}/void-runit-bugfix.patch"
-	"${FILESDIR}/void-runit-ctrlaltdel.patch"
 	"${FILESDIR}/void-runit-gentoo.patch"
 )
 
