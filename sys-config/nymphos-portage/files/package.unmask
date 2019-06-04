@@ -21,6 +21,7 @@ app-emulation/wine-staging::bobwya
 app-eselect/eselect-wine::bobwya # wine-staging
 app-emulation/wine-desktop-common::bobwya # wine-staging
 app-emulation/wine-mono::bobwya # wine-staging
+sys-fs/exfat-utils-nofuse::bobwya
 
 games-fps/dhewm3::bobwya
 

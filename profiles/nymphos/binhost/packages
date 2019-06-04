@@ -1053,7 +1053,7 @@ sys-fs/ddrescue
 sys-fs/dosfstools
 sys-fs/ecryptfs-utils
 sys-fs/exfat-nofuse
-sys-fs/exfat-utils
+sys-fs/exfat-utils-nofuse
 sys-fs/extundelete
 sys-fs/go-mtpfs
 sys-fs/inotify-tools
