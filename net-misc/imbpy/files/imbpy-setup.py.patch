@@ -1,6 +1,6 @@
 --- /dev/null
 +++ b/setup.py
-@@ -0,0 +1,25 @@
+@@ -0,0 +1,24 @@
 +from setuptools import setup
 +
 +with open('README.md') as fh:
@@ -8,7 +8,6 @@
 +
 +setup(
 +    name='imbpy',
-+    version='0.5',
 +    author='ring',
 +    author_email='ring@8chan.co',
 +    description='A python interface for imageboards',
