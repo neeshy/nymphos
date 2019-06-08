@@ -903,8 +903,8 @@ net-misc/icecast
 net-misc/kafka-bin
 net-misc/megatools
 net-misc/mosh
-net-misc/ntp
 net-misc/onioncircuits
+net-misc/openntpd
 net-misc/proxychains
 net-misc/putty
 net-misc/pyhoca-cli
