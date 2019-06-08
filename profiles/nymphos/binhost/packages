@@ -73,7 +73,7 @@ app-cdr/xcdroast
 app-crypt/certbot
 app-crypt/gpa
 app-crypt/hashcat
-app-crypt/johntheripper
+app-crypt/johntheripper-jumbo
 app-crypt/kbfs
 app-crypt/keybase
 app-crypt/veracrypt
