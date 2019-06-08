@@ -20,7 +20,7 @@ app-portage/layman
 app-portage/mirrorselect
 dev-util/dialog
 net-misc/dhcpcd
-net-misc/ntp
+net-misc/openntpd
 net-misc/openssh
 net-wireless/wpa_supplicant
 sys-apps/busybox
