@@ -361,3 +361,9 @@ media-plugins/vapoursynth-curve::vapoursynth
 app-shells/zsh-history-substring-search::ROKO__
 
 app-portage/lto-rebuild::lto-overlay
+
+net-proxy/burpsuite::pentoo
+net-analyzer/armitage::pentoo
+dev-java/jgraphx::pentoo
+dev-java/msgpack::pentoo
+dev-java/sleep::pentoo
