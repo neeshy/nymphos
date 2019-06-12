@@ -35,7 +35,7 @@ IUSE="
 	startup-notification
 	-pgo
 	-stylo
-	-necko-wifi
+	-wifi
 	-webrtc
 	-gamepad
 	-webspeech
@@ -79,7 +79,7 @@ RDEPEND="
 
 	startup-notification? ( x11-libs/startup-notification )
 
-	necko-wifi? ( net-wireless/wireless-tools )
+	wifi? ( net-wireless/wireless-tools )
 
 	system-nspr? ( dev-libs/nspr )
 	system-nss? ( >=dev-libs/nss-3.28.3 )
@@ -108,7 +108,7 @@ REQUIRED_USE="
 	optimize? ( !debug )
 	jemalloc? ( !valgrind )
 	^^ ( gtk2 gtk3 )
-	necko-wifi? ( dbus )
+	wifi? ( dbus )
 	?? ( private-build official-build )
 	private-build? ( official-branding !bindist )
 	official-build? (
@@ -209,7 +209,7 @@ src_configure() {
 	pozconfig_use_enable jack
 	pozconfig_use_enable dbus
 	pozconfig_use_enable gnome gconf
-	pozconfig_use_enable necko-wifi
+	pozconfig_use_enable wifi necko-wifi
 	pozconfig_use_enable startup-notification
 
 	pozconfig_use_enable stylo
