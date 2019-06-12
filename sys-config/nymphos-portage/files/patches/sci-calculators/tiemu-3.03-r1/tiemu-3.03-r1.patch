@@ -1,0 +1,17 @@
+diff --git a/src/core/uae/sysdeps.h b/src/core/uae/sysdeps.h
+index 0d43eed..1bc0774 100644
+--- a/src/core/uae/sysdeps.h
++++ b/src/core/uae/sysdeps.h
+@@ -137,12 +137,6 @@ extern void *xcalloc(size_t, size_t);
+ #define ENUMDECL typedef enum
+ #define ENUMNAME(name) name
+ 
+-/* While we're here, make abort more useful.  */
+-#define abort() \
+-  do { \
+-    fprintf (stderr, "UAE: Internal error; file %s, line %d\n", __FILE__, __LINE__); \
+-    (abort) (); \
+-} while (0)
+ #else
+ #define ENUMDECL enum
+ #define ENUMNAME(name) ; typedef int name
