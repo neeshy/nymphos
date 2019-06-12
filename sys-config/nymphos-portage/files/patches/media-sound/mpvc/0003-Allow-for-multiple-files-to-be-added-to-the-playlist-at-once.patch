@@ -1,0 +1,65 @@
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -239,13 +239,14 @@
+                 .visible_alias("load")
+                 .arg(Arg::with_name("file")
+                     .value_name("FILE")
++                    .multiple(true)
+                     .required(true))
+                 .arg(Arg::with_name("mode")
+                     .short("m")
+                     .long("mode")
+                     .possible_values(&["replace", "append", "append-play"])
+                     .hide_possible_values(true)
+-                    .default_value("replace")
++                    .default_value("append-play")
+                     .help("<replace|append|append-play>\n\
+                     <replace>: Stop playback of the current file, and play the new file immediately.\n\
+                     <append>: Append the file to the playlist.\n\
+@@ -746,26 +747,27 @@
+         ("playlist", Some(playlist_matches)) => {
+             match playlist_matches.subcommand() {
+                 ("add", Some(add_matches)) => {
+-                    let file = add_matches.value_of("file").unwrap();
+-                    let file_type = match add_matches.value_of("type").unwrap() {
+-                        "file" => PlaylistAddTypeOptions::File,
+-                        "playlist" => PlaylistAddTypeOptions::Playlist,
+-                        _ => unreachable!(),
+-                    };
+-                    let add_option = match add_matches.value_of("mode").unwrap() {
+-                        "replace" => PlaylistAddOptions::Replace,
+-                        "append" => PlaylistAddOptions::Append,
+-                        "append-play" => PlaylistAddOptions::AppendPlay,
+-                        _ => unreachable!(),
++                    for file in add_matches.values_of("file").unwrap() {
++                        let file_type = match add_matches.value_of("type").unwrap() {
++                            "file" => PlaylistAddTypeOptions::File,
++                            "playlist" => PlaylistAddTypeOptions::Playlist,
++                            _ => unreachable!(),
++                        };
++                        let add_option = match add_matches.value_of("mode").unwrap() {
++                            "replace" => PlaylistAddOptions::Replace,
++                            "append" => PlaylistAddOptions::Append,
++                            "append-play" => PlaylistAddOptions::AppendPlay,
++                            _ => unreachable!(),
++                        };
++                        if let Err(msg) = mpv.playlist_add(
++                            file,
++                            file_type,
++                            add_option,
++                        )
++                        {
++                            error!("Error: {}", msg);
++                        }
+                     };
+-                    if let Err(msg) = mpv.playlist_add(
+-                        file,
+-                        file_type,
+-                        add_option,
+-                    )
+-                    {
+-                        error!("Error: {}", msg);
+-                    }
+                 }
+ 
+                 ("shuffle", _) => {
