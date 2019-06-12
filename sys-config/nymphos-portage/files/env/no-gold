@@ -1,1 +1,1 @@
-LDFLAGS="-Wl,-O1 -Wl,--as-needed -fuse-ld=bfd"
+LDFLAGS="${LDFLAGS} -fuse-ld=bfd"
