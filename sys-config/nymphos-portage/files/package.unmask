@@ -367,3 +367,5 @@ net-analyzer/armitage::pentoo
 dev-java/jgraphx::pentoo
 dev-java/msgpack::pentoo
 dev-java/sleep::pentoo
+
+dev-util/depot_tools::mva
