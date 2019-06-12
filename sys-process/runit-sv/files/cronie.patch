@@ -1,0 +1,6 @@
+--- a/cronie/files/cronie/run
++++ b/cronie/files/cronie/run
+@@ -1,2 +1,2 @@
+ #!/bin/sh
+-exec cronie-crond -n 2>&1
++exec crond -n 2>&1

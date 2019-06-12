@@ -5,4 +5,4 @@
  [ -r ./conf ] && . ./conf
  umurmurd -t -c /etc/umurmur/umurmur.conf || exit $?
 -exec chpst -uumurmur:umurmur umurmurd -d -c /etc/umurmur/umurmur.conf ${OPTS}
-+exec chpst -umurmur:murmur umurmurd -d -c /etc/umurmur/umurmur.conf ${OPTS}
++exec umurmurd -d -c /etc/umurmur/umurmur.conf ${OPTS}
