@@ -26,6 +26,7 @@
 */*::luke-jr
 */*::mv
 */*::mva
+*/*::nymphos
 */*::optmzr
 */*::pixlra
 */*::pentoo
@@ -63,3 +64,16 @@ net-misc/megatools::gentoo # jm-overlay
 
 media-fonts/source-pro::gentoo # 4nykey
 media-fonts/source-han-sans::gentoo # 4nykey
+
+app-office/libreoffice::gentoo # nymphos
+app-office/libreoffice-l10n::gentoo # nymphos
+dev-ruby/rex-sslscan::gentoo # nymphos
+mail-client/alpine::gentoo # nymphos
+media-fonts/unifont::gentoo # nymphos
+media-sound/xwax::gentoo # nymphos
+net-ftp/vsftpd::gentoo # nymphos
+net-wireless/wpa_supplicant::gentoo # nymphos
+sys-process/runit::gentoo # nymphos
+www-apps/cgit::gentoo # nymphos
+x11-misc/i3lock::gentoo # nymphos
+x11-misc/xdg-utils::gentoo # nymphos

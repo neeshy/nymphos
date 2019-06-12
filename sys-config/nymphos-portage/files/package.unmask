@@ -33,10 +33,8 @@ games-emulation/reicast::lanodanOverlay
 x11-plugins/purple-discord::lanodanOverlay
 app-emulation/wine-proton::lanodanOverlay
 gui-wm/waymonad::lanodanOverlay
-games-arcade/stepmania::lanodanOverlay
 
 x11-libs/gtk+:3::mv
-app-shells/zsh-autosuggestions::mv
 app-shells/fast-syntax-highlighting::mv
 
 dev-util/eclipse-sdk-bin::ssnb
@@ -357,6 +355,39 @@ media-plugins/vapoursynth-astdr::vapoursynth
 #media-plugins/vapoursynth-kagefunc::vapoursynth
 media-plugins/vapoursynth-hysteria::vapoursynth
 media-plugins/vapoursynth-curve::vapoursynth
+
+app-admin/doas::nymphos
+app-admin/sv-helper::nymphos
+app-crypt/johntheripper-jumbo::nymphos
+app-misc/lf::nymphos
+app-misc/zscroll::nymphos
+app-office/libreoffice::nymphos
+app-office/libreoffice-l10n::nymphos
+app-shells/zsh-autosuggestions::nymphos
+app-text/mkbold-mkitalic::nymphos
+dev-go/go-runewidth::nymphos
+dev-go/termbox-go::nymphos
+dev-ruby/metasploit-payloads::nymphos
+dev-ruby/metasploit_payloads-mettle::nymphos
+dev-ruby/rex-sslscan::nymphos
+games-arcade/stepmania::nymphos
+mail-client/alpine::nymphos
+media-fonts/unifont::nymphos
+media-gfx/ueberzug::nymphos
+media-sound/mpvc::nymphos
+media-sound/xwax::nymphos
+net-ftp/vsftpd::nymphos
+net-misc/gallery-dl::nymphos
+net-wireless/wpa_supplicant::nymphos
+sys-apps/runit-rc::nymphos
+sys-config/nymphos-portage::nymphos
+sys-process/runit::nymphos
+sys-process/runit-sv::nymphos
+www-apps/cgit::nymphos
+www-client/basilisk::nymphos
+x11-misc/i3lock::nymphos
+x11-misc/xbanish::nymphos
+x11-misc/xdg-utils::nymphos
 
 app-shells/zsh-history-substring-search::ROKO__
 
