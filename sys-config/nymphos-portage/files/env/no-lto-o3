@@ -1,2 +1,4 @@
 CFLAGS="-O2 -mssse3 -mfpmath=both -pipe -funroll-loops -fgraphite-identity -floop-nest-optimize -malign-data=cacheline -mtls-dialect=gnu2"
 CXXFLAGS="${CFLAGS}"
+FFLAGS="${CFLAGS}"
+FCFLAGS="${CFLAGS}"
