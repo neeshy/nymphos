@@ -36,6 +36,8 @@ gui-wm/waymonad::lanodanOverlay
 
 x11-libs/gtk+:3::mv
 app-shells/fast-syntax-highlighting::mv
+app-portage/portage-bashrc-mv::mv
+app-shells/runtitle::mv
 
 dev-util/eclipse-sdk-bin::ssnb
 
@@ -392,6 +394,7 @@ x11-misc/xdg-utils::nymphos
 app-shells/zsh-history-substring-search::ROKO__
 
 app-portage/lto-rebuild::lto-overlay
+sys-config/ltoize::lto-overlay
 
 net-proxy/burpsuite::pentoo
 net-analyzer/armitage::pentoo
