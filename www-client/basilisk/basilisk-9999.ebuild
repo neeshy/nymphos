@@ -3,9 +3,7 @@
 
 EAPI="7"
 
-REQUIRED_BUILDSPACE='9G'
-
-inherit mozilla eutils flag-o-matic desktop
+inherit check-reqs flag-o-matic toolchain-funcs eutils gnome2-utils multilib pax-utils desktop xdg-utils basilisk
 
 DESCRIPTION="Basilisk Web Browser"
 HOMEPAGE="https://www.basilisk-browser.org/"
@@ -21,139 +19,173 @@ fi
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 SLOT="0"
 IUSE="
-	+official-branding
-	-private-build
-	-official-build
-	bindist
-	+privacy
-	+optimize cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_ssse3
-	debug -valgrind +jemalloc threads
-	gold
-	+pie
-	+alsa
-	dbus
-	startup-notification
-	-pgo
-	-stylo
-	-wifi
-	-webrtc
-	-gamepad
-	-webspeech
-	-accessibility
+	bindist +official-branding
+	debug test
+	hardened selinux
+	custom-cflags custom-optimization pie pgo gold +threads +jemalloc
+	cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_ssse3
 	+gtk2 -gtk3
-	pulseaudio
-	jack
-	+devtools
-	gnome
-	-system-nspr -system-nss -system-icu -system-hunspell -system-hyphen
-	-system-ffi -system-sqlite -system-cairo -system-pixman -system-libevent
-	-system-libvpx -system-zlib -system-bzip2 -system-jpeg -system-png
+	+minimal +devtools -eme -webrtc -gamepad -webspeech -accessibility
+	dbus gnome gio startup-notification wifi
+	alsa pulseaudio jack
+	system-bzip2 system-cairo system-ffi system-hunspell system-hyphen
+	system-icu system-jpeg system-libevent system-libvpx system-nspr
+	system-nss system-pixman system-png system-sqlite system-zlib
 "
 
-RESTRICT="mirror"
+REQUIRED_USE="
+	^^ ( gtk2 gtk3 )
+	wifi? ( dbus )
+	cpu_flags_x86_sse? ( custom-optimization )
+	cpu_flags_x86_sse2? ( custom-optimization )
+	cpu_flags_x86_ssse3? ( custom-optimization )
+	official-branding? (
+		bindist? (
+			!system-bzip2 !system-cairo !system-ffi !system-hunspell !system-hyphen
+			!system-icu !system-jpeg !system-libevent !system-libvpx !system-nspr
+			!system-nss !system-pixman !system-png !system-sqlite !system-zlib
+		)
+	)
+"
+
+RESTRICT="!bindist? ( bindist ) mirror"
 
 RDEPEND="
-	app-arch/zip
-	media-libs/alsa-lib
-	media-libs/freetype
+	dev-libs/expat
+	>=x11-libs/cairo-1.10[X]
+	gtk2? (
+		!gio? ( >=x11-libs/gtk+-2.10:2 )
+		gio? ( >=x11-libs/gtk+-2.18:2 )
+	)
+	gtk3? ( >=x11-libs/gtk+-3.4.0:3 )
+	x11-libs/gdk-pixbuf
+	>=x11-libs/pango-1.22.0
+	>=media-libs/mesa-10.2:*
 	media-libs/fontconfig
-	virtual/ffmpeg[x264]
-	x11-libs/libXt
-
-	optimize? ( sys-libs/glibc )
-	pgo? ( >=sys-devel/gcc-4.5 )
-	valgrind? ( dev-util/valgrind )
-
+	>=media-libs/freetype-2.4.10
+	alsa? ( media-libs/alsa-lib )
+	pulseaudio? ( media-sound/pulseaudio )
+	jack? ( virtual/jack )
+	virtual/freedesktop-icon-theme
 	dbus? (
 		>=sys-apps/dbus-0.60
 		>=dev-libs/dbus-glib-0.60
 	)
-
 	gnome? ( gnome-base/gconf )
-
-	gtk2? ( >=x11-libs/gtk+-2.18.0:2 )
-	gtk3? ( >=x11-libs/gtk+-3.4.0:3 )
-
-	pulseaudio? ( media-sound/pulseaudio )
-	jack? ( virtual/jack )
-
-	startup-notification? ( x11-libs/startup-notification )
-
+	startup-notification? ( >=x11-libs/startup-notification-0.8 )
 	wifi? ( net-wireless/wireless-tools )
-
-	system-nspr? ( dev-libs/nspr )
-	system-nss? ( >=dev-libs/nss-3.28.3 )
-	system-icu? ( dev-libs/icu )
-	system-cairo? ( x11-libs/cairo )
-	system-zlib?  ( >=sys-libs/zlib-1.2.3 )
+	>=dev-libs/glib-2.26:2
+	virtual/ffmpeg[x264]
+	x11-libs/libX11
+	x11-libs/libXcomposite
+	x11-libs/libXdamage
+	x11-libs/libXext
+	x11-libs/libXfixes
+	x11-libs/libXrender
+	x11-libs/libXt
+	selinux? ( sec-policy/selinux-mozilla )
 	system-bzip2? ( app-arch/bzip2 )
-	system-jpeg? ( media-libs/libjpeg-turbo )
-	system-png? ( media-libs/libpng:*[apng] )
-	system-libevent? ( dev-libs/libevent )
-	system-pixman? ( x11-libs/pixman )
-	system-sqlite? ( >=dev-db/sqlite-3.13.0[secure-delete] )
-	system-libvpx? ( >=media-libs/libvpx-1.5.0 )
-	system-ffi? ( virtual/libffi )
-	system-hunspell? ( app-text/hunspell )
+	system-cairo? ( >=x11-libs/cairo-1.12[X,xcb] )
+	system-ffi? ( >=virtual/libffi-3.0.10 )
+	system-hunspell? ( >=app-text/hunspell-1.2:= )
 	system-hyphen? ( dev-libs/hyphen )
+	system-icu? ( >=dev-libs/icu-58.1:= )
+	system-jpeg? ( >=media-libs/libjpeg-turbo-1.2.1 )
+	system-libevent? ( >=dev-libs/libevent-2.0:0=[threads] )
+	system-libvpx? ( >=media-libs/libvpx-1.5.0:0=[postproc] )
+	system-nspr? ( >=dev-libs/nspr-4.13.1 )
+	system-nss? ( >=dev-libs/nss-3.28.3 )
+	system-pixman? ( >=x11-libs/pixman-0.19.2 )
+	system-png? ( >=media-libs/libpng-1.6.25:0=[apng] )
+	system-sqlite? ( >=dev-db/sqlite-3.17.0:3[secure-delete,debug=] )
+	system-zlib? ( >=sys-libs/zlib-1.2.3 )
 "
+
 DEPEND="${RDEPEND}
 	>=sys-devel/autoconf-2.13:2.1
+	virtual/pkgconfig
 	dev-lang/python:2.7
 	>=dev-lang/perl-5.6
-	dev-lang/yasm
+	app-arch/zip
+	app-arch/unzip
+	>=sys-devel/binutils-2.16.1
+	sys-apps/findutils
+	>=dev-lang/yasm-1.1
+	virtual/opengl
+	pgo? ( >=sys-devel/gcc-4.5 )
 "
 
-REQUIRED_USE="
-	optimize? ( !debug )
-	jemalloc? ( !valgrind )
-	^^ ( gtk2 gtk3 )
-	wifi? ( dbus )
-	?? ( private-build official-build )
-	private-build? ( official-branding !bindist )
-	official-build? (
-		official-branding
-		!system-nspr !system-nss !system-icu !system-hunspell !system-hyphen
-		!system-ffi !system-sqlite !system-cairo !system-pixman !system-libevent
-		!system-libvpx !system-zlib !system-bzip2 !system-jpeg !system-png
-	)
-"
+pkg_setup() {
+	# Nested configure scripts in mozilla products generate unrecognized
+	# options false positives when toplevel configure passes downwards:
+	export QA_CONFIGURE_OPTIONS=".*"
+
+	# Avoid PGO profiling problems due to enviroment leakage
+	# These should *always* be cleaned up anyway
+	unset DBUS_SESSION_BUS_ADDRESS \
+		DISPLAY \
+		ORBIT_SOCKETDIR \
+		SESSION_MANAGER \
+		XDG_SESSION_COOKIE \
+		XAUTHORITY
+
+	if use official-branding && ! use bindist; then
+		einfo
+		elog "You are enabling official branding. You may not redistribute this build"
+		elog "to any users on your network or the internet. Doing so puts yourself into"
+		elog "a legal problem with Mozilla Foundation and Moonchild Productions"
+		elog "You can disable it by emerging ${PN} _with_ the bindist USE-flag"
+	fi
+
+	if use pgo; then
+		einfo
+		ewarn "You will do a double build for profile guided optimization."
+		ewarn "This will result in your build taking at least twice as long as before."
+	fi
+}
+
+pkg_pretend() {
+	# Ensure we have enough disk space to compile
+	if use pgo || use debug || use test ; then
+		CHECKREQS_DISK_BUILD="8G"
+	else
+		CHECKREQS_DISK_BUILD="4G"
+	fi
+	check-reqs_pkg_setup
+}
 
 src_configure() {
 	# Basic configuration:
 	mozconfig_init
 
 	mozconfig_enable release
-	mozconfig_disable updater maintenance-service
+	mozconfig_disable updater maintenance-service \
+		stylo servo webextensions
 
-	mozconfig_export MOZ_ADDON_SIGNING 1
-	mozconfig_export MOZ_REQUIRE_SIGNING 0
-
-	mozconfig_use_enable official-branding
 	if use official-branding; then
 		mozconfig_export MOZILLA_OFFICIAL 1
+		mozconfig_enable official-branding
+		use bindist || mozconfig_enable private-build
 	fi
 
-	mozconfig_use_enable private-build
-
-	if use privacy; then
+	# Remove anti-features
+	if use minimal; then
 		mozconfig_export MOZ_DATA_REPORTING 0
 		mozconfig_export MOZ_TELEMETRY_REPORTING 0
-		mozconfig_export MOZ_CRASHREPORTER 0
 		mozconfig_export MOZ_SERVICES_HEALTHREPORT 0
 
-		mozconfig_disable eme
-		mozconfig_disable parental-controls
-		mozconfig_disable crashreporter
-		mozconfig_disable safe-browsing
-		mozconfig_disable b2g-camera b2g-ril b2g-bt
-		mozconfig_disable mozril-geoloc
-		mozconfig_disable nfc
-		mozconfig_disable url-classifier
-		mozconfig_disable userinfo
+		mozconfig_disable crashreporter \
+			parental-controls \
+			safe-browsing \
+			sync \
+			b2g-camera b2g-ril b2g-bt \
+			mozril-geoloc \
+			nfc \
+			url-classifier \
+			userinfo
 	fi
 
-	# system-* flags
+	# Flags for system libraries
 	mozconfig_use_with system-nspr
 	mozconfig_use_with system-nss
 	mozconfig_use_with system-icu
@@ -169,64 +201,103 @@ src_configure() {
 	mozconfig_use_enable system-ffi
 	mozconfig_use_enable system-hunspell
 
-	# Common flags
+	# Feature USE-flags
+	mozconfig_use_enable devtools
+	mozconfig_use_enable eme
+	mozconfig_use_enable webrtc
+	mozconfig_use_enable gamepad
+	mozconfig_use_enable webspeech webspeech webspeechtestbackend \
+		synth-speechd synth-pico
+	mozconfig_use_enable accessibility
+
+	# Widget toolkit backends
+	use gtk2 && mozconfig_enable default-toolkit=cairo-gtk2
+	use gtk3 && mozconfig_enable default-toolkit=cairo-gtk3
+
+	# Graphical backend
+	# WARNING: experimental; see Gentoo bug 571180
+	#mozconfig_use_with egl gl-provider=EGL
+
+	# Audio backends
+	mozconfig_use_enable alsa
+	mozconfig_use_enable pulseaudio
+	mozconfig_use_enable jack
+
+	# Desktop integration
+	mozconfig_use_enable dbus
+	mozconfig_use_enable gnome gconf
+	mozconfig_use_enable gio
+	mozconfig_use_enable wifi necko-wifi
+	mozconfig_use_enable startup-notification
+
+	# Debugging build options
+	mozconfig_use_enable debug debug tests
+	if use debug; then
+		mozconfig_var MOZ_DEBUG_SYMBOLS 1
+		mozconfig_enable debug-symbols=-gdwarf-2
+	else
+		mozconfig_var MOZ_DEBUG_SYMBOLS 0
+		mozconfig_disable debug-symbols
+	fi
+
+	# Optimization/performance USE-flags
 	mozconfig_enable strip install-strip
 	mozconfig_use_enable gold
 	mozconfig_use_enable pie
-	mozconfig_use_enable jemalloc
-	mozconfig_use_enable valgrind
+	mozconfig_use_enable jemalloc jemalloc replace-malloc
 	mozconfig_use_with threads pthreads
 
-	if use optimize; then
-		local O="-O2"
-		if use cpu_flags_x86_ssse3; then
-			O="${O} -mssse3 -mfpmath=both"
-		elif use cpu_flags_x86_sse && use cpu_flags_x86_sse2; then
-			O="${O} -msse2 -mfpmath=sse"
-		elif use cpu_flags_x86_sse; then
-			O="${0} -msse -mfpmath=sse"
+	if use custom-optimization; then
+		local optimization
+		# Set optimization level based on CFLAGS
+		if is-flag -O0; then
+			optimization="-O0"
+		elif is-flag -O4; then
+			optimization="-O4"
+		elif is-flag -O3; then
+			optimization="-O3"
+		elif is-flag -O1; then
+			optimization="-O1"
+		elif is-flag -Os; then
+			optimization="-Os"
+		else
+			# Gentoo's default optimization
+			optimization="-O2"
 		fi
-		mozconfig_enable "optimize=\"${O}\""
-		#filter-flags '-O*' '-msse2' '-mssse3' '-mfpmath=*'
+
+		use cpu_flags_x86_sse && optimization="${optimization} -msse"
+		use cpu_flags_x86_sse2 && optimization="${optimization} -msse2"
+		use cpu_flags_x86_ssse3 && optimization="${optimization} -mssse3"
+		if use cpu_flags_x86_sse || cpu_flags_x86_sse2; then
+			optimization="${optimization} -mfpmath=both"
+		fi
+
+		mozconfig_enable "optimize=\"${optimization}\""
 	else
-		mozconfig_disable optimize
+		# Enable Mozilla's default
+		mozconfig_enable optimize
 	fi
 
+	# Strip optimization so it does not end up in compile string
+	filter-flags '-O*' '-msse' '-msse2' '-mssse3' '-mfpmath=*'
+
+	# Strip over-aggressive CFLAGS
+	use custom-cflags || strip-flags
+
+	# Allow for a proper pgo build
 	if use pgo; then
 		mozconfig_export MOZ_PGO 1
 		mozconfig_var PROFILE_GEN_SCRIPT \
 			"'EXTRA_TEST_ARGS=10 \$(MAKE) -C \$(MOZ_OBJDIR) pgo-profile-run'"
 	fi
 
-	if use debug; then
-		mozconfig_var MOZ_DEBUG_SYMBOLS 1
-		mozconfig_enable debug-symbols=\"-gdwarf-2\"
-	fi
-	mozconfig_use_enable debug debug debug-symbols tests
-
-	mozconfig_use_enable alsa
-	mozconfig_use_enable pulseaudio
-	mozconfig_use_enable jack
-	mozconfig_use_enable dbus
-	mozconfig_use_enable gnome gconf
-	mozconfig_use_enable wifi necko-wifi
-	mozconfig_use_enable startup-notification
-
-	mozconfig_use_enable stylo
-	mozconfig_use_enable webrtc
-	mozconfig_use_enable gamepad
-	mozconfig_use_enable devtools
-
-	mozconfig_use_enable webspeech webspeech webspeechtestbackend synth-speechd synth-pico
-	mozconfig_use_enable accessibility
-
-	if use gtk2; then
-		mozconfig_enable default-toolkit=\"cairo-gtk2\"
+	# We need to append flags for gcc-6 support
+	if [[ "$(gcc-major-version)" -ge 6 ]]; then
+		append-cxxflags -fno-delete-null-pointer-checks -fno-lifetime-dse -fno-schedule-insns2
 	fi
 
-	if use gtk3; then
-		mozconfig_enable default-toolkit=\"cairo-gtk3\"
-	fi
+	# Add full relro support for hardened
+	use hardened && append-ldflags "-Wl,-z,relro,-z,now"
 
 	# Prevents portage from setting its own XARGS which messes with the
 	# Pale Moon build system checks:
@@ -243,57 +314,114 @@ src_configure() {
 
 	# Disable mach notifications, which also cause sandbox access violations:
 	mozconfig_export MOZ_NOSPAM 1
+
+	# Apply EXTRA_ECONF entries to .mozconfig
+	if [[ -n "${EXTRA_ECONF}" ]]; then
+		local ac
+		IFS=\! read -a ac <<<${EXTRA_ECONF// --/\!}
+		for opt in "${ac[@]}"; do
+			mozconfig "--${opt#--}"
+		done
+	fi
+
+	if [[ "$(gcc-major-version)" -lt 4 ]]; then
+		append-cxxflags -fno-stack-protector
+	fi
+
+	emake -f client.mk configure
 }
 
 src_compile() {
-	# Reset and cleanup environment variables used by GNOME/XDG
-	gnome2_environment_reset
+	if use pgo; then
+		addpredict /root
+		addpredict /etc/gconf
+		# Reset and cleanup environment variables used by GNOME/XDG
+		gnome2_environment_reset
 
-	python2 mach build || die
+		# Basilisk tries to use dri stuff when it's run, see bug 380283
+		shopt -s nullglob
+		cards=$(echo -n /dev/dri/card* | sed 's/ /:/g')
+		if test -z "${cards}"; then
+			cards=$(echo -n /dev/ati/card* /dev/nvidiactl* | sed 's/ /:/g')
+			if test -n "${cards}"; then
+				# Binary drivers seem to cause access violations anyway, so
+				# let's use indirect rendering so that the device files aren't
+				# touched at all. See bug 394715.
+				export LIBGL_ALWAYS_INDIRECT=1
+			fi
+		fi
+		shopt -u nullglob
+		[[ -n "${cards}" ]] && addpredict "${cards}"
+
+		emake -f client.mk profiledbuild || die "emake failed"
+	else
+		emake -f client.mk realbuild || die "emake failed"
+	fi
 }
 
 src_install() {
-	DESTDIR="${D}" python2 mach install || die
+	emake DESTDIR="${D}" install
 
-	local ver="$(< application/${PN}/config/version.txt)"
+	local mozhome="/usr/lib/${PN}-$(< application/${PN}/config/version.txt)"
+
+	# Use system-provided dictionaries
 	if use system-hunspell; then
-		rm -rf "${D}/usr/lib/${PN}-${ver}/dictionaries"
-		dosym /usr/share/hunspell "/usr/lib/${PN}-${ver}/dictionaries"
+		rm -rf "${D}${mozhome}/dictionaries"
+		dosym /usr/share/hunspell "${mozhome}/dictionaries"
 	fi
-
 	if use system-hyphen; then
-		rm -rf "${D}/usr/lib/${PN}-${ver}/hyphenation"
-		dosym /usr/share/hyphen "/usr/lib/${PN}-${ver}/hyphenation"
+		rm -rf "${D}${mozhome}/hyphenation"
+		dosym /usr/share/hyphen "${mozhome}/hyphenation"
 	fi
 
+	# Replace duplicate binary with symlink
 	# https://bugzilla.mozilla.org/show_bug.cgi?id=658850
-	rm -f "${D}/usr/lib/${PN}-${ver}/${PN}-bin"
-	dosym "${PN}" "/usr/lib/${PN}-${ver}/${PN}-bin"
+	rm -f "${D}${mozhome}/${PN}-bin"
+	dosym "${PN}" "${mozhome}/${PN}-bin"
 
-	local size sizes icon_path
+	local size sizes icon_path icon name
 	if use official-branding; then
-		icon_path="${S}/application/${PN}/branding/official"
 		sizes="16 22 24 32 64 48 256"
+		icon_path="${S}/application/${PN}/branding/official"
+		icon="${PN}"
+		name="Basilisk"
 	else
-		icon_path="${S}/application/${PN}/branding/unofficial"
 		sizes="16 32 48"
+		icon_path="${S}/application/${PN}/branding/unofficial"
+		icon="serpent"
+		name="Serpent"
 	fi
-	for size in $sizes; do
-	    insinto "/usr/share/icons/hicolor/${size}x${size}/apps"
-	    newins "${icon_path}/default${size}.png" "${PN}.png"
+
+	# Install icons and .desktop for menu entry
+	for size in ${sizes}; do
+		insinto "/usr/share/icons/hicolor/${size}x${size}/apps"
+		newins "${icon_path}/default${size}.png" "${icon}.png"
 	done
-
-	# The 128x128, 192x192, and 384x384 icons have different names:
+	# The 128x128, 192x192, and 384x384 icons have different names
 	insinto /usr/share/icons/hicolor/128x128/apps
-	newins "${icon_path}/mozicon128.png" "${PN}.png"
+	newins "${icon_path}/mozicon128.png" "${icon}.png"
 	insinto /usr/share/icons/hicolor/192x192/apps
-	newins "${icon_path}/content/about-logo.png" "${PN}.png"
+	newins "${icon_path}/content/about-logo.png" "${icon}.png"
 	insinto /usr/share/icons/hicolor/384x384/apps
-	newins "${icon_path}/content/about-logo@2x.png" "${PN}.png"
-
+	newins "${icon_path}/content/about-logo@2x.png" "${icon}.png"
 	# Install a 48x48 icon into /usr/share/pixmaps for legacy DEs
-	newicon "${icon_path}/default48.png" "${PN}.png"
+	newicon "${icon_path}/content/icon48.png" "${icon}.png"
 
-	# Install a menu entry
-	domenu "${FILESDIR}/${PN}.desktop"
+	newmenu "${S}/application/palemoon/branding/official/palemoon.desktop" "${icon}.desktop"
+	sed -i -e "s:Pale Moon:${name}:" -e "s:palemoon:basilisk:" \
+		-e "s@https://start.palemoon.org@about:newtab@" \
+		"${D}/usr/share/applications/${icon}.desktop" || die
+
+	# Required in order to use plugins and even run basilisk on hardened.
+	pax-mark m "${D}${mozhome}"/{basilisk,plugin-container}
+}
+
+pkg_postinst() {
+	# Update mimedb for the new .desktop file
+	xdg_desktop_database_update
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_icon_cache_update
 }
