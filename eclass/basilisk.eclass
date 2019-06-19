@@ -1,42 +1,3 @@
-inherit check-reqs gnome2-utils fdo-mime
-
-EXPORT_FUNCTIONS pkg_pretend pkg_preinst pkg_postinst pkg_postrm pkg_setup
-
-
-###
-# Package
-###
-
-mozilla_pkg_pretend() {
-	# Ensure that we have enough disk space to compile:
-	CHECKREQS_DISK_BUILD="${REQUIRED_BUILDSPACE}"
-	check-reqs_pkg_setup
-}
-
-mozilla_pkg_preinst() {
-	gnome2_icon_savelist
-}
-
-mozilla_pkg_postinst() {
-	# Update mimedb for the new .desktop file:
-	fdo-mime_desktop_database_update
-	gnome2_icon_cache_update
-}
-
-mozilla_pkg_postrm() {
-	gnome2_icon_cache_update
-}
-
-mozilla_pkg_setup() {
-	# Nested configure scripts in mozilla products generate unrecognized
-	# options false positives when toplevel configure passes downwards:
-	export QA_CONFIGURE_OPTIONS=".*"
-}
-
-###
-# Configuration
-###
-
 mozconfig_init() {
 	cat << EOF > "${S}/.mozconfig"
 ac_add_options --enable-application=browser
@@ -45,7 +6,7 @@ EOF
 }
 
 mozconfig() {
-	echo "ac_add_options --${1}-${2}" >> "${S}/.mozconfig"
+	echo "ac_add_options --${1}" >> "${S}/.mozconfig"
 }
 
 mozconfig_loop() {
@@ -53,7 +14,7 @@ mozconfig_loop() {
 	shift
 
 	for option in "${@}"; do
-		mozconfig "${prefix}" "${option}"
+		mozconfig "${prefix}-${option}"
 	done
 }
 
