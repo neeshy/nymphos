@@ -121,61 +121,61 @@ REQUIRED_USE="
 
 src_configure() {
 	# Basic configuration:
-	pozconfig_init
+	mozconfig_init
 
-	pozconfig_enable release
-	pozconfig_disable updater maintenance-service
+	mozconfig_enable release
+	mozconfig_disable updater maintenance-service
 
-	pozconfig_export MOZ_ADDON_SIGNING 1
-	pozconfig_export MOZ_REQUIRE_SIGNING 0
+	mozconfig_export MOZ_ADDON_SIGNING 1
+	mozconfig_export MOZ_REQUIRE_SIGNING 0
 
-	pozconfig_use_enable official-branding
+	mozconfig_use_enable official-branding
 	if use official-branding; then
-		pozconfig_export MOZILLA_OFFICIAL 1
+		mozconfig_export MOZILLA_OFFICIAL 1
 	fi
 
-	pozconfig_use_enable private-build
+	mozconfig_use_enable private-build
 
 	if use privacy; then
-		pozconfig_export MOZ_DATA_REPORTING 0
-		pozconfig_export MOZ_TELEMETRY_REPORTING 0
-		pozconfig_export MOZ_CRASHREPORTER 0
-		pozconfig_export MOZ_SERVICES_HEALTHREPORT 0
+		mozconfig_export MOZ_DATA_REPORTING 0
+		mozconfig_export MOZ_TELEMETRY_REPORTING 0
+		mozconfig_export MOZ_CRASHREPORTER 0
+		mozconfig_export MOZ_SERVICES_HEALTHREPORT 0
 
-		pozconfig_disable eme
-		pozconfig_disable parental-controls
-		pozconfig_disable crashreporter
-		pozconfig_disable safe-browsing
-		pozconfig_disable b2g-camera b2g-ril b2g-bt
-		pozconfig_disable mozril-geoloc
-		pozconfig_disable nfc
-		pozconfig_disable url-classifier
-		pozconfig_disable userinfo
+		mozconfig_disable eme
+		mozconfig_disable parental-controls
+		mozconfig_disable crashreporter
+		mozconfig_disable safe-browsing
+		mozconfig_disable b2g-camera b2g-ril b2g-bt
+		mozconfig_disable mozril-geoloc
+		mozconfig_disable nfc
+		mozconfig_disable url-classifier
+		mozconfig_disable userinfo
 	fi
 
 	# system-* flags
-	pozconfig_use_with system-nspr
-	pozconfig_use_with system-nss
-	pozconfig_use_with system-icu
-	pozconfig_use_with system-zlib
-	pozconfig_use_with system-bzip2 system-bz2
-	pozconfig_use_with system-libevent
-	pozconfig_use_with system-jpeg
-	pozconfig_use_with system-png
-	pozconfig_use_with system-libvpx
-	pozconfig_use_enable system-sqlite
-	pozconfig_use_enable system-cairo
-	pozconfig_use_enable system-pixman
-	pozconfig_use_enable system-ffi
-	pozconfig_use_enable system-hunspell
+	mozconfig_use_with system-nspr
+	mozconfig_use_with system-nss
+	mozconfig_use_with system-icu
+	mozconfig_use_with system-zlib
+	mozconfig_use_with system-bzip2 system-bz2
+	mozconfig_use_with system-libevent
+	mozconfig_use_with system-jpeg
+	mozconfig_use_with system-png
+	mozconfig_use_with system-libvpx
+	mozconfig_use_enable system-sqlite
+	mozconfig_use_enable system-cairo
+	mozconfig_use_enable system-pixman
+	mozconfig_use_enable system-ffi
+	mozconfig_use_enable system-hunspell
 
 	# Common flags
-	pozconfig_enable strip install-strip
-	pozconfig_use_enable gold
-	pozconfig_use_enable pie
-	pozconfig_use_enable jemalloc
-	pozconfig_use_enable valgrind
-	pozconfig_use_with threads pthreads
+	mozconfig_enable strip install-strip
+	mozconfig_use_enable gold
+	mozconfig_use_enable pie
+	mozconfig_use_enable jemalloc
+	mozconfig_use_enable valgrind
+	mozconfig_use_with threads pthreads
 
 	if use optimize; then
 		local O="-O2"
@@ -186,63 +186,63 @@ src_configure() {
 		elif use cpu_flags_x86_sse; then
 			O="${0} -msse -mfpmath=sse"
 		fi
-		pozconfig_enable "optimize=\"${O}\""
+		mozconfig_enable "optimize=\"${O}\""
 		#filter-flags '-O*' '-msse2' '-mssse3' '-mfpmath=*'
 	else
-		pozconfig_disable optimize
+		mozconfig_disable optimize
 	fi
 
 	if use pgo; then
-		pozconfig_export MOZ_PGO 1
-		pozconfig_var PROFILE_GEN_SCRIPT \
+		mozconfig_export MOZ_PGO 1
+		mozconfig_var PROFILE_GEN_SCRIPT \
 			"'EXTRA_TEST_ARGS=10 \$(MAKE) -C \$(MOZ_OBJDIR) pgo-profile-run'"
 	fi
 
 	if use debug; then
-		pozconfig_var MOZ_DEBUG_SYMBOLS 1
-		pozconfig_enable debug-symbols=\"-gdwarf-2\"
+		mozconfig_var MOZ_DEBUG_SYMBOLS 1
+		mozconfig_enable debug-symbols=\"-gdwarf-2\"
 	fi
-	pozconfig_use_enable debug debug debug-symbols tests
+	mozconfig_use_enable debug debug debug-symbols tests
 
-	pozconfig_use_enable alsa
-	pozconfig_use_enable pulseaudio
-	pozconfig_use_enable jack
-	pozconfig_use_enable dbus
-	pozconfig_use_enable gnome gconf
-	pozconfig_use_enable wifi necko-wifi
-	pozconfig_use_enable startup-notification
+	mozconfig_use_enable alsa
+	mozconfig_use_enable pulseaudio
+	mozconfig_use_enable jack
+	mozconfig_use_enable dbus
+	mozconfig_use_enable gnome gconf
+	mozconfig_use_enable wifi necko-wifi
+	mozconfig_use_enable startup-notification
 
-	pozconfig_use_enable stylo
-	pozconfig_use_enable webrtc
-	pozconfig_use_enable gamepad
-	pozconfig_use_enable devtools
+	mozconfig_use_enable stylo
+	mozconfig_use_enable webrtc
+	mozconfig_use_enable gamepad
+	mozconfig_use_enable devtools
 
-	pozconfig_use_enable webspeech webspeech webspeechtestbackend synth-speechd synth-pico
-	pozconfig_use_enable accessibility
+	mozconfig_use_enable webspeech webspeech webspeechtestbackend synth-speechd synth-pico
+	mozconfig_use_enable accessibility
 
 	if use gtk2; then
-		pozconfig_enable default-toolkit=\"cairo-gtk2\"
+		mozconfig_enable default-toolkit=\"cairo-gtk2\"
 	fi
 
 	if use gtk3; then
-		pozconfig_enable default-toolkit=\"cairo-gtk3\"
+		mozconfig_enable default-toolkit=\"cairo-gtk3\"
 	fi
 
 	# Prevents portage from setting its own XARGS which messes with the
 	# Pale Moon build system checks:
 	# See: https://gitweb.gentoo.org/proj/portage.git/tree/bin/isolated-functions.sh
-	pozconfig_var XARGS "$(which xargs)"
-	pozconfig_var PYTHON "$(which python2)"
-	pozconfig_var AUTOCONF "$(which autoconf-2.13)"
-	pozconfig_var MOZ_MAKE_FLAGS "\"${MAKEOPTS}\""
-	pozconfig_export MOZBUILD_STATE_PATH "${WORKDIR}/mach_state"
+	mozconfig_var XARGS "$(which xargs)"
+	mozconfig_var PYTHON "$(which python2)"
+	mozconfig_var AUTOCONF "$(which autoconf-2.13)"
+	mozconfig_var MOZ_MAKE_FLAGS "\"${MAKEOPTS}\""
+	mozconfig_export MOZBUILD_STATE_PATH "${WORKDIR}/mach_state"
 
 	# Shorten obj dir to limit some errors linked to the path size hitting
 	# a kernel limit (127 chars):
-	pozconfig_var MOZ_OBJDIR "@TOPSRCDIR@/o"
+	mozconfig_var MOZ_OBJDIR "@TOPSRCDIR@/o"
 
 	# Disable mach notifications, which also cause sandbox access violations:
-	pozconfig_export MOZ_NOSPAM 1
+	mozconfig_export MOZ_NOSPAM 1
 }
 
 src_compile() {

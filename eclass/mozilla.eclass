@@ -37,27 +37,27 @@ mozilla_pkg_setup() {
 # Configuration
 ###
 
-pozconfig_init() {
+mozconfig_init() {
 	cat << EOF > "${S}/.mozconfig"
 ac_add_options --enable-application=browser
 ac_add_options --prefix=/usr
 EOF
 }
 
-pozconfig() {
+mozconfig() {
 	echo "ac_add_options --${1}-${2}" >> "${S}/.mozconfig"
 }
 
-pozconfig_loop() {
+mozconfig_loop() {
 	local prefix="${1}"
 	shift
 
 	for option in "${@}"; do
-		pozconfig "${prefix}" "${option}"
+		mozconfig "${prefix}" "${option}"
 	done
 }
 
-pozconfig_usex() {
+mozconfig_usex() {
 	local prefix="$(usex "${3}" "${1}" "${2}")"
 	shift 2
 
@@ -65,37 +65,37 @@ pozconfig_usex() {
 		shift
 	fi
 
-	pozconfig_loop "${prefix}" "${@}"
+	mozconfig_loop "${prefix}" "${@}"
 }
 
-pozconfig_enable() {
-	pozconfig_loop enable "${@}"
+mozconfig_enable() {
+	mozconfig_loop enable "${@}"
 }
 
-pozconfig_disable() {
-	pozconfig_loop disable "${@}"
+mozconfig_disable() {
+	mozconfig_loop disable "${@}"
 }
 
-pozconfig_with() {
-	pozconfig_loop with "${@}"
+mozconfig_with() {
+	mozconfig_loop with "${@}"
 }
 
-pozconfig_without() {
-	pozconfig_loop without "${@}"
+mozconfig_without() {
+	mozconfig_loop without "${@}"
 }
 
-pozconfig_use_enable() {
-	pozconfig_usex {en,dis}able "${@}"
+mozconfig_use_enable() {
+	mozconfig_usex {en,dis}able "${@}"
 }
 
-pozconfig_use_with() {
-	pozconfig_usex with{,out} "${@}"
+mozconfig_use_with() {
+	mozconfig_usex with{,out} "${@}"
 }
 
-pozconfig_var() {
+mozconfig_var() {
 	echo "mk_add_options ${1}=${2}" >> "${S}/.mozconfig"
 }
 
-pozconfig_export() {
+mozconfig_export() {
 	echo "export ${1}=${2}" >> "${S}/.mozconfig"
 }
