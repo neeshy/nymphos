@@ -328,39 +328,26 @@ src_configure() {
 		append-cxxflags -fno-stack-protector
 	fi
 
-	emake -f client.mk configure
+	./mach configure || die
 }
 
 src_compile() {
 	if use pgo; then
-		addpredict /root
-		addpredict /etc/gconf
 		# Reset and cleanup environment variables used by GNOME/XDG
 		gnome2_environment_reset
 
-		# Basilisk tries to use dri stuff when it's run, see bug 380283
-		shopt -s nullglob
-		cards=$(echo -n /dev/dri/card* | sed 's/ /:/g')
-		if test -z "${cards}"; then
-			cards=$(echo -n /dev/ati/card* /dev/nvidiactl* | sed 's/ /:/g')
-			if test -n "${cards}"; then
-				# Binary drivers seem to cause access violations anyway, so
-				# let's use indirect rendering so that the device files aren't
-				# touched at all. See bug 394715.
-				export LIBGL_ALWAYS_INDIRECT=1
-			fi
-		fi
-		shopt -u nullglob
-		[[ -n "${cards}" ]] && addpredict "${cards}"
-
-		emake -f client.mk profiledbuild || die "emake failed"
-	else
-		emake -f client.mk realbuild || die "emake failed"
+		addpredict /root
+		addpredict /etc/gconf
 	fi
+
+	./mach build --verbose || die
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	# Pax mark xpcshell for hardened support, only used for startupcache creation.
+	pax-mark m "${S}/o/dist/bin/xpcshell"
+
+	DESTDIR="${D}" ./mach install || die
 
 	local mozhome="/usr/lib/${PN}-$(< application/${PN}/config/version.txt)"
 
