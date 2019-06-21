@@ -12,7 +12,7 @@ USE="${USE} minimal cli offensive"
 USE="${USE} jpeg gif png"
 USE="${USE} otr ipv6"
 USE="${USE} zsh-completion vim-syntax"
-USE="${USE} custom-cflags custom-optimization threads aio jit gold fftw lto graphite pgo numa jemalloc"
+USE="${USE} custom-cflags custom-optimization pic threads aio jit gold fftw lto graphite pgo numa jemalloc"
 USE="${USE} alsa"
 USE="${USE} xinerama egl dga dri dri3 vulkan opengl opencl glamor vaapi vdpau"
 
