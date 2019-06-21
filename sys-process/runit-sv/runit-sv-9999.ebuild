@@ -84,6 +84,7 @@ IUSE="
 	ebtables
 	edac-utils
 	elasticsearch
+	elogind
 	espeakup
 	etcd
 	eternalterminal
@@ -357,6 +358,7 @@ RDEPEND="
 	ebtables? ( net-firewall/ebtables )
 	edac-utils? ( sys-apps/edac-utils )
 	elasticsearch? ( app-misc/elasticsearch )
+	elogind? ( sys-auth/elogind )
 	espeakup? ( app-accessibility/espeakup )
 	etcd? ( dev-db/etcd )
 	eternalterminal? ( app-shells/eternalterminal )
@@ -652,6 +654,7 @@ earlyoom earlyoom/files/earlyoom
 ebtables ebtables/files/ebtables
 edac-utils edac-utils/files/edac
 elasticsearch elasticsearch/files/elasticsearch
+elogind elogind/files/elogind
 espeakup espeakup/files/espeakup
 etcd etcd/files/etcd
 eternalterminal EternalTerminal/files/etserver
