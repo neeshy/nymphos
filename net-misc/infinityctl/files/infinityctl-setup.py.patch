@@ -20,7 +20,7 @@
 +        'Environment :: Console',
 +        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
 +        'Intended Audience :: End Users/Desktop'],
-+    py_modules=['infinitychan', 'botmod', 'threadviewer', 'urls'],
++    py_modules=['infinitychan', 'infinityctl', 'botmod', 'threadviewer', 'urls'],
 +    scripts=['infinityctl', 'onionctl', 'finalchanctl', 'vichanctl'],
 +    install_requires=['urllib3'],
 +    python_requires='>=3.0'
