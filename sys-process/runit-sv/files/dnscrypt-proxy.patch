@@ -3,4 +3,4 @@
 @@ -1,2 +1,2 @@
  #!/bin/sh
 -exec dnscrypt-proxy -config /etc/dnscrypt-proxy.toml
-+exec dnscrypt-proxy -config /etc/dnscrypt-proxy/dnscrypt-proxy.toml
++exec chpst -u dnscrypt-proxy:dnscrypt-proxy dnscrypt-proxy -config /etc/dnscrypt-proxy/dnscrypt-proxy.toml
