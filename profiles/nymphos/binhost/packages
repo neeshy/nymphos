@@ -1069,6 +1069,7 @@ sys-fs/squashfs-tools
 sys-fs/zfs
 sys-fs/zfs-auto-snapshot
 sys-kernel/bliss-initramfs
+sys-kernel/calculate-sources
 sys-kernel/dkms
 sys-kernel/dracut
 sys-kernel/genkernel

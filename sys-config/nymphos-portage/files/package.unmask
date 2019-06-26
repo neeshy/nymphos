@@ -403,3 +403,5 @@ dev-java/msgpack::pentoo
 dev-java/sleep::pentoo
 
 dev-util/depot_tools::mva
+
+sys-kernel/calculate-sources::calculate
