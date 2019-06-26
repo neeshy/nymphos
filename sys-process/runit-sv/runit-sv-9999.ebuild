@@ -159,7 +159,6 @@ IUSE="
 	mpd
 	mpdscribble
 	munge
-	musl-nscd
 	mysql
 	nbd
 	ndppd
@@ -172,6 +171,7 @@ IUSE="
 	nix
 	node_exporter
 	nrpe
+	nscd
 	nsd
 	nss-pam-ldapd
 	ntp
@@ -438,7 +438,6 @@ RDEPEND="
 	mpd? ( media-sound/mpd )
 	mpdscribble? ( media-sound/mpdscribble )
 	munge? ( sys-auth/munge )
-	musl-nscd? ( sys-libs/musl-nscd )
 	mysql? ( dev-db/mysql )
 	nbd? ( sys-block/nbd )
 	ndppd? ( net-misc/ndppd )
@@ -451,6 +450,20 @@ RDEPEND="
 	nix? ( sys-apps/nix )
 	node_exporter? ( app-metrics/node_exporter )
 	nrpe? ( net-analyzer/nrpe )
+	nscd? (
+		elibc_glibc? (
+			|| (
+				sys-libs/glibc[nscd]
+				sys-apps/unscd
+			)
+		)
+		elibc_musl? (
+			|| (
+				sys-libs/musl-nscd
+				sys-apps/unscd
+			)
+		)
+	)
 	nsd? ( net-dns/nsd )
 	nss-pam-ldapd? ( sys-auth/nss-pam-ldapd )
 	ntp? ( net-misc/ntp )
@@ -763,7 +776,6 @@ mopidy mopidy/files/mopidy
 mpd mpd/files/mpd
 mpdscribble mpdscribble/files/mpdscribble
 munge munge/files/munge
-musl-nscd musl-nscd/files/nscd
 mysql mysql/files/mysqld
 nbd nbd/files/nbd
 ndppd ndppd/files/ndppd
@@ -781,6 +793,7 @@ ngircd ngircd/files/ngircd
 nix nix/files/nix-daemon
 node_exporter node_exporter/files/node_exporter
 nrpe nrpe/files/nrpe
+nscd nscd/files/nscd
 nsd nsd/files/nsd
 nss-pam-ldapd nss-pam-ldapd/files/nslcd
 ntp ntp/files/isc-ntpd
