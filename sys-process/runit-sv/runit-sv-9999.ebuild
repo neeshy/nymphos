@@ -159,6 +159,7 @@ IUSE="
 	monkeyd
 	moosefs
 	mopidy
+	mosquitto
 	mpd
 	mpdscribble
 	munge
@@ -443,6 +444,7 @@ RDEPEND="
 	monkeyd? ( www-servers/monkeyd )
 	moosefs? ( sys-cluster/moosefs )
 	mopidy? ( media-sound/mopidy )
+	mosquitto? ( app-misc/mosquitto )
 	mpd? ( media-sound/mpd )
 	mpdscribble? ( media-sound/mpdscribble )
 	munge? ( sys-auth/munge )
@@ -786,6 +788,7 @@ moosefs moosefs/files/mfschunkserver
 moosefs moosefs/files/mfsmaster
 moosefs moosefs/files/mfsmetalogger
 mopidy mopidy/files/mopidy
+mosquitto mosquitto/files/mosquitto
 mpd mpd/files/mpd
 mpdscribble mpdscribble/files/mpdscribble
 munge munge/files/munge
