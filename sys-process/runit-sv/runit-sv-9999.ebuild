@@ -30,6 +30,7 @@ IUSE="
 	bacula
 	barrier
 	beanstalkd
+	bftpd
 	bind
 	binfmt
 	bird
@@ -151,6 +152,8 @@ IUSE="
 	metalog
 	minidlna
 	minio
+	minissdpd
+	miniupnpd
 	monero
 	monit
 	monkeyd
@@ -217,6 +220,7 @@ IUSE="
 	rtkit
 	salt
 	samba
+	scron
 	sddm
 	shadowsocks-libev
 	shorewall
@@ -277,6 +281,7 @@ IUSE="
 	xen
 	xinetd
 	xl2tpd
+	yggdrasil
 	zabbix
 	zerotier
 	znc
@@ -304,6 +309,7 @@ RDEPEND="
 	bacula? ( app-backup/bacula )
 	barrier? ( x11-misc/barrier )
 	beanstalkd? ( app-misc/beanstalkd )
+	bftpd? ( net-ftp/bftpd )
 	bind? ( net-dns/bind )
 	binfmt? ( sys-apps/binfmt-support )
 	bird? ( net-misc/bird )
@@ -430,6 +436,8 @@ RDEPEND="
 	metalog? ( app-admin/metalog )
 	minidlna? ( net-misc/minidlna )
 	minio? ( net-fs/minio )
+	minissdpd? ( net-misc/minissdpd )
+	miniupnpd? ( net-misc/miniupnpd )
 	monero? ( net-p2p/monero )
 	monit? ( app-admin/monit )
 	monkeyd? ( www-servers/monkeyd )
@@ -509,6 +517,7 @@ RDEPEND="
 	rtkit? ( sys-auth/rtkit )
 	salt? ( app-admin/salt )
 	samba? ( net-fs/samba )
+	scron? ( sys-process/scron )
 	sddm? ( x11-misc/sddm )
 	shadowsocks-libev? ( net-proxy/shadowsocks-libev )
 	shorewall? ( net-firewall/shorewall )
@@ -569,6 +578,7 @@ RDEPEND="
 	xen? ( app-emulation/xen )
 	xinetd? ( sys-apps/xinetd )
 	xl2tpd? ( net-dialup/xl2tpd )
+	yggdrasil? ( net-p2p/yggdrasil-go )
 	zabbix? ( net-analyzer/zabbix )
 	zerotier? ( net-misc/zerotier )
 	znc? ( net-irc/znc )
@@ -603,6 +613,7 @@ bacula bacula-common/files/bacula-sd
 barrier barrier/files/barrierc
 barrier barrier/files/barriers
 beanstalkd beanstalkd/files/beanstalkd
+bftpd bftpd/files/bftpd
 bind bind/files/named
 binfmt binfmt-support/files/binfmt-support
 bird bird/files/bird
@@ -766,6 +777,8 @@ mdadm mdadm/files/mdadm
 metalog metalog/files/metalog
 minidlna minidlna/files/minidlnad
 minio minio/files/minio
+minissdpd minissdpd/files/minissdpd
+miniupnpd miniupnpd/files/miniupnpd
 monero monero/files/monerod
 monit monit/files/monit
 monkeyd monkey/files/monkey
@@ -849,6 +862,7 @@ salt salt/files/salt-minion
 salt salt/files/salt-syndic
 samba samba/files/nmbd
 samba samba/files/smbd
+scron scron/files/scron
 sddm sddm/files/sddm
 shadowsocks-libev shadowsocks-libev/files/shadowsocks-libev-client
 shadowsocks-libev shadowsocks-libev/files/shadowsocks-libev-server
@@ -916,6 +930,7 @@ xen xen/files/xenconsoled
 xen xen/files/xenstored
 xinetd xinetd/files/xinetd
 xl2tpd xl2tpd/files/xl2tpd
+yggdrasil yggdrasil/files/yggdrasil
 zabbix zabbix/files/zabbix-agent
 zabbix zabbix/files/zabbix-proxy
 zabbix zabbix/files/zabbix-server
