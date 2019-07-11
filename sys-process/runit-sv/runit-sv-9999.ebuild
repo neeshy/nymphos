@@ -132,6 +132,8 @@ IUSE="
 	kea
 	keepalived
 	kerberos
+	knot
+	knot-resolver
 	kubernetes
 	laptop
 	libratbag
@@ -412,6 +414,8 @@ RDEPEND="
 	kea? ( net-misc/kea )
 	keepalived? ( sys-cluster/keepalived )
 	kerberos? ( app-crypt/mit-krb5 )
+	knot? ( net-dns/knot )
+	knot-resolver? ( net-dns/knot-resolver )
 	kubernetes? (
 		sys-cluster/kube-apiserver
 		sys-cluster/kube-controller-manager
@@ -752,6 +756,8 @@ kea kea/files/kea-dhcp-ddns
 keepalived keepalived/files/keepalived
 kerberos mit-krb5/files/kadmind
 kerberos mit-krb5/files/krb5kdc
+knot knot/files/knotd
+knot-resolver knot-resolver/files/kresd
 kubernetes kubernetes/files/kube-apiserver
 kubernetes kubernetes/files/kube-controller-manager
 kubernetes kubernetes/files/kubelet
