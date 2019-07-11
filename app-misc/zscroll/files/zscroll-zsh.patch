@@ -1,6 +1,5 @@
-diff -Naur zscroll/setup.py zscroll/setup.py
---- zscroll/setup.py	2019-03-23 03:31:20.025628537 +0000
-+++ zscroll/setup.py	2019-03-23 03:29:25.618617958 +0000
+--- zscroll/setup.py
++++ zscroll/setup.py
 @@ -10,7 +10,5 @@
        license='Simplified BSD',
        # to the bin
