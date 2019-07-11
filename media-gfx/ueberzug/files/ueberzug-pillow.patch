@@ -1,5 +1,3 @@
-diff --git a/setup.py b/setup.py
-index 81d036b..659fc33 100755
 --- a/setup.py
 +++ b/setup.py
 @@ -94,7 +94,7 @@ setuptools.setup(
