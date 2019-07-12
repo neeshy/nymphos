@@ -4,7 +4,9 @@ dev-libs/libmesode::optmzr # profanity
 dev-qt/qtnetwork::libressl
 net-libs/nodejs::libressl
 app-crypt/qca::libressl
-dev-perl/Net-SSLeay::libressl
+net-libs/serf::libressl
+sys-apps/kmod::libressl
+x11-apps/igt-gpu-tools::libressl
 
 games-emulation/pcsx2::cloveros-overlay # pcsx2-9999::gentoo with added "src_configure() { local mycmakeargs=( -DDISABLE_ADVANCE_SIMD=ON ) }"
 app-emulation/winetricks::cloveros-overlay # winetricks-9999::gentoo with removed RDEPEND="x11-misc/xdg-utils"

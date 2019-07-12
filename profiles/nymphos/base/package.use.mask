@@ -1,0 +1,2 @@
+dev-lang/rust -system-llvm
+net-libs/libvncserver -libressl

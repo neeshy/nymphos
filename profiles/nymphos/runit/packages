@@ -1,0 +1,3 @@
+-*virtual/service-manager
+*sys-process/runit
+*sys-apps/runit-rc
