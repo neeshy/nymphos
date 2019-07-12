@@ -1,0 +1,3 @@
+FEATURES="${FEATURES} buildpkg"
+BINPKG_COMPRESS="xz"
+XZ_OPT="--x86 --lzma2=preset=9e,dict=256MB,nice=273,depth=200,lc=4"

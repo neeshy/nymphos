@@ -16,6 +16,7 @@ app-admin/pass
 app-admin/passwordsafe
 app-admin/sshguard
 app-admin/sudo
+app-admin/sv-helper
 app-admin/sysklogd
 app-admin/syslog-ng
 app-admin/testdisk
@@ -1046,7 +1047,7 @@ sys-kernel/bliss-initramfs
 sys-kernel/dkms
 sys-kernel/dracut
 sys-kernel/genkernel
-sys-kernel/gentoo-sources:5.1.18
+sys-kernel/gentoo-sources
 sys-kernel/linux-firmware
 sys-power/acpi_call
 sys-power/acpitool
@@ -1060,6 +1061,8 @@ sys-process/htop
 sys-process/iotop
 sys-process/lsof
 sys-process/parallel
+sys-process/runit
+sys-process/runit-sv
 virtual/wine
 www-apps/otrs
 www-apps/trac

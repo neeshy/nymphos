@@ -44,18 +44,16 @@
 
 net-libs/nodejs::gentoo # libressl
 dev-qt/qtnetwork::gentoo # libressl
+dev-perl/Net-SSLeay::gentoo # libressl
+app-crypt/qca::gentoo # libressl
+net-libs/serf::gentoo # libressl
+sys-apps/kmod::gentoo # libressl
+x11-apps/igt-gpu-tools::gentoo # libressl
 >media-gfx/argyllcms-1.9.2 # libressl
 >net-libs/libvncserver-0.9.11-r1
 
-x11-libs/vte:2.91::gentoo # ::eroen, termite
 virtual/wine::gentoo # bobwya
 app-emulation/wine-staging::gentoo # bobwya
 
->dev-lang/tk-8.6 # fixes build
->dev-lang/tcl-8.6 # fixes build
-
->x11-misc/xdg-utils-1.1.1-r1 # dbus dependency
-
->media-sound/supercollider-3.9.3-r1 # boost
->media-video/shotcut-19.01.24 # mlt/flowblade
->x11-wm/stumpwm-1.0.1_rc # doesn't build
+x11-libs/vte:2.91::gentoo # ::eroen, termite
+net-misc/megatools::gentoo # jm-overlay
