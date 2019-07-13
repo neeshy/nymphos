@@ -1,3 +1,5 @@
+*sys-config/nymphos-portage
+
 app-admin/clsync
 app-admin/conky
 app-admin/consul
