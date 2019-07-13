@@ -166,7 +166,6 @@ www-servers/onionshare::torbrowser
 app-misc/mat2::torbrowser
 net-misc/onioncircuits::torbrowser
 
-app-shells/fzf::rasdark
 www-client/palemoon::rasdark
 x11-drivers/xf86-video-sis671::rasdark
 
@@ -402,6 +401,7 @@ dev-java/jgraphx::pentoo
 dev-java/msgpack::pentoo
 dev-java/sleep::pentoo
 
+app-shells/fzf::mva
 dev-util/depot_tools::mva
 
 sys-kernel/calculate-sources::calculate
