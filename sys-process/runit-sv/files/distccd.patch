@@ -1,6 +1,10 @@
 --- a/distcc/files/distccd/run
 +++ b/distcc/files/distccd/run
-@@ -4,7 +4,7 @@
+@@ -1,10 +1,10 @@
+ #!/bin/sh
+ PROG="distccd"
+-USER="nobody"
++USER="distcc"
  OPTIONS="--no-detach"
  OPTIONS="$OPTIONS --daemon"
  OPTIONS="$OPTIONS --user $USER"
