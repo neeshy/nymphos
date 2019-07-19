@@ -390,6 +390,7 @@ www-client/basilisk::nymphos
 x11-misc/i3lock::nymphos
 x11-misc/xbanish::nymphos
 x11-misc/xdg-utils::nymphos
+games-rpg/runescape-launcher::nymphos
 
 app-shells/zsh-history-substring-search::ROKO__
 
