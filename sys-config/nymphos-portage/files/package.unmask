@@ -363,8 +363,6 @@ app-emulation/dxvk::nymphos
 app-crypt/johntheripper-jumbo::nymphos
 app-misc/lf::nymphos
 app-misc/zscroll::nymphos
-app-office/libreoffice::nymphos
-app-office/libreoffice-l10n::nymphos
 app-shells/zsh-autosuggestions::nymphos
 app-text/mkbold-mkitalic::nymphos
 dev-go/go-runewidth::nymphos
