@@ -6,6 +6,7 @@
 */*::brother-overlay
 */*::calculate
 */*::cloveros-overlay
+*/*::chaoslab
 */*::deadbeef-overlay
 */*::dotnet
 */*::erayd
