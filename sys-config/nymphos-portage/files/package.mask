@@ -66,8 +66,6 @@ x11-libs/gtk+:3::gentoo # mv
 media-fonts/source-pro::gentoo # 4nykey
 media-fonts/source-han-sans::gentoo # 4nykey
 
-app-office/libreoffice::gentoo # nymphos
-app-office/libreoffice-l10n::gentoo # nymphos
 dev-ruby/rex-sslscan::gentoo # nymphos
 mail-client/alpine::gentoo # nymphos
 media-fonts/unifont::gentoo # nymphos
