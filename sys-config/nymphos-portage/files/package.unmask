@@ -372,6 +372,7 @@ dev-go/termbox-go::nymphos
 dev-ruby/rex-sslscan::nymphos
 games-arcade/stepmania::nymphos
 mail-client/alpine::nymphos
+mail-client/claws-mail::nymphos
 media-fonts/unifont::nymphos
 media-gfx/ueberzug::nymphos
 media-sound/mpvc::nymphos
