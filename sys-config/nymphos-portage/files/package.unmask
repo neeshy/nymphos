@@ -367,8 +367,6 @@ app-shells/zsh-autosuggestions::nymphos
 app-text/mkbold-mkitalic::nymphos
 dev-go/go-runewidth::nymphos
 dev-go/termbox-go::nymphos
-dev-ruby/metasploit-payloads::nymphos
-dev-ruby/metasploit_payloads-mettle::nymphos
 dev-ruby/rex-sslscan::nymphos
 games-arcade/stepmania::nymphos
 mail-client/alpine::nymphos
