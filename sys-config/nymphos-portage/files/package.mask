@@ -69,6 +69,7 @@ media-fonts/source-han-sans::gentoo # 4nykey
 
 dev-ruby/rex-sslscan::gentoo # nymphos
 mail-client/alpine::gentoo # nymphos
+mail-client/claws-mail::gentoo # nymphos
 media-fonts/unifont::gentoo # nymphos
 media-sound/xwax::gentoo # nymphos
 net-ftp/vsftpd::gentoo # nymphos
