@@ -386,6 +386,7 @@ sys-process/runit::nymphos
 sys-process/runit-sv::nymphos
 www-apps/cgit::nymphos
 www-client/basilisk::nymphos
+www-client/ungoogled-chromium::nymphos
 x11-misc/i3lock::nymphos
 x11-misc/xbanish::nymphos
 x11-misc/xdg-utils::nymphos
@@ -406,5 +407,3 @@ app-shells/fzf::mva
 dev-util/depot_tools::mva
 
 sys-kernel/calculate-sources::calculate
-
-www-client/ungoogled-chromium::chaoslab
