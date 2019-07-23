@@ -19,6 +19,10 @@ USE="${USE} xinerama egl dga dri dri3 vulkan opengl opencl glamor vaapi vdpau"
 CPU_FLAGS_X86="mmx mmxext sse sse2 sse3 ssse3"
 L10N="ach af am an ar as ast az be bg bn bn-BD bn-IN bo br brx bs ca cak ca-valencia cs cy da de de-1901 de-CH de-DE dgo dsb dz el en en-AU en-GB en-US en-ZA eo es es-AR es-CL es-ES es-MX et eu fa ff fi fo fr fy ga gd gl gn gu gug he hi hr hsb hu hy ia id is it ja ka kab kk km kmr-Latn kn ko kok ks ku ky la lb lij lo lt lv mai mi mk ml mn mni mr ms my nan nb ne nl nn no nr nso oc om or pa pl pt pt-BR pt-PT rm ro ru rw sa sat sco sd si sid sk sl so son sq sr sr-Latn ss st sv sw sw-TZ syc ta te tg th tk tl tn tr ts tt ug uk ur uz ve vi xh zh zh-CN zh-HK zh-TW zu"
 
+PYTHON_TARGETS="-python3_6 python2_7 python3_7"
+PYTHON_SINGLE_TARGET="-python3_6 python3_7"
+RUBY_TARGETS="-ruby24 -ruby25 ruby26"
+
 ACCEPT_KEYWORDS="${ACCEPT_KEYWORDS} ~amd64"
 ACCEPT_LICENSE="*"
 
