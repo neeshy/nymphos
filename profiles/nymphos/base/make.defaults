@@ -26,5 +26,7 @@ RUBY_TARGETS="-ruby24 -ruby25 ruby26"
 ACCEPT_KEYWORDS="${ACCEPT_KEYWORDS} ~amd64"
 ACCEPT_LICENSE="*"
 
+INSTALL_MASK="/etc/systemd /lib/systemd /usr/lib/systemd"
+
 PORTAGE_NICENESS="19"
 EMERGE_DEFAULT_OPTS="-av --keep-going=y --jobs=4"
