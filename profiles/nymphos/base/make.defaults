@@ -29,4 +29,4 @@ ACCEPT_LICENSE="*"
 INSTALL_MASK="/etc/systemd /lib/systemd /usr/lib/systemd"
 
 PORTAGE_NICENESS="19"
-EMERGE_DEFAULT_OPTS="-av --keep-going=y --jobs=4"
+EMERGE_DEFAULT_OPTS="--verbose=y --keep-going=y --jobs=4"
