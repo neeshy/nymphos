@@ -35,6 +35,7 @@ app-emulation/wine-proton::lanodanOverlay
 gui-wm/waymonad::lanodanOverlay
 
 x11-libs/gtk+:3::mv
+app-shells/zsh-autosuggestions::mv
 app-shells/fast-syntax-highlighting::mv
 app-portage/portage-bashrc-mv::mv
 app-shells/runtitle::mv
@@ -365,7 +366,6 @@ app-emulation/dxvk::nymphos
 app-crypt/johntheripper-jumbo::nymphos
 app-misc/lf::nymphos
 app-misc/zscroll::nymphos
-app-shells/zsh-autosuggestions::nymphos
 app-text/mkbold-mkitalic::nymphos
 dev-go/go-runewidth::nymphos
 dev-go/termbox-go::nymphos
