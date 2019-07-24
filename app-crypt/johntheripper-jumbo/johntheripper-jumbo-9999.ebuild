@@ -15,10 +15,10 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	KEYWORDS=""
 else
-	JUMBO="Jumbo-1"
+	JUMBO="jumbo-1"
 	MY_PV="${PV}-${JUMBO}"
-	MY_P="${MY_PN}-${MY_PV}"
-	SRC_URI="https://github.com/magnumripper/${MY_PN}/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
+	MY_P="john-${MY_PV}"
+	SRC_URI="https://www.openwall.com/john/k/${MY_P}.tar.xz"
 	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos"
 	S="${WORKDIR}/${MY_P}"
 fi
@@ -26,9 +26,10 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 #removed rexgen and commoncrypto
-IUSE="custom-cflags kerberos mpi opencl openmp pcap"
+IUSE="custom-cflags kerberos libressl mpi opencl openmp pcap"
 
-DEPEND="
+DEPEND="!libressl? ( >=dev-libs/openssl-1.0.1:0 )
+	libressl? ( dev-libs/libressl:0 )
 	mpi? ( virtual/mpi )
 	opencl? ( virtual/opencl )
 	kerberos? ( virtual/krb5 )
