@@ -104,6 +104,7 @@ IUSE="
 	gitea
 	gitlab-runner
 	glusterfs
+	gnunet
 	gogs
 	gpm
 	gpsd
@@ -386,6 +387,7 @@ RDEPEND="
 	gitea? ( www-apps/gitea )
 	gitlab-runner? ( dev-util/gitlab-runner )
 	glusterfs? ( sys-cluster/glusterfs )
+	gnunet? ( net-p2p/gnunet )
 	gogs? ( www-apps/gogs )
 	gpm? ( sys-libs/gpm )
 	gpsd? ( sci-geosciences/gpsd )
@@ -724,6 +726,7 @@ gitea gitea/files/gitea
 gitlab-runner gitlab-runner/files/gitlab-runner
 glusterfs glusterfs/files/glusterd
 glusterfs glusterfs/files/glusterfsd
+gnunet gnunet/files/gnunet
 gogs gogs/files/gogs
 gpm gpm/files/gpm
 gpsd gpsd/files/gpsd
