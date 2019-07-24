@@ -169,7 +169,8 @@ www-servers/onionshare::torbrowser
 app-misc/mat2::torbrowser
 net-misc/onioncircuits::torbrowser
 
-www-client/palemoon::rasdark
+www-client/palemoon::palemoon
+
 x11-drivers/xf86-video-sis671::rasdark
 
 x11-terms/termite::eroen
