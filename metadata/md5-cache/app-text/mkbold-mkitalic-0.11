@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Make X11 BDF fonts bold and/or italic
+EAPI=7
+HOMEPAGE=http://hp.vector.co.jp/authors/VA013651/freeSoftware/mkbold-mkitalic.html
+KEYWORDS=amd64 x86
+LICENSE=XOrg
+SLOT=0
+SRC_URI=http://hp.vector.co.jp/authors/VA013651/lib/mkbold-mkitalic-0.11.tar.bz2
+_md5_=a71d57123687f90807b23d969cb2f13e
