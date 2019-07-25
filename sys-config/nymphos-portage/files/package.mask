@@ -30,6 +30,7 @@
 */*::nymphos
 */*::optmzr
 */*::palemoon
+*/*::pg_overlay
 */*::pixlra
 */*::pentoo
 */*::poly-c
