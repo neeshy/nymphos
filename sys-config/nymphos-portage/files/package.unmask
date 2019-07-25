@@ -405,6 +405,7 @@ dev-java/jgraphx::pentoo
 dev-java/msgpack::pentoo
 dev-java/sleep::pentoo
 
+media-fonts/iosevka::mva
 app-shells/fzf::mva
 dev-util/depot_tools::mva
 
