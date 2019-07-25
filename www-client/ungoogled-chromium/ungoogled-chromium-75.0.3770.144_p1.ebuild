@@ -5,13 +5,15 @@ EAPI=7
 
 PYTHON_COMPAT=( python{2_7,3_{5,6,7}} )
 
-CHROMIUM_LANGS="am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu he
-	hi hr hu id	it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr
-	sv sw ta te th tr uk vi zh-CN zh-TW"
+CHROMIUM_LANGS="
+	am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu he hi hr hu id
+	it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv sw ta te
+	th tr uk vi zh-CN zh-TW
+"
 
-inherit check-reqs chromium-2 desktop flag-o-matic multilib ninja-utils pax-utils portability python-any-r1 readme.gentoo-r1 toolchain-funcs xdg-utils
+inherit check-reqs chromium-2 desktop flag-o-matic ninja-utils pax-utils python-r1 readme.gentoo-r1 toolchain-funcs xdg-utils
 
-UGC_PV="${PV/_p/-}"
+UGC_PV="75.0.3770.142-1"
 UGC_P="${PN}-${UGC_PV}"
 UGC_WD="${WORKDIR}/${UGC_P}"
 
@@ -20,16 +22,14 @@ HOMEPAGE="https://www.chromium.org/Home https://github.com/Eloston/ungoogled-chr
 SRC_URI="
 	https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV/_*}.tar.xz
 	https://github.com/Eloston/${PN}/archive/${UGC_PV}.tar.gz -> ${UGC_P}.tar.gz
-	https://dev.gentoo.org/~floppym/dist/chromium-webrtc-includes-r1.patch.xz
 "
 
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="
-	+atk +cfi closure-compile component-build cups custom-cflags +dbus gnome
-	gnome-keyring gold +hangouts jumbo-build kerberos libcxx +lld
-	neon new-tcmalloc optimize-thinlto optimize-webui pic +pdf +proprietary-codecs
+	+cfi closure-compile cups custom-cflags gnome gold jumbo-build kerberos libcxx
+	+lld new-tcmalloc optimize-thinlto optimize-webui +pdf +proprietary-codecs
 	pulseaudio selinux +suid +system-ffmpeg system-harfbuzz +system-icu
 	+system-jsoncpp +system-libevent +system-libvpx +system-openh264
 	+system-openjpeg +tcmalloc +thinlto vaapi widevine
@@ -44,8 +44,6 @@ REQUIRED_USE="
 	optimize-thinlto? ( thinlto )
 	system-openjpeg? ( pdf )
 	x86? ( !lld !thinlto !widevine )
-	atk? ( dbus )
-	component-build? ( !suid )
 "
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
@@ -53,39 +51,25 @@ RESTRICT="
 "
 
 CDEPEND="
-	atk? ( >=app-accessibility/at-spi2-atk-2.26:2 )
-	app-arch/bzip2:=
-	cups? ( >=net-print/cups-1.3.11:= )
-	atk? ( >=dev-libs/atk-2.26 )
+	>=app-accessibility/at-spi2-atk-2.26:2
+	app-arch/snappy:=
+	>=dev-libs/atk-2.26
 	dev-libs/expat:=
 	dev-libs/glib:2
-	system-icu? ( >=dev-libs/icu-64:= )
 	>=dev-libs/libxml2-2.9.4-r3:=[icu]
 	dev-libs/libxslt:=
 	dev-libs/nspr:=
 	>=dev-libs/nss-3.26:=
-	>=dev-libs/re2-0.2016.11.01:=
-	gnome-keyring? ( >=gnome-base/libgnome-keyring-3.12:= )
+	>=dev-libs/re2-0.2018.10.01:=
 	>=media-libs/alsa-lib-1.0.19:=
+	media-libs/flac:=
 	media-libs/fontconfig:=
-	media-libs/freetype:=
-	>=media-libs/harfbuzz-2.2.0:0=[icu(-)]
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:=
-	system-libvpx? ( media-libs/libvpx:=[postproc,svc] )
-	>=media-libs/openh264-1.6.0:=
-	pulseaudio? ( media-sound/pulseaudio:= )
-	system-ffmpeg? (
-		>=media-video/ffmpeg-4:=
-		|| (
-			media-video/ffmpeg[-samba]
-			>=net-fs/samba-4.5.10-r1[-debug(-)]
-		)
-		!=net-fs/samba-4.5.12-r0
-		media-libs/opus:=
-	)
-	dbus? ( sys-apps/dbus:= )
+	>=media-libs/libwebp-0.4.0:=
+	sys-apps/dbus:=
 	sys-apps/pciutils:=
+	sys-libs/zlib:=[minizip]
 	virtual/udev
 	x11-libs/cairo:=
 	x11-libs/gdk-pixbuf:2
@@ -102,20 +86,37 @@ CDEPEND="
 	x11-libs/libXScrnSaver:=
 	x11-libs/libXtst:=
 	x11-libs/pango:=
-	app-arch/snappy:=
-	media-libs/flac:=
-	>=media-libs/libwebp-0.4.0:=
-	sys-libs/zlib:=[minizip]
+	closure-compile? ( virtual/jre:* )
+	cups? ( >=net-print/cups-1.3.11:= )
 	kerberos? ( virtual/krb5 )
+	pdf? ( media-libs/lcms:= )
+	pulseaudio? ( media-sound/pulseaudio:= )
+	system-ffmpeg? (
+		>=media-video/ffmpeg-3.4.5:=
+		|| (
+			media-video/ffmpeg[-samba]
+			>=net-fs/samba-4.5.16[-debug(-)]
+		)
+		media-libs/opus:=
+	)
+	system-harfbuzz? (
+		media-libs/freetype:=
+		>=media-libs/harfbuzz-2.2.0:0=[icu(-)]
+	)
+	system-icu? ( >=dev-libs/icu-64:= )
+	system-jsoncpp? ( dev-libs/jsoncpp )
+	system-libevent? ( dev-libs/libevent )
+	system-libvpx? ( >=media-libs/libvpx-1.7.0:=[postproc,svc] )
+	system-openh264? ( >=media-libs/openh264-1.6.0:= )
+	system-openjpeg? ( media-libs/openjpeg:2= )
+	vaapi? ( x11-libs/libva:= )
 "
 RDEPEND="${CDEPEND}
 	virtual/opengl
 	virtual/ttf-fonts
 	x11-misc/xdg-utils
-	tcmalloc ( !<x11-drivers/nvidia-drivers-331.20 )
 	selinux? ( sec-policy/selinux-chromium )
 	widevine? ( !x86? ( www-plugins/chrome-binary-plugins[widevine(-)] ) )
-	!<www-plugins/chrome-binary-plugins-57
 	!www-client/chromium
 	!www-client/ungoogled-chromium-bin
 "
@@ -127,23 +128,23 @@ BDEPEND="
 	>=app-arch/gzip-1.7
 	dev-lang/perl
 	dev-lang/yasm
-	dev-util/gn
+	<dev-util/gn-0.1583
 	>=dev-util/gperf-3.0.3
 	>=dev-util/ninja-1.7.2
 	dev-vcs/git
 	sys-apps/hwids[usb(+)]
 	>=sys-devel/bison-2.4.3
-	>=sys-devel/clang-7.0.0
+	>=sys-devel/clang-8.0.0
 	sys-devel/flex
-	>=sys-devel/llvm-7.0.0[gold?]
+	>=sys-devel/llvm-8.0.0[gold?]
 	virtual/libusb:1
 	virtual/pkgconfig
-	cfi? ( >=sys-devel/clang-runtime-7.0.0[sanitize] )
+	cfi? ( >=sys-devel/clang-runtime-8.0.0[sanitize] )
 	libcxx? (
 		sys-libs/libcxx
 		sys-libs/libcxxabi
 	)
-	lld? ( >=sys-devel/lld-7.0.0 )
+	lld? ( >=sys-devel/lld-8.0.0 )
 	optimize-webui? ( >=net-libs/nodejs-7.6.0[inspector] )
 "
 
@@ -170,16 +171,27 @@ are not displayed properly:
 To fix broken icons on the Downloads page, you should install an icon
 theme that covers the appropriate MIME types, and configure this as your
 GTK+ icon theme.
+
+For native file dialogs in KDE, install kde-apps/kdialog.
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-optional-atk-r1.patch"
-	"${FILESDIR}/${PN}-optional-dbus-r5.patch"
 	"${FILESDIR}/${PN}-compiler-r5.patch"
-	"${FILESDIR}/${PN}-gold-r2.patch"
+	"${FILESDIR}/${PN}-disable-third-party-lzma-sdk-r0.patch"
+	"${FILESDIR}/${PN}-gold-r3.patch"
+	"${FILESDIR}/${PN}-empty-array-r0.patch"
+	"${FILESDIR}/${PN}-fix-atomic-r0.patch"
+	# Gentoo patches
+	"${FILESDIR}/${PN}-fix-gn-gen.patch"
+	"${FILESDIR}/${PN}-llvm8.patch"
+	"${FILESDIR}/${PN}-lss.patch"
+	"${FILESDIR}/${PN}-unique_ptr.patch"
 	# Extra patches taken from openSUSE
 	"${FILESDIR}/${PN}-libusb-interrupt-event-handler-r0.patch"
 	"${FILESDIR}/${PN}-system-libusb-r0.patch"
+	"${FILESDIR}/${PN}-system-nspr-r0.patch"
+	"${FILESDIR}/${PN}-system-openjpeg-r0.patch"
+	"${FILESDIR}/${PN}-system-fix-shim-headers-r0.patch"
 )
 
 S="${WORKDIR}/chromium-${PV/_*}"
@@ -215,9 +227,9 @@ src_prepare() {
 
 	default
 
-	pushd third_party/webrtc >/dev/null || die
-	eapply "${WORKDIR}"/chromium-webrtc-includes-r1.patch
-	popd >/dev/null || die
+	if use "system-jsoncpp" ; then
+		eapply "${FILESDIR}/${PN}-system-jsoncpp-r0.patch" || die
+	fi
 
 	if use optimize-webui; then
 		mkdir -p third_party/node/linux/node-linux-x64/bin || die
@@ -230,91 +242,16 @@ src_prepare() {
 	cp -a "${EPREFIX}/usr/include/libusb-1.0/libusb.h" \
 		third_party/libusb/src/libusb/libusb.h || die
 
-	# From here we adapt ungoogled-chromium's patches to our needs
-	local ugc_cli="${UGC_WD}/run_buildkit_cli.py"
-	local ugc_config="${UGC_WD}/config_bundles/linux_rooted"
-	local ugc_common_dir="${UGC_WD}/config_bundles/common"
-	local ugc_rooted_dir="${UGC_WD}/config_bundles/linux_rooted"
-
-	local ugc_unneeded=(
-		# ARM related patches
-		common:crashpad
-		common:gcc_skcms_ice
-		common:skia-aarch64-buildfix
-		# GCC specific fixes/warnings
-		common:alignof
-		common:as-needed
-		common:enum-compare
-		common:explicit-constructor
-		common:initialization
-		common:int-in-bool-context
-		common:member-assignment
-		common:multichar
-		common:null-destination
-		common:printf
-		rooted:attribute
-		# GN bootstrap
-		common:parallel
-		rooted:libcxx
-	)
-
-	local ugc_use=(
-		system-icu:convertutf
-		system-icu:icu
-		system-jsoncpp:jsoncpp
-		system-libevent:event
-		system-libvpx:vpx
-		vaapi:enable-vaapi
-		vaapi:chromium-vaapi-relax-the-version-check-for-VA-API
-		vaapi:chromium-enable-mojo-video-decoders-by-default
-		vaapi:chromium-vaapi-fix-the-VA_CHECK_VERSION
-	)
-
-	local ugc_p ugc_dir
-	for p in "${ugc_unneeded[@]}"; do
-		ugc_p="${p#*:}"
-		ugc_dir="ugc_${p%:*}_dir"
-		einfo "Removing ${ugc_p}.patch"
-		sed -i "/${ugc_p}.patch/d" "${!ugc_dir}/patch_order.list" || die
-	done
-
-	for p in "${ugc_use[@]}"; do
-		if ! use "${p%:*}"; then
-			ugc_p="${p#*:}"
-			einfo "Removing ${ugc_p}.patch"
-			sed -i "/${ugc_p}.patch/d" "${ugc_rooted_dir}/patch_order.list" || die
-		fi
-	done
-
-	if use system-ffmpeg && has_version '<media-video/ffmpeg-4.0.0'; then
-		sed -i '/jpeg.patch/i debian_buster/system/ffmpeg34.patch' \
-			"${ugc_rooted_dir}/patch_order.list" || die
-	fi
-
-	if ! use system-icu; then
-		sed -i '/icudtl.dat/d' "${ugc_rooted_dir}/pruning.list" || die
-	fi
-
-	if use system-openjpeg; then
-		sed -i '/jpeg.patch/a debian_buster/system/openjpeg.patch' \
-			"${ugc_rooted_dir}/patch_order.list" || die
-	fi
-
-	if use vaapi && has_version '<x11-libs/libva-2.0.0'; then
-		sed -i "/build.patch/i ${PN}/linux/fix-libva1-compatibility.patch" \
-			"${ugc_rooted_dir}/patch_order.list" || die
-	fi
-
 	ebegin "Pruning binaries"
-	"${ugc_cli}" prune -b "${ugc_config}" ./
+	"${UGC_WD}/utils/prune_binaries.py" . "${UGC_WD}/pruning.list"
 	eend $? || die
 
 	ebegin "Applying ungoogled-chromium patches"
-	"${ugc_cli}" patches apply -b "${ugc_config}" ./
+	"${UGC_WD}/utils/patches.py" apply . "${UGC_WD}/patches"
 	eend $? || die
 
 	ebegin "Applying domain substitution"
-	"${ugc_cli}" domains apply -b "${ugc_config}" -c domainsubcache.tar.gz ./
+	"${UGC_WD}/utils/domain_substitution.py" apply -r "${UGC_WD}/domain_regex.list" -f "${UGC_WD}/domain_substitution.list" -c build/domsubcache.tar.gz .
 	eend $? || die
 
 	local keeplibs=(
@@ -328,11 +265,9 @@ src_prepare() {
 		base/third_party/xdg_user_dirs
 		chrome/third_party/mozilla_security_manager
 		courgette/third_party
-		net/third_party/http2
 		net/third_party/mozilla_security_manager
 		net/third_party/nss
 		net/third_party/quic
-		net/third_party/spdy
 		net/third_party/uri_template
 		third_party/abseil-cpp
 		third_party/adobe
@@ -351,6 +286,7 @@ src_prepare() {
 		third_party/angle/third_party/vulkan-tools
 		third_party/angle/third_party/vulkan-validation-layers
 		third_party/apple_apsl
+		third_party/axe-core
 		third_party/blink
 		third_party/boringssl
 		third_party/boringssl/src/third_party/fiat
@@ -377,9 +313,11 @@ src_prepare() {
 		third_party/crashpad/crashpad/third_party/zlib
 		third_party/crc32c
 		third_party/cros_system_api
+		third_party/dav1d
+		third_party/dawn
 		third_party/devscripts
 		third_party/dom_distiller_js
-		third_party/fips181
+		third_party/emoji-segmenter
 		third_party/flatbuffers
 		third_party/flot
 		third_party/glslang
@@ -417,6 +355,8 @@ src_prepare() {
 		third_party/nasm
 		third_party/openmax_dl
 		third_party/ots
+		third_party/perfetto
+		third_party/pffft
 		third_party/ply
 		third_party/polymer
 		third_party/protobuf
@@ -428,6 +368,7 @@ src_prepare() {
 		third_party/sfntly
 		third_party/simplejson
 		third_party/skia
+		third_party/skia/include/third_party/vulkan
 		third_party/skia/third_party/gif
 		third_party/skia/third_party/skcms
 		third_party/skia/third_party/vulkan
@@ -456,6 +397,7 @@ src_prepare() {
 		third_party/yasm/run_yasm.py
 		third_party/zlib/google
 		url/third_party/mozilla
+		v8/src/third_party/siphash
 		v8/src/third_party/valgrind
 		v8/src/third_party/utf8-decoder
 		v8/third_party/v8
@@ -676,6 +618,7 @@ src_configure() {
 		"use_system_harfbuzz=$(usetf system-harfbuzz)"
 		"use_system_lcms2=$(usetf pdf)"
 		"use_system_libjpeg=true"
+		"use_system_libopenjpeg2=$(usetf system-openjpeg)"
 		"use_system_zlib=true"
 		"use_vaapi=$(usetf vaapi)"
 
@@ -689,10 +632,6 @@ src_configure() {
 		# It is relevant only when use_allocator == "tcmalloc"
 		"use_new_tcmalloc=$(usetf new-tcmalloc)"
 	)
-
-	myconf_gn+=" use_dbus=$(usex dbus true false)"
-	myconf_gn+=" use_atk=$(usex atk true false)"
-
 
 	# use_cfi_icall only works with LLD
 	use cfi && myconf_gn+=( "use_cfi_icall=$(usetf lld)" )
@@ -731,9 +670,6 @@ src_compile() {
 		eninja -C out/Release "${x}"
 		pax-mark m "out/Release/${x}"
 	done
-
-	# Work around broken deps
-	eninja -C out/Release gen/ui/accessibility/ax_enums.mojom{,-shared}.h
 
 	# Even though ninja autodetects number of CPUs, we respect
 	# user's options, for debugging with -j 1 or any other reason
@@ -820,11 +756,7 @@ usetf() {
 }
 
 update_caches() {
-	if type gtk-update-icon-cache &>/dev/null; then
-		ebegin "Updating GTK icon cache"
-		gtk-update-icon-cache "${EROOT}/usr/share/icons/hicolor"
-		eend $? || die
-	fi
+	xdg_icon_cache_update
 	xdg_desktop_database_update
 }
 

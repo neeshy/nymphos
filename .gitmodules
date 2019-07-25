@@ -1,0 +1,3 @@
+[submodule "www-client/iceweasel-uxp"]
+	path = www-client/iceweasel-uxp
+	url = https://github.com/g4jc/iceweasel-uxp-overlay
