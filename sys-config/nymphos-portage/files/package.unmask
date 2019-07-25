@@ -387,6 +387,7 @@ sys-process/runit::nymphos
 sys-process/runit-sv::nymphos
 www-apps/cgit::nymphos
 www-client/basilisk::nymphos
+www-client/iceweasel-uxp::nymphos
 www-client/ungoogled-chromium::nymphos
 x11-misc/i3lock::nymphos
 x11-misc/xbanish::nymphos
