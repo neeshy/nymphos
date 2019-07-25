@@ -10,9 +10,9 @@
        if (linux_use_bundled_binutils) {
          ldflags += [
 @@ -635,8 +635,8 @@ config("compiler") {
-       (current_toolchain == default_toolchain ||
-        (is_android && defined(android_secondary_abi_toolchain) &&
-         current_toolchain == android_secondary_abi_toolchain))) {
+   # TODO(pcc): Make this conditional on is_official_build rather than on gn
+   # flags for specific features.
+   if (!is_debug && use_thin_lto && is_a_target_toolchain) {
 -    assert(use_lld || target_os == "chromeos",
 -           "gold plugin only supported with ChromeOS")
 +    #assert(use_lld || target_os == "chromeos",
@@ -20,14 +20,12 @@
  
      cflags += [ "-flto=thin" ]
  
-@@ -660,25 +660,24 @@ config("compiler") {
+@@ -660,23 +660,24 @@ config("compiler") {
        # Limit the parallelism to avoid too aggressive competition between
        # linker jobs. This is still suboptimal to a potential dynamic
        # resource allocation scheme, but should be good enough.
 -      if (use_lld) {
--        ldflags += [
--          "-Wl,--thinlto-jobs=8",
--        ]
+-        ldflags += [ "-Wl,--thinlto-jobs=8" ]
 -
 -        # Disable caching on Chrome OS temporarily (crbug.com/889967)
 -        if (!is_chromeos) {
