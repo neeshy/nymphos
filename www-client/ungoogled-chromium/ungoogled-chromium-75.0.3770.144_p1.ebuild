@@ -28,7 +28,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="
-	+cfi closure-compile cups custom-cflags gnome gold jumbo-build kerberos libcxx
+	+atk +cfi closure-compile cups custom-cflags +dbus gnome gold jumbo-build kerberos libcxx
 	+lld new-tcmalloc optimize-thinlto optimize-webui +pdf +proprietary-codecs
 	pulseaudio selinux +suid +system-ffmpeg system-harfbuzz +system-icu
 	+system-jsoncpp +system-libevent +system-libvpx +system-openh264
@@ -44,6 +44,7 @@ REQUIRED_USE="
 	optimize-thinlto? ( thinlto )
 	system-openjpeg? ( pdf )
 	x86? ( !lld !thinlto !widevine )
+	atk? ( dbus )
 "
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
@@ -51,9 +52,9 @@ RESTRICT="
 "
 
 CDEPEND="
-	>=app-accessibility/at-spi2-atk-2.26:2
+	atk? ( >=app-accessibility/at-spi2-atk-2.26:2 )
 	app-arch/snappy:=
-	>=dev-libs/atk-2.26
+	atk? ( >=dev-libs/atk-2.26 )
 	dev-libs/expat:=
 	dev-libs/glib:2
 	>=dev-libs/libxml2-2.9.4-r3:=[icu]
@@ -67,7 +68,7 @@ CDEPEND="
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:=
 	>=media-libs/libwebp-0.4.0:=
-	sys-apps/dbus:=
+	dbus? ( sys-apps/dbus:= )
 	sys-apps/pciutils:=
 	sys-libs/zlib:=[minizip]
 	virtual/udev
@@ -176,6 +177,8 @@ For native file dialogs in KDE, install kde-apps/kdialog.
 "
 
 PATCHES=(
+	"${FILESDIR}/${PN}-optional-atk.patch"
+	"${FILESDIR}/${PN}-optional-dbus.patch"
 	"${FILESDIR}/${PN}-compiler-r5.patch"
 	"${FILESDIR}/${PN}-disable-third-party-lzma-sdk-r0.patch"
 	"${FILESDIR}/${PN}-gold-r3.patch"
@@ -631,6 +634,10 @@ src_configure() {
 		# Enables the soon-to-be default tcmalloc (https://crbug.com/724399)
 		# It is relevant only when use_allocator == "tcmalloc"
 		"use_new_tcmalloc=$(usetf new-tcmalloc)"
+
+		# Optional dependencies
+		"use_atk=$(usex atk true false)"
+		"use_dbus=$(usex dbus true false)"
 	)
 
 	# use_cfi_icall only works with LLD
