@@ -201,6 +201,7 @@ src_configure() {
 	fi
 
 	# Favor Privacy over features at compile time
+	echo "ac_add_options --disable-gconf" >> "${S}"/.mozconfig
 	echo "ac_add_options --disable-userinfo" >> "${S}"/.mozconfig
 	echo "ac_add_options --disable-safe-browsing" >> "${S}"/.mozconfig
 	echo "ac_add_options --disable-url-classifier" >> "${S}"/.mozconfig
