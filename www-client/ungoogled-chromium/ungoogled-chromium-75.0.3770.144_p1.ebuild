@@ -661,7 +661,7 @@ src_configure() {
 
 src_compile() {
 	# Final link uses lots of file descriptors
-	ulimit -n 4096
+	ulimit -n 16384
 
 	# Calling this here supports resumption via FEATURES=keepwork
 	python_setup 'python2*'
