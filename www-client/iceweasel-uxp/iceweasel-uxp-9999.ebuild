@@ -204,6 +204,8 @@ src_configure() {
 	fi
 
 	# Favor Privacy over features at compile time
+	echo "ac_add_options --disable-gio" >> "${S}"/.mozconfig
+	echo "ac_add_options --disable-necko-wifi" >> "${S}"/.mozconfig
 	echo "ac_add_options --disable-dbus" >> "${S}"/.mozconfig
 	echo "ac_add_options --disable-gconf" >> "${S}"/.mozconfig
 	echo "ac_add_options --disable-userinfo" >> "${S}"/.mozconfig
@@ -212,6 +214,10 @@ src_configure() {
 	echo "ac_add_options --disable-url-classifier" >> "${S}"/.mozconfig
 	echo "ac_add_options --disable-eme" >> "${S}"/.mozconfig
 	echo "ac_add_options --disable-updater" >> "${S}"/.mozconfig
+#	echo "ac_add_options --disable-maintenance-service" >> "${S}"/.mozconfig
+#	echo "ac_add_options --disable-servo" >> "${S}"/.mozconfig
+#	echo "ac_add_options --disable-stylo" >> "${S}"/.mozconfig
+#	echo "ac_add_options --disable-webextensions" >> "${S}"/.mozconfig
 	echo "ac_add_options --disable-crashreporter" >> "${S}"/.mozconfig
 	if use privacy ; then
 	echo "ac_add_options --disable-webrtc" >> "${S}"/.mozconfig
@@ -230,6 +236,7 @@ src_configure() {
 
 	#Build the iceweasel-uxp application with iceweasel branding
 	echo "ac_add_options --disable-official-branding" >> "${S}"/.mozconfig
+#	echo "ac_add_options --enable-release" >> "${S}"/.mozconfig
 	echo "ac_add_options --enable-application=application/iceweasel-uxp" >> "${S}"/.mozconfig
 	echo "ac_add_options --with-branding=application/iceweasel-uxp/branding/iceweasel" >> "${S}"/.mozconfig
 	echo "export MOZILLA_OFFICIAL=1"
