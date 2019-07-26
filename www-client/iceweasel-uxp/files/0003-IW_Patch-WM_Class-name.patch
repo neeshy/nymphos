@@ -1,0 +1,30 @@
+From 528bdf2c2ee16db7cad671596cf44dee29ad619f Mon Sep 17 00:00:00 2001
+From: Gaming4JC <g4jc@bulletmail.org>
+Date: Sat, 23 Mar 2019 12:57:03 -0400
+Subject: [PATCH 1/1] IW Patch WM_Class Name
+
+---
+ toolkit/xre/nsAppRunner.cpp | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/toolkit/xre/nsAppRunner.cpp b/toolkit/xre/nsAppRunner.cpp
+index 26e432b3c..605884068 100644
+--- a/toolkit/xre/nsAppRunner.cpp
++++ b/toolkit/xre/nsAppRunner.cpp
+@@ -3205,11 +3205,9 @@ XREMain::XRE_mainStartup(bool* aExitFlag)
+     gdk_rgb_set_install(TRUE);
+ #endif
+ 
+-  // Set program name to the one defined in application.ini.
++  // Set WM_CLASS name
+   {
+-    nsAutoCString program(gAppData->name);
+-    ToLowerCase(program);
+-    g_set_prgname(program.get());
++    g_set_prgname("Iceweasel-UXP");
+   }
+ 
+   // Initialize GTK here for splash.
+-- 
+2.21.0
+
