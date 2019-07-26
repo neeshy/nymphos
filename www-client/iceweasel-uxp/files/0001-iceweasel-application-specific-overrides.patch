@@ -1,0 +1,58 @@
+From 2998eae7b193d3f93fbd99ae6608db362e38dedf Mon Sep 17 00:00:00 2001
+From: nobody@noplace.net
+Date: Mon, 4 Jun 2018 19:06:25 -0400
+Subject: [PATCH 1/1] iceweasel application specific overrides
+
+---
+ docshell/base/nsAboutRedirector.cpp     | 5 ++---
+ dom/media/gtest/MockMediaDecoderOwner.h | 2 --
+ toolkit/xre/nsAppRunner.cpp             | 4 ++--
+ 3 files changed, 4 insertions(+), 7 deletions(-)
+
+diff --git a/docshell/base/nsAboutRedirector.cpp b/docshell/base/nsAboutRedirector.cpp
+index e56447296..b5222cc48 100644
+--- a/docshell/base/nsAboutRedirector.cpp
++++ b/docshell/base/nsAboutRedirector.cpp
+@@ -51,9 +51,8 @@ static RedirEntry kRedirMap[] = {
+   },
+   { "config", "chrome://global/content/config.xul", 0 },
+   {
+-    "credits", "http://www.palemoon.org/Contributors.shtml",
+-    nsIAboutModule::URI_SAFE_FOR_UNTRUSTED_CONTENT |
+-    nsIAboutModule::MAKE_LINKABLE
++    "credits", "chrome://global/content/aboutCredits.html",
++     nsIAboutModule::MAKE_LINKABLE
+   },
+ #ifdef MOZ_DEVTOOLS
+   {
+diff --git a/dom/media/gtest/MockMediaDecoderOwner.h b/dom/media/gtest/MockMediaDecoderOwner.h
+index 324f18141..64d729018 100644
+--- a/dom/media/gtest/MockMediaDecoderOwner.h
++++ b/dom/media/gtest/MockMediaDecoderOwner.h
+@@ -34,8 +34,6 @@ public:
+   void DownloadProgressed() override {}
+   void UpdateReadyState() override {}
+   void FirstFrameLoaded() override {}
+-  void DispatchEncrypted(const nsTArray<uint8_t>& aInitData,
+-                         const nsAString& aInitDataType) override {}
+   bool IsActive() const override { return true; }
+   bool IsHidden() const override { return false; }
+   void DownloadSuspended() override {}
+diff --git a/toolkit/xre/nsAppRunner.cpp b/toolkit/xre/nsAppRunner.cpp
+index e43aea926..a97cb20e9 100644
+--- a/toolkit/xre/nsAppRunner.cpp
++++ b/toolkit/xre/nsAppRunner.cpp
+@@ -3704,8 +3704,8 @@ XREMain::XRE_mainRun()
+           // reset the profile.
+           // For Basilisk and Pale Moon:
+           // Hard-code MOZ_APP_NAME to firefox because of hard-coded type in migrator.
+-          aKey = (((MOZ_APP_NAME == "basilisk")
+-                     || (MOZ_APP_NAME == "palemoon"))
++          aKey = (((MOZ_APP_NAME == "iceweasel-uxp")
++                     || (MOZ_APP_NAME == "iceweasel-classic"))
+                   ? "firefox" : MOZ_APP_NAME);
+ 
+         }
+-- 
+2.17.1
+

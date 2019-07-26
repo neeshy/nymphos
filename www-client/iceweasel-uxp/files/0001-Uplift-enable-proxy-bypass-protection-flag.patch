@@ -1,0 +1,142 @@
+From ea2e3de4efaecca286b947a38e5115e80262acfd Mon Sep 17 00:00:00 2001
+From: Gaming4JC <g4jc@hyperbola.info>
+Date: Sun, 19 May 2019 20:39:03 -0400
+Subject: [PATCH 1/1] Uplift enable-proxy-bypass-protection flag
+
+---
+ build/moz.configure/old.configure       |  1 +
+ extensions/gio/nsGIOProtocolHandler.cpp | 11 ++++++++---
+ netwerk/base/Tickler.h                  |  2 +-
+ old-configure.in                        | 13 +++++++++++++
+ toolkit/profile/nsProfileLock.cpp       |  9 +++++++++
+ widget/gtk/nsFilePicker.cpp             |  5 +++++
+ 6 files changed, 37 insertions(+), 4 deletions(-)
+
+diff --git a/build/moz.configure/old.configure b/build/moz.configure/old.configure
+index 59dc8b57b..9706bfe26 100644
+--- a/build/moz.configure/old.configure
++++ b/build/moz.configure/old.configure
+@@ -214,6 +214,7 @@ def old_configure_options(*options):
+     '--enable-precompiled-startupcache',
+     '--enable-pref-extensions',
+     '--enable-private-build',
++    '--enable-proxy-bypass-protection',
+     '--enable-pulseaudio',
+     '--enable-raw',
+     '--enable-readline',
+diff --git a/extensions/gio/nsGIOProtocolHandler.cpp b/extensions/gio/nsGIOProtocolHandler.cpp
+index a378e8700..9adc38f80 100644
+--- a/extensions/gio/nsGIOProtocolHandler.cpp
++++ b/extensions/gio/nsGIOProtocolHandler.cpp
+@@ -929,10 +929,15 @@ nsGIOProtocolHandler::InitSupportedProtocolsPref(nsIPrefBranch *prefs)
+   if (NS_SUCCEEDED(rv)) {
+     mSupportedProtocols.StripWhitespace();
+     ToLowerCase(mSupportedProtocols);
++  } else {
++    mSupportedProtocols.AssignLiteral(
++#ifdef MOZ_PROXY_BYPASS_PROTECTION
++      ""           // use none
++#else
++      "smb:,sftp:" // use defaults
++#endif
++    );
+   }
+-  else
+-    mSupportedProtocols.AssignLiteral("smb:,sftp:"); // use defaults
+-
+   LOG(("gio: supported protocols \"%s\"\n", mSupportedProtocols.get()));
+ }
+ 
+diff --git a/netwerk/base/Tickler.h b/netwerk/base/Tickler.h
+index 63353a924..6036326e9 100644
+--- a/netwerk/base/Tickler.h
++++ b/netwerk/base/Tickler.h
+@@ -27,7 +27,7 @@
+ // The tickler only applies to wifi on mobile right now. Hopefully it
+ // can also be restricted to particular handset models in the future.
+ 
+-#if defined(ANDROID)
++#if defined(ANDROID) && !defined(MOZ_PROXY_BYPASS_PROTECTION)
+ #define MOZ_USE_WIFI_TICKLER
+ #endif
+ 
+diff --git a/old-configure.in b/old-configure.in
+index 6a7bc701f..20fc22878 100644
+--- a/old-configure.in
++++ b/old-configure.in
+@@ -2244,6 +2244,7 @@ MOZ_JETPACK=1
+ MOZ_DEVTOOLS_SERVER=1
+ MOZ_DEVTOOLS=
+ MOZ_PLACES=1
++MOZ_PROXY_BYPASS_PROTECTION=
+ MOZ_SERVICES_HEALTHREPORT=1
+ MOZ_SERVICES_SYNC=1
+ MOZ_USERINFO=1
+@@ -4915,6 +4916,18 @@ fi
+ 
+ AC_SUBST(MOZ_XUL)
+ 
++dnl ========================================================
++dnl enable proxy bypass protection
++dnl ========================================================
++MOZ_ARG_ENABLE_BOOL(proxy-bypass-protection,
++[  --enable-proxy-bypass-protection      Enable proxy bypass protection],
++    MOZ_PROXY_BYPASS_PROTECTION=1,
++    MOZ_PROXY_BYPASS_PROTECTION=)
++if test -n "$MOZ_PROXY_BYPASS_PROTECTION"; then
++  AC_DEFINE(MOZ_PROXY_BYPASS_PROTECTION)
++fi
++AC_SUBST(MOZ_PROXY_BYPASS_PROTECTION)
++
+ dnl ========================================================
+ dnl necko configuration options
+ dnl ========================================================
+diff --git a/toolkit/profile/nsProfileLock.cpp b/toolkit/profile/nsProfileLock.cpp
+index d75b6082d..8400c26dc 100644
+--- a/toolkit/profile/nsProfileLock.cpp
++++ b/toolkit/profile/nsProfileLock.cpp
+@@ -316,6 +316,14 @@ nsresult nsProfileLock::LockWithSymlink(nsIFile *aLockFile, bool aHaveFcntlLock)
+     struct in_addr inaddr;
+     inaddr.s_addr = htonl(INADDR_LOOPBACK);
+ 
++    // Avoid a DNS lookup here with --enable-proxy-bypass-protection.
++    // Instead, always use 127.0.0.1 for the IP address portion
++    // of the lock signature, which may cause the browser to refuse to
++    // start in the rare event that all of the following conditions are met:
++    //   1. The browser profile is on a network file system.
++    //   2. The file system does not support fcntl() locking.
++    //   3. The browser is run from two different computers at the same time.
++#ifndef MOZ_PROXY_BYPASS_PROTECTION
+     char hostname[256];
+     PRStatus status = PR_GetSystemInfo(PR_SI_HOSTNAME, hostname, sizeof hostname);
+     if (status == PR_SUCCESS)
+@@ -326,6 +334,7 @@ nsresult nsProfileLock::LockWithSymlink(nsIFile *aLockFile, bool aHaveFcntlLock)
+         if (status == PR_SUCCESS)
+             memcpy(&inaddr, hostent.h_addr, sizeof inaddr);
+     }
++#endif
+ 
+     char *signature =
+         PR_smprintf("%s:%s%lu", inet_ntoa(inaddr), aHaveFcntlLock ? "+" : "",
+diff --git a/widget/gtk/nsFilePicker.cpp b/widget/gtk/nsFilePicker.cpp
+index 172cb4444..a1b91ed29 100644
+--- a/widget/gtk/nsFilePicker.cpp
++++ b/widget/gtk/nsFilePicker.cpp
+@@ -402,9 +402,14 @@ nsFilePicker::Open(nsIFilePickerShownCallback *aCallback)
+                                           GTK_RESPONSE_ACCEPT,
+                                           GTK_RESPONSE_CANCEL,
+                                           -1);
++
++  // If we have --enable-proxy-bypass-protection, then don't allow
++  // remote URLs to be used.
++#ifndef MOZ_PROXY_BYPASS_PROTECTION
+   if (mAllowURLs) {
+     gtk_file_chooser_set_local_only(GTK_FILE_CHOOSER(file_chooser), FALSE);
+   }
++#endif
+ 
+   if (action == GTK_FILE_CHOOSER_ACTION_OPEN || action == GTK_FILE_CHOOSER_ACTION_SAVE) {
+     GtkWidget *img_preview = gtk_image_new();
+-- 
+2.21.0
+
