@@ -292,7 +292,6 @@ dev-util/catfish
 dev-util/ccache
 dev-util/checkbashisms
 dev-util/clinfo
-dev-util/depot_tools
 dev-util/dialog
 dev-util/eclipse-sdk-bin
 dev-util/geany
