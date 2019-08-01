@@ -1,2 +1,2 @@
 PORTAGE_BINHOST="https://nymphos.ga"
-EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} -g"
+EMERGE_DEFAULT_OPTS="${EMERGE_DEFAULT_OPTS} -g --binpkg-changed-deps=n"
