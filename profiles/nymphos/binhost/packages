@@ -288,7 +288,6 @@ dev-util/android-tools
 dev-util/android-udev-rules
 dev-util/bless
 dev-util/catalyst
-dev-util/catfish
 dev-util/ccache
 dev-util/checkbashisms
 dev-util/clinfo
