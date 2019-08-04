@@ -399,6 +399,7 @@ app-shells/zsh-history-substring-search::ROKO__
 app-portage/lto-rebuild::lto-overlay
 sys-config/ltoize::lto-overlay
 
+dev-python/pycryptodomex::pentoo
 net-proxy/burpsuite::pentoo
 net-analyzer/armitage::pentoo
 dev-java/jgraphx::pentoo
