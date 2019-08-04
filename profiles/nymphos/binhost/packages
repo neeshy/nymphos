@@ -273,6 +273,7 @@ dev-python/cgroup-utils
 dev-python/docker-py
 dev-python/pip
 dev-python/py-cpuinfo
+dev-python/pycryptodomex
 dev-python/pystache
 dev-python/sphinx
 dev-python/sympy
@@ -1113,7 +1114,7 @@ www-plugins/lightspark
 www-servers/apache
 www-servers/lighttpd
 www-servers/nginx
-www-servers/onionshare
+#www-servers/onionshare #Old pycrypto in ebuild
 www-servers/spawn-fcgi
 www-servers/thttpd
 www-servers/tomcat
