@@ -75,7 +75,6 @@ mail-client/claws-mail::gentoo # nymphos
 media-fonts/unifont::gentoo # nymphos
 media-sound/xwax::gentoo # nymphos
 net-ftp/vsftpd::gentoo # nymphos
-net-wireless/wpa_supplicant::gentoo # nymphos
 sys-process/runit::gentoo # nymphos
 www-apps/cgit::gentoo # nymphos
 x11-misc/i3lock::gentoo # nymphos
