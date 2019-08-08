@@ -380,7 +380,6 @@ media-sound/mpvc::nymphos
 media-sound/xwax::nymphos
 net-ftp/vsftpd::nymphos
 net-misc/gallery-dl::nymphos
-net-wireless/wpa_supplicant::nymphos
 sys-apps/runit-rc::nymphos
 sys-config/nymphos-portage::nymphos
 sys-process/runit::nymphos
