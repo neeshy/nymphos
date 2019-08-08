@@ -1,7 +1,0 @@
-DEFINED_PHASES=install
-DESCRIPTION=A portage configuration necessary for NymphOS binhosts
-EAPI=7
-HOMEPAGE=https://nymphos.ga/
-LICENSE=CC0-1.0
-SLOT=0
-_md5_=862823051c9012302b74660137f724ad
