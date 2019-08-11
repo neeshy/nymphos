@@ -1,0 +1,178 @@
+diff --git a/api/logic/minecraft/auth/YggdrasilTask.cpp b/api/logic/minecraft/auth/YggdrasilTask.cpp
+index 71f5d95..35d3bcb 100644
+--- a/api/logic/minecraft/auth/YggdrasilTask.cpp
++++ b/api/logic/minecraft/auth/YggdrasilTask.cpp
+@@ -111,13 +111,15 @@ void YggdrasilTask::processReply()
+     case QNetworkReply::NoError:
+         break;
+     case QNetworkReply::TimeoutError:
+-        changeState(STATE_FAILED_SOFT, tr("Authentication operation timed out."));
++        changeState(STATE_SUCCEEDED);
++        //changeState(STATE_FAILED_SOFT, tr("Authentication operation timed out."));
+         return;
+     case QNetworkReply::OperationCanceledError:
+-        changeState(STATE_FAILED_SOFT, tr("Authentication operation cancelled."));
++        changeState(STATE_SUCCEEDED);
++        //changeState(STATE_FAILED_SOFT, tr("Authentication operation cancelled."));
+         return;
+     case QNetworkReply::SslHandshakeFailedError:
+-        changeState(
++        /*changeState(
+             STATE_FAILED_SOFT,
+             tr("<b>SSL Handshake failed.</b><br/>There might be a few causes for it:<br/>"
+                "<ul>"
+@@ -127,16 +129,18 @@ void YggdrasilTask::processReply()
+                "<li>Some device on your network is interfering with SSL traffic. In that case, "
+                "you have bigger worries than Minecraft not starting.</li>"
+                "<li>Possibly something else. Check the MultiMC log file for details</li>"
+-               "</ul>"));
++               "</ul>"));*/
++        changeState(STATE_SUCCEEDED);
+         return;
+     // used for invalid credentials and similar errors. Fall through.
+     case QNetworkReply::ContentAccessDenied:
+     case QNetworkReply::ContentOperationNotPermittedError:
+         break;
+     default:
+-        changeState(STATE_FAILED_SOFT,
++        /*changeState(STATE_FAILED_SOFT,
+                     tr("Authentication operation failed due to a network error: %1 (%2)")
+-                        .arg(m_netReply->errorString()).arg(m_netReply->error()));
++                        .arg(m_netReply->errorString()).arg(m_netReply->error()));*/
++        changeState(STATE_SUCCEEDED);
+         return;
+     }
+ 
+@@ -161,10 +165,11 @@ void YggdrasilTask::processReply()
+         }
+         else
+         {
+-            changeState(STATE_FAILED_SOFT, tr("Failed to parse authentication server response "
++            /*changeState(STATE_FAILED_SOFT, tr("Failed to parse authentication server response "
+                                               "JSON response: %1 at offset %2.")
+                                                .arg(jsonError.errorString())
+-                                               .arg(jsonError.offset));
++                                               .arg(jsonError.offset));*/
++            changeState(STATE_SUCCEEDED);
+             qCritical() << replyData;
+         }
+         return;
+@@ -189,9 +194,10 @@ void YggdrasilTask::processReply()
+         // error.
+         qDebug()
+             << "The request failed and the server gave no error message. Unknown error.";
+-        changeState(STATE_FAILED_SOFT,
++        changeState(STATE_SUCCEEDED);
++        /*changeState(STATE_FAILED_SOFT,
+                     tr("An unknown error occurred when trying to communicate with the "
+-                       "authentication server: %1").arg(m_netReply->errorString()));
++                       "authentication server: %1").arg(m_netReply->errorString()));*/
+     }
+ }
+ 
+@@ -205,12 +211,14 @@ void YggdrasilTask::processError(QJsonObject responseData)
+     {
+         m_error = std::shared_ptr<Error>(new Error{
+             errorVal.toString(""), errorMessageValue.toString(""), causeVal.toString("")});
+-        changeState(STATE_FAILED_HARD, m_error->m_errorMessageVerbose);
++        changeState(STATE_SUCCEEDED);
++        //changeState(STATE_FAILED_HARD, m_error->m_errorMessageVerbose);
+     }
+     else
+     {
+         // Error is not in standard format. Don't set m_error and return unknown error.
+-        changeState(STATE_FAILED_HARD, tr("An unknown Yggdrasil error occurred."));
++        changeState(STATE_SUCCEEDED);
++        //changeState(STATE_FAILED_HARD, tr("An unknown Yggdrasil error occurred."));
+     }
+ }
+ 
+diff --git a/api/logic/minecraft/auth/flows/AuthenticateTask.cpp b/api/logic/minecraft/auth/flows/AuthenticateTask.cpp
+index 8286c7a..52f8c31 100644
+--- a/api/logic/minecraft/auth/flows/AuthenticateTask.cpp
++++ b/api/logic/minecraft/auth/flows/AuthenticateTask.cpp
+@@ -89,12 +89,14 @@ void AuthenticateTask::processResponse(QJsonObject responseData)
+     if (clientToken.isEmpty())
+     {
+         // Fail if the server gave us an empty client token
+-        changeState(STATE_FAILED_HARD, tr("Authentication server didn't send a client token."));
++        changeState(STATE_SUCCEEDED);
++        //changeState(STATE_FAILED_HARD, tr("Authentication server didn't send a client token."));
+         return;
+     }
+     if (!m_account->m_clientToken.isEmpty() && clientToken != m_account->m_clientToken)
+     {
+-        changeState(STATE_FAILED_HARD, tr("Authentication server attempted to change the client token. This isn't supported."));
++        changeState(STATE_SUCCEEDED);
++        //changeState(STATE_FAILED_HARD, tr("Authentication server attempted to change the client token. This isn't supported."));
+         return;
+     }
+     // Set the client token.
+@@ -106,7 +108,8 @@ void AuthenticateTask::processResponse(QJsonObject responseData)
+     if (accessToken.isEmpty())
+     {
+         // Fail if the server didn't give us an access token.
+-        changeState(STATE_FAILED_HARD, tr("Authentication server didn't send an access token."));
++        changeState(STATE_SUCCEEDED);
++        //changeState(STATE_FAILED_HARD, tr("Authentication server didn't send an access token."));
+         return;
+     }
+     // Set the access token.
+@@ -151,12 +154,14 @@ void AuthenticateTask::processResponse(QJsonObject responseData)
+     QString currentProfileId = currentProfile.value("id").toString("");
+     if (currentProfileId.isEmpty())
+     {
+-        changeState(STATE_FAILED_HARD, tr("Authentication server didn't specify a currently selected profile. The account exists, but likely isn't premium."));
++        changeState(STATE_SUCCEEDED);
++        //changeState(STATE_FAILED_HARD, tr("Authentication server didn't specify a currently selected profile. The account exists, but likely isn't premium."));
+         return;
+     }
+     if (!m_account->setCurrentProfile(currentProfileId))
+     {
+-        changeState(STATE_FAILED_HARD, tr("Authentication server specified a selected profile that wasn't in the available profiles list."));
++        changeState(STATE_SUCCEEDED);
++        //changeState(STATE_FAILED_HARD, tr("Authentication server specified a selected profile that wasn't in the available profiles list."));
+         return;
+     }
+ 
+diff --git a/api/logic/minecraft/auth/flows/RefreshTask.cpp b/api/logic/minecraft/auth/flows/RefreshTask.cpp
+index 7a789f4..88e5aec 100644
+--- a/api/logic/minecraft/auth/flows/RefreshTask.cpp
++++ b/api/logic/minecraft/auth/flows/RefreshTask.cpp
+@@ -71,12 +71,14 @@ void RefreshTask::processResponse(QJsonObject responseData)
+     if (clientToken.isEmpty())
+     {
+         // Fail if the server gave us an empty client token
+-        changeState(STATE_FAILED_HARD, tr("Authentication server didn't send a client token."));
++        changeState(STATE_SUCCEEDED); 
++        //changeState(STATE_FAILED_HARD, tr("Authentication server didn't send a client token."));
+         return;
+     }
+     if (!m_account->m_clientToken.isEmpty() && clientToken != m_account->m_clientToken)
+     {
+-        changeState(STATE_FAILED_HARD, tr("Authentication server attempted to change the client token. This isn't supported."));
++        //changeState(STATE_FAILED_HARD, tr("Authentication server attempted to change the client token. This isn't supported."));
++        changeState(STATE_SUCCEEDED);
+         return;
+     }
+ 
+@@ -86,7 +88,8 @@ void RefreshTask::processResponse(QJsonObject responseData)
+     if (accessToken.isEmpty())
+     {
+         // Fail if the server didn't give us an access token.
+-        changeState(STATE_FAILED_HARD, tr("Authentication server didn't send an access token."));
++        //changeState(STATE_FAILED_HARD, tr("Authentication server didn't send an access token."));
++        changeState(STATE_SUCCEEDED);
+         return;
+     }
+ 
+@@ -96,7 +99,8 @@ void RefreshTask::processResponse(QJsonObject responseData)
+     QString currentProfileId = currentProfile.value("id").toString("");
+     if (m_account->currentProfile()->id != currentProfileId)
+     {
+-        changeState(STATE_FAILED_HARD, tr("Authentication server didn't specify the same prefile as expected."));
++        changeState(STATE_SUCCEEDED);
++        //changeState(STATE_FAILED_HARD, tr("Authentication server didn't specify the same prefile as expected."));
+         return;
+     }
+ 
