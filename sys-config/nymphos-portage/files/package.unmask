@@ -115,6 +115,7 @@ media-gfx/lsix::jorgicio
 x11-themes/numix-frost-theme::jorgicio
 x11-themes/papirus-icon-theme::jorgicio
 x11-themes/materia-theme::jorgicio
+games-action/multimc5::jorgicio
 
 games-util/steam-launcher::steam-overlay
 
