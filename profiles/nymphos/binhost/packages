@@ -163,6 +163,7 @@ app-misc/task
 app-misc/tmux
 app-misc/tmux-mem-cpu-load
 app-misc/toilet
+app-misc/vifm
 app-misc/wipe
 app-misc/xmind
 app-misc/zscroll
@@ -316,6 +317,7 @@ dev-vcs/hgsubversion
 dev-vcs/mercurial
 dev-vcs/subversion
 games-action/extreme-tuxracer
+games-action/multimc5
 games-action/supertuxkart
 games-action/violetland
 games-arcade/blobby
@@ -902,6 +904,7 @@ net-misc/gofish
 net-misc/icecast
 net-misc/kafka-bin
 net-misc/megatools
+net-misc/minidlna
 net-misc/mosh
 net-misc/onioncircuits
 net-misc/openntpd
@@ -1004,6 +1007,7 @@ sys-apps/hwloc
 sys-apps/i2c-tools
 sys-apps/idle3-tools
 sys-apps/init-system-helpers
+sys-apps/inxi
 sys-apps/iproute2
 sys-apps/iucode_tool
 sys-apps/kexec-tools
@@ -1014,6 +1018,7 @@ sys-apps/mlocate
 sys-apps/moreutils
 sys-apps/msr-tools
 sys-apps/nvme-cli
+sys-apps/openrc
 sys-apps/pkgcore
 sys-apps/pmount
 sys-apps/pv
@@ -1088,6 +1093,7 @@ sys-process/lsof
 sys-process/parallel
 sys-process/runit
 sys-process/runit-sv
+virtual/service-manager
 virtual/wine
 www-apps/cgit
 www-apps/otrs
