@@ -1,0 +1,15 @@
+diff -up firefox-68.0/mfbt/LinuxSignal.h.1238661 firefox-68.0/mfbt/LinuxSignal.h
+--- firefox-68.0/mfbt/LinuxSignal.h.1238661	2019-07-08 22:27:29.620749569 +0200
++++ firefox-68.0/mfbt/LinuxSignal.h	2019-07-08 22:44:17.794112428 +0200
+@@ -22,7 +22,10 @@ __attribute__((naked)) void SignalTrampo
+                                              void* aContext) {
+   asm volatile("nop; nop; nop; nop" : : : "memory");
+ 
+-  asm volatile("b %0" : : "X"(H) : "memory");
++  // Because the assembler may generate additional insturctions below, we
++  // need to ensure NOPs are inserted first by separating them out above.
++
++  asm volatile("bx %0" : : "r"(H), "l"(aSignal), "l"(aInfo), "l"(aContext) : "memory");
+ }
+ 
+ #  define MOZ_SIGNAL_TRAMPOLINE(h) (mozilla::SignalTrampoline<h>)

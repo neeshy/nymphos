@@ -1,0 +1,93 @@
+From: Mike Hommey <mh@glandium.org>
+Date: Thu, 9 Mar 2017 07:17:01 +0900
+Subject: Build against system libjsoncpp
+
+---
+ config/system-headers.mozbuild                |  4 ++
+ .../components/jsoncpp/src/lib_json/moz.build | 48 +------------------
+ .../crashreporter/minidump-analyzer/moz.build |  2 +-
+ 3 files changed, 6 insertions(+), 48 deletions(-)
+
+diff --git a/config/system-headers.mozbuild b/config/system-headers.mozbuild
+index 1ff025eb030d..e13cef5c5c8d 100644
+--- a/config/system-headers.mozbuild
++++ b/config/system-headers.mozbuild
+@@ -1345,3 +1345,7 @@ if CONFIG['MOZ_WAYLAND']:
+         'wayland-egl.h',
+         'wayland-util.h',
+     ]
++
++system_headers += [
++    'jsoncpp/json.h',
++]
+diff --git a/toolkit/components/jsoncpp/src/lib_json/moz.build b/toolkit/components/jsoncpp/src/lib_json/moz.build
+index ca40df60b712..5e20a3d42fd9 100644
+--- a/toolkit/components/jsoncpp/src/lib_json/moz.build
++++ b/toolkit/components/jsoncpp/src/lib_json/moz.build
+@@ -4,52 +4,6 @@
+ # License, v. 2.0. If a copy of the MPL was not distributed with this
+ # file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ 
+-UNIFIED_SOURCES += [
+-    'json_reader.cpp',
+-    'json_value.cpp',
+-    'json_writer.cpp'
+-]
+-
+-LOCAL_INCLUDES += [
+-    '/toolkit/components/jsoncpp/include',
+-]
+-
+-# This code is only used in the stand-alone minidump analyzer executable so
+-# enabling exceptions should be fine.
+-if CONFIG['CC_TYPE'] == 'clang-cl':
+-    CXXFLAGS += [
+-        '-Xclang',
+-        '-fcxx-exceptions',
+-    ]
+-else:
+-    CXXFLAGS += [
+-        '-fexceptions',
+-    ]
+-
+-# Required to build with exceptions enabled
+-DisableStlWrapping()
+-
+ Library('jsoncpp')
+ 
+-# Suppress warnings in third-party code.
+-if CONFIG['CC_TYPE'] == 'clang-cl':
+-    CXXFLAGS += [
+-        '-Wno-macro-redefined',
+-    ]
+-elif CONFIG['CC_TYPE'] in ('clang', 'gcc'):
+-    CXXFLAGS += [
+-        '-Wno-unused-local-typedefs',
+-        '-Wno-shadow',
+-    ]
+-
+-if CONFIG['CC_TYPE'] in ('clang', 'clang-cl'):
+-    CXXFLAGS += [
+-        '-Wno-c++11-narrowing',
+-    ]
+-
+-CXXFLAGS += [
+-    '-Wno-implicit-fallthrough',
+-]
+-
+-if CONFIG['CC_TYPE'] == 'clang-cl':
+-    AllowCompilerWarnings()  # workaround for bug 1090497
++OS_LIBS += ['jsoncpp']
+diff --git a/toolkit/crashreporter/minidump-analyzer/moz.build b/toolkit/crashreporter/minidump-analyzer/moz.build
+index 59022733ce0d..20b9733957d2 100644
+--- a/toolkit/crashreporter/minidump-analyzer/moz.build
++++ b/toolkit/crashreporter/minidump-analyzer/moz.build
+@@ -48,7 +48,7 @@ USE_LIBS += [
+ ]
+ 
+ LOCAL_INCLUDES += [
+-    '/toolkit/components/jsoncpp/include',
++    '%/usr/include',
+ ]
+ 
+ if CONFIG['OS_TARGET'] != 'WINNT':

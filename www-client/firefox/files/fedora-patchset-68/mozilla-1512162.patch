@@ -1,0 +1,43 @@
+diff -up firefox-68.0.1/js/xpconnect/src/XPCWrappedNative.cpp.1512162 firefox-68.0.1/js/xpconnect/src/XPCWrappedNative.cpp
+--- firefox-68.0.1/js/xpconnect/src/XPCWrappedNative.cpp.1512162	2019-07-17 22:51:30.000000000 +0200
++++ firefox-68.0.1/js/xpconnect/src/XPCWrappedNative.cpp	2019-07-25 08:08:18.512528313 +0200
+@@ -1092,7 +1092,7 @@ class MOZ_STACK_CLASS CallMethodHelper f
+   MOZ_ALWAYS_INLINE bool GetOutParamSource(uint8_t paramIndex,
+                                            MutableHandleValue srcp) const;
+ 
+-  MOZ_ALWAYS_INLINE bool GatherAndConvertResults();
++  bool GatherAndConvertResults();
+ 
+   MOZ_ALWAYS_INLINE bool QueryInterfaceFastPath();
+ 
+@@ -1139,7 +1139,7 @@ class MOZ_STACK_CLASS CallMethodHelper f
+ 
+   ~CallMethodHelper();
+ 
+-  MOZ_ALWAYS_INLINE bool Call();
++  bool Call();
+ 
+   // Trace implementation so we can put our CallMethodHelper in a Rooted<T>.
+   void trace(JSTracer* aTrc);
+@@ -1157,6 +1157,10 @@ bool XPCWrappedNative::CallMethod(XPCCal
+   return helper.get().Call();
+ }
+ 
++#if (__GNUC__ && __linux__ && __PPC64__ && _LITTLE_ENDIAN)
++// Work around a compiler bug on ppc64le (bug 1512162).
++__attribute__ ((noinline,noclone))
++#endif
+ bool CallMethodHelper::Call() {
+   mCallContext.SetRetVal(JS::UndefinedValue());
+ 
+@@ -1315,6 +1319,10 @@ bool CallMethodHelper::GetOutParamSource
+   return true;
+ }
+ 
++#if (__GNUC__ && __linux__ && __PPC64__ && _LITTLE_ENDIAN)
++// Work around a compiler bug on ppc64le (bug 1512162).
++__attribute__ ((noinline,noclone))
++#endif
+ bool CallMethodHelper::GatherAndConvertResults() {
+   // now we iterate through the native params to gather and convert results
+   uint8_t paramCount = mMethodInfo->GetParamCount();

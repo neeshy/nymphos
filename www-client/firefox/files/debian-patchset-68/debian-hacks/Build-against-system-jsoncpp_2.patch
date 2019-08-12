@@ -1,0 +1,11 @@
+--- a/gfx/vr/service/openvr/moz.build	2019-06-09 15:15:53.000000000 +0700
++++ b/gfx/vr/service/openvr/moz.build	2019-06-15 20:05:22.144403742 +0700
+@@ -32,7 +32,7 @@
+         DEFINES['LINUX32'] = True
+ 
+ LOCAL_INCLUDES += [
+-    '/toolkit/components/jsoncpp/include',
++    '%/usr/include',
+ ]
+ 
+ USE_LIBS += [
