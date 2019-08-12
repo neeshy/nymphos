@@ -4,8 +4,5 @@ fixes/Bug-1526653-Include-struct-definitions-for-user_vfp-.patch
 
 debian-hacks/Don-t-build-image-gtests.patch
 
-debian-hacks/Build-against-system-jsoncpp.patch
-debian-hacks/Build-against-system-jsoncpp_2.patch
-
 debian-hacks/Set-program-name-from-the-remoting-name.patch
 debian-hacks/Use-remoting-name-for-call-to-gdk_set_program_class.patch
