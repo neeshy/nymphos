@@ -412,4 +412,4 @@ dev-util/depot_tools::mva
 
 sys-kernel/calculate-sources::calculate
 
-www-client/firefox::pg_overlay
+www-client/firefox::nymphos
