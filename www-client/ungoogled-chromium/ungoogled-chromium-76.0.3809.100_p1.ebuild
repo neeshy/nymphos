@@ -186,7 +186,7 @@ PATCHES=(
 	# Gentoo patches
 	"${FILESDIR}/${PN}-lss.patch"
 	# Extra patches taken from openSUSE
-	"${FILESDIR}/${PN}-libusb-interrupt-event-handler-r0.patch"
+	"${FILESDIR}/${PN}-libusb-interrupt-event-handler-r1.patch"
 	"${FILESDIR}/${PN}-system-libusb-r0.patch"
 	"${FILESDIR}/${PN}-system-nspr-r0.patch"
 	"${FILESDIR}/${PN}-system-openjpeg-r0.patch"
