@@ -183,7 +183,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-disable-third-party-lzma-sdk-r0.patch"
 	"${FILESDIR}/${PN}-gold-r4.patch"
 	"${FILESDIR}/${PN}-empty-array-r0.patch"
-	"${FILESDIR}/${PN}-fix-atomic-r0.patch"
 	# Gentoo patches
 	"${FILESDIR}/${PN}-fix-gn-gen.patch"
 	"${FILESDIR}/${PN}-llvm8.patch"
