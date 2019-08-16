@@ -181,7 +181,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-optional-dbus.patch"
 	"${FILESDIR}/${PN}-compiler-r5.patch"
 	"${FILESDIR}/${PN}-disable-third-party-lzma-sdk-r0.patch"
-	"${FILESDIR}/${PN}-gold-r3.patch"
+	"${FILESDIR}/${PN}-gold-r4.patch"
 	"${FILESDIR}/${PN}-empty-array-r0.patch"
 	"${FILESDIR}/${PN}-fix-atomic-r0.patch"
 	# Gentoo patches
@@ -406,7 +406,10 @@ src_prepare() {
 		v8/third_party/v8
 	)
 
-	use closure-compile && keeplibs+=( third_party/closure_compiler )
+	use closure-compile && keeplibs+=(
+		third_party/closure_compiler
+		third_party/closure_compiler/compiler
+	)
 	use optimize-webui && keeplibs+=(
 		third_party/node
 		third_party/node/node_modules/polymer-bundler/lib/third_party/UglifyJS2
