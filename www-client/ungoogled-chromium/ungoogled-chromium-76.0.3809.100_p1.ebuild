@@ -185,7 +185,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-empty-array-r0.patch"
 	# Gentoo patches
 	"${FILESDIR}/${PN}-lss.patch"
-	"${FILESDIR}/${PN}-unique_ptr.patch"
 	# Extra patches taken from openSUSE
 	"${FILESDIR}/${PN}-libusb-interrupt-event-handler-r0.patch"
 	"${FILESDIR}/${PN}-system-libusb-r0.patch"
