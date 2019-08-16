@@ -184,7 +184,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-gold-r4.patch"
 	"${FILESDIR}/${PN}-empty-array-r0.patch"
 	# Gentoo patches
-	"${FILESDIR}/${PN}-llvm8.patch"
 	"${FILESDIR}/${PN}-lss.patch"
 	"${FILESDIR}/${PN}-unique_ptr.patch"
 	# Extra patches taken from openSUSE
