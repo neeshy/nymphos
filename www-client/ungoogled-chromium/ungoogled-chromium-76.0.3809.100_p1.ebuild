@@ -289,6 +289,9 @@ src_prepare() {
 		third_party/blink
 		third_party/boringssl
 		third_party/boringssl/src/third_party/fiat
+		third_party/boringssl/src/third_party/sike
+		third_party/boringssl/linux-aarch64/crypto/third_party/sike
+		third_party/boringssl/linux-x86_64/crypto/third_party/sike
 		third_party/breakpad
 		third_party/breakpad/breakpad/src/third_party/curl
 		third_party/brotli
@@ -366,6 +369,7 @@ src_prepare() {
 		third_party/sfntly
 		third_party/simplejson
 		third_party/skia
+		third_party/skia/include/third_party/skcms
 		third_party/skia/include/third_party/vulkan
 		third_party/skia/third_party/gif
 		third_party/skia/third_party/skcms
