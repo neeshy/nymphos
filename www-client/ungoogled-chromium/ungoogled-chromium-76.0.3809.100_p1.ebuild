@@ -352,7 +352,6 @@ src_prepare() {
 		third_party/metrics_proto
 		third_party/modp_b64
 		third_party/nasm
-		third_party/openmax_dl
 		third_party/ots
 		third_party/perfetto
 		third_party/pffft
