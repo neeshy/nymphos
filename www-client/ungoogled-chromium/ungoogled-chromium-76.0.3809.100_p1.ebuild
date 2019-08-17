@@ -254,6 +254,7 @@ src_prepare() {
 	eend $? || die
 
 	local keeplibs=(
+		base/third_party/cityhash
 		base/third_party/dmg_fp
 		base/third_party/dynamic_annotations
 		base/third_party/icu
@@ -355,6 +356,7 @@ src_prepare() {
 		third_party/metrics_proto
 		third_party/modp_b64
 		third_party/nasm
+		third_party/openscreen
 		third_party/ots
 		third_party/perfetto
 		third_party/pffft
