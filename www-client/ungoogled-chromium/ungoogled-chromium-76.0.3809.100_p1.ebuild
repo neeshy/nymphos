@@ -398,6 +398,7 @@ src_prepare() {
 		v8/src/third_party/siphash
 		v8/src/third_party/valgrind
 		v8/src/third_party/utf8-decoder
+		v8/third_party/inspector_protocol
 		v8/third_party/v8
 	)
 
