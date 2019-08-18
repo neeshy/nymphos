@@ -18,7 +18,7 @@ IUSE=""
 
 DEPEND="${PYTHON_DEPS}
 app-arch/patool
-sys-apps/bubllewrap
+sys-apps/bubblewrap
 dev-python/black
 dev-python/pyyaml
 dev-python/colorama
