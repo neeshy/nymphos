@@ -17,6 +17,7 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 DEPEND="${PYTHON_DEPS}
+>=dev-python/typed-ast-1.3.1
 >=dev-python/toml-0.9.6
 >=dev-python/click-6.7
 >=dev-python/attrs-17.4.0
