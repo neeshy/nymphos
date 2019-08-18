@@ -413,3 +413,5 @@ dev-util/depot_tools::mva
 sys-kernel/calculate-sources::calculate
 
 www-client/firefox::nymphos
+dev-python/black::nymphos
+dev-python/RestrictedPython::nymphos
