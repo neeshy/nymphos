@@ -29,5 +29,3 @@ RDEPEND="
 	dev-python/attrs[${PYTHON_USEDEP}]
 	x11-libs/libXext
 "
-
-PATCHES=( "${FILESDIR}/${PN}-pillow.patch" )
