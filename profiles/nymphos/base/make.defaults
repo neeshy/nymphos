@@ -27,6 +27,7 @@ ACCEPT_KEYWORDS="${ACCEPT_KEYWORDS} ~amd64"
 ACCEPT_LICENSE="*"
 
 INSTALL_MASK="/etc/systemd /lib/systemd /usr/lib/systemd"
+INSTALL_MASK="${INSTALL_MASK} /etc/dbus-1 /usr/share/dbus-1"
 
 PORTAGE_NICENESS="19"
 EMERGE_DEFAULT_OPTS="--verbose=y --keep-going=y --jobs=4"
