@@ -364,15 +364,20 @@ media-plugins/vapoursynth-curve::vapoursynth
 
 app-admin/doas::nymphos
 app-admin/sv-helper::nymphos
-app-emulation/dxvk::nymphos
 app-crypt/johntheripper-jumbo::nymphos
+app-emulation/dxvk::nymphos
 app-misc/lf::nymphos
 app-misc/zscroll::nymphos
 app-text/mkbold-mkitalic::nymphos
 dev-go/go-runewidth::nymphos
 dev-go/termbox-go::nymphos
+dev-python/black::nymphos
+dev-python/GitPython::nymphos
+dev-python/portmod::nymphos
+dev-python/RestrictedPython::nymphos
 dev-ruby/rex-sslscan::nymphos
 games-arcade/stepmania::nymphos
+games-rpg/runescape-launcher::nymphos
 mail-client/alpine::nymphos
 mail-client/claws-mail::nymphos
 media-fonts/unifont::nymphos
@@ -383,16 +388,17 @@ net-ftp/vsftpd::nymphos
 net-misc/gallery-dl::nymphos
 sys-apps/runit-rc::nymphos
 sys-config/nymphos-portage::nymphos
+sys-kernel/bliss-initramfs::nymphos
 sys-process/runit::nymphos
 sys-process/runit-sv::nymphos
 www-apps/cgit::nymphos
 www-client/basilisk::nymphos
+www-client/firefox::nymphos
 www-client/iceweasel-uxp::nymphos
 www-client/ungoogled-chromium::nymphos
 x11-misc/i3lock::nymphos
 x11-misc/xbanish::nymphos
 x11-misc/xdg-utils::nymphos
-games-rpg/runescape-launcher::nymphos
 
 app-shells/zsh-history-substring-search::ROKO__
 
@@ -411,9 +417,3 @@ app-shells/fzf::mva
 dev-util/depot_tools::mva
 
 sys-kernel/calculate-sources::calculate
-
-www-client/firefox::nymphos
-dev-python/black::nymphos
-dev-python/RestrictedPython::nymphos
-dev-python/GitPython::nymphos
-dev-python/portmod::nymphos
