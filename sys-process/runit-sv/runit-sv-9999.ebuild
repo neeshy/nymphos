@@ -164,6 +164,7 @@ IUSE="
 	mopidy
 	mosquitto
 	mpd
+	mpdris2
 	mpdscribble
 	munge
 	mysql
@@ -268,6 +269,7 @@ IUSE="
 	umurmur
 	unbound
 	uptimed
+	usbguard
 	usbip
 	usbmuxd
 	uuid
@@ -452,6 +454,12 @@ RDEPEND="
 	mopidy? ( media-sound/mopidy )
 	mosquitto? ( app-misc/mosquitto )
 	mpd? ( media-sound/mpd )
+	mpdris2? (
+		|| (
+			media-sound/mpDris2
+			media-sound/mpdris2
+		)
+	)
 	mpdscribble? ( media-sound/mpdscribble )
 	munge? ( sys-auth/munge )
 	mysql? ( dev-db/mysql )
@@ -569,6 +577,7 @@ RDEPEND="
 	umurmur? ( media-sound/umurmur )
 	unbound? ( net-dns/unbound )
 	uptimed? ( app-misc/uptimed )
+	usbguard? ( sys-apps/usbguard )
 	usbip? ( net-misc/usbip )
 	usbmuxd? ( app-pda/usbmuxd )
 	uuid? ( dev-go/uuid )
@@ -799,6 +808,7 @@ moosefs moosefs/files/mfsmetalogger
 mopidy mopidy/files/mopidy
 mosquitto mosquitto/files/mosquitto
 mpd mpd/files/mpd
+mpdris2 mpDris2/files/mpDris2
 mpdscribble mpdscribble/files/mpdscribble
 munge munge/files/munge
 mysql mysql/files/mysqld
@@ -921,6 +931,7 @@ ulogd ulogd/files/ulogd
 umurmur umurmur/files/umurmurd
 unbound unbound/files/unbound
 uptimed uptimed/files/uptimed
+usbguard usbguard/files/usbguard
 usbip linux-tools/files/usbipd
 usbmuxd usbmuxd/files/usbmuxd
 uuid util-linux/files/uuidd
