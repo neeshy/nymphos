@@ -411,6 +411,7 @@ net-analyzer/armitage::pentoo
 dev-java/jgraphx::pentoo
 dev-java/msgpack::pentoo
 dev-java/sleep::pentoo
+sys-apps/usbguard::pentoo
 
 media-fonts/iosevka::mva
 app-shells/fzf::mva
