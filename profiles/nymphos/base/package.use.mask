@@ -1,2 +1,4 @@
 dev-lang/rust -system-llvm
 net-libs/libvncserver -libressl
+app-admin/clsync -caps
+net-dns/dnscrypt-proxy -filecaps
