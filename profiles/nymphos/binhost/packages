@@ -147,7 +147,7 @@ app-misc/fslint
 app-misc/gentoo
 app-misc/icdiff
 app-misc/lf
-app-misc/mat2
+#app-misc/mat2 # Requires introspection
 app-misc/mc
 app-misc/neofetch
 app-misc/nnn
@@ -906,7 +906,7 @@ net-misc/kafka-bin
 net-misc/megatools
 net-misc/minidlna
 net-misc/mosh
-net-misc/onioncircuits
+#net-misc/onioncircuits # Requires introspection
 net-misc/openntpd
 net-misc/proxychains
 net-misc/putty
@@ -1322,7 +1322,7 @@ x11-terms/root-tail
 x11-terms/rxvt-unicode
 x11-terms/sakura
 x11-terms/st
-x11-terms/terminator
+#x11-terms/terminator # Requires gtk+ [introspection]
 x11-terms/termite
 x11-themes/adwaita-icon-theme
 x11-themes/arc-icon-theme
@@ -1416,7 +1416,7 @@ x11-themes/xfce-gant-icon-theme
 x11-wm/aewm
 x11-wm/aewm++
 x11-wm/amiwm
-x11-wm/awesome
+#x11-wm/awesome # Requires introspection
 x11-wm/blackbox
 x11-wm/bspwm
 x11-wm/ctwm
