@@ -401,6 +401,7 @@ x11-misc/xbanish::nymphos
 x11-misc/xdg-utils::nymphos
 
 app-shells/zsh-history-substring-search::ROKO__
+gnome-extra/yad::ROKO__
 
 app-portage/lto-rebuild::lto-overlay
 sys-config/ltoize::lto-overlay
@@ -412,6 +413,8 @@ dev-java/jgraphx::pentoo
 dev-java/msgpack::pentoo
 dev-java/sleep::pentoo
 sys-apps/usbguard::pentoo
+dev-db/sqlmap::pentoo
+dev-db/nosqlmap::pentoo
 
 media-fonts/iosevka::mva
 app-shells/fzf::mva
