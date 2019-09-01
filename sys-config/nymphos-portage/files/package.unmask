@@ -415,6 +415,7 @@ dev-java/sleep::pentoo
 sys-apps/usbguard::pentoo
 dev-db/sqlmap::pentoo
 dev-db/nosqlmap::pentoo
+app-crypt/steghide::pentoo
 
 media-fonts/iosevka::mva
 app-shells/fzf::mva
