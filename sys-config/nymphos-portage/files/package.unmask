@@ -399,6 +399,7 @@ www-client/ungoogled-chromium::nymphos
 x11-misc/i3lock::nymphos
 x11-misc/xbanish::nymphos
 x11-misc/xdg-utils::nymphos
+x11-misc/sx::nymphos
 
 app-shells/zsh-history-substring-search::ROKO__
 gnome-extra/yad::ROKO__
