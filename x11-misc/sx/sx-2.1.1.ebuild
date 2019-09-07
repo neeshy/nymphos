@@ -19,7 +19,9 @@ DEPEND="
 	${RDEPEND}
 "
 
-src_compile() {  }
+src_compile() {
+	local x
+}
 
 src_install() {
 	dobin sx
