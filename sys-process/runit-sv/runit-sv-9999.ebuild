@@ -188,6 +188,7 @@ IUSE="
 	ofono
 	oidentd
 	olsrd
+	opendkim
 	openldap
 	openntpd
 	opensmtpd
@@ -496,6 +497,7 @@ RDEPEND="
 	ofono? ( net-misc/ofono )
 	oidentd? ( net-misc/oidentd )
 	olsrd? ( net-misc/olsrd )
+	opendkim? ( mail-filter/opendkim )
 	openldap? ( net-nds/openldap )
 	openntpd? ( net-misc/openntpd )
 	opensmtpd? ( mail-mta/opensmtpd )
@@ -839,6 +841,7 @@ nut network-ups-tools/files/upsmon
 ofono ofono/files/ofonod
 oidentd oidentd/files/oidentd
 olsrd olsrd/files/olsrd
+opendkim opendkim/files/opendkim
 openldap openldap/files/slapd
 openntpd openntpd/files/openntpd
 opensmtpd opensmtpd/files/opensmtpd
