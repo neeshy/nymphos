@@ -7,7 +7,7 @@ DESCRIPTION="Start an xorg server"
 HOMEPAGE="https://github.com/Earnestly/sx"
 SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="BSD"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
@@ -15,12 +15,10 @@ RDEPEND="
 	x11-base/xorg-server
 	x11-apps/xauth
 "
-DEPEND="
-	${RDEPEND}
-"
+DEPEND="${RDEPEND}"
 
 src_compile() {
-	local x
+	:
 }
 
 src_install() {
