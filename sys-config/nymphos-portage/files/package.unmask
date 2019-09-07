@@ -293,6 +293,7 @@ media-plugins/vapoursynth-inpaint::vapoursynth
 media-plugins/vapoursynth-it::vapoursynth
 media-plugins/vapoursynth-l-smash-works::vapoursynth
 media-plugins/vapoursynth-minsrp::vapoursynth
+media-plugins/vapoursynth-median::vapoursynth
 media-plugins/vapoursynth-msmoosh::vapoursynth
 media-plugins/vapoursynth-muvsfunc::vapoursynth
 media-plugins/vapoursynth-mvsfunc::vapoursynth
@@ -365,7 +366,6 @@ media-plugins/vapoursynth-curve::vapoursynth
 app-admin/doas::nymphos
 app-admin/sv-helper::nymphos
 app-crypt/johntheripper-jumbo::nymphos
-app-emulation/dxvk::nymphos
 app-misc/lf::nymphos
 app-misc/zscroll::nymphos
 app-text/mkbold-mkitalic::nymphos
@@ -416,9 +416,12 @@ sys-apps/usbguard::pentoo
 dev-db/sqlmap::pentoo
 dev-db/nosqlmap::pentoo
 app-crypt/steghide::pentoo
+app-exploits/exploitdb::pentoo
 
 media-fonts/iosevka::mva
 app-shells/fzf::mva
 dev-util/depot_tools::mva
 
 sys-kernel/calculate-sources::calculate
+
+app-emulation/dxvk::tastytea
