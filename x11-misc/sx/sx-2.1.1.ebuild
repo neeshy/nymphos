@@ -19,6 +19,8 @@ DEPEND="
 	${RDEPEND}
 "
 
+src_compile() {  }
+
 src_install() {
 	dobin sx
 	doman sx.1
