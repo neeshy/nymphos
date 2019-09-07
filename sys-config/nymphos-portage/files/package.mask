@@ -43,6 +43,7 @@
 */*::ssnb
 */*::steam-overlay
 */*::stefantalpalaru
+*/*::tastytea
 */*::tlp
 */*::torbrowser
 */*::vampire
