@@ -1,3 +1,5 @@
+sys-devel/autofdo::pentoo
+
 net-im/profanity::optmzr
 dev-libs/libmesode::optmzr # profanity
 
@@ -8,12 +10,14 @@ net-libs/serf::libressl
 sys-apps/kmod::libressl
 x11-apps/igt-gpu-tools::libressl
 
-games-emulation/pcsx2::cloveros-overlay # pcsx2-9999::gentoo with added "src_configure() { local mycmakeargs=( -DDISABLE_ADVANCE_SIMD=ON ) }"
-app-emulation/winetricks::cloveros-overlay # winetricks-9999::gentoo with removed RDEPEND="x11-misc/xdg-utils"
-media-gfx/meh::cloveros-overlay # taken from media-gfx/meh::lanodanOverlay
-media-video/vidcutter::cloveros-overlay # media-video/vidcutter::jorgicio with removed RDEPEND=">=dev-python/PyQt5-5.7[dbus]"
-media-gfx/nip2::cloveros-overlay
-media-libs/vips::cloveros-overlay
+games-emulation/pcsx2::cloveros # pcsx2-9999::gentoo with added "src_configure() { local mycmakeargs=( -DDISABLE_ADVANCE_SIMD=ON ) }"
+games-emulation/rpcs3::cloveros # rpcs3-0.0.5::jm-overlay with added "src_configure() { local mycmakeargs=( -DUSE_NATIVE_INSTRUCTIONS=OFF ) }" and turned into git
+app-emulation/winetricks::cloveros # winetricks-9999::gentoo with removed RDEPEND="x11-misc/xdg-utils"
+mate-base/mate::cloveros # mate-1.22::gentoo with removed "extras? ( sys-apps/gnome-disk-utility:0 )"
+media-gfx/meh::cloveros # taken from media-gfx/meh::lanodanOverlay
+media-video/vidcutter::cloveros # media-video/vidcutter::jorgicio with removed RDEPEND=">=dev-python/PyQt5-5.7[dbus]"
+media-gfx/nip2::cloveros
+media-libs/vips::cloveros
 
 sys-fs/exfat-nofuse::bobwya
 virtual/wine::bobwya
@@ -55,7 +59,6 @@ net-print/brother-genml1-bin::brother-overlay
 
 media-sound/pure-data::audio-overlay
 media-sound/bitwig-studio::audio-overlay
-media-sound/guitarix::audio-overlay
 media-sound/mididings::audio-overlay
 media-sound/drumkv1::audio-overlay
 media-sound/padthv1::audio-overlay
@@ -77,6 +80,9 @@ dev-util/android-udev-rules::genthree
 dev-lang/tauthon::stefantalpalaru
 media-plugins/gimp-refocus::stefantalpalaru
 media-plugins/refocus-it::stefantalpalaru
+media-video/avidemux::stefantalpalaru
+media-libs/avidemux-core::stefantalpalaru # avidemux
+media-libs/avidemux-plugins::stefantalpalaru # avidemux
 
 dev-util/monodevelop::dotnet
 dev-dotnet/nuget::dotnet
@@ -162,6 +168,16 @@ x11-misc/clipster::fkmclane
 
 net-vpn/zeronet::raiagent
 app-misc/powerline::raiagent
+
+pantheon-base/plank::elementary
+x11-themes/plank-theme-pantheon::elementary
+
+sys-apps/flatpak::flatpak-overlay
+acct-user/flatpak::flatpak-overlay # flatpak
+acct-group/flatpak::flatpak-overlay # flatpak
+sys-apps/xdg-desktop-portal::flatpak-overlay
+sys-apps/xdg-desktop-portal-gtk::flatpak-overlay
+sys-fs/libostree::flatpak-overlay
 
 sys-kernel/dkms::farmboy0
 

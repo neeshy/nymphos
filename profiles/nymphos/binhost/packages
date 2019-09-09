@@ -15,6 +15,7 @@ app-admin/lastpass-cli
 app-admin/logrotate
 app-admin/mcelog
 app-admin/metalog
+app-admin/mongo-tools
 app-admin/pass
 app-admin/passwordsafe
 app-admin/sshguard
@@ -262,7 +263,6 @@ dev-lang/scala
 dev-lang/tauthon
 dev-lang/tcc
 dev-libs/amdgpu-pro-opencl
-dev-libs/beignet
 dev-libs/input-pad
 dev-libs/libisoburn
 dev-perl/LWP-UserAgent-Cached
@@ -376,6 +376,7 @@ games-engines/odamex
 games-engines/openmw
 games-engines/openxcom
 games-engines/scummvm
+games-fps/alienarena
 games-fps/avp
 games-fps/chocolate-doom
 games-fps/darkplaces
@@ -657,7 +658,6 @@ media-fonts/zh-kcfonts
 media-gfx/apngasm
 media-gfx/apngdis
 media-gfx/argyllcms
-media-gfx/blender
 media-gfx/cropgui
 media-gfx/darktable
 media-gfx/displaycal
@@ -700,10 +700,12 @@ media-gfx/sxiv
 media-gfx/ueberzug
 media-gfx/viewnior
 media-gfx/w3mimgfb
+media-gfx/wkhtmltopdf
 media-gfx/xsane
 media-gfx/xzgv
 media-libs/alsa-oss
 media-libs/glyr
+media-libs/osl
 media-libs/vapoursynth
 media-libs/vips
 media-libs/vulkan-loader
@@ -1044,6 +1046,7 @@ sys-boot/plymouth
 sys-boot/syslinux
 sys-boot/unetbootin
 sys-boot/woeusb
+sys-devel/autofdo
 sys-devel/crossdev
 sys-devel/distcc
 sys-devel/gdb
@@ -1109,8 +1112,8 @@ www-client/palemoon
 www-client/seamonkey
 www-client/surfraw
 www-client/torbrowser
-www-client/ungoogled-chromium
 www-client/uget
+www-client/ungoogled-chromium
 www-client/w3m
 www-client/waterfox
 www-misc/fcgiwrap
@@ -1324,6 +1327,8 @@ x11-terms/sakura
 x11-terms/st
 x11-terms/terminator # Requires gtk+ [introspection]
 x11-terms/termite
+x11-terms/tilix
+x11-terms/xfce4-terminal
 x11-themes/adwaita-icon-theme
 x11-themes/arc-icon-theme
 x11-themes/arc-theme
@@ -1392,6 +1397,7 @@ x11-themes/numix-icon-theme
 x11-themes/nuvox
 x11-themes/obsidian-xcursors
 x11-themes/papirus-icon-theme
+x11-themes/oxygen-gtk
 x11-themes/pearlgrey-xcursors
 x11-themes/redhat-artwork
 x11-themes/silver-xcursors
