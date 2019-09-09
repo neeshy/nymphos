@@ -417,7 +417,15 @@ sys-apps/usbguard::pentoo
 dev-db/sqlmap::pentoo
 dev-db/nosqlmap::pentoo
 app-crypt/steghide::pentoo
+net-analyzer/gobuster::pentoo
 app-exploits/exploitdb::pentoo
+dev-go/*::pentoo
+net-analyzer/nikto::pentoo
+app-exploits/pwntools::pentoo
+dev-python/capstone-python::pentoo
+app-exploits/ROPgadget::pentoo
+dev-util/unicorn::pentoo
+dev-libs/unicorn-bindings::pentoo
 
 media-fonts/iosevka::mva
 app-shells/fzf::mva

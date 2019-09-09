@@ -82,4 +82,4 @@ www-apps/cgit::gentoo # nymphos
 x11-misc/i3lock::gentoo # nymphos
 x11-misc/xdg-utils::gentoo # nymphos
 games-rpg/runescape-launcher::gentoo # nymphos
-
+www-client/firefox::gentoo # dbus
