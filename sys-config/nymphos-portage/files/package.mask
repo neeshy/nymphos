@@ -52,7 +52,6 @@
 
 net-libs/nodejs::gentoo # libressl
 dev-qt/qtnetwork::gentoo # libressl
-dev-perl/Net-SSLeay::gentoo # libressl
 app-crypt/qca::gentoo # libressl
 net-libs/serf::gentoo # libressl
 sys-apps/kmod::gentoo # libressl
