@@ -1327,7 +1327,6 @@ x11-terms/sakura
 x11-terms/st
 x11-terms/terminator # Requires gtk+ [introspection]
 x11-terms/termite
-x11-terms/tilix
 x11-terms/xfce4-terminal
 x11-themes/adwaita-icon-theme
 x11-themes/arc-icon-theme
