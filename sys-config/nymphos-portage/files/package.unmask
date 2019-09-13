@@ -442,6 +442,13 @@ dev-python/capstone-python::pentoo
 app-exploits/ROPgadget::pentoo
 dev-util/unicorn::pentoo
 dev-libs/unicorn-bindings::pentoo
+net-analyzer/crackmapexec::pentoo
+dev-python/impacket::pentoo
+dev-python/pylnk::pentoo
+dev-python/splinter::pentoo
+dev-python/selenium::pentoo
+dev-python/ldapdomaindump::pentoo
+net-analyzer/smbmap::pentoo
 
 media-fonts/iosevka::mva
 app-shells/fzf::mva
