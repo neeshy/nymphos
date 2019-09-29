@@ -381,7 +381,6 @@ media-plugins/vapoursynth-curve::vapoursynth
 
 app-admin/doas::nymphos
 app-admin/sv-helper::nymphos
-app-crypt/johntheripper-jumbo::nymphos
 app-misc/lf::nymphos
 app-misc/zscroll::nymphos
 app-text/mkbold-mkitalic::nymphos
