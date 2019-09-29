@@ -449,6 +449,7 @@ dev-python/splinter::pentoo
 dev-python/selenium::pentoo
 dev-python/ldapdomaindump::pentoo
 net-analyzer/smbmap::pentoo
+net-analyzer/wfuzz::pentoo
 
 media-fonts/iosevka::mva
 app-shells/fzf::mva
