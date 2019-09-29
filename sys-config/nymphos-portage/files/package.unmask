@@ -408,7 +408,6 @@ sys-process/runit::nymphos
 sys-process/runit-sv::nymphos
 www-apps/cgit::nymphos
 www-client/basilisk::nymphos
-www-client/firefox::nymphos
 www-client/iceweasel-uxp::nymphos
 www-client/ungoogled-chromium::nymphos
 x11-misc/i3lock::nymphos
@@ -448,7 +447,15 @@ dev-python/splinter::pentoo
 dev-python/selenium::pentoo
 dev-python/ldapdomaindump::pentoo
 net-analyzer/smbmap::pentoo
+net-analyzer/wpscan::pentoo
+dev-ruby/cms_scanner::pentoo
+net-analyzer/dnsrecon::pentoo
 net-analyzer/wfuzz::pentoo
+dev-python/shodan::pentoo
+net-analyzer/padbuster::pentoo
+www-apps/beef::pentoo
+dev-ruby/*::pentoo
+app-exploits/weevely::pentoo
 
 media-fonts/iosevka::mva
 app-shells/fzf::mva
