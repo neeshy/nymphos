@@ -1014,7 +1014,7 @@ sys-apps/iproute2
 sys-apps/iucode_tool
 sys-apps/kexec-tools
 sys-apps/kmscon
-sys-apps/lm_sensors
+sys-apps/lm-sensors
 sys-apps/lshw
 sys-apps/mlocate
 sys-apps/moreutils
