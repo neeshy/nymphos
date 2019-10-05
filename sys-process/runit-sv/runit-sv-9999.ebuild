@@ -432,7 +432,7 @@ RDEPEND="
 	libvirt? ( app-emulation/libvirt )
 	lightdm? ( x11-misc/lightdm )
 	lighttpd? ( www-servers/lighttpd )
-	lm_sensors? ( sys-apps/lm_sensors )
+	lm_sensors? ( sys-apps/lm-sensors )
 	lsyncd? ( app-admin/lsyncd )
 	lvm? ( sys-fs/lvm2 )
 	lxc? ( app-emulation/lxc )

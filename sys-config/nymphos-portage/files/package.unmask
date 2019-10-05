@@ -464,3 +464,5 @@ dev-util/depot_tools::mva
 sys-kernel/calculate-sources::calculate
 
 app-emulation/dxvk::tastytea
+
+=net-libs/libtorrent-rasterbar-1.1.9999::pg_overlay
