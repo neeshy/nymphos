@@ -141,7 +141,7 @@ IUSE="
 	libvirt
 	lightdm
 	lighttpd
-	lm_sensors
+	lm-sensors
 	lsyncd
 	lvm
 	lxc
@@ -274,6 +274,7 @@ IUSE="
 	usbip
 	usbmuxd
 	uuid
+	varnish
 	vault
 	virtualbox
 	vmware
@@ -432,7 +433,7 @@ RDEPEND="
 	libvirt? ( app-emulation/libvirt )
 	lightdm? ( x11-misc/lightdm )
 	lighttpd? ( www-servers/lighttpd )
-	lm_sensors? ( sys-apps/lm-sensors )
+	lm-sensors? ( sys-apps/lm-sensors )
 	lsyncd? ( app-admin/lsyncd )
 	lvm? ( sys-fs/lvm2 )
 	lxc? ( app-emulation/lxc )
@@ -583,6 +584,7 @@ RDEPEND="
 	usbip? ( net-misc/usbip )
 	usbmuxd? ( app-pda/usbmuxd )
 	uuid? ( dev-go/uuid )
+	varnish? ( www-servers/varnish )
 	vault? ( app-admin/vault )
 	virtualbox? ( app-emulation/virtualbox )
 	vmware? ( app-emulation/open-vm-tools )
@@ -784,7 +786,7 @@ libvirt libvirt/files/virtlockd
 libvirt libvirt/files/virtlogd
 lightdm lightdm/files/lightdm
 lighttpd lighttpd/files/lighttpd
-lm_sensors lm_sensors/files/fancontrol
+lm-sensors lm_sensors/files/fancontrol
 lsyncd lsyncd/files/lsyncd
 lvm lvm2/files/dmeventd
 lvm lvm2/files/lvmetad
@@ -938,6 +940,7 @@ usbguard usbguard/files/usbguard
 usbip linux-tools/files/usbipd
 usbmuxd usbmuxd/files/usbmuxd
 uuid util-linux/files/uuidd
+varnish varnish/files/varnishd
 vault vault/files/vault
 virtualbox virtualbox-ose/files/vboxservice
 virtualbox virtualbox-ose/files/vboxwebsrv
