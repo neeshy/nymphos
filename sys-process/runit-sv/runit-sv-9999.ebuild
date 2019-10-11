@@ -640,8 +640,9 @@ binfmt binfmt-support/files/binfmt-support
 bird bird/files/bird
 bitlbee bitlbee/files/bitlbee
 blackbox_exporter blackbox_exporter/files/blackbox_exporter
-bluetooth bluez-alsa/files/bluez-alsa
+bluetooth-alsa bluez-alsa/files/bluez-alsa
 bluetooth bluez/files/bluetoothd
+bluetooth bluez/files/bluetooth-meshd
 boinc boinc/files/boinc
 bolt bolt/files/boltd
 brltty brltty/files/brltty
