@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="=dev-libs/jsoncpp-1.8.1:=
+DEPEND=">=dev-libs/jsoncpp-1.8.1:=
 	>=dev-libs/boost-1.54:=
 "
 RDEPEND="${DEPEND}"
