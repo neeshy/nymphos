@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{3_5,3_6,3_7} )
+PYTHON_COMPAT=( python3_{5,6,7,8} )
 inherit python-single-r1
 
 GITHUB_USER="fearedbliss"
