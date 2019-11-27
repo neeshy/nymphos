@@ -912,6 +912,7 @@ strongswan strongswan/files/strongswan
 subversion subversion/files/svnserve
 suricata suricata/files/suricata
 synapse synapse/files/synapse
+syncthing syncthing/files/discosrv
 syncthing syncthing/files/relaysrv
 synergy synergy/files/synergyc
 synergy synergy/files/synergys
