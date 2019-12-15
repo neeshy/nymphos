@@ -93,6 +93,7 @@ IUSE="
 	fastd
 	fcron
 	fiche
+	firehol
 	flannel
 	freeipmi
 	frp
@@ -129,6 +130,7 @@ IUSE="
 	irqbalance
 	iwd
 	jenkins
+	k3s
 	kapacitor
 	kea
 	keepalived
@@ -380,6 +382,7 @@ RDEPEND="
 	fastd? ( net-misc/fastd )
 	fcron? ( sys-process/fcron )
 	fiche? ( net-misc/fiche )
+	firehol? ( net-firewall/firehol )
 	flannel? ( app-emulation/flannel )
 	freeipmi? ( sys-libs/freeipmi )
 	frp? ( net-proxy/frp-bin )
@@ -416,6 +419,7 @@ RDEPEND="
 	irqbalance? ( sys-apps/irqbalance )
 	iwd? ( net-wireless/iwd )
 	jenkins? ( dev-util/jenkins-bin )
+	k3s? ( sys-cluster/k3s )
 	kapacitor? ( net-analyzer/kapacitor )
 	kea? ( net-misc/kea )
 	keepalived? ( sys-cluster/keepalived )
@@ -708,6 +712,7 @@ fail2ban fail2ban/files/fail2ban
 fastd fastd/files/fastd
 fcron fcron/files/fcron
 fiche fiche/files/fiche
+firehol firehol/files/firehol
 flannel flannel/files/flannel
 freeipmi freeipmi/files/bmc-watchdog
 freeipmi freeipmi/files/ipmidetectd
@@ -766,6 +771,8 @@ ipvsadm ipvsadm/files/ipvsadm
 irqbalance irqbalance/files/irqbalance
 iwd iwd/files/iwd
 jenkins jenkins/files/jenkins
+k3s k3s/files/k3s-agent
+k3s k3s/files/k3s-server
 kapacitor kapacitor/files/kapacitor
 kea kea/files/kea-dhcp4
 kea kea/files/kea-dhcp6
