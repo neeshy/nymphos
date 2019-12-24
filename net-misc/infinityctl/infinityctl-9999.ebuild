@@ -13,12 +13,15 @@ EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="GPL-3+"
 SLOT="0"
+IUSE="ocr"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND="
 	dev-python/urllib3[${PYTHON_USEDEP}]
-	app-text/tesseract
-	media-gfx/imagemagick
+	ocr? (
+		app-text/tesseract
+		virtual/imagemagick-tools
+	)
 "
 
 PATCHES=( "${FILESDIR}/${PN}-setup.py.patch" )
