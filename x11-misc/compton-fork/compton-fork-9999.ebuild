@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python3_{5,6,7,8} )
+PYTHON_COMPAT=( python3_{6,7,8} )
 inherit toolchain-funcs python-r1 git-r3
 
 DESCRIPTION="A fork of compton, with added blur and animations"
