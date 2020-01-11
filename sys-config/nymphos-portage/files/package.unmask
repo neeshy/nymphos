@@ -167,6 +167,13 @@ x11-misc/lemonbar::fkmclane
 x11-misc/clipster::fkmclane
 
 net-vpn/zeronet::raiagent
+dev-python/coincurve::raiagent
+dev-python/pyelliptic::raiagent
+dev-python/maxminddb::raiagent
+dev-python/base58::raiagent
+dev-python/merkletools::raiagent
+dev-python/python-bitcoinlib::raiagent
+dev-python/bencode_py::raiagent
 app-misc/powerline::raiagent
 
 pantheon-base/plank::elementary

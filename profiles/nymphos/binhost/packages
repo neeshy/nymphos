@@ -335,7 +335,6 @@ games-board/xboard
 games-emulation/advancemame
 games-emulation/advancescan
 games-emulation/citra
-games-emulation/daphne
 games-emulation/desmume
 games-emulation/dgen-sdl
 games-emulation/dolphin
@@ -808,7 +807,6 @@ media-video/dvdbackup
 media-video/ffcast
 media-video/ffmpeg
 media-video/ffmpegthumbnailer
-media-video/gnome-mpv
 media-video/gpac
 media-video/handbrake
 media-video/mediainfo
@@ -938,14 +936,12 @@ net-p2p/deluge
 net-p2p/freenet
 net-p2p/go-ipfs-bin
 net-p2p/mktorrent
-net-p2p/mktorrent-borg
 net-p2p/mldonkey
 net-p2p/ncdc
 net-p2p/nicotine+
 net-p2p/qbittorrent
 net-p2p/rtorrent
 net-p2p/soulseek-qt
-net-p2p/syncthing
 net-p2p/transmission
 net-p2p/transmission-remote-gtk
 net-p2p/vuze
@@ -1003,7 +999,6 @@ sys-apps/dmidecode
 sys-apps/fbset
 sys-apps/firejail
 sys-apps/hprofile
-sys-apps/hwdata-redhat
 sys-apps/hwinfo
 sys-apps/hwloc
 sys-apps/i2c-tools
@@ -1123,7 +1118,6 @@ www-plugins/lightspark
 www-servers/apache
 www-servers/lighttpd
 www-servers/nginx
-#www-servers/onionshare #Old pycrypto in ebuild
 www-servers/spawn-fcgi
 www-servers/thttpd
 www-servers/tomcat
