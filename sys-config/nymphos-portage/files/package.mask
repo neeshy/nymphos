@@ -56,7 +56,6 @@ app-crypt/qca::gentoo # libressl
 net-libs/serf::gentoo # libressl
 sys-apps/kmod::gentoo # libressl
 x11-apps/igt-gpu-tools::gentoo # libressl
->media-gfx/argyllcms-1.9.2 # libressl
 >net-libs/libvncserver-0.9.11-r1
 >=dev-dotnet/libgdiplus-6.0.2
 

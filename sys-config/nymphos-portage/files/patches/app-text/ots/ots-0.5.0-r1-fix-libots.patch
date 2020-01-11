@@ -1,0 +1,15 @@
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 504c3d2..3ad5c23 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -43,9 +43,8 @@ libots_1_include_HEADERS = 	\
+ 	libots.h
+ 
+ bin_PROGRAMS=ots
+-ldadd = $(top_builddir)/src/libots-1.la $(OTS_LIBS) $(POPT_LIBS)
+ 
+-ots_LDADD=$(ldadd)
++ots_LDADD=libots-1.la $(OTS_LIBS) $(POPT_LIBS)
+ 
+ install-data-local: install-libtool-import-lib
+ 
