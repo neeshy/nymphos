@@ -172,6 +172,7 @@ IUSE="
 	mysql
 	nbd
 	ndppd
+	nebula
 	netdata
 	networkmanager
 	nfs
@@ -471,6 +472,7 @@ RDEPEND="
 	mysql? ( dev-db/mysql )
 	nbd? ( sys-block/nbd )
 	ndppd? ( net-misc/ndppd )
+	nebula? ( net-irc/nebula )
 	netdata? ( net-analyzer/netdata )
 	networkmanager? ( net-misc/networkmanager )
 	nfs? ( net-fs/nfs-utils )
@@ -826,6 +828,7 @@ munge munge/files/munge
 mysql mysql/files/mysqld
 nbd nbd/files/nbd
 ndppd ndppd/files/ndppd
+nebula nebula/files/nebula
 netdata netdata/files/netdata
 networkmanager NetworkManager/files/NetworkManager
 nfs nfs-utils/files/nfs-server
