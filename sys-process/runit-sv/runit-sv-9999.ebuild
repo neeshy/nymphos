@@ -235,6 +235,7 @@ IUSE="
 	shorewall
 	slim
 	smartmontools
+	snapcast
 	snapper
 	sndio
 	spamassassin
@@ -548,6 +549,7 @@ RDEPEND="
 	shorewall? ( net-firewall/shorewall )
 	slim? ( dev-ruby/slim )
 	smartmontools? ( sys-apps/smartmontools )
+	snapcast? ( media-sound/snapcast )
 	snapper? ( app-backup/snapper )
 	sndio? ( media-sound/sndio )
 	spamassassin? ( mail-filter/spamassassin )
@@ -908,6 +910,8 @@ shorewall shorewall/files/shorewall
 shorewall shorewall/files/shorewall6
 slim slim/files/slim
 smartmontools smartmontools/files/smartd
+snapcast snapcast/files/snapclient
+snapcast snapcast/files/snapserver
 snapper snapper/files/snapperd
 sndio sndio/files/sndiod
 spamassassin spamassassin/files/spamd
