@@ -484,17 +484,14 @@ RDEPEND="
 	node_exporter? ( app-metrics/node_exporter )
 	nrpe? ( net-analyzer/nrpe )
 	nscd? (
-		elibc_glibc? (
-			|| (
+		|| (
+			elibc_glibc? (
 				sys-libs/glibc[nscd]
-				sys-apps/unscd
 			)
-		)
-		elibc_musl? (
-			|| (
+			elibc_musl? (
 				sys-libs/musl-nscd
-				sys-apps/unscd
 			)
+			sys-apps/unscd
 		)
 	)
 	nsd? ( net-dns/nsd )
