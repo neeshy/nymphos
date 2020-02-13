@@ -165,6 +165,7 @@ IUSE="
 	moosefs
 	mopidy
 	mosquitto
+	mouseemu
 	mpd
 	mpdris2
 	mpdscribble
@@ -198,6 +199,7 @@ IUSE="
 	openssh
 	openvswitch
 	orientdb
+	pbbuttonsd
 	pcsc-lite
 	php
 	policykit
@@ -461,6 +463,7 @@ RDEPEND="
 	moosefs? ( sys-cluster/moosefs )
 	mopidy? ( media-sound/mopidy )
 	mosquitto? ( app-misc/mosquitto )
+	mouseemu? ( sys-apps/mouseemu )
 	mpd? ( media-sound/mpd )
 	mpdris2? (
 		|| (
@@ -509,6 +512,7 @@ RDEPEND="
 	openssh? ( net-misc/openssh )
 	openvswitch? ( net-misc/openvswitch )
 	orientdb? ( dev-db/orientdb-bin )
+	pbbuttonsd? ( app-laptop/pbbuttonsd )
 	pcsc-lite? ( sys-apps/pcsc-lite )
 	php? ( dev-lang/php )
 	policykit? ( sys-auth/polkit )
@@ -820,6 +824,7 @@ moosefs moosefs/files/mfsmaster
 moosefs moosefs/files/mfsmetalogger
 mopidy mopidy/files/mopidy
 mosquitto mosquitto/files/mosquitto
+mouseemu mouseemu/files/mouseemu
 mpd mpd/files/mpd
 mpdris2 mpDris2/files/mpDris2
 mpdscribble mpdscribble/files/mpdscribble
@@ -861,6 +866,7 @@ openssh openssh/files/sshd
 openvswitch openvswitch/files/ovsdb-server
 openvswitch openvswitch/files/ovs-vswitchd
 orientdb orientdb/files/orientdb
+pbbuttonsd pbbuttonsd/files/pbbuttonsd
 pcsc-lite pcsclite/files/pcscd
 php php/files/php-fpm
 policykit polkit/files/polkitd
