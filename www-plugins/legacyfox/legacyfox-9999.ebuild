@@ -19,7 +19,12 @@ fi
 LICENSE="MPL-2.0"
 SLOT="0"
 
+src_compile() {
+	:
+}
+
 src_install() {
-	dodir "/usr/$(get_libdir)/firefox"
-	emake install mozilladir="${D}/usr/$(get_libdir)/firefox"
+	insinto "/usr/$(get_libdir)/firefox"
+	doins config.js legacy.manifest
+	doins -r defaults legacy
 }
