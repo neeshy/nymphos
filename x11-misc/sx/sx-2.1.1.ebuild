@@ -15,7 +15,6 @@ RDEPEND="
 	x11-base/xorg-server
 	x11-apps/xauth
 "
-DEPEND="${RDEPEND}"
 
 src_compile() {
 	:

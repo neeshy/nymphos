@@ -32,7 +32,6 @@ IUSE="
 	system-icu system-jpeg system-libevent system-libvpx system-nspr
 	system-nss system-pixman system-png system-sqlite system-zlib
 "
-
 REQUIRED_USE="
 	^^ ( gtk2 gtk3 )
 	wifi? ( dbus )
@@ -100,7 +99,6 @@ RDEPEND="
 	system-sqlite? ( >=dev-db/sqlite-3.17.0:3[secure-delete,debug=] )
 	system-zlib? ( >=sys-libs/zlib-1.2.3 )
 "
-
 DEPEND="${RDEPEND}
 	>=sys-devel/autoconf-2.13:2.1
 	virtual/pkgconfig
