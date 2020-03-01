@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
 inherit check-reqs flag-o-matic toolchain-funcs eutils gnome2-utils multilib pax-utils desktop xdg-utils basilisk
 
