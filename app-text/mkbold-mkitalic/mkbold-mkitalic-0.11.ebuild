@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
 DESCRIPTION="Make X11 BDF fonts bold and/or italic"
 HOMEPAGE="http://hp.vector.co.jp/authors/VA013651/freeSoftware/mkbold-mkitalic.html"

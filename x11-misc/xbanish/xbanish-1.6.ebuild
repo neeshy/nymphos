@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
 DESCRIPTION="Banish the mouse cursor when typing, show it again when the mouse moves"
 HOMEPAGE="https://github.com/jcs/xbanish"
@@ -16,8 +16,7 @@ RDEPEND="
 	x11-libs/libXfixes
 	x11-libs/libXi
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}
 	x11-libs/libXt
 "
 

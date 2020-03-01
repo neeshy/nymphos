@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI=7
 
 inherit toolchain-funcs
 
@@ -25,8 +25,7 @@ RDEPEND="
 	x11-libs/libxcb[xkb]
 	x11-libs/xcb-util
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 DOCS=( CHANGELOG README.md )
