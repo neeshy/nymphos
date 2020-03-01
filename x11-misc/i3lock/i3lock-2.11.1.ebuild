@@ -18,7 +18,7 @@ RDEPEND="
 	>=x11-libs/libxkbcommon-0.5.0[X]
 	dev-libs/libev
 	pam? ( virtual/pam )
-	x11-libs/cairo[xcb]
+	x11-libs/cairo[X,xcb(+)]
 	x11-libs/libxcb[xkb]
 	x11-libs/xcb-util
 	x11-libs/xcb-util-xrm
@@ -48,6 +48,8 @@ src_prepare() {
 
 src_install() {
 	default
-	fperms u+s "/usr/bin/${PN}"
+	if ! use pam; then
+		fperms u+s "/usr/bin/${PN}"
+	fi
 	doman "${PN}.1"
 }
