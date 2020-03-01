@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit font toolchain-funcs xdg-utils
 
@@ -11,7 +11,7 @@ SRC_URI="mirror://gnu/${PN}/${P}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86 ~x86-fbsd"
+KEYWORDS="amd64 x86"
 IUSE="bold fontforge utils"
 
 DEPEND="
@@ -40,6 +40,7 @@ src_prepare() {
 }
 
 src_compile() {
+	local dir
 	if use fontforge || use utils; then
 		if use bold; then
 			dir="font/compiled"
@@ -69,6 +70,7 @@ src_install() {
 	emake "${makeargs[@]}" install
 
 	if use bold; then
+		local dir
 		insinto "${FONTDIR}"
 		if [[ -d font/compiled ]]; then
 			dir="font/compiled"
