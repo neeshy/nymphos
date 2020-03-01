@@ -13,8 +13,8 @@ LICENSE="MIT default-songs? ( CC-BY-NC-4.0 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc +default-songs alsa oss pulseaudio jack ffmpeg gles2 +gtk +mp3 +ogg +jpeg networking wav parport crash-handler cpu_flags_x86_sse2"
-
 REQUIRED_USE="|| ( alsa oss pulseaudio jack )"
+
 RDEPEND="
 	app-arch/bzip2
 	dev-libs/libpcre

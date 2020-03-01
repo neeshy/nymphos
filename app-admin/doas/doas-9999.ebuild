@@ -17,7 +17,8 @@ IUSE="static"
 
 DEPEND="${RDEPEND}
 	virtual/yacc
-	sys-libs/glibc"
+	sys-libs/glibc
+"
 
 src_compile() {
 	emake V=1 AR="$(tc-getAR)" CC="$(tc-getCC)" CFLAGS="-DDOAS_STATE_DIR=\\\"${DOAS_STATE_DIR}\\\" ${CFLAGS}" LDFLAGS="${LDFLAGS}"
