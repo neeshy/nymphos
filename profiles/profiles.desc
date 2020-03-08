@@ -2,5 +2,3 @@ amd64 nymphos/binhost dev
 amd64 nymphos/binhost/runit dev
 amd64 nymphos/user stable
 amd64 nymphos/user/runit stable
-amd64 nymphos/user/bin stable
-amd64 nymphos/user/bin/runit stable
