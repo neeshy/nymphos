@@ -1,15 +1,15 @@
 --- a/ranger/ext/img_display.py
 +++ b/ranger/ext/img_display.py
-@@ -22,7 +22,7 @@ import sys
+@@ -22,7 +22,7 @@
  import warnings
  import json
  import threading
 -from subprocess import Popen, PIPE
 +from subprocess import Popen, PIPE, DEVNULL
+ from collections import defaultdict
  
  import termios
- from contextlib import contextmanager
-@@ -699,7 +699,8 @@ class UeberzugImageDisplayer(ImageDisplayer):
+@@ -735,7 +735,8 @@
              return
  
          self.process = Popen(['ueberzug', 'layer', '--silent'], cwd=self.working_dir,
