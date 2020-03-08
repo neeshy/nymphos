@@ -1,5 +1,0 @@
-LDFLAGS="${LDFLAGS} -Wl,-s,--gc-sections"
-CFLAGS="-Os -mssse3 -mfpmath=both -pipe -flto=8 -fgraphite-identity -floop-nest-optimize -malign-data=abi -mtls-dialect=gnu2 -ffunction-sections -fdata-sections"
-CXXFLAGS="${CFLAGS}"
-FFLAGS="${CFLAGS}"
-FCFLAGS="${CFLAGS}"
