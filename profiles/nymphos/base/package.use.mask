@@ -1,5 +1,6 @@
-dev-lang/rust -system-llvm
-net-libs/libvncserver -libressl
-app-admin/clsync -caps
+dev-libs/boost -nls
+media-gfx/inkscape -nls
+sys-apps/hwids -udev
 net-dns/dnscrypt-proxy -filecaps
 sys-fs/cryptsetup -openssl
+sys-process/runit-sv -udev
