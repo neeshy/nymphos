@@ -17,3 +17,8 @@ RDEPEND="
 	x11-libs/xcb-util-wm
 "
 DEPEND="${RDEPEND}"
+
+src_install() {
+	emake DESTDIR="${D}" PREFIX=/usr install
+	einstalldocs
+}
