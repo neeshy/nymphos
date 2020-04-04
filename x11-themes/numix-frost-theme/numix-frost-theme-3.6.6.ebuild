@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -11,18 +11,9 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-DEPEND="
-	x11-themes/gtk-engines-murrine
-	dev-libs/glib:2
-	x11-libs/gdk-pixbuf
-"
-RDEPEND="${DEPEND}"
+RDEPEND="x11-themes/gtk-engines-murrine"
 
 S="${WORKDIR}"
-
-src_unpack(){
-	unpack "${A}"
-}
 
 src_install() {
 	insinto /
