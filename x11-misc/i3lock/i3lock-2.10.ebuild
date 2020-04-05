@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -44,8 +44,6 @@ src_prepare() {
 
 src_install() {
 	default
-	if ! use pam; then
-		fperms u+s "/usr/bin/${PN}"
-	fi
+	use pam || fperms u+s "/usr/bin/${PN}"
 	doman "${PN}.1"
 }

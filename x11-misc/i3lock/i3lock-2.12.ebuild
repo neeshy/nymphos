@@ -47,8 +47,6 @@ src_configure() {
 
 src_install() {
 	default
-	if ! use pam; then
-		fperms u+s "/usr/bin/${PN}"
-	fi
+	use pam || fperms u+s "/usr/bin/${PN}"
 	doman "${PN}.1"
 }
