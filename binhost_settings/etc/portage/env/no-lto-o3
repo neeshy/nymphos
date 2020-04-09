@@ -1,0 +1,2 @@
+CFLAGS="-O2 -mssse3 -mfpmath=both -pipe -funroll-loops -fgraphite-identity -floop-nest-optimize -malign-data=cacheline -mtls-dialect=gnu2 -Wl,--hash-style=gnu"
+CXXFLAGS="${CFLAGS}"

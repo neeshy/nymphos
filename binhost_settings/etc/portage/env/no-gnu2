@@ -1,0 +1,2 @@
+CFLAGS="${CFLAGS} -mtls-dialect=gnu"
+CXXFLAGS="${CFLAGS}"

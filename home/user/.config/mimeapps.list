@@ -1,0 +1,15 @@
+[Default Applications]
+image/png=nomacs.desktop;
+image/jpeg=nomacs.desktop;
+image/gif=nomacs.desktop;
+text/plain=emacs.desktop;
+application/x-shellscript=emacs.desktop;
+application/pdf=emacs.desktop;
+video/webm=smplayer.desktop;
+video/x-matroska=smplayer.desktop;
+video/x-msvideo=smplayer.desktop;
+video/x-ms-wmv=smplayer.desktop;
+video/mp4=smplayer.desktop;
+audio/mpeg=smplayer.desktop;
+audio/flac=smplayer.desktop;
+audio/aac=smplayer.desktop;

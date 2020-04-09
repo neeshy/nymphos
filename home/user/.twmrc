@@ -1,0 +1,88 @@
+#NoTitle
+NoDefaults
+RandomPlacement
+OpaqueMove
+NoGrabServer
+BorderWidth 1
+NoHighlight
+ShowIconManager
+IconManagerGeometry "3840+0-18" 25
+IconifyByUnmapping
+FramePadding 1
+TitleButtonBorderWidth 0
+TitlePadding 1
+ButtonIndent 0
+MenuBorderWidth 1
+NoMenuShadows
+NoTitleHighlight
+
+Button3 = c m : window : f.delete
+Button1 = m : window : f.move
+Button3 = m : window : f.resize
+
+Button3 = : root : f.menu "Applications"
+Button2 = m : all : f.menu "Applications"
+
+Button1 = : iconmgr : f.iconify
+Button3 = : iconmgr : f.iconify
+
+IconDirectory "~/.twm/"
+RightTitleButton "minimize.xbm" = f.iconify
+RightTitleButton "maximize.xbm" = f.fullzoom
+RightTitleButton "close.xbm" = f.delete
+
+Function "raise-lower-move" { f.move f.raiselower }
+Button1 = : title : f.function "raise-lower-move"
+
+"Tab" = m : all : f.circleup
+"Tab" = s m : all : f.circledown
+
+Color {
+	IconManagerBackground "#056839"
+	IconManagerForeground "white"
+	MenuTitleBackground "#056839"
+	MenuTitleForeground "white"
+	TitleBackground "#056839"
+	TitleForeground "white"
+}
+
+menu "Applications" {
+	"Applications" f.title
+	"urxvt" !"if pgrep urxvtd; then urxvtc -e zsh; else urxvtd -o -f && urxvtc -e zsh; fi"
+	"xfe" !"xfe &"
+	"wifi" !"sudo rc-service wpa_supplicant start & wpa_gui &"
+	"porthole" !"porthole &"
+	"firefox" !"firefox &"
+	"emacs" !"emacs &"
+	"gimp" !"gimp &"
+	"xfi" !"xfi &"
+	"smplayer" !"smplayer &"
+	"filezilla" !"filezilla &"
+	"engrampa" !"engrampa &"
+	"rtorrent" !"if pgrep urxvtd; then urxvtc -e rtorrent; else urxvtd -o -f && urxvtc -e rtorrent; fi"
+	"weechat" !"if pgrep urxvtd; then urxvtc -e weechat; else urxvtd -o -f && urxvtc -e weechat; fi"
+	"stats.sh" !"if pgrep urxvtd; then urxvtc -geometry 400x1+0+0 -fn '6x13' -e ~/stats.sh; else urxvtd -o -f && urxvtc -geometry 400x1+0+0 -fn '6x13' -e ~/stats.sh; fi"
+	"settings.sh" !"if pgrep urxvtd; then urxvtc -e sh -c '~/cloveros_settings.sh && read'; else urxvtd -o -f && urxvtc -e sh -c '~/cloveros_settings.sh && read'; fi"
+	"wallpaper" !"nitrogen &"
+	"resolution" !"arandr &"
+	"volume" !"qasmixer &"
+	"gparted" !"sudo gparted &"
+	"restart twm" !"killall twm && twm &"
+	"exit X" !"killall X &"
+	"sleep&lock" !"slock & sudo sh -c 'echo -n mem > /sys/power/state' &"
+	"lock" !"slock &"
+	"sleep" !"sudo sudo sh -c 'echo -n mem > /sys/power/state' &"
+	"reboot" !"sudo reboot &"
+	"shutdown" !"sudo poweroff &"
+}
+
+IconManagerDontShow {
+	"Wine System Tray"
+	"stats.sh"
+}
+
+NoTitle {
+	"TWM Icon Manager"
+	"Wine System Tray"
+	"stats.sh"
+}
