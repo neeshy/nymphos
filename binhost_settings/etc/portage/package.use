@@ -1,0 +1,489 @@
+sys-fs/lvm2 -thin
+games-fps/eduke32 demo
+x11-misc/xdg-utils -perl
+app-emulation/wine-staging -custom-cflags vkd3d esync
+virtual/wine staging
+app-emulation/xen -custom-cflags
+app-emulation/xen-tools -custom-cflags
+sys-boot/syslinux -custom-cflags
+sys-fs/zfs -custom-cflags
+sys-fs/zfs-kmod -custom-cflags
+sys-kernel/spl -custom-cflags
+media-gfx/darktable colord
+gnome-extra/gnome-color-manager raw
+x11-misc/colord scanner -gusb
+games-engines/openmw devtools
+dev-util/trace-cmd gtk udis86
+www-client/netsurf fbcon jpeg png gif truetype fbcon_frontend_sdl
+net-p2p/deluge console geoip gtk webinterface
+mail-mta/postfix dovecot-sasl
+media-video/gpac ffmpeg
+x11-terms/kitty -wayland
+net-vpn/tor tor-hardening lzma
+app-doc/gimp-help l10n_en
+www-plugins/lightspark ppapi nsplugin ffmpeg curl rtmp
+media-gfx/nomacs zip
+app-crypt/kbfs git
+media-libs/vips imagemagick fftw fits tiff lcms matio
+media-gfx/nip2 fftw
+net-misc/connman nftables -wifi
+media-libs/fontconfig-infinality -nyx
+app-text/zathura-meta pdf cb djvu postscript
+media-sound/bluez-alsa hcitop
+app-office/abiword readline calendar latex map math ots spell thesaurus wordperfect
+app-office/libreoffice-l10n l10n_af l10n_am l10n_ar l10n_as l10n_ast l10n_be l10n_bg l10n_bn l10n_bn-IN l10n_bo l10n_br l10n_brx l10n_bs l10n_ca l10n_ca-valencia l10n_cs l10n_cy l10n_da l10n_de l10n_dgo l10n_dz l10n_el l10n_en l10n_en-GB l10n_en-ZA l10n_eo l10n_es l10n_et l10n_eu l10n_fa l10n_fi l10n_fr l10n_ga l10n_gd l10n_gl l10n_gu l10n_gug l10n_he l10n_hi l10n_hr l10n_hu l10n_id l10n_is l10n_it l10n_ja l10n_ka l10n_kk l10n_km l10n_kmr-Latn l10n_kn l10n_ko l10n_kok l10n_ks l10n_lb l10n_lo l10n_lt l10n_lv l10n_mai l10n_mk l10n_ml l10n_mn l10n_mni l10n_mr l10n_my l10n_nb l10n_ne l10n_nl l10n_nn l10n_nr l10n_nso l10n_oc l10n_om l10n_or l10n_pa l10n_pl l10n_pt l10n_pt-BR l10n_ro l10n_ru l10n_rw l10n_sa l10n_sat l10n_sd l10n_si l10n_sid l10n_sk l10n_sl l10n_sq l10n_sr l10n_sr-Latn l10n_ss l10n_st l10n_sv l10n_sw-TZ l10n_ta l10n_te l10n_tg l10n_th l10n_tn l10n_tr l10n_ts l10n_tt l10n_ug l10n_uk l10n_uz l10n_ve l10n_vi l10n_xh l10n_zh-CN l10n_zh-TW l10n_zu
+media-gfx/blender cycles openimageio opensubdiv tiff bullet dds elbeem game-engine openexr openmp tiff collada colorio ffmpeg fftw jemalloc llvm ndof openvdb player sdl sndfile valgrind
+games-emulation/rpcs3 joystick evdev
+sys-kernel/genkernel cryptsetup -firmware
+dev-libs/beignet ocl-icd ocl20
+x11-misc/nitrogen nls
+x11-misc/spacefm -startup-notification -gtk3 gtk2 # gtk3 has drag and drop crash bug
+media-gfx/ahoviewer -libsecret -rar
+net-nntp/sabnzbd -rar
+www-servers/tomcat extra-webapps
+media-sound/mp3blaster vorbis
+xfce-extra/tumbler ffmpeg
+media-plugins/gst-plugins-meta ffmpeg theora vorbis ogg
+media-libs/gst-plugins-base theora
+media-libs/libbluray aacs bdplus
+www-apache/mod_perl ithreads
+dev-lang/perl ithreads
+kde-apps/dolphin thumbnail
+x11-misc/polybar mpd i3wm
+x11-misc/rofi windowmode
+media-sound/jack-audio-connection-kit cpudetection
+sys-devel/llvm gold
+mate-base/mate extras
+kde-plasma/plasma-meta grub gtk -desktop-portal
+kde-apps/kde-apps-meta accessibility sdk pim
+kde-plasma/powerdevil -wireless
+media-gfx/graphicsmagick modules
+media-libs/opencv -opengl
+media-fonts/tewi-font bdf pcf
+games-emulation/nestopia gui
+games-emulation/stella joystick
+media-sound/clementine cdda lastfm moodbar projectm
+games-emulation/libretro-meta -bsnes-cpp98 dolphin melonds mame2000 mame2003 citra 2048 4do beetle-psx bsnes desmume fbalpha gambatte genplus handy mednafen-ngp mednafen-pce-fast mednafen-saturn mednafen-supergrafx mednafen-vb mednafen-wswan mgba mupen64plus nestopia nxengine prboom prosystem psp1 reicast scummvm stella tyrquake bnes craft easyrpg fbalpha2012 fceumm mame mame2016 mednafen-gba mednafen-snes meowpc98 meteor mrboom openlara parallel-n64 pcsx-rearmed picodrive ppsspp px68k quicknes redream sameboy snes9x snes9x2002 snes9x2010 tgbdual vba-next vbam yabause
+media-libs/sdl2-mixer flac mikmod vorbis mod mp3 mad midi fluidsynth
+media-video/obs-studio jack truetype imagemagick v4l
+media-plugins/alsa-plugins jack
+x11-libs/vte termite-patch
+media-sound/ncmpc help-screen artist-screen chat-screen colors key-screen lirc lyrics-screen mouse search-screen song-screen
+media-sound/beets convert discogs lastgenre lastimport bpd chroma mpdstats thumbnails web
+media-sound/moc ffmpeg
+media-libs/waifu2x-converter-cpp models
+app-laptop/tlp tlp_suggests
+app-emulation/fuse sdl joystick
+net-vpn/i2p -ecdsa
+x11-libs/libfm gtk
+net-p2p/mldonkey bittorrent gnutella magic fasttrack gd
+media-sound/qmmp alsa mad vorbis aac analyzer bs2b cdda cover crossfade cue curl enca ffmpeg flac game ladspa lyrics midi modplug musepack notifier opus projectm scrobbler sid sndfile soxr stereo tray wavpack archive shout qsui
+media-libs/vapoursynth vapoursynth_plugins_removegrain vapoursynth_plugins_eedi3 vapoursynth_plugins_imagemagick vapoursynth_plugins_miscfilters vapoursynth_plugins_morpho vapoursynth_plugins_ocr vapoursynth_plugins_removegrain vapoursynth_plugins_subtext vapoursynth_plugins_vinverse vapoursynth_plugins_vivtc
+media-plugins/vapoursynth-plugins-meta vapoursynth_plugins_addgrain vapoursynth_plugins_adjust vapoursynth_plugins_autocrop vapoursynth_plugins_awarpsharp2 vapoursynth_plugins_beziercurve vapoursynth_plugins_bifrost vapoursynth_plugins_bilateral vapoursynth_plugins_bm3d vapoursynth_plugins_cnr2 vapoursynth_plugins_combmask vapoursynth_plugins_continuityfixer vapoursynth_plugins_ctmf vapoursynth_plugins_damb vapoursynth_plugins_dctfilter vapoursynth_plugins_deblock vapoursynth_plugins_degrainmedian vapoursynth_plugins_delogo vapoursynth_plugins_depan vapoursynth_plugins_descale vapoursynth_plugins_dfttest vapoursynth_plugins_dotkill vapoursynth_plugins_eedi2 vapoursynth_plugins_eedi3 vapoursynth_plugins_ffmpegsource vapoursynth_plugins_fft3dfilter vapoursynth_plugins_fieldhint vapoursynth_plugins_fillborders vapoursynth_plugins_finesharp vapoursynth_plugins_fix-telecined-fades vapoursynth_plugins_flash3kyuu_deband vapoursynth_plugins_fluxsmooth vapoursynth_plugins_fmtconv vapoursynth_plugins_genericfilters vapoursynth_plugins_havsfunc vapoursynth_plugins_histogram vapoursynth_plugins_hqdn3d vapoursynth_plugins_inpaint vapoursynth_plugins_it vapoursynth_plugins_knlmeanscl vapoursynth_plugins_minsrp vapoursynth_plugins_msmoosh vapoursynth_plugins_muvsfunc vapoursynth_plugins_mvsfunc vapoursynth_plugins_mvtools vapoursynth_plugins_mvtools-sf vapoursynth_plugins_nnedi3 vapoursynth_plugins_nnedi3_resample vapoursynth_plugins_nnedi3cl vapoursynth_plugins_oyster vapoursynth_plugins_plum vapoursynth_plugins_reduceflicker vapoursynth_plugins_remapframes vapoursynth_plugins_removedirt vapoursynth_plugins_retinex vapoursynth_plugins_sangnom -vapoursynth_plugins_scenechange vapoursynth_plugins_scxvid vapoursynth_plugins_ssiq vapoursynth_plugins_surfaceblur vapoursynth_plugins_tc2cfr vapoursynth_plugins_tcanny vapoursynth_plugins_tcomb vapoursynth_plugins_tdeintmod vapoursynth_plugins_templinearapproximate vapoursynth_plugins_tnlmeans vapoursynth_plugins_tonemap vapoursynth_plugins_vaguedenoiser vapoursynth_plugins_vautodeint vapoursynth_plugins_vcfreq vapoursynth_plugins_vcmod vapoursynth_plugins_vcmove vapoursynth_plugins_vctrans vapoursynth_plugins_vfrtocrf vapoursynth_plugins_videoscope vapoursynth_plugins_vine vapoursynth_plugins_vs-maskdetail vapoursynth_plugins_vsimagereader vapoursynth_plugins_vsrawsource vapoursynth_plugins_vstaambk vapoursynth_plugins_w3fdif vapoursynth_plugins_waifu2x-w2xc vapoursynth_plugins_wwxd vapoursynth_plugins_yadifmod vapoursynth_plugins_znedi3 vapoursynth_plugins_deblockpp7 vapoursynth_plugins_decross vapoursynth_plugins_dedot vapoursynth_plugins_minideen vapoursynth_plugins_motionmask vapoursynth_plugins_smoothuv vapoursynth_plugins_temporalmedian vapoursynth_plugins_temporalsoften vapoursynth_plugins_timecube vapoursynth_plugins_ttempsmooth vapoursynth_plugins_warpsharpsupport vapoursynth_plugins_l-smash-works vapoursynth_plugins_d2vsource vapoursynth_plugins_astdr vapoursynth_plugins_curve vapoursynth_plugins_dfmderainbow vapoursynth_plugins_fvsfunc vapoursynth_plugins_hysteria -vapoursynth_plugins_kagefunc vapoursynth_plugins_nnedi3_rpow2 -vapoursynth_plugins_qrcodesource vapoursynth_plugins_tedgemask vapoursynth_plugins_temporalsoften2 vapoursynth_plugins_xaa
+media-sound/audacity id3tag ffmpeg
+media-sound/darkice vorbis mp3
+games-fps/urbanterror server
+media-gfx/krita color-management
+x11-wm/xmonad -default-term
+sys-block/gparted btrfs dmraid f2fs fat -hfs jfs mdadm ntfs reiserfs reiser4 xfs cryptsetup udf
+app-admin/keepassxc yubikey
+sys-apps/iproute2 -minimal
+x11-wm/icewm -minimal
+app-admin/passwordsafe -minimal yubikey
+dev-lang/R -minimal X cairo
+sys-apps/smartmontools -minimal
+sys-libs/ncurses -minimal
+app-editors/vim nls -minimal python
+app-editors/vim-core nls -minimal
+dev-util/google-perftools -minimal
+app-editors/nano -minimal
+x11-base/xorg-server -minimal
+net-p2p/eiskaltdcpp -minimal -emoticons dht json gtk
+kde-plasma/libksysguard -minimal
+sci-libs/cholmod -minimal
+dev-libs/libcdio -minimal
+media-libs/harfbuzz icu
+media-libs/libvpx postproc
+games-fps/qudos dedicated qmax textures
+games-fps/redeclipse dedicated
+games-fps/enemy-territory dedicated
+games-simulation/openttd dedicated
+games-fps/nexuiz dedicated
+games-fps/darkplaces dedicated
+games-fps/dhewm3 curl
+games-fps/quake3 dedicated curl
+games-fps/quake3-cpma dedicated
+app-mobilephone/heimdall qt5
+games-emulation/mgba qt5
+media-sound/supercollider qt5 X
+app-benchmarks/i7z qt5
+net-p2p/bitcoin-qt qt5
+media-video/avidemux qt5
+media-libs/avidemux-plugins qt5
+net-p2p/transmission qt5
+net-wireless/wpa_supplicant qt5
+app-misc/recoll qt5
+media-sound/audacious qt5
+media-video/mkvtoolnix qt5
+media-sound/synthv1 qt5 standalone
+media-sound/samplv1 qt5 standalone
+media-sound/padthv1 qt5 standalone
+media-sound/drumkv1 qt5 standalone
+media-plugins/audacious-plugins qt5 adplug alsa aac -ampache -aosd bs2b cdda cue ffmpeg flac fluidsynth gme -gnome -gtk -gtk3 -hotkeys http -jack lame -libav libsamplerate lirc mms modplug mp3 -nls -pulseaudio scrobbler sdl sid sndfile soxr speedpitch vorbis wavpack
+games-emulation/yabause qt5
+games-emulation/citra sdl2 qt5
+games-emulation/dolphin qt5 ffmpeg
+media-video/vlc qt5 xml projectm flac mp3 lua
+app-emulation/virt-manager gtk
+app-i18n/scim gtk3
+x11-apps/xinput_calibrator gtk
+x11-misc/wbar gtk
+net-ftp/gftp gtk
+app-crypt/gcr gtk
+x11-misc/redshift gtk
+sys-apps/lshw gtk
+games-emulation/vbam gtk link wxwidgets
+sys-apps/flatpak gtk
+media-gfx/sane-frontends gtk
+games-emulation/fceux gtk
+games-emulation/snes9x gtk netplay
+sys-devel/distcc gtk crossdev
+media-video/handbrake gtk -fdk libav-aac
+app-emulation/open-vm-tools X gtkmm multimon
+media-tv/kodi X -wayland
+app-admin/conky X thinkpad mpd rss curl iostats
+media-libs/vulkan-loader X
+media-gfx/fontforge X gtk
+media-libs/gst-plugins-bad X gtk
+media-gfx/graphviz X gtk qt5 pdf svg python perl
+app-crypt/veracrypt X
+sci-chemistry/gromacs X
+app-misc/neofetch X
+sys-apps/psensor X
+app-emulation/virtualbox-guest-additions X
+media-video/xine-ui curl X
+sci-mathematics/octave X gui fftw curl gnuplot postscript jit
+media-libs/clutter X
+dev-libs/efl X sound harfbuzz physics tslib xpm drm gles2 -opengl
+app-text/mupdf X
+games-emulation/sdlmame X
+net-im/qtox X
+dev-util/plan9port X
+app-editors/xemacs X
+www-client/w3m X imlib
+net-misc/freerdp X server ffmpeg
+net-p2p/amule X geoip stats
+media-libs/imlib2 X bzip2 jpeg zlib mp3 tiff
+app-editors/emacs X gtk toolkit-scroll-bars xft sound games alsa libxml2 dynamic-loading gsettings
+app-emacs/emacs-common-gentoo X games
+app-admin/gkrellm X hddtemp lm_sensors
+app-text/texlive X cjk context detex dvi2tty dvipdfm epspdf extra games graphics humanities jadetex luatex metapost music omega png pstricks publishers science tex4ht texi2html truetype xetex xindy xml pdfannotextractor
+media-video/ffmpeg X bluray cdio rubberband libass vorbis ogg network vpx rtmp x264 aac wavpack opus mp3 sdl gme v4l webp theora xvid xcb cpudetection x265 libaom
+virtual/ffmpeg X sdl x264
+www-servers/varnish jit jemalloc
+media-video/mpv rubberband lcms archive cdda bluray dvd encode libmpv cplugins v4l
+dev-lang/php curl gd fpm pdo fpm curl intl sqlite xmlreader xmlwriter nls mysqli zip
+app-eselect/eselect-php fpm
+net-p2p/retroshare feedreader voip
+games-emulation/pcsxr -sdl # opengl or sdl
+x11-wm/e16 xcomposite # opengl
+net-im/pidgin spell
+net-irc/hexchat spell plugin-sysinfo
+x11-base/xorg-drivers input_devices_joystick
+dev-libs/weston xwayland
+www-servers/nginx nginx_modules_http_dav nginx_modules_http_realip rtmp
+media-libs/freetype infinality -bindist
+net-libs/webkit-gtk -webgl -geolocation
+dev-db/sqlite secure-delete
+media-libs/phonon -vlc
+media-libs/libsdl X
+www-client/ungoogled-chromium -lld gold optimize-thinlto optimize-webui
+www-client/firefox -wifi
+mail-client/thunderbird -crypt
+www-client/seamonkey -crypt -minimal
+www-client/palemoon -official-branding -gconf
+www-client/waterfox -wifi
+media-sound/sox alsa openmp encode flac id3tag ladspa mad ogg opus sndfile twolame wavpack
+net-analyzer/rrdtool perl graph
+media-sound/lmms alsa fluidsynth ogg portaudio sdl stk qt5
+app-admin/testdisk ntfs
+net-p2p/qbittorrent geoip webui
+media-gfx/gimp smp aalib openexr python xpm vector-icons unwind
+net-fs/nfs-utils nfsv41
+net-fs/cifs-utils -acl -ads
+media-sound/mpd sid sqlite alsa bzip2 curl ffmpeg fifo flac glib icu id3tag inotify mad network ogg opus tcpd unicode vorbis adplug ao audiofile cdio expat faad fluidsynth gme lame libsamplerate libsoxr mikmod mms modplug mp4v2 mpg123 musepack pipe recorder sndfile soundcloud twolame wavpack wildmidi zip libmpdclient
+media-sound/flacon aac opus vorbis qt5 flac mac mp3 mp4 ogg replaygain tta wavpack
+media-sound/cmus ffmpeg alsa mad unicode aac ao cddb cdio cue discid examples flac mikmod modplug mp4 musepack opus vorbis wavpack wma zsh-completion
+media-sound/streamripper vorbis
+net-ftp/lftp verify-file
+app-misc/recoll inotify
+sys-power/cpupower cpufreq_bench
+media-sound/ncmpcpp iconv unicode clock curl fftw outputs taglib visualizer
+media-sound/mixxx shout aac ffmpeg hid mp3 mp4 wavpack
+app-office/texstudio video
+www-client/links fbcon gpm
+media-gfx/imagemagick hdri fftw lqr q32
+media-gfx/feh exif curl
+x11-terms/rxvt-unicode 256-color blink fading-colors unicode3 xft
+net-analyzer/vnstat gd
+net-p2p/rtorrent xmlrpc
+media-sound/deadbeef aac adplug alac alsa cdda converter cover cover-imlib2 cover-network curl dts dumb equalizer ffmpeg flac hotkeys lastfm libsamplerate m3u mad midi mms mono2stereo mp3 musepack nullout psf shn sid sndfile tta vorbis vtx wavpack wma zip cdparanoia gme gtk3 -libav mac mpg123 -nls playlist-browser -pulseaudio sc68 -shell-exec -unity
+media-plugins/deadbeef-plugins-meta -archive bookmark-manager bs2b decast filebrowser -gnome-mmkeys infobar -jack -librarybrowser mpris musical-spectrum opus quick-search replaygain-control soxr -statusnotifier stereo-widener vk vu-meter waveform-seekbar spectrogram
+media-plugins/deadbeef-decast gtk3
+media-plugins/deadbeef-fb gtk3
+media-plugins/deadbeef-quick-search gtk3
+media-plugins/deadbeef-replaygain-control gtk3
+media-plugins/deadbeef-statusnotifier gtk3
+media-plugins/deadbeef-vu-meter gtk3
+media-plugins/deadbeef-infobar gtk3
+media-plugins/deadbeef-waveform-seekbar gtk3
+media-plugins/deadbeef-spectrogram gtk3
+media-plugins/deadbeef-musical-spectrum gtk3
+media-plugins/deadbeef-vk gtk3
+app-emulation/qemu sdl usb virtfs gtk
+games-emulation/retroarch X # required by USE=xinerama
+x11-drivers/xf86-video-intel tools # multimonitor
+dev-libs/glib dbus # required by mate flatpak pitivi evince eog bluez-alsa gthumb gedit flowblade
+dev-qt/qtgui dbus # required by kde
+dev-python/PyQt5 webengine # required by anki qutebrowser (dbus)
+sys-auth/consolekit policykit # required by kde (dbus)
+sys-auth/polkit consolekit # required by kde/mate (dbus)
+sys-apps/accountsservice consolekit # required by kde/mate (dbus)
+gnome-base/gvfs udisks # required by caja (dbus)
+xfce-base/thunar udisks # adding, xfce requires dbus anyway (dbus)
+mate-extra/mate-screensaver -pam # prevents gnome-keyring
+media-sound/bitwig-studio -jack # prevents jack2
+www-client/palemoon -system-sqlite # fix: doesn't work without it
+mate-base/mate-panel X # fix: doesn't build without it
+x11-plugins/gkrelltop X # fix: doesn't build without it
+media-sound/clementine dbus # fix: doesn't build without it
+www-client/waterfox -pgo # fix: doesn't build without it
+dev-libs/efl luajit # fix: doesn't build without it
+sys-apps/shadow -pam # fix: login won't work (but su - user would)
+sys-power/suspend -crypt -lzo # otherwise requires USE=static-libs dev-libs/libgcrypt dev-libs/lzo
+sys-libs/zlib minizip # required by many
+sys-apps/util-linux static-libs # required by genkernel
+sys-devel/gcc fortran # required by octave
+net-libs/libtorrent-rasterbar python # required by deluge
+media-libs/libpng apng # required by firefox
+media-libs/libsndfile -minimal # required by mumble
+dev-libs/libpcre2 pcre16 pcre32 # required by qtcore fish
+mate-base/mate-menus python # required by mozo
+dev-libs/botan -bindist # required by qt-creator
+app-crypt/gpgme python # required by torbrowser-launcher
+media-libs/gd truetype fontconfig # required by amule vnstat gnuplot graphviz
+net-libs/nodejs inspector icu # required by chromium
+dev-libs/libsodium -minimal # required by qtox
+x11-drivers/nvidia-drivers compat # required by primus
+media-libs/leptonica tiff # required by tesseract, vapoursynth
+dev-lua/mpack luajit # required by neovim
+dev-python/pyyaml libyaml # required by qutebrowser
+app-text/xmlto text # required by xdg-utils
+x11-base/xorg-server xvfb # required by firefox
+media-libs/libsdl2 gles # required by wayland
+x11-libs/libdrm video_cards_vmware # required by open-vm-tools
+media-libs/mesa video_cards_vmware # required by open-vm-tools
+media-plugins/gst-plugins-meta v4l # required by kamoso
+dev-libs/gobject-introspection python_single_target_python2_7 -python_single_target_python3_6 # exaile
+www-client/firefox -pgo # temporary
+x11-libs/gtk+ X
+x11-libs/libva X
+dev-cpp/gtkmm X
+x11-libs/gdk-pixbuf X
+media-libs/flac ogg
+sys-boot/grub mount
+net-misc/spice-gtk gtk3 usbredir
+app-crypt/gpgme qt5
+media-libs/cogl gles2
+media-libs/mlt qt5 kdenlive xml sdl sdl2 melt python gtk ffmpeg frei0r
+media-libs/gegl cairo
+media-fonts/font-misc-misc nls
+dev-lua/lpeg luajit
+dev-games/openscenegraph sdl svg ffmpeg truetype qt5
+dev-ml/lablgtk svg
+media-libs/vigra openexr
+dev-games/ogre gl3plus -gles3 -gles2
+dev-libs/boost icu nls context python
+media-libs/sdl-mixer vorbis flac mikmod mod midi fluidsynth
+net-nds/openldap sasl
+sci-libs/hdf5 -threads # required for USE cxx/hl
+dev-games/mygui -opengl
+dev-lang/luajit lua52compat
+dev-lang/python sqlite
+x11-libs/libxcb xkb
+sys-libs/tevent python
+media-gfx/exiv2 xmp
+dev-python/PyQt5 gui widgets svg webkit network printsupport webchannel sql declarative multimedia
+media-libs/libmygpo-qt qt5
+dev-qt/qtwebengine widgets
+dev-qt/qtscript scripttools
+dev-qt/qtmultimedia widgets qml
+dev-qt/qtcore icu
+dev-qt/qtwebkit printsupport
+dev-qt/qtlockedfile qt5
+dev-qt/qtsingleapplication qt5 X
+kde-frameworks/kwindowsystem X
+kde-frameworks/kdelibs4support X
+dev-qt/qtwebchannel qml
+kde-apps/akonadi -mysql sqlite
+kde-apps/ktp-common-internals otr
+kde-apps/artikulate qtmedia
+app-text/poppler qt5 cairo
+x11-libs/libva-intel-driver X
+x11-libs/cairo X xcb
+dev-cpp/cairomm X
+x11-libs/libxkbcommon X
+x11-libs/pango X
+sys-apps/dbus X
+games-emulation/mednafen debugger
+x11-drivers/nvidia-drivers uvm gtk3 acpi
+media-libs/libvpx svc
+app-text/ghostscript-gpl cups
+media-gfx/pstoedit plotutils
+app-text/texlive-core xetex cjk
+dev-libs/libdbusmenu gtk gtk3
+sys-libs/libselinux python
+sys-libs/libsemanage python
+net-wireless/lorcon python
+sys-libs/tdb python
+dev-libs/libxml2 python icu
+dev-libs/libxslt python
+dev-python/numpy lapack
+x11-libs/qscintilla qt5
+x11-libs/libdrm libkms
+media-gfx/gmic X ffmpeg cli
+x11-libs/gdk-pixbuf tiff
+x11-libs/wxGTK tiff
+net-libs/libdom xml
+dev-java/swt cairo
+app-text/aiksaurus gtk
+media-libs/clutter-gtk X
+net-analyzer/netperf demo
+dev-python/QtPy gui
+dev-libs/marisa python
+sys-devel/clang xml
+dev-libs/xmlsec nss
+media-libs/libsdl2 X haptic
+dev-lang/tk truetype
+
+#libressl
+net-misc/curl curl_ssl_libressl -curl_ssl_openssl
+media-video/ffmpeg openssl
+net-libs/nodejs bundled-ssl
+app-crypt/johntheripper minimal -openmp -opencl
+net-p2p/mktorrent -ssl
+net-misc/iputils -ssl
+net-print/gtklp -ssl
+mail-client/nmh -ssl
+sys-block/mbuffer -ssl
+net-ftp/gproftpd -ssl
+net-ftp/proftpd -ssl -libressl
+app-emulation/open-vm-tools -ssl -vgauth -grabbitmqproxy
+
+#wine
+sys-apps/attr abi_x86_32
+x11-libs/libXcursor abi_x86_32
+x11-libs/libXext abi_x86_32
+x11-libs/libXfixes abi_x86_32
+x11-libs/libXrandr abi_x86_32
+x11-libs/libXi abi_x86_32
+x11-libs/libXxf86vm abi_x86_32
+media-libs/alsa-lib abi_x86_32
+media-libs/fontconfig abi_x86_32
+sys-libs/ncurses abi_x86_32
+media-libs/libpng abi_x86_32
+net-libs/gnutls abi_x86_32
+media-libs/freetype abi_x86_32
+app-emulation/vkd3d abi_x86_32
+media-libs/vulkan-loader abi_x86_32
+x11-libs/libXcomposite abi_x86_32
+x11-libs/libXinerama abi_x86_32
+dev-libs/libxml2 abi_x86_32
+dev-libs/libxslt abi_x86_32
+app-emulation/wine-gecko abi_x86_32
+dev-libs/libgcrypt abi_x86_32
+dev-libs/libgpg-error abi_x86_32
+sys-libs/zlib abi_x86_32
+dev-libs/icu abi_x86_32
+x11-libs/libX11 abi_x86_32
+x11-libs/libxcb abi_x86_32
+dev-libs/libpthread-stubs abi_x86_32
+x11-libs/libXau abi_x86_32
+x11-libs/libXdmcp abi_x86_32
+dev-libs/wayland abi_x86_32
+dev-libs/expat abi_x86_32
+x11-libs/xcb-util abi_x86_32
+x11-libs/xcb-util-keysyms abi_x86_32
+x11-libs/xcb-util-wm abi_x86_32
+x11-libs/xcb-util-cursor abi_x86_32
+x11-libs/xcb-util-image abi_x86_32
+x11-libs/xcb-util-renderutil abi_x86_32
+x11-base/xcb-proto abi_x86_32
+app-arch/bzip2 abi_x86_32
+dev-libs/libtasn1 abi_x86_32
+dev-libs/libunistring abi_x86_32
+dev-libs/nettle abi_x86_32
+dev-libs/gmp abi_x86_32
+net-dns/libidn2 abi_x86_32
+sys-apps/util-linux abi_x86_32
+x11-libs/libXrender abi_x86_32
+virtual/libintl abi_x86_32
+virtual/libffi abi_x86_32
+dev-libs/libffi abi_x86_32
+virtual/opengl abi_x86_32
+media-libs/mesa abi_x86_32
+x11-libs/libxshmfence abi_x86_32
+x11-libs/libXdamage abi_x86_32
+dev-libs/ocl-icd abi_x86_32
+x11-libs/libvdpau abi_x86_32
+x11-libs/libdrm abi_x86_32
+sys-devel/clang abi_x86_32
+sys-devel/llvm abi_x86_32
+x11-libs/libpciaccess abi_x86_32
+virtual/libelf abi_x86_32
+dev-libs/elfutils abi_x86_32
+virtual/glu abi_x86_32
+media-libs/glu abi_x86_32
+virtual/jpeg abi_x86_32
+media-libs/libjpeg-turbo abi_x86_32
+x11-libs/libva abi_x86_32
+x11-libs/libva-vdpau-driver abi_x86_32
+x11-libs/libva-intel-driver abi_x86_32
+virtual/opencl abi_x86_32
+media-libs/lcms abi_x86_32
+
+#pcsx2
+app-arch/xz-utils abi_x86_32
+dev-libs/libaio abi_x86_32
+media-libs/libsdl2 abi_x86_32
+media-libs/libsoundtouch abi_x86_32
+media-libs/portaudio abi_x86_32
+x11-libs/gtk+:2 abi_x86_32
+x11-libs/libICE abi_x86_32
+x11-libs/wxGTK:3.0 abi_x86_32
+dev-libs/glib abi_x86_32
+x11-libs/gdk-pixbuf abi_x86_32
+x11-libs/libSM abi_x86_32
+x11-libs/pango abi_x86_32
+media-libs/tiff abi_x86_32
+media-libs/harfbuzz abi_x86_32
+x11-libs/cairo abi_x86_32
+dev-libs/fribidi abi_x86_32
+x11-libs/libXft abi_x86_32
+dev-libs/lzo abi_x86_32
+sys-libs/binutils-libs abi_x86_32
+x11-libs/pixman abi_x86_32
+media-gfx/graphite2 abi_x86_32
+dev-libs/libpcre abi_x86_32
+dev-libs/atk abi_x86_32
+gnome-base/librsvg abi_x86_32
+sys-devel/gettext abi_x86_32
+dev-libs/libcroco abi_x86_32
+x11-libs/libxkbcommon abi_x86_32
+virtual/pkgconfig abi_x86_32
+dev-util/pkgconfig abi_x86_32
+virtual/libiconv abi_x86_32
+media-libs/audiofile abi_x86_32
+media-libs/libsdl abi_x86_32
+sys-fs/eudev abi_x86_32
+virtual/libudev abi_x86_32
