@@ -23,8 +23,7 @@ RDEPEND="
 	x11-libs/xcb-util
 	x11-libs/xcb-util-xrm
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 DOCS=( CHANGELOG README.md )

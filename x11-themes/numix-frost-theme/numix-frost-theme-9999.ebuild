@@ -17,9 +17,7 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
-RDEPEND="
-	x11-themes/gtk-engines-murrine
-"
+RDEPEND="x11-themes/gtk-engines-murrine"
 DEPEND="${RDEPEND}
 	dev-libs/glib:2
 	dev-ruby/sass
