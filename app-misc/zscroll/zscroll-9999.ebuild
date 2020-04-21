@@ -19,12 +19,10 @@ fi
 
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="zsh-completion"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 
 src_prepare() {
-	eapply "${FILESDIR}/${PN}-license.patch"
-	use zsh-completion || eapply "${FILESDIR}/${PN}-zsh.patch"
+	sed -i '\|share/licenses/zscroll|d' setup.py
 	default
 }
