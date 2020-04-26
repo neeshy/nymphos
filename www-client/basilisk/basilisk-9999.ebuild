@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit check-reqs flag-o-matic toolchain-funcs eutils gnome2-utils multilib pax-utils desktop xdg-utils basilisk
+inherit check-reqs flag-o-matic toolchain-funcs eutils gnome2-utils multilib pax-utils desktop xdg-utils
 
 DESCRIPTION="Basilisk Web Browser"
 HOMEPAGE="https://www.basilisk-browser.org/"
@@ -113,6 +113,62 @@ DEPEND="${RDEPEND}
 	pgo? ( >=sys-devel/gcc-4.5 )
 "
 
+mozconfig() {
+	echo "ac_add_options --${1}" >> "${S}/.mozconfig"
+}
+
+mozconfig_loop() {
+	local prefix="${1}"
+	shift
+
+	for option in "${@}"; do
+		mozconfig "${prefix}-${option}"
+	done
+}
+
+mozconfig_usex() {
+	local prefix="$(usex "${3}" "${1}" "${2}")"
+	shift 2
+
+	if [[ "${#}" -gt 1 ]]; then
+		shift
+	fi
+
+	mozconfig_loop "${prefix}" "${@}"
+}
+
+mozconfig_enable() {
+	mozconfig_loop enable "${@}"
+}
+
+mozconfig_disable() {
+	mozconfig_loop disable "${@}"
+}
+
+mozconfig_with() {
+	mozconfig_loop with "${@}"
+}
+
+mozconfig_without() {
+	mozconfig_loop without "${@}"
+}
+
+mozconfig_use_enable() {
+	mozconfig_usex {en,dis}able "${@}"
+}
+
+mozconfig_use_with() {
+	mozconfig_usex with{,out} "${@}"
+}
+
+mozconfig_var() {
+	echo "mk_add_options ${1}=${2}" >> "${S}/.mozconfig"
+}
+
+mozconfig_export() {
+	echo "export ${1}=${2}" >> "${S}/.mozconfig"
+}
+
 pkg_setup() {
 	# Nested configure scripts in mozilla products generate unrecognized
 	# options false positives when toplevel configure passes downwards:
@@ -154,7 +210,10 @@ pkg_pretend() {
 
 src_configure() {
 	# Basic configuration:
-	mozconfig_init
+	cat <<- EOF > "${S}/.mozconfig"
+		ac_add_options --enable-application=browser
+		ac_add_options --prefix=/usr
+	EOF
 
 	mozconfig_enable release
 	mozconfig_disable updater maintenance-service \
