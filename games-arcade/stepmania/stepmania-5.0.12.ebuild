@@ -90,6 +90,6 @@ src_install() {
 		insinto "/usr/share/icons/hicolor/${size}x${size}/apps"
 		doins "icons/hicolor/${size}x${size}/apps/${PN}-ssc.png"
 	done
-	insinto "/usr/share/icons/hicolor/scalable/apps"
+	insinto /usr/share/icons/hicolor/scalable/apps
 	doins "icons/hicolor/scalable/apps/${PN}-ssc.svg"
 }
