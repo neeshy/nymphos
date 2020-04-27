@@ -1,6 +1,5 @@
-diff -ru stepmania-5.0.12_orig/CMake/DefineOptions.cmake stepmania-5.0.12/CMake/DefineOptions.cmake
---- stepmania-5.0.12_orig/CMake/DefineOptions.cmake	2016-09-22 15:30:46.585653678 +0200
-+++ stepmania-5.0.12/CMake/DefineOptions.cmake	2016-09-22 15:32:15.409856429 +0200
+--- a/CMake/DefineOptions.cmake
++++ b/CMake/DefineOptions.cmake
 @@ -41,6 +41,11 @@
  # Turn this option on to log every segment added or removed.
  option(WITH_LOGGING_TIMING_DATA "Build with logging all Add and Erase Segment calls." OFF)
@@ -13,9 +12,8 @@ diff -ru stepmania-5.0.12_orig/CMake/DefineOptions.cmake stepmania-5.0.12/CMake/
  if(NOT MSVC)
    # Turn this option off to disable using FFMEPG.
    option(WITH_FFMPEG "Build with FFMPEG." ON)
-diff -ru stepmania-5.0.12_orig/StepmaniaCore.cmake stepmania-5.0.12/StepmaniaCore.cmake
---- stepmania-5.0.12_orig/StepmaniaCore.cmake	2016-09-22 15:30:46.939646512 +0200
-+++ stepmania-5.0.12/StepmaniaCore.cmake	2016-09-22 15:35:03.872452142 +0200
+--- a/StepmaniaCore.cmake
++++ b/StepmaniaCore.cmake
 @@ -353,35 +353,51 @@
      set(HAX_XRANDR FALSE)
    endif()
