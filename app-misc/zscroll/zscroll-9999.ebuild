@@ -5,17 +5,11 @@ EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
 
-inherit distutils-r1
+inherit distutils-r1 git-r3
 
 DESCRIPTION="A text scroller for panels or terminals"
 HOMEPAGE="https://github.com/noctuid/${PN}"
-if [[ "${PV}" = 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="${HOMEPAGE}.git"
-else
-	SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 x86"
-fi
+EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="BSD-2"
 SLOT="0"

@@ -8,10 +8,6 @@ inherit git-r3
 DESCRIPTION="Simple dhcp client"
 HOMEPAGE="git://git.2f30.org/${PN}/"
 EGIT_REPO_URI="${HOMEPAGE%/}.git"
-if [[ "${PV}" != 9999 ]]; then
-	EGIT_COMMIT="${PV}"
-	KEYWORDS="amd64 x86"
-fi
 
 LICENSE="MIT"
 SLOT="0"
