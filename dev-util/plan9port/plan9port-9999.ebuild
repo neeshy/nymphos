@@ -3,10 +3,11 @@
 
 EAPI=7
 
-inherit multiprocessing toolchain-funcs git-r3
+inherit multiprocessing toolchain-funcs git-r3 readme.gentoo-r1
 
 DESCRIPTION="Plan 9 from User Space"
-HOMEPAGE="https://9fans.github.io/plan9port/"
+HOMEPAGE="https://9fans.github.io/plan9port/
+	https://github.com/9fans/plan9port"
 EGIT_REPO_URI="https://github.com/9fans/${PN}.git"
 
 LICENSE="9base BSD-4 MIT LGPL-2.1 BigelowHolmes"
@@ -28,7 +29,21 @@ PATCHES=(
 	"${FILESDIR}/${PN}-builderr.patch"
 )
 
-PLAN9="/usr/lib/plan9"
+S="${WORKDIR}/${MY_P}"
+
+DOC_CONTENTS="Plan 9 from User Space has been successfully installed into
+${PLAN9}. Your PLAN9 and PATH environment variables have
+also been appropriately set, please use env-update and
+source /etc/profile to bring that into immediate effect.
+
+Please note that ${PLAN9}/bin has been appended to the
+*end* or your PATH to prevent conflicts. To use the Plan9
+versions of common UNIX tools, use the absolute path:
+${PLAN9}/bin or the 9 command (eg: 9 troff)
+
+Please report any bugs to bugs.gentoo.org, NOT Plan9Port."
+
+PLAN9="/opt/plan9"
 EPLAN9="${EPREFIX}${PLAN9}"
 QA_MULTILIB_PATHS="${PLAN9}/.*/.*"
 
@@ -39,16 +54,15 @@ src_prepare() {
 	sed -i '/PATH/s,/bin:/usr/bin:,,' INSTALL || die "sed on INSTALL failed"
 
 	# don't hardcode /usr/{,local/}include and prefix /usr/include/*
-	local f
-	for f in src/cmd/fontsrv/freetyperules.sh INSTALL $(find -name makefile); do
-		sed -r -i -e 's,-I/usr(|/local)/include ,,g' \
-			-e "s,-I/usr(|/local)/include,-I${EPREFIX}/usr\1/include,g" "${f}" ||
-			die "sed on ${f} failed"
-	done
+	sed -Ei -e 's,-I/usr(|/local)/include ,,g' \
+		-e "s,-I/usr(|/local)/include,-I${EPREFIX}/usr\1/include,g" \
+		src/cmd/fontsrv/freetyperules.sh INSTALL $(find -name makefile) ||
+		die "sed failed"
 
 	# Fix paths, done in place of ./INSTALL -c
 	einfo "Fixing hard-coded /usr/local/plan9 paths"
-	grep -Zlr /usr/local/plan9 | xargs -0 sed -i "s,/usr/local/plan9,${EPLAN9},g"
+	sed -i "s,/usr/local/plan9,${EPLAN9},g" $(grep -lr /usr/local/plan9) ||
+		die "sed failed"
 }
 
 src_configure() {
@@ -66,7 +80,8 @@ src_configure() {
 		myconf+=( FONTSRV= )
 	fi
 
-	printf '%s\n' "${myconf[@]}" >> LOCAL.config
+	printf '%s\n' "${myconf[@]}" >> LOCAL.config ||
+		die "cannot create configuration"
 }
 
 src_compile() {
@@ -80,7 +95,7 @@ src_compile() {
 }
 
 src_install() {
-	dodir "${PLAN9}"
+	readme.gentoo_create_doc
 
 	# P9P's man does not handle compression
 	docompress -x "${PLAN9}/man"
@@ -89,25 +104,14 @@ src_install() {
 	cp -a * "${ED}/${PLAN9}"
 
 	# build the environment variables and install them in env.d
-	cat > "${T}/60plan9" <<-EOF
+	newenvd - 60plan9 <<-EOF
 		PLAN9="${EPLAN9}"
 		PATH="${EPLAN9}/bin"
 		ROOTPATH="${EPLAN9}/bin"
 		MANPATH="${EPLAN9}/man"
 	EOF
-	doenvd "${T}/60plan9"
 }
 
 pkg_postinst() {
-	elog "Plan 9 from User Space has been successfully installed into"
-	elog "${PLAN9}. Your PLAN9 and PATH environment variables have"
-	elog "also been appropriately set, please use env-update and"
-	elog "source /etc/profile to bring that into immediate effect."
-	elog
-	elog "Please note that ${PLAN9}/bin has been appended to the"
-	elog "*end* or your PATH to prevent conflicts. To use the Plan9"
-	elog "versions of common UNIX tools, use the absolute path:"
-	elog "${PLAN9}/bin or the 9 command (eg: 9 troff)"
-	elog
-	elog "Please report any bugs to bugs.gentoo.org, NOT Plan9Port."
+	readme.gentoo_print_elog
 }
