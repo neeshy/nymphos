@@ -41,7 +41,7 @@
   "audioipc",
   "cubeb-core",
   "error-chain",
-@@ -1003,16 +986,6 @@
+@@ -1008,16 +991,6 @@
  ]
  
  [[package]]
@@ -58,7 +58,7 @@
  name = "deflate"
  version = "0.7.19"
  source = "registry+https://github.com/rust-lang/crates.io-index"
-@@ -1603,7 +1576,6 @@
+@@ -1659,7 +1632,6 @@
  name = "gkrust-shared"
  version = "0.1.0"
  dependencies = [
@@ -66,7 +66,7 @@
   "audioipc-client",
   "audioipc-server",
   "authenticator",
-@@ -2091,15 +2063,6 @@
+@@ -2199,15 +2171,6 @@
  checksum = "3262021842bf00fe07dbd6cf34ff25c99d7a7ebef8deea84db72be3ea3bb0aff"
  
  [[package]]
@@ -84,7 +84,7 @@
  source = "registry+https://github.com/rust-lang/crates.io-index"
 --- a/dom/ipc/ContentChild.cpp
 +++ b/dom/ipc/ContentChild.cpp
-@@ -111,9 +111,7 @@
+@@ -109,9 +109,7 @@
  #include "GMPServiceChild.h"
  #include "nsIStringBundle.h"
  #include "Geolocation.h"
@@ -94,7 +94,7 @@
  #include "nsIURIMutator.h"
  #include "nsIInputStreamChannel.h"
  #include "nsFocusManager.h"
-@@ -1804,9 +1802,6 @@
+@@ -1689,9 +1687,6 @@
    } else {
      // Pre-start audio before sandboxing; see bug 1443612.
      if (StaticPrefs::media_cubeb_sandbox()) {
@@ -288,7 +288,7 @@
  #[derive(Default)]
  struct DeviceCollectionCallback {
      cb: ffi::cubeb_device_collection_changed_callback,
-@@ -234,7 +196,6 @@
+@@ -237,7 +199,6 @@
  
          let cpu_pool = futures_cpupool::Builder::new()
              .name_prefix("AudioIPC")
@@ -316,19 +316,19 @@
  use audioipc::core;
  use audioipc::platformhandle_passing::framed_with_platformhandles;
  use audioipc::rpc;
-@@ -63,12 +62,6 @@
-     trace!("Starting up cubeb audio server event loop thread...");
- 
-     let callback_thread = core::spawn_thread("AudioIPC Callback RPC", || {
--        match promote_current_thread_to_real_time(0, 48000) {
--            Ok(_) => {}
--            Err(_) => {
--                debug!("Failed to promote audio callback thread to real-time.");
+@@ -64,12 +63,6 @@
+     let callback_thread = core::spawn_thread(
+         "AudioIPC Callback RPC",
+         || {
+-            match promote_current_thread_to_real_time(0, 48000) {
+-                Ok(_) => {}
+-                Err(_) => {
+-                    debug!("Failed to promote audio callback thread to real-time.");
+-                }
 -            }
--        }
-         trace!("Starting up cubeb audio callback event loop thread...");
-         Ok(())
-     }, || {})
+             trace!("Starting up cubeb audio callback event loop thread...");
+             Ok(())
+         },
 --- a/media/audioipc/server/src/server.rs
 +++ b/media/audioipc/server/src/server.rs
 @@ -3,8 +3,6 @@
@@ -340,7 +340,7 @@
  use audioipc;
  use audioipc::codec::LengthDelimitedCodec;
  use audioipc::frame::{framed, Framed};
-@@ -540,20 +538,6 @@
+@@ -611,20 +609,6 @@
                      enable,
                  )
                  .unwrap_or_else(error),
