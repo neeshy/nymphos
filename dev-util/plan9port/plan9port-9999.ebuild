@@ -18,7 +18,7 @@ DEPEND="
 	X? ( x11-apps/xauth )
 	truetype? (
 		media-libs/freetype
-	    media-libs/fontconfig
+		media-libs/fontconfig
 	)
 "
 RDEPEND="${DEPEND}"
@@ -29,7 +29,9 @@ PATCHES=(
 	"${FILESDIR}/${PN}-builderr.patch"
 )
 
-S="${WORKDIR}/${MY_P}"
+PLAN9="/opt/plan9"
+EPLAN9="${EPREFIX}${PLAN9}"
+QA_MULTILIB_PATHS="${PLAN9}/.*/.*"
 
 DOC_CONTENTS="Plan 9 from User Space has been successfully installed into
 ${PLAN9}. Your PLAN9 and PATH environment variables have
@@ -42,10 +44,6 @@ versions of common UNIX tools, use the absolute path:
 ${PLAN9}/bin or the 9 command (eg: 9 troff)
 
 Please report any bugs to bugs.gentoo.org, NOT Plan9Port."
-
-PLAN9="/opt/plan9"
-EPLAN9="${EPREFIX}${PLAN9}"
-QA_MULTILIB_PATHS="${PLAN9}/.*/.*"
 
 src_prepare() {
 	default
@@ -97,11 +95,12 @@ src_compile() {
 src_install() {
 	readme.gentoo_create_doc
 
-	# P9P's man does not handle compression
-	docompress -x "${PLAN9}/man"
+	# cleanup
+	rm -f LOCAL.config install.{log,sum}
 
 	# do* plays with the executable bit, and we should not modify them
-	cp -a * "${ED}/${PLAN9}"
+	dodir "${PLAN9}"
+	cp -a * "${ED}${PLAN9}" || die "cp failed"
 
 	# build the environment variables and install them in env.d
 	newenvd - 60plan9 <<-EOF
