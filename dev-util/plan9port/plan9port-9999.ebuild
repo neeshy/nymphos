@@ -44,6 +44,7 @@ versions of common UNIX tools, use the absolute path:
 ${PLAN9}/bin or the 9 command (eg: 9 troff)
 
 Please report any bugs to bugs.gentoo.org, NOT Plan9Port."
+DISABLE_AUTOFORMATTING="yes"
 
 src_prepare() {
 	default
@@ -64,10 +65,13 @@ src_prepare() {
 }
 
 src_configure() {
-	local -a myconf
+	local -a myconf=(
+		CC9="$(tc-getCC)"
+		CC9FLAGS="'${CFLAGS} ${LDFLAGS}'"
+	)
 
 	if use X; then
-		myconf+=( X11="${EPREFIX}/usr" WSYSTYPE=x11 )
+		myconf+=( WSYSTYPE=x11 )
 	else
 		myconf+=( WSYSTYPE=nowsys )
 	fi
@@ -83,20 +87,15 @@ src_configure() {
 }
 
 src_compile() {
-	export NPROC="$(makeopts_jobs)"
-	export CC9="$(tc-getCC)"
-
 	# The INSTALL script builds mk then [re]builds everything using that
 	einfo "Compiling Plan 9 from User Space can take a very long time"
 	einfo "depending on the speed of your computer. Please be patient!"
-	./INSTALL -b || die "Please report bugs to bugs.gentoo.org, NOT Plan9Port."
+	NPROC="$(makeopts_jobs)" ./INSTALL -b ||
+		die "Please report bugs to bugs.gentoo.org, NOT Plan9Port."
 }
 
 src_install() {
 	readme.gentoo_create_doc
-
-	# cleanup
-	rm -f LOCAL.config install.{log,sum}
 
 	# do* plays with the executable bit, and we should not modify them
 	dodir "${PLAN9}"
