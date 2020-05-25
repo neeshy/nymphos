@@ -1,5 +1,4 @@
 dev-libs/boost -nls
-media-gfx/inkscape -nls
 sys-apps/hwids -udev
 net-dns/dnscrypt-proxy -filecaps
 sys-fs/cryptsetup -openssl
