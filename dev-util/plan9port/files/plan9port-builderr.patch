@@ -12,7 +12,7 @@ which can result in a mostly broken build begin installed.
  if [ `uname` = SunOS ]; then
  	# On Solaris x86, uname -p cannot be trusted.
  	echo "* Running on Solaris: checking architecture..."
-@@ -160,7 +159,7 @@
+@@ -159,7 +158,7 @@
  		echo "* Warning: not all binaries built successfully."
  	fi
  	echo "* Installing everything in $PLAN9/bin..."
@@ -21,7 +21,7 @@ which can result in a mostly broken build begin installed.
  	if [ ! -x $PLAN9/bin/cleanname -o ! -x $PLAN9/bin/acme -o ! -x $PLAN9/bin/sam ]; then
  		echo " "
  		echo "* Warning: not all binaries built successfully."
-@@ -212,5 +211,4 @@
+@@ -211,5 +210,4 @@
  	echo "	PLAN9=$PLAN9 export PLAN9"
  	echo '	PATH=$PATH:$PLAN9/bin export PATH'
  fi
