@@ -25,7 +25,7 @@ RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-noexecstack.patch"
-	"${FILESDIR}/${PN}-ldflags.patch"
+	"${FILESDIR}/${PN}-cflags.patch"
 	"${FILESDIR}/${PN}-builderr.patch"
 )
 
@@ -67,7 +67,7 @@ src_prepare() {
 src_configure() {
 	local -a myconf=(
 		CC9="$(tc-getCC)"
-		CC9FLAGS="'${CFLAGS}'"
+		CC9FLAGS="'${CFLAGS} ${LDFLAGS}'"
 	)
 
 	if use X; then

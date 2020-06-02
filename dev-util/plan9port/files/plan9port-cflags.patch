@@ -1,14 +1,15 @@
-Prevent resetting LDFLAGS
+Prevent resetting CFLAGS and LDFLAGS
 
-This allows the plan9port build to inherit ldflags from the environment.
+This allows the plan9port build to inherit cflags from the environment.
 
 (This patch must be applied after plan9port-noexecstack.patch)
 --- a/src/mkhdr
 +++ b/src/mkhdr
-@@ -12,7 +12,6 @@
+@@ -11,8 +11,6 @@
+ LD=9l
  AS=9a
  AR=9ar
- CFLAGS=
+-CFLAGS=
 -LDFLAGS=
  AFLAGS=--noexecstack
  CLEANFILES=
