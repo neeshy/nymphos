@@ -1,13 +1,13 @@
 --- a/Cargo.lock
 +++ b/Cargo.lock
-@@ -104,24 +104,9 @@
+@@ -100,24 +100,9 @@
  ]
  
  [[package]]
 -name = "audio_thread_priority"
--version = "0.22.0"
+-version = "0.22.1"
 -source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "407b1b70ad4072a4ff430679b331450166b56631091d6ba46a885cf427392055"
+-checksum = "f8fba1500e466a39dd3faa5aed20a50dfe0aa1b905264a453bbe9f49508994cc"
 -dependencies = [
 - "cfg-if",
 - "dbus",
@@ -19,21 +19,21 @@
 -
 -[[package]]
  name = "audioipc"
- version = "0.2.4"
+ version = "0.2.5"
  dependencies = [
 - "audio_thread_priority",
   "bincode",
   "bytes 0.4.9",
   "cc",
-@@ -148,7 +133,6 @@
+@@ -144,7 +129,6 @@
  name = "audioipc-client"
  version = "0.4.0"
  dependencies = [
 - "audio_thread_priority",
   "audioipc",
   "cubeb-backend",
-  "futures",
-@@ -161,7 +145,6 @@
+  "futures 0.1.23",
+@@ -157,7 +141,6 @@
  name = "audioipc-server"
  version = "0.2.3"
  dependencies = [
@@ -41,7 +41,7 @@
   "audioipc",
   "cubeb-core",
   "error-chain",
-@@ -1008,16 +991,6 @@
+@@ -1028,16 +1011,6 @@
  ]
  
  [[package]]
@@ -58,7 +58,7 @@
  name = "deflate"
  version = "0.7.19"
  source = "registry+https://github.com/rust-lang/crates.io-index"
-@@ -1659,7 +1632,6 @@
+@@ -1784,7 +1757,6 @@
  name = "gkrust-shared"
  version = "0.1.0"
  dependencies = [
@@ -66,7 +66,7 @@
   "audioipc-client",
   "audioipc-server",
   "authenticator",
-@@ -2199,15 +2171,6 @@
+@@ -2380,15 +2352,6 @@
  checksum = "3262021842bf00fe07dbd6cf34ff25c99d7a7ebef8deea84db72be3ea3bb0aff"
  
  [[package]]
@@ -80,11 +80,11 @@
 -
 -[[package]]
  name = "libloading"
- version = "0.5.0"
+ version = "0.5.2"
  source = "registry+https://github.com/rust-lang/crates.io-index"
 --- a/dom/ipc/ContentChild.cpp
 +++ b/dom/ipc/ContentChild.cpp
-@@ -109,9 +109,7 @@
+@@ -115,9 +115,7 @@
  #include "GMPServiceChild.h"
  #include "nsIStringBundle.h"
  #include "Geolocation.h"
@@ -94,7 +94,7 @@
  #include "nsIURIMutator.h"
  #include "nsIInputStreamChannel.h"
  #include "nsFocusManager.h"
-@@ -1689,9 +1687,6 @@
+@@ -1666,9 +1664,6 @@
    } else {
      // Pre-start audio before sandboxing; see bug 1443612.
      if (StaticPrefs::media_cubeb_sandbox()) {
@@ -168,7 +168,7 @@
  
 --- a/dom/media/moz.build
 +++ b/dom/media/moz.build
-@@ -104,7 +104,6 @@
+@@ -102,7 +102,6 @@
  XPIDL_MODULE = 'dom_media'
  
  EXPORTS += [
@@ -179,7 +179,7 @@
 --- a/media/audioipc/audioipc/Cargo.toml
 +++ b/media/audioipc/audioipc/Cargo.toml
 @@ -19,7 +19,6 @@
- serde_derive = "1.*.*"
+ serde_derive = "1"
  tokio = "0.1"
  tokio-io = "0.1"
 -audio_thread_priority = "0.22"
@@ -240,7 +240,7 @@
  use audioipc::codec::LengthDelimitedCodec;
  use audioipc::frame::{framed, Framed};
  use audioipc::platformhandle_passing::{framed_with_platformhandles, FramedWithPlatformHandles};
-@@ -77,32 +73,6 @@
+@@ -72,32 +68,6 @@
      }
  }
  
@@ -273,7 +273,7 @@
  fn register_thread(callback: Option<extern "C" fn(*const ::std::os::raw::c_char)>) {
      if let Some(func) = callback {
          let thr = thread::current();
-@@ -117,14 +87,6 @@
+@@ -112,14 +82,6 @@
      }
  }
  
@@ -288,7 +288,7 @@
  #[derive(Default)]
  struct DeviceCollectionCallback {
      cb: ffi::cubeb_device_collection_changed_callback,
-@@ -237,7 +199,6 @@
+@@ -223,7 +185,6 @@
  
          let cpu_pool = futures_cpupool::Builder::new()
              .name_prefix("AudioIPC")
@@ -363,22 +363,22 @@
          trace!("process_msg: req={:?}, resp={:?}", msg, resp);
 --- a/toolkit/library/rust/shared/Cargo.toml
 +++ b/toolkit/library/rust/shared/Cargo.toml
-@@ -40,7 +40,6 @@
+@@ -41,7 +41,6 @@
  bookmark_sync = { path = "../../../components/places/bookmark_sync", optional = true }
  shift_or_euc_c = "0.1.0"
  chardetng_c = "0.1.1"
--audio_thread_priority = "0.22"
+-audio_thread_priority = "0.22.1"
  mdns_service = { path="../../../../media/mtransport/mdns_service", optional = true }
  neqo_glue = { path = "../../../../netwerk/socket/neqo_glue" }
  rlbox_lucet_sandbox = { version = "0.1.0", optional = true }
 --- a/toolkit/library/rust/shared/lib.rs
 +++ b/toolkit/library/rust/shared/lib.rs
-@@ -50,8 +50,6 @@
+@@ -51,8 +51,6 @@
  #[cfg(feature = "new_xulstore")]
  extern crate xulstore;
  
 -extern crate audio_thread_priority;
 -
- #[cfg(feature = "webrtc")]
- extern crate mdns_service;
- extern crate neqo_glue;
+ #[cfg(feature = "new_webext_storage")]
+ extern crate webext_storage_bridge;
+ 
