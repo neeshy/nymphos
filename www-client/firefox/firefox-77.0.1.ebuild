@@ -27,7 +27,7 @@ if [[ ${MOZ_ESR} == 1 ]] ; then
 fi
 
 # Patch version
-PATCH="${PN}-76.0-patches-02"
+PATCH="${PN}-77.0-patches-01_pre7"
 
 MOZ_HTTP_URI="https://archive.mozilla.org/pub/${PN}/releases"
 MOZ_SRC_URI="${MOZ_HTTP_URI}/${MOZ_PV}/source/firefox-${MOZ_PV}.source.tar.xz"
@@ -70,7 +70,7 @@ SRC_URI="${SRC_URI}
 	${PATCH_URIS[@]}"
 
 CDEPEND="
-	>=dev-libs/nss-3.52
+	>=dev-libs/nss-3.52.1
 	>=dev-libs/nspr-4.25
 	dev-libs/atk
 	dev-libs/expat
@@ -110,9 +110,11 @@ CDEPEND="
 	system-libevent? ( >=dev-libs/libevent-2.0:0=[threads] )
 	system-libvpx? ( >=media-libs/libvpx-1.8.2:0=[postproc] )
 	system-webp? ( >=media-libs/libwebp-1.1.0:0= )
-	wifi? ( kernel_linux? ( >=sys-apps/dbus-0.60
-		>=dev-libs/dbus-glib-0.72
-		net-misc/networkmanager ) )
+	wifi? (
+		kernel_linux? (
+			net-misc/networkmanager
+		)
+	)
 	jack? ( virtual/jack )
 	selinux? ( sec-policy/selinux-mozilla )"
 
@@ -129,7 +131,7 @@ RDEPEND="${CDEPEND}
 DEPEND="${CDEPEND}
 	app-arch/zip
 	app-arch/unzip
-	>=dev-util/cbindgen-0.13.0
+	>=dev-util/cbindgen-0.14.1
 	>=net-libs/nodejs-10.19.0
 	>=sys-devel/binutils-2.30
 	sys-apps/findutils
@@ -197,21 +199,6 @@ BUILD_OBJ_DIR="${S}/ff"
 if [[ -z $GMP_PLUGIN_LIST ]] ; then
 	GMP_PLUGIN_LIST=( gmp-gmpopenh264 gmp-widevinecdm )
 fi
-
-fix_path() {
-	local value_to_move=${1}
-	local new_path path_value
-	IFS=:; local -a path_values=( ${PATH} )
-	for path_value in "${path_values[@]}" ; do
-		if [[ ${path_value} == *"${value_to_move}"* ]] ; then
-			new_path="${path_value}${new_path:+:}${new_path}"
-		else
-			new_path+="${new_path:+:}${path_value}"
-		fi
-	done
-
-	echo "${new_path}"
-}
 
 llvm_check_deps() {
 	if ! has_version --host-root "sys-devel/clang:${LLVM_SLOT}" ; then
@@ -295,17 +282,10 @@ pkg_setup() {
 
 	llvm_pkg_setup
 
-	# Workaround for #627726
 	if has ccache ${FEATURES} ; then
 		if use clang && use pgo ; then
 			die "Using FEATURES=ccache with USE=clang and USE=pgo is currently known to be broken (bug #718632)."
 		fi
-
-		einfo "Fixing PATH for FEATURES=ccache ..."
-		PATH=$(fix_path 'ccache/bin')
-	elif has distcc ${FEATURES} ; then
-		einfo "Fixing PATH for FEATURES=distcc ..."
-		PATH=$(fix_path 'distcc/bin')
 	fi
 }
 
@@ -319,7 +299,7 @@ src_unpack() {
 src_prepare() {
 	eapply "${WORKDIR}/firefox"
 
-	use !dbus && eapply "${FILESDIR}/${PN}-76-no-dbus.patch"
+	use !dbus && eapply "${FILESDIR}/${PN}-77-no-dbus.patch"
 
 	# Make LTO respect MAKEOPTS
 	sed -i \
@@ -563,6 +543,7 @@ src_configure() {
 	# Set both --target and --host as mozilla uses python to guess values otherwise
 	mozconfig_annotate '' --target="${CHOST}"
 	mozconfig_annotate '' --host="${CBUILD:-${CHOST}}"
+	mozconfig_annotate '' --with-toolchain-prefix="${CHOST}-"
 	if use system-libevent ; then
 		mozconfig_annotate '' --with-system-libevent="${SYSROOT}${EPREFIX}"/usr
 	fi
