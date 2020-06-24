@@ -988,7 +988,7 @@ zookeeper zookeeper/files/zookeeper"
 
 	local use dir srv
 	insinto "/etc/sv"
-	printf '%s' "${files}" | while IFS=' ' read -r use dir; do
+	<<< "${files}" while IFS=' ' read -r use dir; do
 		if use "${use}"; then
 			srv="$(basename "${dir}")"
 			doins -r "${dir}"
