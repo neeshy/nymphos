@@ -11,7 +11,7 @@ USE="${USE} egl dga dri dri3 drm xinerama vulkan opengl glamor vaapi vdpau"
 CPU_FLAGS_X86="mmx mmxext sse sse2 sse3 ssse3"
 L10N="en en-US"
 
-PYTHON_TARGETS="-python3_7 python2_7 python3_8"
+PYTHON_TARGETS="-python2_7 -python3_7 python3_8"
 PYTHON_SINGLE_TARGET="-python3_7 python3_8"
 RUBY_TARGETS="-ruby24 -ruby25 ruby27"
 
