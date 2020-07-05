@@ -1,6 +1,6 @@
 --- a/Cargo.lock
 +++ b/Cargo.lock
-@@ -100,24 +100,9 @@
+@@ -112,24 +112,9 @@
  ]
  
  [[package]]
@@ -25,15 +25,15 @@
   "bincode",
   "bytes 0.4.9",
   "cc",
-@@ -144,7 +129,6 @@
+@@ -156,7 +141,6 @@
  name = "audioipc-client"
  version = "0.4.0"
  dependencies = [
 - "audio_thread_priority",
   "audioipc",
   "cubeb-backend",
-  "futures 0.1.23",
-@@ -157,7 +141,6 @@
+  "futures 0.1.29",
+@@ -169,7 +153,6 @@
  name = "audioipc-server"
  version = "0.2.3"
  dependencies = [
@@ -41,7 +41,7 @@
   "audioipc",
   "cubeb-core",
   "error-chain",
-@@ -1028,16 +1011,6 @@
+@@ -1056,16 +1039,6 @@
  ]
  
  [[package]]
@@ -58,7 +58,7 @@
  name = "deflate"
  version = "0.7.19"
  source = "registry+https://github.com/rust-lang/crates.io-index"
-@@ -1784,7 +1757,6 @@
+@@ -1890,7 +1863,6 @@
  name = "gkrust-shared"
  version = "0.1.0"
  dependencies = [
@@ -66,7 +66,7 @@
   "audioipc-client",
   "audioipc-server",
   "authenticator",
-@@ -2380,15 +2352,6 @@
+@@ -2540,15 +2512,6 @@
  checksum = "3262021842bf00fe07dbd6cf34ff25c99d7a7ebef8deea84db72be3ea3bb0aff"
  
  [[package]]
@@ -84,7 +84,7 @@
  source = "registry+https://github.com/rust-lang/crates.io-index"
 --- a/dom/ipc/ContentChild.cpp
 +++ b/dom/ipc/ContentChild.cpp
-@@ -115,9 +115,7 @@
+@@ -111,9 +111,7 @@
  #include "GMPServiceChild.h"
  #include "nsIStringBundle.h"
  #include "Geolocation.h"
@@ -94,7 +94,7 @@
  #include "nsIURIMutator.h"
  #include "nsIInputStreamChannel.h"
  #include "nsFocusManager.h"
-@@ -1666,9 +1664,6 @@
+@@ -1624,9 +1622,6 @@
    } else {
      // Pre-start audio before sandboxing; see bug 1443612.
      if (StaticPrefs::media_cubeb_sandbox()) {
@@ -107,7 +107,7 @@
 --- a/dom/media/GraphRunner.cpp
 +++ b/dom/media/GraphRunner.cpp
 @@ -13,7 +13,6 @@
- #include "nsISupportsImpl.h"
+ #include "nsISupportsPriority.h"
  #include "prthread.h"
  #include "Tracing.h"
 -#include "audio_thread_priority.h"
@@ -132,9 +132,9 @@
 -    atp_demote_current_thread_from_real_time(handle);
 -  }
 -
-   dom::WorkletThread::DeleteCycleCollectedJSContext();
- 
    return NS_OK;
+ }
+ 
 --- a/dom/media/UnderrunHandlerLinux.cpp
 +++ b/dom/media/UnderrunHandlerLinux.cpp
 @@ -9,7 +9,6 @@
@@ -168,7 +168,7 @@
  
 --- a/dom/media/moz.build
 +++ b/dom/media/moz.build
-@@ -102,7 +102,6 @@
+@@ -100,7 +100,6 @@
  XPIDL_MODULE = 'dom_media'
  
  EXPORTS += [
@@ -197,7 +197,7 @@
  use cubeb::{self, ffi};
  use std::ffi::{CStr, CString};
  use std::os::raw::{c_char, c_int, c_uint};
-@@ -209,9 +207,6 @@
+@@ -210,9 +208,6 @@
      StreamSetVolume(usize, f32),
      StreamGetCurrentDevice(usize),
      StreamRegisterDeviceChangeCallback(usize, bool),
@@ -207,7 +207,7 @@
  }
  
  // Server -> Client messages.
-@@ -241,9 +236,6 @@
+@@ -243,9 +238,6 @@
      StreamCurrentDevice(Device),
      StreamRegisterDeviceChangeCallback,
  
@@ -225,7 +225,7 @@
  [dependencies]
 -audio_thread_priority = "0.22"
  audioipc = { path="../audioipc" }
- cubeb-backend = "0.6.0"
+ cubeb-backend = "0.7"
  futures = { version="0.1.18", default-features=false, features=["use_std"] }
 --- a/media/audioipc/client/src/context.rs
 +++ b/media/audioipc/client/src/context.rs
@@ -304,8 +304,8 @@
  [dependencies]
 -audio_thread_priority = "0.22"
  audioipc = { path = "../audioipc" }
- cubeb-core = "0.6.0"
- futures = "0.1.18"
+ cubeb-core = "0.7.0"
+ futures = "0.1.29"
 --- a/media/audioipc/server/src/lib.rs
 +++ b/media/audioipc/server/src/lib.rs
 @@ -9,7 +9,6 @@
@@ -340,7 +340,7 @@
  use audioipc;
  use audioipc::codec::LengthDelimitedCodec;
  use audioipc::frame::{framed, Framed};
-@@ -611,20 +609,6 @@
+@@ -635,20 +633,6 @@
                      enable,
                  )
                  .unwrap_or_else(error),
@@ -379,6 +379,6 @@
  
 -extern crate audio_thread_priority;
 -
- #[cfg(feature = "new_webext_storage")]
+ #[cfg(not(target_os = "android"))]
  extern crate webext_storage_bridge;
  
