@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="Banish the mouse cursor when typing, show it again when the mouse moves"
-HOMEPAGE="https://github.com/jcs/xbanish"
+HOMEPAGE="https://github.com/jcs/${PN}"
 SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
