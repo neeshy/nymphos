@@ -16,7 +16,7 @@ SRC_URI="
 
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 mips ppc ppc64 x86"
+KEYWORDS="amd64 x86"
 IUSE="doc"
 
 RESTRICT="mirror bindist"
