@@ -28,7 +28,7 @@ if [[ ${MOZ_ESR} == 1 ]] ; then
 fi
 
 # Patch version
-PATCH="${PN}-78.0-patches-03"
+PATCH="${PN}-78.0-patches-05"
 
 MOZ_HTTP_URI="https://archive.mozilla.org/pub/${PN}/releases"
 MOZ_SRC_URI="${MOZ_HTTP_URI}/${MOZ_PV}/source/${PN}-${MOZ_PV}.source.tar.xz"
@@ -353,6 +353,13 @@ src_prepare() {
 	# However, when available, an unsupported version can cause problems, bug #669548
 	sed -i -e "s@check_prog('RUSTFMT', add_rustup_path('rustfmt')@check_prog('RUSTFMT', add_rustup_path('rustfmt_do_not_use')@" \
 		"${S}"/build/moz.configure/rust.configure || die
+
+	if has_version ">=virtual/rust-1.45.0" ; then
+		einfo "Unbreak build with >=rust-1.45.0, bmo#1640982 ..."
+		sed -i \
+			-e 's/\(^cargo_rustc_flags +=.* \)-Clto\( \|$\)/\1/' \
+			"${S}/config/makefiles/rust.mk" || die
+	fi
 
 	# Autotools configure is now called old-configure.in
 	# This works because there is still a configure.in that happens to be for the
