@@ -6,10 +6,10 @@ EAPI=7
 inherit go-module
 
 EGO_SUM=(
-	"github.com/doronbehar/termbox-go v0.0.0-20191006141301-8c9470559e05"
-	"github.com/doronbehar/termbox-go v0.0.0-20191006141301-8c9470559e05/go.mod"
-	"github.com/mattn/go-runewidth v0.0.4"
-	"github.com/mattn/go-runewidth v0.0.4/go.mod"
+	"github.com/doronbehar/termbox-go v0.0.0-20200711071547-71407e3bfa14"
+	"github.com/doronbehar/termbox-go v0.0.0-20200711071547-71407e3bfa14/go.mod"
+	"github.com/mattn/go-runewidth v0.0.9"
+	"github.com/mattn/go-runewidth v0.0.9/go.mod"
 	"gopkg.in/djherbis/times.v1 v1.2.0"
 	"gopkg.in/djherbis/times.v1 v1.2.0/go.mod"
 )
