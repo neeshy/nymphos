@@ -1,6 +1,6 @@
 --- a/Cargo.lock
 +++ b/Cargo.lock
-@@ -112,24 +112,9 @@
+@@ -110,24 +110,9 @@
  ]
  
  [[package]]
@@ -25,7 +25,7 @@
   "bincode",
   "bytes 0.4.9",
   "cc",
-@@ -156,7 +141,6 @@
+@@ -154,7 +139,6 @@
  name = "audioipc-client"
  version = "0.4.0"
  dependencies = [
@@ -33,7 +33,7 @@
   "audioipc",
   "cubeb-backend",
   "futures 0.1.29",
-@@ -169,7 +153,6 @@
+@@ -167,7 +151,6 @@
  name = "audioipc-server"
  version = "0.2.3"
  dependencies = [
@@ -41,7 +41,7 @@
   "audioipc",
   "cubeb-core",
   "error-chain",
-@@ -1056,16 +1039,6 @@
+@@ -1027,16 +1010,6 @@
  ]
  
  [[package]]
@@ -58,15 +58,15 @@
  name = "deflate"
  version = "0.7.19"
  source = "registry+https://github.com/rust-lang/crates.io-index"
-@@ -1890,7 +1863,6 @@
- name = "gkrust-shared"
+@@ -1867,7 +1840,6 @@
  version = "0.1.0"
  dependencies = [
+  "app_services_logger",
 - "audio_thread_priority",
   "audioipc-client",
   "audioipc-server",
   "authenticator",
-@@ -2540,15 +2512,6 @@
+@@ -2518,15 +2490,6 @@
  checksum = "3262021842bf00fe07dbd6cf34ff25c99d7a7ebef8deea84db72be3ea3bb0aff"
  
  [[package]]
@@ -84,7 +84,7 @@
  source = "registry+https://github.com/rust-lang/crates.io-index"
 --- a/dom/ipc/ContentChild.cpp
 +++ b/dom/ipc/ContentChild.cpp
-@@ -111,9 +111,7 @@
+@@ -115,9 +115,7 @@
  #include "GMPServiceChild.h"
  #include "nsIStringBundle.h"
  #include "Geolocation.h"
@@ -94,16 +94,17 @@
  #include "nsIURIMutator.h"
  #include "nsIInputStreamChannel.h"
  #include "nsFocusManager.h"
-@@ -1624,9 +1622,6 @@
-   } else {
+@@ -1621,10 +1619,6 @@
+   sandboxEnabled = SandboxInfo::Get().CanSandboxContent();
+ 
+   if (StaticPrefs::media_cubeb_sandbox()) {
+-    // This needs to happen regardless of whether sandboxing is enabled.
+-    if (atp_set_real_time_limit(0, 48000)) {
+-      NS_WARNING("could not set real-time limit at process startup");
+-    }
+     InstallSoftRealTimeLimitHandler();
+   } else if (sandboxEnabled) {
      // Pre-start audio before sandboxing; see bug 1443612.
-     if (StaticPrefs::media_cubeb_sandbox()) {
--      if (atp_set_real_time_limit(0, 48000)) {
--        NS_WARNING("could not set real-time limit at process startup");
--      }
-       InstallSoftRealTimeLimitHandler();
-     } else {
-       Unused << CubebUtils::GetCubebContext();
 --- a/dom/media/GraphRunner.cpp
 +++ b/dom/media/GraphRunner.cpp
 @@ -13,7 +13,6 @@
@@ -142,10 +143,10 @@
  #include <mozilla/Sprintf.h>
  #include <mozilla/Atomics.h>
 -#include "audio_thread_priority.h"
+ #include "nsDebug.h"
  
  namespace mozilla {
- 
-@@ -57,20 +56,6 @@
+@@ -58,20 +57,6 @@
  }
  
  void DemoteThreadFromRealTime() {
@@ -373,7 +374,7 @@
  rlbox_lucet_sandbox = { version = "0.1.0", optional = true }
 --- a/toolkit/library/rust/shared/lib.rs
 +++ b/toolkit/library/rust/shared/lib.rs
-@@ -51,8 +51,6 @@
+@@ -52,8 +52,6 @@
  #[cfg(feature = "new_xulstore")]
  extern crate xulstore;
  
