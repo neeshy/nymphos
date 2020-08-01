@@ -17,7 +17,6 @@ else
 	KEYWORDS="amd64 x86"
 fi
 
-
 LICENSE="LGPL-3+"
 SLOT="0"
 
