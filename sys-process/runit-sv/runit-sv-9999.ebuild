@@ -988,7 +988,7 @@ zookeeper zookeeper/files/zookeeper"
 
 	local use dir srv
 	insinto "/etc/sv"
-	<<< "${files}" while IFS=' ' read -r use dir; do
+	while IFS=' ' read -r use dir; do
 		if use "${use}"; then
 			srv="$(basename "${dir}")"
 			doins -r "${dir}"
@@ -1006,5 +1006,5 @@ zookeeper zookeeper/files/zookeeper"
 				fperms 0755 "/etc/sv/${srv}/${file}"
 			done
 		fi
-	done
+	done <<< "${files}"
 }
