@@ -38,15 +38,15 @@
  detect_virt
 --- a/core-services/03-filesystems.sh
 +++ b/core-services/03-filesystems.sh
-@@ -30,7 +30,7 @@ if [ -e /etc/crypttab ]; then
+@@ -30,7 +30,7 @@
      fi
  fi
  
--if [ -e /etc/zfs/zpool.cache -a -x /usr/bin/zfs ]; then
-+if [ -e /etc/zfs/zpool.cache -a -x /sbin/zfs ]; then
-     msg "Activating ZFS devices..."
-     zpool import -c /etc/zfs/zpool.cache -N -a
- 
+-if [ -x /usr/bin/zpool -a -x /usr/bin/zfs ]; then
++if [ -x /sbin/zpool -a -x /sbin/zfs ]; then
+     if [ -e /etc/zfs/zpool.cache ]; then
+         msg "Importing cached ZFS pools..."
+         zpool import -N -a -c /etc/zfs/zpool.cache
 --- a/ctrlaltdel
 +++ b/ctrlaltdel
 @@ -1,6 +1,6 @@
@@ -56,10 +56,10 @@
 +PATH=/usr/sbin:/usr/bin:/sbin:/bin
  MSG="System is going down..."
  
- # We check for this file in stage3 to halt or reboot
+ # We check for this file after receiving a SIGCONT to move to stage3
 --- a/halt.c
 +++ b/halt.c
-@@ -52,21 +52,21 @@ int main(int argc, char *argv[]) {
+@@ -109,21 +109,21 @@
      if (do_force)
        reboot(RB_HALT_SYSTEM);
      else

@@ -1,6 +1,6 @@
 --- a/modules-load
 +++ b/modules-load
-@@ -5,7 +5,7 @@ export PATH=/bin:/sbin
+@@ -5,7 +5,7 @@
  
  {
  # Parameters passed as modules-load= or rd.modules-load= in kernel command line.
