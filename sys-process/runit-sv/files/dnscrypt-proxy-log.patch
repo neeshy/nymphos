@@ -1,6 +1,0 @@
---- a/dnscrypt-proxy/files/dnscrypt-proxy/log/run
-+++ b/dnscrypt-proxy/files/dnscrypt-proxy/log/run
-@@ -1,2 +1,2 @@
- #!/bin/sh
--exec chpst -u dnscrypt_proxy:dnscrypt_proxy svlogd -t /var/log/dnscrypt-proxy
-+exec chpst -u dnscrypt-proxy:dnscrypt-proxy svlogd -t /var/log/dnscrypt-proxy

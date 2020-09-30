@@ -1,6 +1,0 @@
---- a/dnscrypt-proxy/files/dnscrypt-proxy/run
-+++ b/dnscrypt-proxy/files/dnscrypt-proxy/run
-@@ -1,2 +1,2 @@
- #!/bin/sh
--exec dnscrypt-proxy -config /etc/dnscrypt-proxy.toml
-+exec dnscrypt-proxy -config /etc/dnscrypt-proxy/dnscrypt-proxy.toml

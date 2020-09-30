@@ -1,8 +1,0 @@
---- a/miniupnpd/files/miniupnpd/run
-+++ b/miniupnpd/files/miniupnpd/run
-@@ -1,4 +1,4 @@
- #!/bin/sh
- [ -r conf ] && . ./conf
- exec 2>&1
--exec miniupnpd ${OPTS:=-f /etc/miniupnpd/miniupnpd.conf} -D
-+exec miniupnpd ${OPTS:=-f /etc/miniupnpd/miniupnpd.conf} -d
