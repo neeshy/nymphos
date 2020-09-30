@@ -6,14 +6,17 @@ EAPI=7
 inherit multilib
 
 DESCRIPTION="Legacy bootstrapped extensions for Firefox 65 and beyond"
-HOMEPAGE="https://github.com/girst/LegacyFox"
+HOMEPAGE="https://git.gir.st/LegacyFox.git"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"
 else
-	SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	MY_COMMIT="022cf6d"
+	MY_PV="${PV}-${MY_COMMIT}"
+	MY_P="LegacyFox-v${MY_PV}"
+	SRC_URI="${HOMEPAGE}/snapshot/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 	KEYWORDS="amd64 x86"
-	S="${WORKDIR}/LegacyFox-${PV}"
+	S="${WORKDIR}/${MY_P}"
 fi
 
 LICENSE="MPL-2.0"
