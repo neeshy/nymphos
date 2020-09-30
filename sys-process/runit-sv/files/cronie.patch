@@ -1,7 +1,0 @@
---- a/cronie/files/cronie/run
-+++ b/cronie/files/cronie/run
-@@ -1,3 +1,3 @@
- #!/bin/sh
- [ -r conf ] && . ./conf
--exec cronie-crond -n $OPTS 2>&1
-+exec crond -n $OPTS 2>&1

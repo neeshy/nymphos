@@ -1,8 +1,0 @@
---- a/minissdpd/files/minissdpd/run
-+++ b/minissdpd/files/minissdpd/run
-@@ -1,4 +1,4 @@
- #!/bin/sh
- [ -r conf ] && . ./conf
- exec 2>&1
--exec minissdpd ${OPTS} -D
-+exec minissdpd ${OPTS} -d

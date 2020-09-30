@@ -1,9 +1,0 @@
---- a/php/files/php-fpm/run
-+++ b/php/files/php-fpm/run
-@@ -1,3 +1,5 @@
- #!/bin/sh
-
--exec php-fpm --nodaemonize
-+PHP_SLOT="$(eselect php show fpm)"
-+PHP_FPM_CONF="/etc/php/fpm-${PHP_SLOT}/php-fpm.conf"
-+exec php-fpm --nodaemonize --fpm-config "${PHP_FPM_CONF}"

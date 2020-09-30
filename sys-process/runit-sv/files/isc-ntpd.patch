@@ -1,6 +1,0 @@
---- a/ntp/files/isc-ntpd/run
-+++ b/ntp/files/isc-ntpd/run
-@@ -1,2 +1,2 @@
- #!/bin/sh
--exec ntpd -g -u ntpd:ntpd -n >/dev/null 2>&1
-+exec ntpd -g -u ntp:ntp -n >/dev/null 2>&1

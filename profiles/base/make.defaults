@@ -1,19 +1,22 @@
 USE="minimal"
 USE="${USE} ipv6"
 USE="${USE} crypt ssl libressl"
-USE="${USE} zsh-completion"
 USE="${USE} jpeg png gif tiff webp"
 USE="${USE} alsa"
 USE="${USE} custom-cflags custom-optimization lto graphite pgo pie pic"
 USE="${USE} threads openmp opencl aio jit numa fftw jemalloc"
 USE="${USE} egl dga dri dri3 drm xinerama vulkan opengl glamor vaapi vdpau"
 
+FEATURES="${FEATURES} buildpkg"
+BINPKG_COMPRESS="xz"
+XZ_OPT="--x86 --lzma2=preset=9e,dict=256MB,nice=273,depth=200,lc=4"
+
 CPU_FLAGS_X86="mmx mmxext sse sse2 sse3 ssse3"
 L10N="en en-US"
 
 PYTHON_TARGETS="-python2_7 -python3_7 python3_8"
 PYTHON_SINGLE_TARGET="-python3_7 python3_8"
-RUBY_TARGETS="-ruby24 -ruby25 ruby27"
+RUBY_TARGETS="-ruby24 -ruby25 -ruby26 ruby27"
 
 ACCEPT_KEYWORDS="${ACCEPT_KEYWORDS} ~amd64"
 ACCEPT_LICENSE="*"

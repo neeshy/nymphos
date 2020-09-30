@@ -1,7 +1,0 @@
---- a/minidlna/files/minidlnad/run
-+++ b/minidlna/files/minidlnad/run
-@@ -1,3 +1,3 @@
- #!/bin/sh
- [ -r conf ] && . ./conf
--exec minidlnad -S ${OPTS} 2>&1
-+exec chpst -u minidlna:minidlna minidlnad -S ${OPTS} 2>&1
