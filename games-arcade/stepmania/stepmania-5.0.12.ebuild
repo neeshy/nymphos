@@ -5,14 +5,17 @@ EAPI=7
 
 inherit cmake-utils desktop
 
+MY_PV="${PV/_beta/-b}"
+MY_P="${PN}-${MY_PV}"
+
 DESCRIPTION="Advanced rhythm game, designed for both home and arcade use"
 HOMEPAGE="http://www.stepmania.com/"
-SRC_URI="https://github.com/stepmania/stepmania/archive/v${PV/_beta/-b}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/stepmania/stepmania/archive/v${PV/_beta/-b}.tar.gz -> ${MY_P}.tar.gz"
 
 LICENSE="MIT default-songs? ( CC-BY-NC-4.0 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc +default-songs alsa oss pulseaudio jack ffmpeg gles2 +gtk +mp3 +ogg +jpeg networking wav parport crash-handler cpu_flags_x86_sse2"
+IUSE="doc +default-songs lto +xinerama alsa oss pulseaudio jack ffmpeg +mp3 +ogg wav +jpeg gles2 +gtk networking parport tty crash-handler cpu_flags_x86_sse2"
 REQUIRED_USE="|| ( alsa oss pulseaudio jack )"
 
 RDEPEND="
@@ -26,8 +29,9 @@ RDEPEND="
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXrandr
+	xinerama? ( x11-libs/libXinerama )
 	alsa? ( media-libs/alsa-lib )
-	ffmpeg? ( >=virtual/ffmpeg-9-r1 )
+	ffmpeg? ( virtual/ffmpeg )
 	gtk? (
 		dev-libs/glib:2
 		x11-libs/cairo
@@ -47,36 +51,37 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 "
 
-S="${WORKDIR}/${P/_beta/-b}"
+S="${WORKDIR}/${MY_P}"
 
 src_configure() {
 	# Minimaid tries to use pre-built static libraries (x86 only, often fails to link)
 	# TTY input fails to compile
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX=/opt
-		-DWITH_ALSA="$(usex alsa)"
-		-DWITH_CRASH_HANDLER="$(usex crash-handler)"
-		-DWITH_FFMPEG="$(usex ffmpeg)"
 		-DWITH_FULL_RELEASE=NO
-		-DWITH_GLES2="$(usex gles2)"
+		-DWITH_LTO="$(usex lto)"
 		-DWITH_GPL_LIBS=YES
-		-DWITH_GTK2="$(usex gtk)"
-		-DWITH_JACK="$(usex jack)"
-		-DWITH_JPEG="$(usex jpeg)"
-		-DWITH_LTO=NO
-		-DWITH_MINIMAID=NO
-		-DWITH_MP3="$(usex mp3)"
-		-DWITH_NETWORKING="$(usex networking)"
-		-DWITH_OGG="$(usex ogg)"
-		-DWITH_OSS="$(usex oss)"
-		-DWITH_PARALLEL_PORT="$(usex parport)"
-		-DWITH_PORTABLE_TOMCRYPT=YES
 		-DWITH_PROFILING=NO
+		-DWITH_XINERAMA="$(usex xinerama)"
+		-DWITH_ALSA="$(usex alsa)"
+		-DWITH_OSS="$(usex oss)"
 		-DWITH_PULSEAUDIO="$(usex pulseaudio)"
-		-DWITH_SSE2="$(usex cpu_flags_x86_sse2)"
+		-DWITH_JACK="$(usex jack)"
+		-DWITH_FFMPEG="$(usex ffmpeg)"
 		-DWITH_SYSTEM_FFMPEG="$(usex ffmpeg)"
-		-DWITH_TTY=NO
+		-DWITH_MP3="$(usex mp3)"
+		-DWITH_OGG="$(usex ogg)"
 		-DWITH_WAV="$(usex wav)"
+		-DWITH_JPEG="$(usex jpeg)"
+		-DWITH_GLES2="$(usex gles2)"
+		-DWITH_GTK2="$(usex gtk)"
+		-DWITH_PORTABLE_TOMCRYPT=YES
+		-DWITH_NETWORKING="$(usex networking)"
+		-DWITH_PARALLEL_PORT="$(usex parport)"
+		-DWITH_TTY="$(usex tty)"
+		-DWITH_CRASH_HANDLER="$(usex crash-handler)"
+		-DWITH_SSE2="$(usex cpu_flags_x86_sse2)"
+		-DWITH_MINIMAID=NO
 	)
 	cmake-utils_src_configure
 }
