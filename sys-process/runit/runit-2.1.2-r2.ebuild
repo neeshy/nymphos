@@ -27,11 +27,6 @@ src_prepare() {
 
 	# we either build everything or nothing static
 	sed -i -e 's:-static: :' Makefile
-
-	# see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=726008
-	[[ ${COMPILER} == "diet" ]] &&
-		use ppc &&
-		filter-flags "-mpowerpc-gpopt"
 }
 
 src_configure() {
