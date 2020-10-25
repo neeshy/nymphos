@@ -7,4 +7,4 @@ if ! [ -d "$frost_dir" ]; then
 fi
 
 cd "$frost_dir"
-exec java -jar /opt/frost/frost.jar
+exec java -jar /opt/frost/frost.jar "$@"
