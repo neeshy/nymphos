@@ -68,8 +68,8 @@ src_install() {
 	perl-module_src_install
 
 	if use gtk; then
-		domenu share/gtk-youtube-viewer.desktop
-		doicon share/icons/gtk-youtube-viewer.png
+		domenu share/gtk-straw-viewer.desktop
+		doicon share/icons/gtk-straw-viewer.png
 	fi
 }
 
@@ -83,7 +83,7 @@ pkg_postinst() {
 	optfeature "live streams support" net-misc/youtube-dl
 	optfeature "threads support" virtual/perl-threads
 	elog
-	elog "Check the configuration file in ~/.config/youtube-viewer/"
+	elog "Check the configuration file in ~/.config/straw-viewer/"
 	elog "and configure your video player backend."
 }
 
