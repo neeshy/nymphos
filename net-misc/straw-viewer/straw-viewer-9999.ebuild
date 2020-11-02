@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit desktop perl-module xdg-utils
+inherit desktop optfeature perl-module xdg-utils
 
 DESCRIPTION="Application for searching and streaming videos from YouTube, using the API of invidio.us (fork of youtube-viewer)."
 HOMEPAGE="https://github.com/trizen/${PN}"
