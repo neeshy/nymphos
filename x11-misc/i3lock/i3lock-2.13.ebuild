@@ -27,7 +27,6 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 DOCS=( CHANGELOG README.md )
-PATCHES=( "${FILESDIR}/${P}-fno-common.patch" )
 
 src_prepare() {
 	use pam || eapply -p0 "${FILESDIR}/${P}-no-pam.patch"
