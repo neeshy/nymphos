@@ -37,7 +37,7 @@ src_prepare() {
 }
 
 src_install() {
-	dobin "${FILESDIR}/frost.sh"
+	newbin "${FILESDIR}/frost.sh" frost
 	cd build/dist
 	insinto /opt/frost
 	doins -r config doc help lib
