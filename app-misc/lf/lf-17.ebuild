@@ -27,27 +27,23 @@ EGO_SUM=(
 
 go-module_set_globals
 
-MY_PN="lfp"
-MY_COMMIT="8b35dcf6969846790cca64d331917e92e58d85d7"
-MY_P="${MY_PN}-"${MY_COMMIT}
-
 DESCRIPTION="Terminal file manager"
 HOMEPAGE="https://github.com/gokcehan/${PN}"
-SRC_URI="https://gitlab.com/Provessor/${MY_PN}/-/archive/${MY_COMMIT}/${MY_P}.tar.gz -> ${MY_P}.tar.gz
+SRC_URI="${HOMEPAGE}/archive/r${PV}.tar.gz -> ${P}.tar.gz
 	${EGO_SUM_SRC_URI}"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${PN}-r${PV}"
 
 src_compile () {
 	go build || die
 }
 
 src_install() {
-	newbin "${MY_PN}" "${PN}"
+	dobin "${PN}"
 	doman "${PN}.1"
 	dodoc README.md
 	docinto examples
