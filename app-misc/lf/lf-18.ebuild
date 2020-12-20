@@ -6,15 +6,13 @@ EAPI=7
 inherit go-module
 
 EGO_SUM=(
-	"github.com/DATA-DOG/go-sqlmock v1.3.3"
-	"github.com/DATA-DOG/go-sqlmock v1.3.3/go.mod"
 	"github.com/gdamore/encoding v1.0.0"
 	"github.com/gdamore/encoding v1.0.0/go.mod"
-	"github.com/gdamore/tcell v1.3.0"
-	"github.com/gdamore/tcell v1.3.0/go.mod"
-	"github.com/lucasb-eyer/go-colorful v1.0.2"
-	"github.com/lucasb-eyer/go-colorful v1.0.2/go.mod"
-	"github.com/mattn/go-runewidth v0.0.4/go.mod"
+	"github.com/gdamore/tcell/v2 v2.0.0"
+	"github.com/gdamore/tcell/v2 v2.0.0/go.mod"
+	"github.com/lucasb-eyer/go-colorful v1.0.3"
+	"github.com/lucasb-eyer/go-colorful v1.0.3/go.mod"
+	"github.com/mattn/go-runewidth v0.0.7/go.mod"
 	"github.com/mattn/go-runewidth v0.0.9"
 	"github.com/mattn/go-runewidth v0.0.9/go.mod"
 	"golang.org/x/sys v0.0.0-20190626150813-e07cf5db2756"
