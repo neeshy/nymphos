@@ -20,5 +20,5 @@ DEPEND="${RDEPEND}"
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX=/usr install
-	einstalldocs
+	dodoc README.md
 }
