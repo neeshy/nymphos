@@ -13,5 +13,5 @@ KEYWORDS="amd64 x86"
 
 src_install() {
 	emake DESTDIR="${D}" prefix=/usr install
-	dodoc README
+	dodoc README ALGORITHM
 }
