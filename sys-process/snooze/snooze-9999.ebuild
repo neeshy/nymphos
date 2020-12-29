@@ -18,5 +18,5 @@ SLOT="0"
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX=/usr install
-	einstalldocs
+	dodoc {README,NEWS}.md
 }
