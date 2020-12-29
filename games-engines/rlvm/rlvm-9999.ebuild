@@ -16,8 +16,8 @@ SLOT="0"
 
 RDEPEND="
 	media-libs/libsdl[opengl]
-	>=dev-libs/boost-1.42
-	media-libs/glew
+	>=dev-libs/boost-1.42:0=
+	media-libs/glew:0=
 	media-libs/sdl-image[jpeg,png]
 	media-libs/sdl-ttf
 	media-libs/sdl-mixer[vorbis]
@@ -33,10 +33,7 @@ PATCHES=(
 )
 
 src_compile() {
-	escons --release \
-		CFLAGS="${CFLAGS}" \
-		LDFLAGS="${LDFLAGS}" ||
-		die "build failed"
+	escons --release CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" || die "build failed"
 }
 
 src_install() {
