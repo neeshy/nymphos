@@ -55,6 +55,8 @@ src_install() {
 	docinto examples
 	dodoc etc/{lf.{csh,vim},lfcd.{,c}sh,lfrc.example}
 
+	insinto /usr/share/bash-completion/completions
+	newins etc/lf.bash lf
 	insinto /usr/share/zsh/site-functions
 	newins etc/lf.zsh _lf
 	insinto /usr/share/fish/vendor_completions.d
