@@ -14,11 +14,10 @@ KEYWORDS="amd64 x86"
 RDEPEND="sys-process/runit"
 
 src_install() {
-	exeinto /bin
-	newexe sv-helper.sh sv-helper
-	newexe rsvlog.sh rsvlog
+	newbin sv-helper.sh sv-helper
+	newbin rsvlog.sh rsvlog
 	for cmd in svls sv-{list,find,enable,disable,start,stop,restart}; do
-		dosym sv-helper "/bin/${cmd}"
+		dosym sv-helper "/usr/bin/${cmd}"
 	done
 	dodoc README.md
 }
