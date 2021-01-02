@@ -14,7 +14,7 @@ SRC_URI="https://github.com/stepmania/stepmania/archive/v${MY_PV}.tar.gz -> ${MY
 
 LICENSE="MIT default-songs? ( CC-BY-NC-4.0 )"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="doc +default-songs lto +xinerama alsa oss pulseaudio jack ffmpeg +mp3 +ogg wav +jpeg gles2 +gtk networking parport tty crash-handler cpu_flags_x86_sse2"
 REQUIRED_USE="|| ( alsa oss pulseaudio jack )"
 

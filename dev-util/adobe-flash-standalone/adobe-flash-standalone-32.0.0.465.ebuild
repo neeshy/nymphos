@@ -13,7 +13,7 @@ SRC_URI="https://fpdownload.macromedia.com/pub/flashplayer/updaters/${PV%%.*}/fl
 
 LICENSE="AdobeFlash-11.x LGPL-3+"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 RDEPEND="
 	dev-libs/nss

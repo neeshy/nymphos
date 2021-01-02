@@ -14,7 +14,7 @@ SRC_URI="https://sourceforge.net/projects/jtcfrost/files/frost/${MY_PV}/frost_so
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 DEPEND="
 	>=virtual/jdk-1.6
