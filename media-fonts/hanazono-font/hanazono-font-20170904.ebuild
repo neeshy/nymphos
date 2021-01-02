@@ -13,7 +13,7 @@ SRC_URI="https://osdn.net/projects/${PN}/downloads/${S_DIR}/hanazono-${PV}.zip"
 
 LICENSE="OFL-1.1 hanazono-font"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 
 S="${WORKDIR}"
 
