@@ -41,8 +41,8 @@ src_install() {
 	dobin chpst runsv runsvchdir runsvdir sv svlogd
 	dosbin runit-init runit utmpset
 
+	doman ../man/*.[18]
 	dodoc ../package/{CHANGES,README,THANKS,TODO}
 	docinto html
 	dodoc ../doc/*.html
-	doman ../man/*.[18]
 }
