@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit toolchain-funcs
+inherit toolchain-funcs autotools
 
 DESCRIPTION="Simple screen locker"
 HOMEPAGE="https://i3wm.org/${PN}/"
@@ -35,6 +35,8 @@ src_prepare() {
 	if use pam; then
 		sed -i -e 's:login:system-auth:g' "pam/${PN}" || die
 	fi
+
+	eautoreconf
 }
 
 src_configure() {
