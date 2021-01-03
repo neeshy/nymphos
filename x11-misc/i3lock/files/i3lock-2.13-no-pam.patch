@@ -1,4 +1,58 @@
-+++ i3lock.1
+--- a/LICENSE-slock
++++ b/LICENSE-slock
+@@ -0,0 +1,24 @@
++MIT/X Consortium License
++
++© 2015-2016 Markus Teich <markus.teich@stusta.mhn.de>
++© 2014 Dimitris Papastamos <sin@2f30.org>
++© 2006-2014 Anselm R Garbe <anselm@garbe.us>
++© 2014-2016 Laslo Hunhold <dev@frign.de>
++
++Permission is hereby granted, free of charge, to any person obtaining a
++copy of this software and associated documentation files (the "Software"),
++to deal in the Software without restriction, including without limitation
++the rights to use, copy, modify, merge, publish, distribute, sublicense,
++and/or sell copies of the Software, and to permit persons to whom the
++Software is furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in
++all copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
++THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
++FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
++DEALINGS IN THE SOFTWARE.
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -7,14 +7,11 @@
+ 
+ dist_man1_MANS = i3lock.1
+ 
+-pamddir = $(sysconfdir)/pam.d
+-pamd_files = pam/i3lock
+-pamd_DATA = $(pamd_files)
+-
+ AM_CPPFLAGS = \
+ 	@AX_EXTEND_SRCDIR_CPPFLAGS@
+ 
+ i3lock_CFLAGS = \
++	-lcrypt \
+ 	$(AM_CFLAGS) \
+ 	$(XCB_CFLAGS) \
+ 	$(XCB_IMAGE_CFLAGS) \
+@@ -51,7 +48,6 @@
+ 	xcb.h
+ 
+ EXTRA_DIST = \
+-	$(pamd_files) \
+ 	CHANGELOG \
+ 	LICENSE \
+ 	README.md \
+--- a/i3lock.1
++++ b/i3lock.1
 @@ -43,8 +43,6 @@
  You can specify either a background color or a PNG image which will be displayed while your screen is locked.
  .IP \[bu]
@@ -27,7 +81,8 @@
  and, if invalid, the user will have to wait a few seconds before
  another try. This can be useful if the XF86ScreenSaver key is used to
  put a laptop to sleep and bounce on resume or if you happen to wake up
-+++ i3lock.c
+--- a/i3lock.c
++++ b/i3lock.c
 @@ -24,7 +24,9 @@
  #ifdef __OpenBSD__
  #include <bsd_auth.h>
@@ -312,58 +367,8 @@
      if (stolen_focus == XCB_NONE) {
          return 0;
      }
-+++ LICENSE-slock
-@@ -0,0 +1,24 @@
-+MIT/X Consortium License
-+
-+© 2015-2016 Markus Teich <markus.teich@stusta.mhn.de>
-+© 2014 Dimitris Papastamos <sin@2f30.org>
-+© 2006-2014 Anselm R Garbe <anselm@garbe.us>
-+© 2014-2016 Laslo Hunhold <dev@frign.de>
-+
-+Permission is hereby granted, free of charge, to any person obtaining a
-+copy of this software and associated documentation files (the "Software"),
-+to deal in the Software without restriction, including without limitation
-+the rights to use, copy, modify, merge, publish, distribute, sublicense,
-+and/or sell copies of the Software, and to permit persons to whom the
-+Software is furnished to do so, subject to the following conditions:
-+
-+The above copyright notice and this permission notice shall be included in
-+all copies or substantial portions of the Software.
-+
-+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
-+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-+DEALINGS IN THE SOFTWARE.
-+++ Makefile.am
-@@ -7,14 +7,11 @@
- 
- dist_man1_MANS = i3lock.1
- 
--pamddir = $(sysconfdir)/pam.d
--pamd_files = pam/i3lock
--pamd_DATA = $(pamd_files)
--
- AM_CPPFLAGS = \
- 	@AX_EXTEND_SRCDIR_CPPFLAGS@
- 
- i3lock_CFLAGS = \
-+	-lcrypt \
- 	$(AM_CFLAGS) \
- 	$(XCB_CFLAGS) \
- 	$(XCB_IMAGE_CFLAGS) \
-@@ -51,7 +48,6 @@
- 	xcb.h
- 
- EXTRA_DIST = \
--	$(pamd_files) \
- 	CHANGELOG \
- 	LICENSE \
- 	README.md \
-+++ pam/i3lock
+--- a/pam/i3lock
++++ b/pam/i3lock
 @@ -1,6 +0,0 @@
 -#
 -# PAM configuration file for the i3lock screen locker. By default, it includes
