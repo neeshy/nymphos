@@ -28,7 +28,7 @@ DEPEND="${RDEPEND}
 "
 
 src_prepare() {
-	use pam || eapply -p0 "${FILESDIR}/${P}-no-pam.patch"
+	use pam || eapply "${FILESDIR}/${P}-no-pam.patch"
 
 	default
 
