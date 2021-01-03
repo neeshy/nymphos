@@ -15,18 +15,17 @@ KEYWORDS="amd64 x86"
 IUSE="pam"
 
 RDEPEND="
-	>=x11-libs/libxkbcommon-0.5.0[X]
 	dev-libs/libev
 	pam? ( virtual/pam )
 	x11-libs/cairo[X,xcb(+)]
 	x11-libs/libxcb[xkb]
+	x11-libs/libxkbcommon[X]
 	x11-libs/xcb-util
 	x11-libs/xcb-util-xrm
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
-DOCS=( CHANGELOG README.md )
 
 src_prepare() {
 	use pam || eapply -p0 "${FILESDIR}/${P}-no-pam.patch"
