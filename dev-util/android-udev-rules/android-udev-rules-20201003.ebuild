@@ -23,9 +23,3 @@ src_install() {
 pkg_setup() {
 	enewgroup adbusers
 }
-
-pkg_postinst() {
-	einfo "To be able to use android devices,"
-	einfo "add yourself to the 'adbusers' group by calling"
-	einfo "  usermod -a -G adbusers <user>"
-}
