@@ -1,9 +1,9 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit xdg-utils nsplugins multilib multilib-minimal
+inherit xdg-utils multilib multilib-minimal
 
 DESCRIPTION="Adobe Flash Player"
 HOMEPAGE="
@@ -122,8 +122,7 @@ multilib_src_install() {
 	[[ -d usr/lib64 ]] && pkglibdir="lib64"
 
 	if use nsplugin; then
-		# PLUGINS_DIR comes from nsplugins.eclass
-		exeinto "/usr/$(get_libdir)/${PLUGINS_DIR}"
+		exeinto "/usr/$(get_libdir)/nsbrowser/plugins"
 		doexe libflashplayer.so
 
 		if multilib_is_native_abi; then
