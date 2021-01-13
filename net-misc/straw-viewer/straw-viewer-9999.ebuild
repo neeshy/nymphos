@@ -18,7 +18,6 @@ fi
 LICENSE="Artistic-2"
 SLOT="0"
 IUSE="gtk gtk2"
-
 REQUIRED_USE="gtk2? ( gtk )"
 
 RDEPEND="
