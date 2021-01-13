@@ -11,31 +11,46 @@ HOMEPAGE="
 	https://helpx.adobe.com/security/products/flash-player.html
 "
 
-AF_URI="https://fpdownload.adobe.com/pub/flashplayer/pdc/${PV}"
-AF_NP_32_URI="${AF_URI}/flash_player_npapi_linux.i386.tar.gz -> ${P}-npapi.i386.tar.gz"
-AF_NP_64_URI="${AF_URI}/flash_player_npapi_linux.x86_64.tar.gz -> ${P}-npapi.x86_64.tar.gz"
-AF_PP_32_URI="${AF_URI}/flash_player_ppapi_linux.i386.tar.gz -> ${P}-ppapi.i386.tar.gz"
-AF_PP_64_URI="${AF_URI}/flash_player_ppapi_linux.x86_64.tar.gz -> ${P}-ppapi.x86_64.tar.gz"
-
-IUSE="+nsplugin +ppapi"
-REQUIRED_USE="
-	|| ( nsplugin ppapi )
-"
+AF_URI="https://fpdownload.macromedia.com/pub/flashplayer/pdc/${PV}"
+AF_D_URI="https://fpdownload.macromedia.com/pub/flashplayer/updaters/${PV%%.*}"
+AF_NP_32_URI="${AF_URI}/flash_player_npapi_linux.i386.tar.gz -> flash_player_npapi_linux-${PV}-i386.tar.gz"
+AF_NP_64_URI="${AF_URI}/flash_player_npapi_linux.x86_64.tar.gz -> flash_player_npapi_linux-${PV}-x86_64.tar.gz"
+AF_PP_32_URI="${AF_URI}/flash_player_ppapi_linux.i386.tar.gz -> flash_player_ppapi_linux-${PV}-i386.tar.gz"
+AF_PP_64_URI="${AF_URI}/flash_player_ppapi_linux.x86_64.tar.gz -> flash_player_ppapi_linux-${PV}-x86_64.tar.gz"
+AF_NP_D_32_URI="${AF_D_URI}/flash_player_npapi_linux_debug.i386.tar.gz -> flash_player_npapi_linux_debug-${PV}-i386.tar.gz"
+AF_NP_D_64_URI="${AF_D_URI}/flash_player_npapi_linux_debug.x86_64.tar.gz -> flash_player_npapi_linux_debug-${PV}-x86_64.tar.gz"
+AF_PP_D_64_URI="${AF_D_URI}/flash_player_ppapi_linux_debug.x86_64.tar.gz -> flash_player_ppapi_linux_debug-${PV}-x86_64.tar.gz"
 
 SRC_URI="
-	nsplugin? (
-		abi_x86_32? ( ${AF_NP_32_URI} )
-		abi_x86_64? ( ${AF_NP_64_URI} )
+	!debug? (
+		nsplugin? (
+			abi_x86_32? ( ${AF_NP_32_URI} )
+			abi_x86_64? ( ${AF_NP_64_URI} )
+		)
+		ppapi? (
+			abi_x86_32? ( ${AF_PP_32_URI} )
+			abi_x86_64? ( ${AF_PP_64_URI} )
+		)
 	)
-	ppapi? (
-		abi_x86_32? ( ${AF_PP_32_URI} )
-		abi_x86_64? ( ${AF_PP_64_URI} )
+	debug? (
+		nsplugin? (
+			abi_x86_32? ( ${AF_NP_D_32_URI} )
+			abi_x86_64? ( ${AF_NP_D_64_URI} )
+		)
+		ppapi? (
+			abi_x86_64? ( ${AF_PP_D_64_URI} )
+		)
 	)
 "
 
 KEYWORDS="amd64 x86"
 LICENSE="AdobeFlash-11.x"
 SLOT="0"
+IUSE="debug +nsplugin +ppapi"
+REQUIRED_USE="
+	|| ( nsplugin ppapi )
+	debug? ( ppapi? ( !abi_x86_32 ) )
+"
 
 RESTRICT="bindist mirror strip"
 
