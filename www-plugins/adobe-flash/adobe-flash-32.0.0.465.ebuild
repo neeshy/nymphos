@@ -90,7 +90,7 @@ src_unpack() {
 
 		# we need to filter out the other archive(s)
 		local other_abi
-		[[ ${ABI} == amd64 ]] && other_abi=i386 || other_abi=x86_64
+		[[ "${ABI}" == amd64 ]] && other_abi=i386 || other_abi=x86_64
 		unpack ${files[@]//*${other_abi}*/}
 	}
 
@@ -98,12 +98,12 @@ src_unpack() {
 }
 
 multilib_src_install() {
-	local pkglibdir=lib
-	[[ -d usr/lib64 ]] && pkglibdir=lib64
+	local pkglibdir="lib"
+	[[ -d usr/lib64 ]] && pkglibdir="lib64"
 
 	if use nsplugin; then
 		# PLUGINS_DIR comes from nsplugins.eclass
-		exeinto /usr/$(get_libdir)/${PLUGINS_DIR}
+		exeinto "/usr/$(get_libdir)/${PLUGINS_DIR}"
 		doexe libflashplayer.so
 
 		if multilib_is_native_abi; then
@@ -128,9 +128,9 @@ multilib_src_install() {
 	fi
 
 	if use ppapi; then
-		exeinto /usr/$(get_libdir)/chromium/PepperFlash
+		exeinto "/usr/$(get_libdir)/chromium/PepperFlash"
 		doexe libpepflashplayer.so
-		insinto /usr/$(get_libdir)/chromium/PepperFlash
+		insinto "/usr/$(get_libdir)/chromium/PepperFlash"
 		doins manifest.json
 
 		if multilib_is_native_abi; then
@@ -138,7 +138,7 @@ multilib_src_install() {
 			sed "${FILESDIR}"/pepper-flash-r1 \
 				-e "s|@FP_LIBDIR@|$(get_libdir)|g" \
 				-e "s|@FP_PV@|${PV}|g" \
-				> "${D}"/etc/chromium/pepper-flash \
+				>"${D}/etc/chromium/pepper-flash" \
 				|| die
 		fi
 	fi
