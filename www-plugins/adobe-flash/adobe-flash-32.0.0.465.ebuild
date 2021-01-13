@@ -97,6 +97,25 @@ src_unpack() {
 	multilib_parallel_foreach_abi multilib_src_unpack
 }
 
+src_prepare() {
+	local files=( ${A} )
+
+	multilib_src_prepare() {
+		cd "${BUILD_DIR}" || die
+
+		# we need to filter out the other archive(s)
+		local other_abi file
+		[[ "${ABI}" == amd64 ]] && other_abi=i386 || other_abi=x86_64
+		for file in ${files[@]//*${other_abi}*/}; do
+			eapply "${FILESDIR}/${file%.tar.gz}-defuse_time_bomb.patch"
+		done
+	}
+
+	multilib_parallel_foreach_abi multilib_src_prepare
+
+	default
+}
+
 multilib_src_install() {
 	local pkglibdir="lib"
 	[[ -d usr/lib64 ]] && pkglibdir="lib64"
