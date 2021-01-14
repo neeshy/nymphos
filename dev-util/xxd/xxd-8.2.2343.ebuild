@@ -6,7 +6,7 @@ EAPI=7
 inherit toolchain-funcs
 
 DESCRIPTION="Hexdump utility from vim"
-HOMEPAGE="https://github.com/vim/vim"
+HOMEPAGE="https://www.vim.org/"
 SRC_URI="
 	https://raw.githubusercontent.com/vim/vim/v${PV}/src/xxd/xxd.c -> ${P}.c
 	https://raw.githubusercontent.com/vim/vim/v${PV}/runtime/doc/xxd.1 -> ${P}.1
