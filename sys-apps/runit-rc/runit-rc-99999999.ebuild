@@ -24,10 +24,7 @@ RDEPEND="
 	!!sys-apps/sysvinit
 "
 
-PATCHES=(
-	"${FILESDIR}/void-runit-bugfix.patch"
-	"${FILESDIR}/void-runit-gentoo.patch"
-)
+PATCHES=( "${FILESDIR}/void-runit-gentoo.patch" )
 
 S="${WORKDIR}/void-runit-${PV}"
 
