@@ -33,7 +33,7 @@ src_unpack() {
 }
 
 src_compile() {
-	use bold && mkbold < "${P}.bdf" | bdftopcf > "${PN}-bold.pcf"
+	use bold && mkbold <"${P}.bdf" | bdftopcf >"${PN}-bold.pcf"
 }
 
 src_install() {
