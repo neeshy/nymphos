@@ -1,0 +1,29 @@
+From a3a4a48cfbc525dd6ad947db5a621f3bfac97083 Mon Sep 17 00:00:00 2001
+From: Christopher Brannon <chris@the-brannons.com>
+Date: Sat, 3 Mar 2018 03:28:08 -0800
+Subject: [PATCH] fix segfault in svlogd discovered on armv7hf-musl.
+
+Code in svlogd.c allocates some memory at startup which is
+not zeroed, and other code was using those garbage values.
+I have no idea why this has never caused a problem before, but
+for me, svlogd consistently segfaults on armv7hf-musl when
+it is called by socklog.
+---
+ src/svlogd.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/svlogd.c b/src/svlogd.c
+index 4e14b84..a8be6b5 100644
+--- a/src/svlogd.c
++++ b/src/svlogd.c
+@@ -717,6 +717,7 @@ int main(int argc, char **argv) {
+   coe(fdwdir);
+   dir =(struct logdir*)alloc(dirn *sizeof(struct logdir));
+   if (! dir) die_nomem();
++  memset(dir, 0, dirn * sizeof(struct logdir));
+   for (i =0; i < dirn; ++i) {
+     dir[i].fddir =-1; dir[i].fdcur =-1;
+     dir[i].btmp =(char*)alloc(buflen *sizeof(char));
+-- 
+2.30.0
+

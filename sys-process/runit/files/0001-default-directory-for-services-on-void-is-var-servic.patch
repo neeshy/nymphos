@@ -1,0 +1,87 @@
+From d9ca439b532bad924ee8f2a537b00b78d24969e5 Mon Sep 17 00:00:00 2001
+From: Gerrit Pape <pape@smarden.org>
+Date: Wed, 7 May 2008 23:51:16 +0000
+Subject: [PATCH] default directory for services on void is /var/service/, not
+ /service/
+
+---
+ man/runsv.8      | 4 ++--
+ man/runsvchdir.8 | 4 ++--
+ man/sv.8         | 4 ++--
+ src/sv.c         | 2 +-
+ 4 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/man/runsv.8 b/man/runsv.8
+index 7c5abfc..53f1b1b 100644
+--- a/man/runsv.8
++++ b/man/runsv.8
+@@ -157,9 +157,9 @@ This command is ignored if it is given to
+ .IR service /log/supervise/control.
+ .P
+ Example: to send a TERM signal to the socklog-unix service, either do
+-  # sv term /service/socklog-unix
++  # sv term /var/service/socklog-unix
+  or
+-  # printf t >/service/socklog-unix/supervise/control
++  # printf t >/var/service/socklog-unix/supervise/control
+ .P
+ .BR printf (1)
+ usually blocks if no
+diff --git a/man/runsvchdir.8 b/man/runsvchdir.8
+index f7f94dc..793d653 100644
+--- a/man/runsvchdir.8
++++ b/man/runsvchdir.8
+@@ -27,13 +27,13 @@ with a symlink pointing to
+ .IR dir .
+ .P
+ Normally 
+-.I /service
++.I /var/service
+ is a symlink to
+ .IR current ,
+ and
+ .BR runsvdir (8)
+ is running
+-.IR /service/ .
++.IR /var/service/ .
+ .SH EXIT CODES
+ .B runsvchdir
+ prints an error message and exits 111 on error.
+diff --git a/man/sv.8 b/man/sv.8
+index 7ed9852..58f1c07 100644
+--- a/man/sv.8
++++ b/man/sv.8
+@@ -30,7 +30,7 @@ If
+ .I service
+ doesn't start with a dot or slash and doesn't end with a slash, it is
+ searched in the default services directory
+-.IR /service/ ,
++.IR /var/service/ ,
+ otherwise relative to the current directory.
+ .P
+ .I command
+@@ -232,7 +232,7 @@ This option implies
+ .TP
+ .B SVDIR
+ The environment variable $SVDIR overrides the default services directory
+-.IR /service/ .
++.IR /var/service/ .
+ .TP
+ .B SVWAIT
+ The environment variable $SVWAIT overrides the default 7 seconds to wait
+diff --git a/src/sv.c b/src/sv.c
+index 0125795..7c6f6ed 100644
+--- a/src/sv.c
++++ b/src/sv.c
+@@ -32,7 +32,7 @@
+ char *progname;
+ char *action;
+ char *acts;
+-char *varservice ="/service/";
++char *varservice ="/var/service/";
+ char **service;
+ char **servicex;
+ unsigned int services;
+-- 
+2.30.0
+
