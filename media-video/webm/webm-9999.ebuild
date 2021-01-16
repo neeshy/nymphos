@@ -23,3 +23,8 @@ SLOT="0"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND=">=media-video/ffmpeg-2.0.0"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-mpv-options.patch"
+	"${FILESDIR}/${PN}-drop-python2-support.patch"
+)
