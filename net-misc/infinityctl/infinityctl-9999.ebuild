@@ -24,4 +24,11 @@ RDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-setup.py.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-setup.py.patch"
+	"${FILESDIR}/${PN}-unix_original-scrape-mode.patch"
+	"${FILESDIR}/${PN}-file-name-length-limit.patch"
+	"${FILESDIR}/${PN}-remove-defunct.patch"
+	"${FILESDIR}/${PN}-8kun.top.patch"
+	"${FILESDIR}/${PN}-smuglo.li.patch"
+)
