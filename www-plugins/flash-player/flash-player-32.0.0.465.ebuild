@@ -84,7 +84,7 @@ src_unpack() {
 		# we need to filter out the other archive(s)
 		local other_abi
 		[[ "${ABI}" == amd64 ]] && other_abi=i386 || other_abi=x86_64
-		unpack ${files[@]//*${other_abi}*/}
+		unpack "${files[@]//*${other_abi}*/}"
 	}
 
 	multilib_parallel_foreach_abi multilib_src_unpack
@@ -139,7 +139,7 @@ multilib_src_install() {
 
 		if multilib_is_native_abi; then
 			dodir /etc/chromium
-			sed "${FILESDIR}"/pepper-flash-r1 \
+			sed "${FILESDIR}/pepper-flash-r1" \
 				-e "s|@FP_LIBDIR@|$(get_libdir)|g" \
 				-e "s|@FP_PV@|${PV}|g" \
 				>"${D}/etc/chromium/pepper-flash" \
