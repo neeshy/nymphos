@@ -91,17 +91,10 @@ src_unpack() {
 }
 
 src_prepare() {
-	local files=( ${A} )
-
 	multilib_src_prepare() {
-		cd "${BUILD_DIR}" || die
-
-		# we need to filter out the other archive(s)
-		local other_abi file
-		[[ "${ABI}" == amd64 ]] && other_abi=i386 || other_abi=x86_64
-		for file in ${files[@]//*${other_abi}*/}; do
-			eapply "${FILESDIR}/${file%.tar.gz}-defuse_time_bomb.patch"
-		done
+		sed \
+			-i "${BUILD_DIR}"/lib{,pep}flashplayer.so \
+			-e 's/\x00\x00\x40\x46\x3E\x6F\x77\x42/\x00\x00\x00\x00\x00\x00\xF8\x7F/'
 	}
 
 	multilib_parallel_foreach_abi multilib_src_prepare
