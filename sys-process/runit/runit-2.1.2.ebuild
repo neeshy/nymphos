@@ -16,9 +16,11 @@ IUSE="static"
 
 PATCHES=( "${FILESDIR}" )
 
-S="${WORKDIR}/admin/${P}"
+S="${WORKDIR}/admin/${P}/src"
 
 src_prepare() {
+	cd .. || die
+
 	default
 
 	# we either build everything or nothing static
@@ -28,21 +30,16 @@ src_prepare() {
 src_configure() {
 	use static && append-ldflags -static
 
-	printf '%s %s\n' "$(tc-getCC)" "${CFLAGS}" >src/conf-cc
-	printf '%s %s\n' "$(tc-getCC)" "${LDFLAGS}" >src/conf-ld
-}
-
-src_compile() {
-	cd src || die
-
-	default
+	printf '%s %s\n' "$(tc-getCC)" "${CFLAGS}" >conf-cc
+	printf '%s %s\n' "$(tc-getCC)" "${LDFLAGS}" >conf-ld
 }
 
 src_install() {
 	into /
-	dobin src/{chpst,runsv,runsvchdir,runsvdir,sv,svlogd}
-	dosbin src/{runit-init,runit,utmpset}
+	dobin chpst runsv runsvchdir runsvdir sv svlogd
+	dosbin runit-init runit utmpset
 
+	cd .. || die
 	doman man/*.[18]
 	dodoc package/{CHANGES,README,THANKS,TODO}
 	docinto html
