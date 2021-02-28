@@ -14,6 +14,10 @@ if [[ "${PV}" = 9999 ]]; then
 		git-r3_src_unpack
 		go-module_live_vendor
 	}
+
+	src_compile () {
+		gen/build.sh || die
+	}
 else
 	EGO_SUM=(
 		"github.com/gdamore/encoding v1.0.0"
@@ -44,14 +48,14 @@ else
 		${EGO_SUM_SRC_URI}"
 	KEYWORDS="amd64 x86"
 	S="${WORKDIR}/${PN}-r${PV}"
+
+	src_compile () {
+		version="r${PV}" gen/build.sh || die
+	}
 fi
 
 LICENSE="MIT"
 SLOT="0"
-
-src_compile () {
-	go build || die
-}
 
 src_install() {
 	dobin "${PN}"
