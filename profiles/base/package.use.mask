@@ -1,4 +1,5 @@
 dev-libs/boost -nls
-sys-apps/hwids -udev
 net-dns/dnscrypt-proxy -filecaps
-sys-fs/cryptsetup -openssl
+sys-apps/hwids -udev
+sys-devel/gcc -ada
+x11-base/xorg-server -udev
