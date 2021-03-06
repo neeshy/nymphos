@@ -1,9 +1,9 @@
 USE="minimal"
 USE="${USE} ipv6"
-USE="${USE} crypt ssl libressl"
+USE="${USE} crypt ssl openssl"
 USE="${USE} jpeg png gif tiff webp"
 USE="${USE} alsa"
-USE="${USE} custom-cflags custom-optimization lto graphite pgo pie pic"
+USE="${USE} custom-cflags lto graphite pgo pie pic"
 USE="${USE} threads openmp opencl aio jit numa fftw jemalloc"
 USE="${USE} egl dga dri dri3 drm xinerama vulkan opengl glamor vaapi vdpau"
 
