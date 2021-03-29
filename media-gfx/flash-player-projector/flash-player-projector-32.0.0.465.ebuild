@@ -4,11 +4,7 @@
 EAPI=7
 
 DESCRIPTION="Adobe Flash Player Projector"
-HOMEPAGE="
-	https://www.adobe.com/products/flashplayer.html
-	https://get.adobe.com/flashplayer/
-	https://helpx.adobe.com/security/products/flash-player.html
-"
+HOMEPAGE="https://www.adobe.com/support/flashplayer/debug_downloads.html"
 
 AF_URI="https://fpdownload.macromedia.com/pub/flashplayer/updaters/${PV%%.*}"
 SRC_URI="
