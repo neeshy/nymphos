@@ -17,8 +17,7 @@ fi
 
 LICENSE="Artistic-2"
 SLOT="0"
-IUSE="gtk gtk2"
-REQUIRED_USE="gtk2? ( gtk )"
+IUSE="gtk"
 
 RDEPEND="
 	dev-perl/Data-Dump
@@ -36,12 +35,7 @@ RDEPEND="
 	virtual/perl-Text-ParseWords
 	virtual/perl-Text-Tabs+Wrap
 	gtk? (
-		gtk2? (
-			>=dev-perl/Gtk2-1.244.0
-		)
-		!gtk2? (
-			dev-perl/Gtk3
-		)
+		dev-perl/Gtk3
 		dev-perl/File-ShareDir
 		virtual/freedesktop-icon-theme
 		x11-libs/gdk-pixbuf:2[jpeg]
@@ -52,13 +46,7 @@ DEPEND="dev-perl/Module-Build"
 
 src_configure() {
 	local myconf
-	if use gtk; then
-		if use gtk2; then
-			myconf="--gtk2"
-		else
-			myconf="--gtk3"
-		fi
-	fi
+	use gtk && myconf="--gtk3"
 
 	perl-module_src_configure
 }
