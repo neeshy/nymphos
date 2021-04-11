@@ -83,7 +83,7 @@ src_unpack() {
 
 		# we need to filter out the other archive(s)
 		local other_abi
-		[[ "${ABI}" == amd64 ]] && other_abi=i386 || other_abi=x86_64
+		[[ "${ABI}" = amd64 ]] && other_abi=i386 || other_abi=x86_64
 		unpack "${files[@]//*${other_abi}*/}"
 	}
 
