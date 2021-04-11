@@ -1,1 +1,1 @@
-stepmania-5.0.12.ebuild
+stepmania-9999.ebuild
