@@ -20,4 +20,4 @@ S="${WORKDIR}"
 FONT_SUFFIX="ttf"
 FONT_S="${S}"
 
-DOCS=( README.txt THANKS.txt )
+DOCS=( {README,THANKS}.txt )
