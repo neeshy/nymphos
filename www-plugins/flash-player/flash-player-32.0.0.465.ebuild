@@ -12,26 +12,27 @@ HOMEPAGE="
 	https://helpx.adobe.com/security/products/flash-player.html
 "
 
-AF_URI="https://fpdownload.macromedia.com/pub/flashplayer/pdc/${PV}"
+WB_URI="https://web.archive.org/web"
+AF_URI="https://fpdownload.adobe.com/get/flashplayer/pdc/${PV}"
 AF_D_URI="https://fpdownload.macromedia.com/pub/flashplayer/updaters/${PV%%.*}"
 SRC_URI="
 	!debug? (
 		nsplugin? (
-			abi_x86_32? ( ${AF_URI}/flash_player_npapi_linux.i386.tar.gz -> flash_player_npapi_linux-${PV}-i386.tar.gz )
-			abi_x86_64? ( ${AF_URI}/flash_player_npapi_linux.x86_64.tar.gz -> flash_player_npapi_linux-${PV}-x86_64.tar.gz )
+			abi_x86_32? ( ${WB_URI}/20210126102638if_/${AF_URI}/flash_player_npapi_linux.i386.tar.gz -> flash_player_npapi_linux-${PV}-i386.tar.gz )
+			abi_x86_64? ( ${WB_URI}/20210126102538if_/${AF_URI}/flash_player_npapi_linux.x86_64.tar.gz -> flash_player_npapi_linux-${PV}-x86_64.tar.gz )
 		)
 		ppapi? (
-			abi_x86_32? ( ${AF_URI}/flash_player_ppapi_linux.i386.tar.gz -> flash_player_ppapi_linux-${PV}-i386.tar.gz )
-			abi_x86_64? ( ${AF_URI}/flash_player_ppapi_linux.x86_64.tar.gz -> flash_player_ppapi_linux-${PV}-x86_64.tar.gz )
+			abi_x86_32? ( ${WB_URI}/20210126102656if_/${AF_URI}/flash_player_ppapi_linux.i386.tar.gz -> flash_player_ppapi_linux-${PV}-i386.tar.gz )
+			abi_x86_64? ( ${WB_URI}/20210116212416if_/${AF_URI}/flash_player_ppapi_linux.x86_64.tar.gz -> flash_player_ppapi_linux-${PV}-x86_64.tar.gz )
 		)
 	)
 	debug? (
 		nsplugin? (
-			abi_x86_32? ( ${AF_D_URI}/flash_player_npapi_linux_debug.i386.tar.gz -> flash_player_npapi_linux_debug-${PV}-i386.tar.gz )
-			abi_x86_64? ( ${AF_D_URI}/flash_player_npapi_linux_debug.x86_64.tar.gz -> flash_player_npapi_linux_debug-${PV}-x86_64.tar.gz )
+			abi_x86_32? ( ${WB_URI}/20210110011925if_/${AF_D_URI}/flash_player_npapi_linux_debug.i386.tar.gz -> flash_player_npapi_linux_debug-${PV}-i386.tar.gz )
+			abi_x86_64? ( ${WB_URI}/20210116212712if_/${AF_D_URI}/flash_player_npapi_linux_debug.x86_64.tar.gz -> flash_player_npapi_linux_debug-${PV}-x86_64.tar.gz )
 		)
 		ppapi? (
-			abi_x86_64? ( ${AF_D_URI}/flash_player_ppapi_linux_debug.x86_64.tar.gz -> flash_player_ppapi_linux_debug-${PV}-x86_64.tar.gz )
+			abi_x86_64? ( ${WB_URI}/20210116212745if_/${AF_D_URI}/flash_player_ppapi_linux_debug.x86_64.tar.gz -> flash_player_ppapi_linux_debug-${PV}-x86_64.tar.gz )
 		)
 	)
 "
