@@ -22,9 +22,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/fix-build-qt5.15.patch"
-)
+PATCHES=( "${FILESDIR}/fix-build-qt5.15.patch" )
 
 src_configure() {
 	eqmake5
