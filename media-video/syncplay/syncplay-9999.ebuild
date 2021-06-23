@@ -12,13 +12,6 @@ HOMEPAGE="https://syncplay.pl/"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Syncplay/${PN}.git"
-elif [[ "${PV}" = *_beta* ]]; then
-	MY_PV="${PV/_b/-B}"
-	MY_PV_KLUDGE="${MY_PV/6\.8/68}"
-	MY_P_KLUDGE="${PN}-${MY_PV_KLUDGE}"
-	SRC_URI="https://github.com/Syncplay/${PN}/archive/${MY_PV_KLUDGE}.tar.gz -> ${MY_P_KLUDGE}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/${MY_P_KLUDGE}"
 else
 	SRC_URI="https://github.com/Syncplay/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="amd64 x86"
