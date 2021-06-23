@@ -22,8 +22,8 @@ else
 	EGO_SUM=(
 		"github.com/gdamore/encoding v1.0.0"
 		"github.com/gdamore/encoding v1.0.0/go.mod"
-		"github.com/gokcehan/tcell/v2 v2.2.1-0.20210329222449-4dd2d52e83ef"
-		"github.com/gokcehan/tcell/v2 v2.2.1-0.20210329222449-4dd2d52e83ef/go.mod"
+		"github.com/gdamore/tcell/v2 v2.3.1"
+		"github.com/gdamore/tcell/v2 v2.3.1/go.mod"
 		"github.com/lucasb-eyer/go-colorful v1.0.3"
 		"github.com/lucasb-eyer/go-colorful v1.0.3/go.mod"
 		"github.com/mattn/go-runewidth v0.0.10"
