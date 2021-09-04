@@ -8,7 +8,6 @@ inherit autotools git-r3
 DESCRIPTION="Support for extra binary formats"
 HOMEPAGE="http://${PN}.nongnu.org/"
 if [[ "${PV}" = 9999 ]]; then
-	inherit git-r3
 	EGIT_REPO_URI="https://git.savannah.gnu.org/git/binfmt-support.git"
 else
 	SRC_URI="https://git.savannah.gnu.org/cgit/${PN}.git/snapshot/${P}.tar.gz"
@@ -19,13 +18,13 @@ LICENSE="GPL-3+"
 SLOT="0"
 IUSE="systemd"
 
-DEPENDS="
+DEPEND="
 	dev-libs/libpipeline
 	dev-vcs/git
 	sys-devel/libtool
 	virtual/pkgconfig
 "
-RDEPENDS="systemd? ( sys-apps/systemd )"
+RDEPEND="systemd? ( sys-apps/systemd )"
 
 src_unpack() {
 	default
