@@ -5,7 +5,7 @@
  # vim: set ts=4 sw=4 et:
  
 -PATH=/usr/bin:/usr/sbin
-+PATH=/usr/sbin:/usr/bin:/sbin:/bin
++PATH=/usr/bin:/usr/sbin:/bin:/sbin
  
  . /etc/runit/functions
  
@@ -21,7 +21,7 @@
  # vim: set ts=4 sw=4 et:
  
 -PATH=/usr/bin:/usr/sbin
-+PATH=/usr/sbin:/usr/bin:/sbin:/bin
++PATH=/usr/bin:/usr/sbin:/bin:/sbin
  
  runlevel=default
  for arg in $(cat /proc/cmdline); do
@@ -32,7 +32,7 @@
  # vim: set ts=4 sw=4 et:
  
 -PATH=/usr/bin:/usr/sbin
-+PATH=/usr/sbin:/usr/bin:/sbin:/bin
++PATH=/usr/bin:/usr/sbin:/bin:/sbin
  
  . /etc/runit/functions
  detect_virt
@@ -53,7 +53,7 @@
  #!/bin/sh
  
 -PATH=/usr/bin:/usr/sbin
-+PATH=/usr/sbin:/usr/bin:/sbin:/bin
++PATH=/usr/bin:/usr/sbin:/bin:/sbin
  MSG="System is going down..."
  
  # We check for this file after receiving a SIGCONT to move to stage3
@@ -91,7 +91,7 @@
  # modules-load [-n] [-v] - modules-load.d(5) compatible kernel module loader
  
 -export PATH=/bin:/sbin
-+export PATH=/usr/sbin:/usr/bin:/sbin:/bin
++export PATH=/usr/bin:/usr/sbin:/bin:/sbin
  
  {
  # Parameters passed as modules-load= or rd.modules-load= in kernel command line.
