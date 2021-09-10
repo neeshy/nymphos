@@ -28,7 +28,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-freetype.patch"
+	"${FILESDIR}/${PN}-include-memory.patch"
 	"${FILESDIR}/${PN}-custom-flags.patch"
 )
 
