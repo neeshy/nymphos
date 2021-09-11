@@ -6,7 +6,7 @@ EAPI=7
 inherit user toolchain-funcs
 
 DESCRIPTION="The simplest script for suspending to memory"
-HOMEPAGE="https://nymphos.ga/"
+HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
 
 LICENSE="WTFPL-2"
 SLOT="0"
