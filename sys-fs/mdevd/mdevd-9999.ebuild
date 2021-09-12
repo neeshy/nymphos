@@ -12,7 +12,11 @@ if [[ "${PV}" = 9999 ]]; then
 	EGIT_REPO_URI="git://git.skarnet.org/${PN}"
 else
 	SRC_URI="${HOMEPAGE}${P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	if [[ "${PV}" = 0.1.4.0 ]]; then
+		KEYWORDS="~amd64 ~x86"
+	else
+		KEYWORDS="amd64 x86"
+	fi
 fi
 
 LICENSE="ISC"
@@ -25,7 +29,6 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	econf \
-		--prefix=/usr \
 		--dynlibdir="/usr/$(get_libdir)" \
 		--libdir="/usr/$(get_libdir)/${PN}" \
 		--with-sysdeps="/usr/$(get_libdir)/skalibs"
