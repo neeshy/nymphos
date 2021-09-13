@@ -4,12 +4,12 @@
 EAPI=7
 
 DESCRIPTION="Runit scripts from the Void Linux project"
-HOMEPAGE="https://github.com/void-linux/void-runit"
+HOMEPAGE="https://github.com/void-linux/${PN}"
 if [[ "${PV}" = 99999999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"
 else
-	SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> void-runit-${PV}.tar.gz"
+	SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="amd64 x86"
 fi
 
@@ -21,12 +21,10 @@ RDEPEND="
 	sys-process/procps
 	virtual/awk
 	sys-apps/util-linux[tty-helpers]
-	!!sys-apps/sysvinit
+	!sys-apps/sysvinit
 "
 
-PATCHES=( "${FILESDIR}/void-runit-gentoo.patch" )
-
-S="${WORKDIR}/void-runit-${PV}"
+PATCHES=( "${FILESDIR}/${PN}-gentoo.patch" )
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX=/usr install
