@@ -1,0 +1,11 @@
+--- a/install/keymap
++++ b/install/keymap
+@@ -7,7 +7,7 @@
+         l=$LANG
+         unset LANG
+ 
+-        for cfg in /etc/{vconsole,locale}.conf; do
++        for cfg in /etc/{conf.d/keymaps,profile.env}; do
+             [[ -s $cfg ]] && . "$cfg"
+         done
+ 
