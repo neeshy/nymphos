@@ -9,7 +9,7 @@ MY_PV="${PV/_beta/-b}"
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="Advanced rhythm game, designed for both home and arcade use"
-HOMEPAGE="http://www.stepmania.com/"
+HOMEPAGE="https://www.stepmania.com/"
 SRC_URI="https://github.com/${PN}/${PN}/archive/v${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 
 LICENSE="MIT default-songs? ( CC-BY-NC-4.0 )"

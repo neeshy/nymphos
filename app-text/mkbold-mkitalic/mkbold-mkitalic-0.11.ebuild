@@ -4,8 +4,8 @@
 EAPI=7
 
 DESCRIPTION="Make X11 BDF fonts bold and/or italic"
-HOMEPAGE="http://hp.vector.co.jp/authors/VA013651/freeSoftware/${PN}.html"
-SRC_URI="http://hp.vector.co.jp/authors/VA013651/lib/${P}.tar.bz2"
+HOMEPAGE="https://hp.vector.co.jp/authors/VA013651/freeSoftware/${PN}.html"
+SRC_URI="https://hp.vector.co.jp/authors/VA013651/lib/${P}.tar.bz2"
 
 LICENSE="${PN}"
 SLOT="0"

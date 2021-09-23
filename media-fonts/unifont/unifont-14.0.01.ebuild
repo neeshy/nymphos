@@ -6,7 +6,7 @@ EAPI=7
 inherit font
 
 DESCRIPTION="GNU Unifont - a Pan-Unicode X11 bitmap iso10646 font"
-HOMEPAGE="http://unifoundry.com/"
+HOMEPAGE="https://unifoundry.com/"
 SRC_URI="
 	mirror://gnu/${PN}/${P}/${P}.pcf.gz
 	bold? ( mirror://gnu/${PN}/${P}/${P}.bdf.gz )
