@@ -10,19 +10,21 @@ HOMEPAGE="https://skarnet.org/software/${PN}/"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="git://git.skarnet.org/${PN}"
+	RDEPEND=">=dev-libs/skalibs-2.11.0.0"
 else
 	SRC_URI="${HOMEPAGE}${P}.tar.gz"
-	if [[ "${PV}" = 0.1.4.0 ]]; then
-		KEYWORDS="~amd64 ~x86"
-	else
+	if [[ "${PV}" = 0.1.2.0 ]]; then
 		KEYWORDS="amd64 x86"
+		RDEPEND=">=dev-libs/skalibs-2.9.3.0"
+	else
+		KEYWORDS="~amd64 ~x86"
+		RDEPEND=">=dev-libs/skalibs-2.11.0.0"
 	fi
 fi
 
 LICENSE="ISC"
 SLOT="0"
 
-RDEPEND="dev-libs/skalibs"
 DEPEND="${RDEPEND}
 	sys-kernel/linux-headers
 "
