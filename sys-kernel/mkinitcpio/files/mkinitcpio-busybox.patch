@@ -5,10 +5,10 @@
      local applet
  
 -    add_binary /usr/lib/initcpio/busybox /bin/busybox
-+    add_binary /bin/busybox /bin/busybox
++    add_binary busybox
  
 -    for applet in $(/usr/lib/initcpio/busybox --list); do
-+    for applet in $(/bin/busybox --list | grep -v '^busybox$'); do
++    for applet in $(busybox --list | grep -v '^busybox$'); do
          add_symlink "/usr/bin/$applet" busybox
      done
  
