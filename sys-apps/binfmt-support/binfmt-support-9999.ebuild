@@ -8,7 +8,7 @@ inherit autotools git-r3
 DESCRIPTION="Support for extra binary formats"
 HOMEPAGE="http://${PN}.nongnu.org/"
 if [[ "${PV}" = 9999 ]]; then
-	EGIT_REPO_URI="https://git.savannah.gnu.org/git/binfmt-support.git"
+	EGIT_REPO_URI="https://git.savannah.gnu.org/git/${PN}.git"
 else
 	SRC_URI="https://git.savannah.gnu.org/cgit/${PN}.git/snapshot/${P}.tar.gz"
 	KEYWORDS="amd64 x86"
