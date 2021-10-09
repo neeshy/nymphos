@@ -6,8 +6,8 @@ EAPI=7
 inherit git-r3
 
 DESCRIPTION="Modular initramfs image creation utility"
-HOMEPAGE="https://codemadness.org/stagit.html"
-EGIT_REPO_URI="git://git.codemadness.org/stagit"
+HOMEPAGE="https://codemadness.org/${PN}.html"
+EGIT_REPO_URI="git://git.codemadness.org/${PN}"
 if [[ "${PV}" != 9999 ]]; then
 	EGIT_COMMIT="${PV}"
 	KEYWORDS="amd64 x86"

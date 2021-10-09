@@ -4,7 +4,7 @@
 EAPI=7
 
 DESCRIPTION="Modular initramfs image creation utility"
-HOMEPAGE="https://github.com/archlinux/mkinitcpio"
+HOMEPAGE="https://github.com/archlinux/${PN}"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"

@@ -9,7 +9,7 @@ inherit python-any-r1 scons-utils git-r3
 
 DESCRIPTION="An open source implementation of the RealLive virtual machine for Linux and OSX"
 HOMEPAGE="http://www.rlvm.net/"
-EGIT_REPO_URI="https://github.com/eglaysher/rlvm.git"
+EGIT_REPO_URI="https://github.com/eglaysher/${PN}.git"
 
 LICENSE="GPL-3"
 SLOT="0"
