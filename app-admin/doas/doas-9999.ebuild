@@ -14,8 +14,7 @@ SLOT="0"
 
 DEPEND="virtual/yacc"
 
-: "${STATE_DIR:="/var/cache/${PN}"}"
-export STATE_DIR
+export STATE_DIR="${STATE_DIR:-/var/cache/${PN}}"
 
 src_prepare() {
 	sed -i '/^_CFLAGS=/s/ -Werror//' Makefile || die "sed failed"
