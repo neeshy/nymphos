@@ -21,6 +21,8 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE="debug"
 
+RESTRICT="bindist strip"
+
 RDEPEND="
 	dev-libs/nss
 	media-libs/mesa
@@ -28,6 +30,8 @@ RDEPEND="
 "
 
 S="${WORKDIR}"
+
+QA_PREBUILT="usr/*"
 
 src_install(){
 	if use debug; then

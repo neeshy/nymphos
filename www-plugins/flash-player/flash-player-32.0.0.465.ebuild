@@ -72,7 +72,6 @@ RDEPEND="
 
 S="${WORKDIR}"
 
-# Ignore QA warnings in these closed-source binaries, since we can't fix them:
 QA_PREBUILT="usr/*"
 
 src_unpack() {
