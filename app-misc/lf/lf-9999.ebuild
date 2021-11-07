@@ -10,6 +10,7 @@ HOMEPAGE="https://github.com/gokcehan/${PN}"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"
+
 	src_unpack() {
 		git-r3_src_unpack
 		go-module_live_vendor

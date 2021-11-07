@@ -46,7 +46,7 @@ REQUIRED_USE="
 	debug? ( ppapi? ( !abi_x86_32 ) )
 "
 
-RESTRICT="bindist mirror strip"
+RESTRICT="bindist strip"
 
 RDEPEND="
 	!www-plugins/chrome-binary-plugins[flash(-)]
