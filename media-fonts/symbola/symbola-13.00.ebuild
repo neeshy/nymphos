@@ -5,7 +5,7 @@ EAPI=7
 
 inherit font
 
-MY_PN="${PN/s/S}"
+MY_PN="${PN^}"
 
 DESCRIPTION="Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks"
 HOMEPAGE="https://dn-works.com/ufas/"
