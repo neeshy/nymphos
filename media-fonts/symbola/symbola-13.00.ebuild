@@ -19,7 +19,7 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="doc"
 
-RESTRICT="mirror bindist"
+RESTRICT="bindist"
 
 DEPEND="app-arch/unzip"
 

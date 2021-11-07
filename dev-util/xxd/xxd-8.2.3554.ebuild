@@ -17,8 +17,6 @@ LICENSE="GPL-2 MIT"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-RESTRICT="mirror"
-
 RDEPEND="!app-editors/vim-core"
 
 S="${WORKDIR}"
