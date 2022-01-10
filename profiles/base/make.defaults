@@ -6,7 +6,7 @@ USE="${USE} aac flac matroska mp3 mp4 mpeg ogg opus theora vorbis vpx x264 x265 
 USE="${USE} brotli bzip2 gzip lz4 lzip lzma lzo zip zlib zstd"
 USE="${USE} djvu pdf postscript"
 USE="${USE} alsa"
-USE="${USE} custom-cflags lto pie pic"
+USE="${USE} lto pie pic"
 USE="${USE} threads openmp aio jit numa fftw jemalloc"
 USE="${USE} opencl opengl egl vulkan vaapi vdpau dga dri dri3 drm xinerama"
 
@@ -17,15 +17,10 @@ XZ_OPT="--x86 --lzma2=preset=9e,dict=256MB,nice=273,depth=200,lc=4"
 CPU_FLAGS_X86="mmx mmxext sse sse2 sse3 ssse3"
 L10N="en en-US"
 
-PYTHON_TARGETS="-python2_7 -python3_7 python3_8"
-PYTHON_SINGLE_TARGET="-python3_7 python3_8"
-RUBY_TARGETS="-ruby24 -ruby25 -ruby26 ruby27"
-
 ACCEPT_KEYWORDS="${ACCEPT_KEYWORDS} ~amd64"
 ACCEPT_LICENSE="*"
 
 INSTALL_MASK="/etc/systemd /lib/systemd /usr/lib/systemd"
 INSTALL_MASK="${INSTALL_MASK} /etc/dbus-1 /usr/share/dbus-1"
 
-PORTAGE_NICENESS="19"
 EMERGE_DEFAULT_OPTS="--verbose=y --keep-going=y --jobs=4"
