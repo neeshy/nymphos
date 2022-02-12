@@ -12,7 +12,7 @@ LICENSE="WTFPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
-RDEPENDS="acct-group/power"
+RDEPEND="acct-group/power"
 
 S="${WORKDIR}"
 
