@@ -9,8 +9,8 @@ DESCRIPTION="Hexdump utility from vim"
 HOMEPAGE="https://www.vim.org/"
 SRC_URI="
 	https://raw.githubusercontent.com/vim/vim/v${PV}/src/xxd/xxd.c -> ${P}.c
-	https://raw.githubusercontent.com/vim/vim/v${PV}/runtime/doc/xxd.1 -> ${P}.1
 	https://raw.githubusercontent.com/vim/vim/v${PV}/src/xxd/Makefile -> ${P}.mk
+	https://raw.githubusercontent.com/vim/vim/v${PV}/runtime/doc/xxd.1 -> ${P}.1
 "
 
 LICENSE="GPL-2 MIT"
@@ -23,8 +23,8 @@ S="${WORKDIR}"
 
 src_unpack() {
 	cp "${DISTDIR}/${P}.c" xxd.c || die "cp failed"
-	cp "${DISTDIR}/${P}.1" xxd.1 || die "cp failed"
 	cp "${DISTDIR}/${P}.mk" Makefile || die "cp failed"
+	cp "${DISTDIR}/${P}.1" xxd.1 || die "cp failed"
 }
 
 src_compile() {
