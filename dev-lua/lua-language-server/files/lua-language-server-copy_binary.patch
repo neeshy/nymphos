@@ -1,0 +1,56 @@
+--- a/make.lua
++++ b/make.lua
+@@ -2,11 +2,6 @@
+ local platform = require 'bee.platform'
+ local exe      = platform.OS == 'Windows' and ".exe" or ""
+ 
+-lm.bindir = "bin"
+-
+----@diagnostic disable-next-line: codestyle-check
+-lm.EXE_DIR = ""
+-
+ if     platform.OS == 'macOS' then
+     if     lm.platform == nil then
+     elseif lm.platform == "darwin-arm64" then
+@@ -66,9 +61,14 @@
+     }
+ }
+ 
++lm:copy "copy_lua-language-server" {
++    input = lm.bindir .. "/lua-language-server" .. exe,
++    output = "bin/lua-language-server",
++}
++
+ lm:copy "copy_bootstrap" {
+     input = "make/bootstrap.lua",
+-    output = lm.bindir .. "/main.lua",
++    output = "bin/main.lua",
+ }
+ 
+ lm:build 'copy_vcrt' {
+@@ -78,6 +78,7 @@
+ lm:phony "all" {
+     deps = {
+         "lua-language-server",
++        "copy_lua-language-server",
+         "copy_bootstrap",
+     },
+     windows = {
+@@ -128,7 +129,7 @@
+ end
+ 
+ lm:build "bee-test" {
+-    lm.bindir .. "/lua-language-server" .. exe, "3rd/bee.lua/test/test.lua",
++    "bin/lua-language-server" .. exe, "3rd/bee.lua/test/test.lua",
+     pool = "console",
+     deps = {
+         "all",
+@@ -136,7 +137,7 @@
+ }
+ 
+ lm:build 'unit-test' {
+-    lm.bindir .. "/lua-language-server" .. exe, 'test.lua',
++    "bin/lua-language-server" .. exe, 'test.lua',
+     pool = "console",
+     deps = {
+         "bee-test",
