@@ -7,11 +7,7 @@ inherit font
 
 DESCRIPTION="GNU Unifont - a Pan-Unicode X11 bitmap iso10646 font"
 HOMEPAGE="https://unifoundry.com/"
-SRC_URI="
-	mirror://gnu/${PN}/${P}/${P}.pcf.gz
-	bold? ( mirror://gnu/${PN}/${P}/${P}.bdf.gz )
-	truetype? ( mirror://gnu/${PN}/${P}/${P}.ttf )
-"
+SRC_URI="mirror://gnu/${PN}/${P}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -25,22 +21,16 @@ DEPEND="
 	)
 "
 
-S="${WORKDIR}"
-
-src_unpack() {
-	use truetype && cp "${DISTDIR}/${P}.ttf" "${S}"
-	default
-}
-
 src_compile() {
-	use bold && mkbold <"${P}.bdf" | bdftopcf >"${PN}-bold.pcf"
+	gzip -d <"font/precompiled/${P}.pcf.gz" >"${P}.pcf"
+	use bold && gzip -d <"font/precompiled/${P}.bdf.gz" | mkbold | bdftopcf >"${PN}-bold.pcf"
 }
 
 src_install() {
 	insinto "${FONTDIR}"
 	newins "${P}.pcf" "${PN}.pcf"
 	use bold && doins "${PN}-bold.pcf"
-	use truetype && newins "${P}.ttf" "${PN}.ttf"
+	use truetype && newins "font/precompiled/${P}.ttf" "${PN}.ttf"
 
 	font_xfont_config
 	font_fontconfig
