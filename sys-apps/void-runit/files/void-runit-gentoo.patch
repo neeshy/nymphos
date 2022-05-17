@@ -38,7 +38,7 @@
  detect_virt
 --- a/core-services/03-filesystems.sh
 +++ b/core-services/03-filesystems.sh
-@@ -30,7 +30,7 @@
+@@ -35,7 +35,7 @@
      fi
  fi
  
