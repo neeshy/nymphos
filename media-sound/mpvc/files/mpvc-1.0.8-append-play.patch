@@ -1,0 +1,32 @@
+--- a/src/lib.rs
+--- b/src/lib.rs
+@@ -85,6 +85,7 @@
+ pub enum PlaylistAddOptions {
+     Replace,
+     Append,
++    AppendPlay,
+ }
+ 
+ pub enum PlaylistAddTypeOptions {
+@@ -458,8 +459,9 @@
+                 &[
+                     file.as_ref(),
+                     match option {
+-                        PlaylistAddOptions::Append => "append",
+                         PlaylistAddOptions::Replace => "replace",
++                        PlaylistAddOptions::Append => "append",
++                        PlaylistAddOptions::AppendPlay => "append-play",
+                     },
+                 ],
+             ),
+@@ -469,8 +471,9 @@
+                 &[
+                     file.as_ref(),
+                     match option {
+-                        PlaylistAddOptions::Append => "append",
+                         PlaylistAddOptions::Replace => "replace",
++                        PlaylistAddOptions::Append => "append",
++                        PlaylistAddOptions::AppendPlay => "append-play",
+                     },
+                 ],
+             ),
