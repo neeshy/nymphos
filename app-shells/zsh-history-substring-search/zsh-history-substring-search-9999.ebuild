@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="A ZSH plugin to search history, a clean-room implementation of the Fish shell feature"
 HOMEPAGE="https://github.com/zsh-users/${PN}"
