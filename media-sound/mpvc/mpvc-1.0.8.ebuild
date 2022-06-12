@@ -45,7 +45,7 @@ S="${WORKDIR}/${PN}-v${PV}"
 
 src_prepare() {
 	pushd "${WORKDIR}/cargo_home/gentoo/mpvipc-1.1.9"
-	eapply "${FILESDIR}/${P}-append-play.patch"
+	eapply "${FILESDIR}/mpvipc-1.1.9-append-play.patch"
 	popd
 	default
 }
