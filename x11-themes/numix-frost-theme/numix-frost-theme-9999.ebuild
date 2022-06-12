@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="A modern flat theme that supports Gnome, Unity, XFCE and Openbox."
-HOMEPAGE="https://numixproject.org"
+HOMEPAGE="https://numixproject.github.io/"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Antergos/Numix-Frost.git"
