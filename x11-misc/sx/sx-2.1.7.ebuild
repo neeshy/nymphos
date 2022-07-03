@@ -13,8 +13,7 @@ KEYWORDS="amd64 x86"
 
 RDEPEND="
 	x11-base/xorg-server
-	x11-apps/xauth
-"
+	x11-apps/xauth"
 
 src_compile() {
 	:

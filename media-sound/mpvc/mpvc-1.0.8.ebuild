@@ -25,8 +25,7 @@ CRATES="
 	vec_map-0.8.2
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
-	winapi-x86_64-pc-windows-gnu-0.4.0
-"
+	winapi-x86_64-pc-windows-gnu-0.4.0"
 
 inherit cargo
 

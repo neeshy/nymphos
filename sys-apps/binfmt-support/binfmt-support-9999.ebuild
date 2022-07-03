@@ -22,8 +22,7 @@ DEPEND="
 	dev-libs/libpipeline
 	dev-vcs/git
 	sys-devel/libtool
-	virtual/pkgconfig
-"
+	virtual/pkgconfig"
 RDEPEND="systemd? ( sys-apps/systemd )"
 
 src_unpack() {

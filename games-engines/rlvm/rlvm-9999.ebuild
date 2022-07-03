@@ -23,8 +23,7 @@ RDEPEND="
 	media-libs/sdl-mixer[vorbis]
 	media-libs/libmad
 	>=dev-games/guichan-0.8[opengl,sdl]
-	x11-libs/gtk+:3
-"
+	x11-libs/gtk+:3"
 DEPEND="${RDEPEND}"
 
 PATCHES=(

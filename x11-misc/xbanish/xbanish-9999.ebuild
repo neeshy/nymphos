@@ -19,11 +19,9 @@ SLOT="0"
 RDEPEND="
 	x11-libs/libX11
 	x11-libs/libXfixes
-	x11-libs/libXi
-"
+	x11-libs/libXi"
 DEPEND="${RDEPEND}
-	x11-libs/libXt
-"
+	x11-libs/libXt"
 
 src_install() {
 	dobin xbanish

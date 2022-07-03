@@ -20,8 +20,7 @@ SLOT="0"
 
 RDEPEND="
 	acct-group/adbusers
-	virtual/udev
-"
+	virtual/udev"
 DEPEND="${RDEPEND}"
 
 src_install() {

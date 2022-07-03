@@ -21,8 +21,7 @@ RDEPEND="
 	sys-process/procps
 	virtual/awk
 	sys-apps/util-linux[tty-helpers]
-	!sys-apps/sysvinit
-"
+	!sys-apps/sysvinit"
 
 PATCHES=( "${FILESDIR}/${PN}-gentoo.patch" )
 

@@ -21,5 +21,4 @@ RDEPEND="x11-themes/gtk-engines-murrine"
 DEPEND="${RDEPEND}
 	dev-libs/glib:2
 	dev-ruby/sass
-	x11-libs/gdk-pixbuf:2
-"
+	x11-libs/gdk-pixbuf:2"

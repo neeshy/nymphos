@@ -17,7 +17,6 @@ SLOT="0"
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/pillow[${PYTHON_USEDEP}]
-"
+	dev-python/pillow[${PYTHON_USEDEP}]"
 
 PATCHES=( "${FILESDIR}/${PN}-setup.py.patch" )

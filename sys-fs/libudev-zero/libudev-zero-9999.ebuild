@@ -22,8 +22,7 @@ DEPEND="sys-kernel/linux-headers"
 RDEPEND="
 	!sys-apps/systemd
 	!sys-fs/eudev
-	!sys-fs/udev
-"
+	!sys-fs/udev"
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX=/usr LIBDIR="/usr/$(get_libdir)" install

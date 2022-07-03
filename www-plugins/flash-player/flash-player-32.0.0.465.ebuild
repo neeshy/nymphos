@@ -9,8 +9,7 @@ DESCRIPTION="Adobe Flash Player"
 HOMEPAGE="
 	https://www.adobe.com/products/flashplayer.html
 	https://get.adobe.com/flashplayer/
-	https://helpx.adobe.com/security/products/flash-player.html
-"
+	https://helpx.adobe.com/security/products/flash-player.html"
 
 WB_URI="https://web.archive.org/web"
 AF_URI="https://fpdownload.adobe.com/get/flashplayer/pdc/${PV}"
@@ -34,8 +33,7 @@ SRC_URI="
 		ppapi? (
 			abi_x86_64? ( ${WB_URI}/20210116212745if_/${AF_D_URI}/flash_player_ppapi_linux_debug.x86_64.tar.gz -> flash_player_ppapi_linux_debug-${PV}-x86_64.tar.gz )
 		)
-	)
-"
+	)"
 
 KEYWORDS="amd64 x86"
 LICENSE="AdobeFlash-11.x"
@@ -43,8 +41,7 @@ SLOT="0"
 IUSE="debug +nsplugin +ppapi"
 REQUIRED_USE="
 	|| ( nsplugin ppapi )
-	debug? ( ppapi? ( !abi_x86_32 ) )
-"
+	debug? ( ppapi? ( !abi_x86_32 ) )"
 
 RESTRICT="bindist strip"
 
@@ -67,8 +64,7 @@ RDEPEND="
 		x11-libs/libXrender[${MULTILIB_USEDEP}]
 		x11-libs/libXt[${MULTILIB_USEDEP}]
 		x11-libs/pango[${MULTILIB_USEDEP}]
-	)
-"
+	)"
 
 S="${WORKDIR}"
 
