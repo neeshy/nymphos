@@ -25,35 +25,9 @@
 +LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 +FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 +DEALINGS IN THE SOFTWARE.
---- a/Makefile.am
-+++ b/Makefile.am
-@@ -7,14 +7,11 @@
- 
- dist_man1_MANS = i3lock.1
- 
--pamddir = $(sysconfdir)/pam.d
--pamd_files = pam/i3lock
--pamd_DATA = $(pamd_files)
--
- AM_CPPFLAGS = \
- 	@AX_EXTEND_SRCDIR_CPPFLAGS@
- 
- i3lock_CFLAGS = \
-+	-lcrypt \
- 	$(AM_CFLAGS) \
- 	$(XCB_CFLAGS) \
- 	$(XCB_IMAGE_CFLAGS) \
-@@ -51,7 +48,6 @@
- 	xcb.h
- 
- EXTRA_DIST = \
--	$(pamd_files) \
- 	CHANGELOG \
- 	LICENSE \
- 	README.md \
 --- a/i3lock.1
 +++ b/i3lock.1
-@@ -43,8 +43,6 @@
+@@ -57,8 +57,6 @@
  You can specify either a background color or a PNG image which will be displayed while your screen is locked.
  .IP \[bu]
  You can specify whether i3lock should bell upon a wrong password.
@@ -62,7 +36,7 @@
  
  
  .SH OPTIONS
-@@ -66,8 +64,7 @@
+@@ -80,8 +78,7 @@
  .B \-u, \-\-no-unlock-indicator
  Disable the unlock indicator. i3lock will by default show an unlock indicator
  after pressing keys. This will give feedback for every keypress and it will
@@ -72,7 +46,7 @@
  
  .TP
  .BI \-i\  path \fR,\ \fB\-\-image= path
-@@ -122,7 +119,7 @@
+@@ -136,7 +133,7 @@
  .TP
  .B \-e, \-\-ignore-empty-password
  When an empty password is provided by the user, do not validate
@@ -168,7 +142,7 @@
  
          ev_break(EV_DEFAULT, EVBREAK_ALL);
          return;
-@@ -816,39 +848,6 @@
+@@ -781,39 +813,6 @@
      return true;
  }
  
@@ -208,7 +182,7 @@
  /*
   * This callback is only a dummy, see xcb_prepare_cb and xcb_check_cb.
   * See also man libev(3): "ev_prepare" and "ev_check" - customise your event loop
-@@ -956,12 +955,14 @@
+@@ -921,12 +920,14 @@
   *
   */
  static void raise_loop(xcb_window_t window) {
@@ -226,7 +200,7 @@
  
      /* We need to know about the window being obscured or getting destroyed. */
      xcb_change_window_attributes(conn, window, XCB_CW_EVENT_MASK,
-@@ -1010,8 +1011,11 @@
+@@ -975,8 +976,11 @@
      char *image_path = NULL;
      char *image_raw_format = NULL;
  #ifndef __OpenBSD__
@@ -240,7 +214,7 @@
  #endif
      int curs_choice = CURS_NONE;
      int o;
-@@ -1041,6 +1045,65 @@
+@@ -1006,6 +1010,65 @@
      if (getenv("WAYLAND_DISPLAY") != NULL)
          errx(EXIT_FAILURE, "i3lock is a program for X11 and does not work on Wayland. Try https://github.com/swaywm/swaylock instead");
  
@@ -306,7 +280,7 @@
      char *optstring = "hvnbdc:p:ui:teI:f";
      while ((o = getopt_long(argc, argv, optstring, longopts, &longoptind)) != -1) {
          switch (o) {
-@@ -1111,15 +1174,6 @@
+@@ -1076,15 +1139,6 @@
       * the unlock indicator upon keypresses. */
      srand(time(NULL));
  
@@ -322,7 +296,7 @@
  /* Using mlock() as non-super-user seems only possible in Linux.
   * Users of other operating systems should use encrypted swap/no swap
   * (or remove the ifdef and run i3lock as super-user).
-@@ -1133,11 +1187,12 @@
+@@ -1098,11 +1152,12 @@
          err(EXIT_FAILURE, "Could not lock page in memory, check RLIMIT_MEMLOCK");
  #endif
  
@@ -337,7 +311,7 @@
  
      if (xkb_x11_setup_xkb_extension(conn,
                                      XKB_X11_MIN_MAJOR_XKB_VERSION,
-@@ -1260,10 +1315,16 @@
+@@ -1225,10 +1280,16 @@
      if (pid == 0) {
          /* Child */
          close(xcb_get_file_descriptor(conn));
@@ -354,7 +328,7 @@
  
      /* Load the keymap again to sync the current modifier state. Since we first
       * loaded the keymap, there might have been changes, but starting from now,
-@@ -1299,12 +1360,6 @@
+@@ -1264,12 +1325,6 @@
      ev_invoke(main_loop, xcb_check, 0);
      ev_loop(main_loop, 0);
  
@@ -367,6 +341,47 @@
      if (stolen_focus == XCB_NONE) {
          return 0;
      }
+--- a/meson.build
++++ b/meson.build
+@@ -93,6 +93,7 @@
+ ]
+ 
+ ev_dep = cc.find_library('ev')
++crypt_dep = cc.find_library('crypt')
+ 
+ thread_dep = dependency('threads')
+ 
+@@ -101,6 +102,7 @@
+   m_dep,
+   rt_dep,
+   ev_dep,
++  crypt_dep,
+   config_h,
+   cairo_dep,
+   xcb_dep,
+@@ -114,12 +116,6 @@
+   xkbcommon_x11_dep,
+ ]
+ 
+-host_os = host_machine.system()
+-if host_os != 'openbsd'
+-  pam_dep = cc.find_library('pam', required: true)
+-  i3lock_deps += [pam_dep]
+-endif
+-
+ inc = include_directories('include')
+ 
+ executable(
+@@ -129,9 +125,3 @@
+   include_directories: inc,
+   dependencies: i3lock_deps,
+ )
+-
+-install_subdir(
+-  'pam',
+-  strip_directory: true,
+-  install_dir: join_paths(get_option('sysconfdir'), 'pam.d'),
+-)
 --- a/pam/i3lock
 +++ b/pam/i3lock
 @@ -1,6 +0,0 @@

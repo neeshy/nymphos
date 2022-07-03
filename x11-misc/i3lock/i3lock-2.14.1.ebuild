@@ -3,11 +3,11 @@
 
 EAPI=8
 
-inherit toolchain-funcs autotools
+inherit meson
 
 DESCRIPTION="Simple screen locker"
 HOMEPAGE="https://i3wm.org/${PN}/"
-SRC_URI="${HOMEPAGE}${P}.tar.bz2"
+SRC_URI="${HOMEPAGE}${P}.tar.xz"
 
 LICENSE="BSD"
 SLOT="0"
@@ -23,9 +23,8 @@ RDEPEND="
 	x11-libs/xcb-util
 	x11-libs/xcb-util-xrm
 "
-DEPEND="${RDEPEND}
-	virtual/pkgconfig
-"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
 	use pam || eapply "${FILESDIR}/${P}-no-pam.patch"
@@ -37,11 +36,6 @@ src_prepare() {
 	fi
 
 	eautoreconf
-}
-
-src_configure() {
-	tc-export CC
-	default
 }
 
 src_install() {
