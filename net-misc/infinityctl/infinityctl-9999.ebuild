@@ -21,8 +21,7 @@ RDEPEND="
 	ocr? (
 		app-text/tesseract
 		virtual/imagemagick-tools
-	)
-"
+	)"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-setup.py.patch"

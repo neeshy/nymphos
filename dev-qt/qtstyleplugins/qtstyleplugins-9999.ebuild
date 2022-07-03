@@ -18,8 +18,7 @@ RDEPEND="
 	dev-qt/qtwidgets:5=
 	x11-libs/gtk+:2
 	x11-libs/libX11
-	x11-libs/pango
-"
+	x11-libs/pango"
 DEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}/fix-build-qt5.15.patch" )

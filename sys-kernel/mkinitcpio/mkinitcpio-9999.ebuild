@@ -18,8 +18,7 @@ SLOT="0"
 
 RDEPEND="
 	app-arch/zstd
-	sys-apps/busybox
-"
+	sys-apps/busybox"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-busybox.patch"

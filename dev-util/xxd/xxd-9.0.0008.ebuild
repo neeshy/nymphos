@@ -10,8 +10,7 @@ HOMEPAGE="https://www.vim.org/"
 SRC_URI="
 	https://raw.githubusercontent.com/vim/vim/v${PV}/src/xxd/xxd.c -> ${P}.c
 	https://raw.githubusercontent.com/vim/vim/v${PV}/src/xxd/Makefile -> ${P}.mk
-	https://raw.githubusercontent.com/vim/vim/v${PV}/runtime/doc/xxd.1 -> ${P}.1
-"
+	https://raw.githubusercontent.com/vim/vim/v${PV}/runtime/doc/xxd.1 -> ${P}.1"
 
 LICENSE="GPL-2 MIT"
 SLOT="0"

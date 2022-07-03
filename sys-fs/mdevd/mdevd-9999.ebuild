@@ -20,8 +20,7 @@ SLOT="0"
 
 RDEPEND=">=dev-libs/skalibs-2.12.0.0"
 DEPEND="${RDEPEND}
-	sys-kernel/linux-headers
-"
+	sys-kernel/linux-headers"
 
 src_configure() {
 	econf \

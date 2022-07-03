@@ -18,8 +18,7 @@ DEPEND="
 	bold? (
 		app-text/mkbold-mkitalic
 		x11-apps/bdftopcf
-	)
-"
+	)"
 
 src_compile() {
 	gzip -d <"font/precompiled/${P}.pcf.gz" >"${P}.pcf"

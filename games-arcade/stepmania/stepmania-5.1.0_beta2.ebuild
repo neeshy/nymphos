@@ -41,12 +41,10 @@ RDEPEND="
 		media-libs/libvorbis
 	)
 	pulseaudio? ( media-sound/pulseaudio )
-	xinerama? ( x11-libs/libXinerama )
-"
+	xinerama? ( x11-libs/libXinerama )"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
-	ffmpeg? ( || ( dev-lang/nasm dev-lang/yasm ) )
-"
+	ffmpeg? ( || ( dev-lang/nasm dev-lang/yasm ) )"
 
 S="${WORKDIR}/${MY_P}"
 

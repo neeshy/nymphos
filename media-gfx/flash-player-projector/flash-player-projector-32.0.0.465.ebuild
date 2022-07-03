@@ -14,8 +14,7 @@ SRC_URI="
 	)
 	debug? (
 		${WB_URI}/20220331041147if_/${AF_URI}/flash_player_sa_linux_debug.x86_64.tar.gz -> flash_player_sa_linux_debug-${PV}-x86_64.tar.gz
-	)
-"
+	)"
 
 LICENSE="AdobeFlash-11.x LGPL-3+"
 SLOT="0"
@@ -27,8 +26,7 @@ RESTRICT="bindist strip"
 RDEPEND="
 	dev-libs/nss
 	media-libs/mesa
-	x11-libs/gtk+:2
-"
+	x11-libs/gtk+:2"
 
 S="${WORKDIR}"
 

@@ -19,8 +19,7 @@ SLOT="0"
 RDEPEND="
 	x11-libs/libxcb
 	x11-libs/xcb-util
-	x11-libs/xcb-util-wm
-"
+	x11-libs/xcb-util-wm"
 DEPEND="${RDEPEND}"
 
 src_install() {
