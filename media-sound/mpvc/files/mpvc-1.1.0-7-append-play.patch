@@ -1,0 +1,28 @@
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -254,12 +254,13 @@
+                 .arg(Arg::with_name("mode")
+                     .short('m')
+                     .long("mode")
+-                    .possible_values(&["replace", "append"])
++                    .possible_values(&["replace", "append", "append-play"])
+                     .hide_possible_values(true)
+-                    .default_value("replace")
+-                    .help("<replace|append>\n\
++                    .default_value("append-play")
++                    .help("<replace|append|append-play>\n\
+                     <replace>: Stop playback of the current file, and play the new file immediately.\n\
+-                    <append>: Append the file to the playlist.\n\n")
++                    <append>: Append the file to the playlist.\n\
++                    <append-play>: Append the file, and if nothing is currently playing, start playback.\n\n")
+                     .takes_value(true))
+                 .arg(Arg::with_name("type")
+                     .short('t')
+@@ -781,6 +782,7 @@
+                         let add_option = match add_matches.value_of("mode").unwrap() {
+                             "replace" => PlaylistAddOptions::Replace,
+                             "append" => PlaylistAddOptions::Append,
++                            "append-play" => PlaylistAddOptions::AppendPlay,
+                             _ => unreachable!(),
+                         };
+                         if let Err(msg) = mpv.playlist_add(

@@ -1,0 +1,41 @@
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -229,6 +229,14 @@
+                         "PlaybackRestart",
+                         "ChapterChange",
+                         "Unimplemented"])
++                    .required(true)))
++            .subcommand(SubCommand::with_name("wait-for-prop")
++                .about("<PROPERTY>\n\
++                Runs until the mpv property <PROPRETY> is altered. See property 'property-list' for possible values.")
++                .arg(Arg::with_name("property")
++                    .value_name("PROPERTY")
++                    .help("Property that should be waited for")
++                    .takes_value(false)
+                     .required(true))))
+         .subcommand(SubCommand::with_name("stop")
+             .about("Stop playback and clear playlist."))
+@@ -710,6 +718,23 @@
+                         }
+                     }
+                 }
++
++                Some(("wait-for-prop", wait_for_prop_matches)) => {
++                    let property = wait_for_prop_matches.value_of("property").unwrap();
++                    mpv.observe_property(&1, property).unwrap();
++                    let mut mpv = mpv;
++                    loop {
++                        match mpv.event_listen() {
++                            Ok(_) => {
++                                break;
++                            }
++                            Err(msg) => {
++                                error!("Error: {}", msg);
++                            }
++                        }
++                    }
++                }
++
+                 Some(("show", _)) => {
+                     let mut mpv = mpv;
+                     loop {
