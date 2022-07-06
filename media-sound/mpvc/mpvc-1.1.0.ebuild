@@ -4,27 +4,31 @@
 EAPI=8
 
 CRATES="
-	ansi_term-0.12.1
 	atty-0.2.14
+	autocfg-1.1.0
 	bitflags-1.3.2
 	cfg-if-1.0.0
-	clap-2.34.0
-	colored-1.9.3
+	clap-3.2.8
+	clap_lex-0.2.4
+	colored-2.0.0
+	hashbrown-0.12.1
 	hermit-abi-0.1.19
+	indexmap-1.9.1
 	itoa-1.0.2
 	lazy_static-1.4.0
-	libc-0.2.125
+	libc-0.2.126
 	log-0.4.17
 	mpvipc-1.1.9
+	os_str_bytes-6.1.0
 	ryu-1.0.10
-	serde-1.0.137
-	serde_json-1.0.81
-	strsim-0.8.0
-	textwrap-0.11.0
-	unicode-width-0.1.9
-	vec_map-0.8.2
+	serde-1.0.138
+	serde_json-1.0.82
+	strsim-0.10.0
+	termcolor-1.1.3
+	textwrap-0.15.0
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
+	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0"
 
 inherit cargo
@@ -39,6 +43,16 @@ SLOT="0"
 KEYWORDS="amd64 x86"
 
 RDEPEND="media-video/mpv"
+
+PATCHES=(
+	"${FILESDIR}/${P}-1-one-indexing-and-fix-type-error.patch"
+	"${FILESDIR}/${P}-2-improve-conditionals.patch"
+	"${FILESDIR}/${P}-3-playlist-multiple-files.patch"
+	"${FILESDIR}/${P}-4-spawn-mpv.patch"
+	"${FILESDIR}/${P}-5-wait-for-prop.patch"
+	"${FILESDIR}/${P}-6-macros.patch"
+	"${FILESDIR}/${P}-7-append-play.patch"
+)
 
 S="${WORKDIR}/${PN}-v${PV}"
 
