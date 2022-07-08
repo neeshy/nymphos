@@ -12,7 +12,7 @@ SRC_URI="mirror://gnu/${PN}/${P}/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE="bold truetype"
+IUSE="bold"
 
 DEPEND="
 	bold? (
@@ -29,7 +29,6 @@ src_install() {
 	insinto "${FONTDIR}"
 	newins "${P}.pcf" "${PN}.pcf"
 	use bold && doins "${PN}-bold.pcf"
-	use truetype && newins "font/precompiled/${P}.ttf" "${PN}.ttf"
 
 	font_xfont_config
 	font_fontconfig
