@@ -23,7 +23,7 @@ SLOT="0"
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
 RDEPEND="
 	>=dev-python/certifi-2018.11.29[${PYTHON_USEDEP}]
-	>=dev-python/twisted-16.4.0[crypt,${PYTHON_USEDEP}]"
+	>=dev-python/twisted-16.4.0[ssl,${PYTHON_USEDEP}]"
 
 src_prepare() {
 	default
