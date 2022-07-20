@@ -1,26 +1,14 @@
 --- a/src/main.rs
 +++ b/src/main.rs
-@@ -488,19 +488,19 @@
+@@ -488,9 +488,9 @@
                      }
  
                      if input_str.contains("%position%") {
--                        match mpv.get_property::<String>("playlist-pos") {
+-                        match mpv.get_property_string("playlist-pos") {
 +                        match mpv.get_property::<usize>("playlist-pos") {
                              Ok(position) => {
 -                                output_string = output_string.replace("%position%", &position);
 +                                output_string = output_string.replace("%position%", &(position + 1).to_string());
-                             }
-                             Err(msg) => error!("Error: {}", msg),
-                         }
-                     }
- 
-                     if input_str.contains("%playlistlength%") {
--                        match mpv.get_property::<String>("playlist-count") {
-+                        match mpv.get_property::<usize>("playlist-count") {
-                             Ok(playlist_count) => {
-                                 output_string =
--                                    output_string.replace("%playlistlength%", &playlist_count);
-+                                    output_string.replace("%playlistlength%", &playlist_count.to_string());
                              }
                              Err(msg) => error!("Error: {}", msg),
                          }
