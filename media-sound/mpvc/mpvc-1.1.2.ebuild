@@ -8,7 +8,7 @@ CRATES="
 	autocfg-1.1.0
 	bitflags-1.3.2
 	cfg-if-1.0.0
-	clap-3.2.13
+	clap-3.2.14
 	clap_lex-0.2.4
 	colored-2.0.0
 	hashbrown-0.12.3
@@ -18,7 +18,7 @@ CRATES="
 	lazy_static-1.4.0
 	libc-0.2.126
 	log-0.4.17
-	mpvipc-1.2.1
+	mpvipc-1.2.2
 	os_str_bytes-6.2.0
 	ryu-1.0.10
 	serde-1.0.140
@@ -58,8 +58,8 @@ PATCHES=(
 S="${WORKDIR}/${PN}-v${PV}"
 
 src_prepare() {
-	pushd "${WORKDIR}/cargo_home/gentoo/mpvipc-1.2.1"
-	eapply "${FILESDIR}/mpvipc-1.2.1-append-play.patch"
+	pushd "${WORKDIR}/cargo_home/gentoo/mpvipc-1.2.2"
+	eapply "${FILESDIR}/mpvipc-1.2.2-append-play.patch"
 	popd
 	default
 }
