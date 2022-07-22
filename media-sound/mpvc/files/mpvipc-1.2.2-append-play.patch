@@ -8,7 +8,7 @@
  }
  
  pub enum PlaylistAddTypeOptions {
-@@ -470,8 +471,9 @@
+@@ -472,8 +473,9 @@
                  &[
                      file.as_ref(),
                      match option {
@@ -19,7 +19,7 @@
                      },
                  ],
              ),
-@@ -481,8 +483,9 @@
+@@ -483,8 +485,9 @@
                  &[
                      file.as_ref(),
                      match option {

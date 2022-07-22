@@ -5,7 +5,7 @@
  clap = "3.2.8"
  colored = "2.0.0"
 -mpvipc = "1.2.0"
-+mpvipc = "1.2.1"
++mpvipc = "1.2.2"
  #mpvipc = { path = "/home/jonas/Documents/Projects/mpvipc" }
  
 --- a/src/main.rs
