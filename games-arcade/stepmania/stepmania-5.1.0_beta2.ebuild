@@ -1,9 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake-utils desktop
+inherit cmake desktop
 
 MY_PV="${PV/_beta/-b}"
 MY_P="${PN}-${MY_PV}"
@@ -77,11 +77,11 @@ src_configure() {
 		-DWITH_SSE2="$(usex cpu_flags_x86_sse2)"
 		-DWITH_MINIMAID=NO
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 	newbin "${FILESDIR}/${PN}.sh" "${PN}"
 	domenu "${PN}.desktop"
 	local size
