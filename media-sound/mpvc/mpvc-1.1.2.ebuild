@@ -49,10 +49,10 @@ PATCHES=(
 	"${FILESDIR}/${P}-2-improve-conditionals.patch"
 	"${FILESDIR}/${P}-3-playlist-multiple-files.patch"
 	"${FILESDIR}/${P}-4-spawn-mpv.patch"
-	"${FILESDIR}/${P}-5-wait-for-prop.patch"
-	"${FILESDIR}/${P}-6-macros.patch"
-	"${FILESDIR}/${P}-7-append-play.patch"
-	"${FILESDIR}/${P}-8-update-mpvipc.patch"
+	"${FILESDIR}/${P}-5-macros.patch"
+	"${FILESDIR}/${P}-6-append-play.patch"
+	"${FILESDIR}/${P}-7-update-mpvipc.patch"
+	"${FILESDIR}/${P}-8-wait-multiple-events.patch"
 )
 
 S="${WORKDIR}/${PN}-v${PV}"

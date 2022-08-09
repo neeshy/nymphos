@@ -10,16 +10,15 @@
  
 --- a/src/main.rs
 +++ b/src/main.rs
-@@ -653,7 +653,7 @@
- 
-                 Some(("wait-for-prop", wait_for_prop_matches)) => {
-                     let property = wait_for_prop_matches.value_of("property").unwrap();
--                    mpv.observe_property(&1, property).unwrap();
-+                    mpv.observe_property(1, property).unwrap();
+@@ -642,6 +642,7 @@
+                         }
+                     }
+                 }
++
+                 Some(("show", _)) => {
                      let mut mpv = mpv;
                      loop {
-                         match mpv.event_listen() {
-@@ -685,7 +685,7 @@
+@@ -660,7 +661,7 @@
                      let observed_properties = observe_matches.value_of("properties").unwrap();
                      let props: Vec<&str> = observed_properties.split(',').collect();
                      for (i, property) in props.iter().enumerate() {
@@ -28,7 +27,7 @@
                      }
                      let mut mpv = mpv;
                      loop {
-@@ -756,7 +756,7 @@
+@@ -731,7 +732,7 @@
                  }
  
                  Some(("raw", _)) => {

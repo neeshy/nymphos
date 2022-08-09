@@ -1,0 +1,35 @@
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -8,6 +8,7 @@
+ #[macro_use]
+ mod macros;
+ 
++use std::ops::Deref;
+ use std::process::Command as Cmd;
+ use std::process::exit;
+ use std::thread;
+@@ -229,6 +230,7 @@
+                         "PlaybackRestart",
+                         "ChapterChange",
+                         "Unimplemented"])
++                    .multiple(true)
+                     .required(true))))
+         .subcommand(SubCommand::with_name("stop")
+             .about("Stop playback and clear playlist."))
+@@ -626,13 +628,13 @@
+         Some(("events", events_matches)) => {
+             match events_matches.subcommand() {
+                 Some(("wait-for", wait_for_matches)) => {
+-                    let watched_event = wait_for_matches.value_of("event").unwrap();
++                    let watched_events = wait_for_matches.values_of("event").unwrap().collect::<Vec<&str>>();
+                     let mut mpv = mpv;
+                     loop {
+                         match mpv.event_listen() {
+                             Ok(event) => {
+-                                let event_str = &format!("{:?}", event);
+-                                if event_str == watched_event {
++                                let event_str = format!("{:?}", event);
++                                if watched_events.contains(&event_str.deref()) {
+                                     break;
+                                 }
+                             }
