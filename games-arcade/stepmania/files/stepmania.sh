@@ -1,3 +1,3 @@
 #!/bin/sh
 cd /opt/stepmania-5.1
-exec ./stepmania
+exec ./stepmania-release-symbols
