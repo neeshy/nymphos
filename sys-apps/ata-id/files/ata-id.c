@@ -706,7 +706,7 @@ int main(int argc, char *argv[]) {
                 return 1;
         }
 
-        fd = open(node, O_RDONLY|O_NONBLOCK|O_CLOEXEC);
+        fd = open(node, O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_NOCTTY);
         if (fd < 0) {
                 dprintf(2, "unable to open '%s'\n", node);
                 return 1;
