@@ -21,7 +21,6 @@ SLOT="0"
 RDEPEND="
 	acct-group/adbusers
 	virtual/udev"
-DEPEND="${RDEPEND}"
 
 src_install() {
 	udev_dorules 51-android.rules
