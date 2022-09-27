@@ -30,7 +30,7 @@ src_compile() {
 }
 
 src_install() {
-	newbin "${FILESDIR}/wrapper" "${PN}"
+	newbin "${FILESDIR}/${PN}.sh" "${PN}"
 	into "/usr/libexec/${PN}"
 	dobin "bin/${PN}" bin/main.lua
 	insinto "/usr/libexec/${PN}"
