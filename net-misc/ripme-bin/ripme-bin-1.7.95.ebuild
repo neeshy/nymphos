@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit wrapper xdg-utils
+inherit xdg-utils
 
 MY_PN="${PN%-bin}"
 MY_P="${MY_PN}-${PV}"
@@ -21,13 +21,13 @@ RDEPEND="virtual/jre"
 S="${WORKDIR}"
 
 src_install() {
+	newbin "${FILESDIR}/${MY_PN}.sh" "${MY_PN}"
+
 	insinto "/opt/${MY_PN}"
 	newins "${DISTDIR}/${MY_P}.jar" "${MY_PN}.jar"
 
 	insinto /usr/share/pixmaps
 	newins icon.png "${MY_PN}.png"
-
-	make_wrapper "${MY_PN}" "java -jar /opt/${MY_PN}/${MY_PN}.jar"
 }
 
 pkg_postinst() {
