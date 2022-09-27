@@ -43,7 +43,7 @@ src_install() {
 	fperms +x "/opt/${PN}/osu!"
 
 	insinto /usr/share/icons/hicolor/128x128/apps
-	doins assets/lazer-nuget.png
+	newins assets/lazer-nuget.png "${PN}.png"
 	insinto /usr/share/icons/hicolor/1024x1024/apps
-	doins assets/lazer.png
+	newins assets/lazer.png "${PN}.png"
 }
