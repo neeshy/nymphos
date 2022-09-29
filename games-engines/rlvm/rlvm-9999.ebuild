@@ -37,7 +37,7 @@ src_compile() {
 }
 
 src_install() {
-	dobin "build/${PN}" || die "dobin failed"
+	dobin "build/${PN}"
 	doman "debian/${PN}.6"
 	dodoc README.md {AUTHORS,NEWS,STATUS}.TXT
 }
