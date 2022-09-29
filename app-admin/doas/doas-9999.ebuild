@@ -16,11 +16,6 @@ DEPEND="virtual/yacc"
 
 export STATE_DIR="${STATE_DIR:-/var/cache/${PN}}"
 
-src_prepare() {
-	sed -i '/^_CFLAGS=/s/ -Werror//' Makefile || die "sed failed"
-	default
-}
-
 src_install() {
 	dobin "${PN}"
 	fperms +s "/usr/bin/${PN}"
