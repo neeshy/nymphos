@@ -1,1 +1,0 @@
-android-udev-rules-99999999.ebuild
