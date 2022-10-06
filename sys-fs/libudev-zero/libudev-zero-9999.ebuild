@@ -18,11 +18,11 @@ fi
 LICENSE="ISC"
 SLOT="0"
 
-DEPEND="sys-kernel/linux-headers"
 RDEPEND="
 	!sys-apps/systemd
 	!sys-fs/eudev
 	!sys-fs/udev"
+DEPEND="sys-kernel/linux-headers"
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX=/usr LIBDIR="/usr/$(get_libdir)" install

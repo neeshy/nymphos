@@ -18,12 +18,12 @@ LICENSE="GPL-3+"
 SLOT="0"
 IUSE="systemd"
 
+RDEPEND="systemd? ( sys-apps/systemd )"
 DEPEND="
 	dev-libs/libpipeline
 	dev-vcs/git
 	sys-devel/libtool
 	virtual/pkgconfig"
-RDEPEND="systemd? ( sys-apps/systemd )"
 
 src_unpack() {
 	default
