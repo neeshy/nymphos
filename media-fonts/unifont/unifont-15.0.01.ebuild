@@ -16,7 +16,7 @@ IUSE="bold"
 
 DEPEND="
 	bold? (
-		app-text/mkbold-mkitalic
+		media-gfx/mkbold-mkitalic
 		x11-apps/bdftopcf
 	)"
 
