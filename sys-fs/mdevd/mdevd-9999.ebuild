@@ -3,8 +3,6 @@
 
 EAPI=8
 
-inherit multilib
-
 DESCRIPTION="A mdev-compatible Linux hotplug manager daemon"
 HOMEPAGE="https://skarnet.org/software/${PN}/"
 if [[ "${PV}" = 9999 ]]; then

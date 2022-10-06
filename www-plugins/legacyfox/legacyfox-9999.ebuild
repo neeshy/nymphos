@@ -3,8 +3,6 @@
 
 EAPI=8
 
-inherit multilib
-
 DESCRIPTION="Legacy bootstrapped extensions for Firefox 65 and beyond"
 HOMEPAGE="https://git.gir.st/LegacyFox.git"
 if [[ "${PV}" = 9999 ]]; then

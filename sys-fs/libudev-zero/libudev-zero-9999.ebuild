@@ -3,8 +3,6 @@
 
 EAPI=8
 
-inherit multilib
-
 DESCRIPTION="Daemonless replacement for libudev"
 HOMEPAGE="https://github.com/illiliti/${PN}"
 if [[ "${PV}" = 9999 ]]; then
