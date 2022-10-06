@@ -20,6 +20,8 @@ fi
 LICENSE="MIT"
 SLOT="0"
 
+BDEPEND="app-arch/unzip"
+
 PATCHES=( "${FILESDIR}/${PN}-copy_binary.patch" )
 
 S="${WORKDIR}"
