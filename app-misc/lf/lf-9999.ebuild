@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module
+inherit go-module desktop
 
 DESCRIPTION="Terminal file manager"
 HOMEPAGE="https://github.com/gokcehan/${PN}"
@@ -73,4 +73,6 @@ src_install() {
 	doins etc/lf.fish
 	insinto /usr/share/fish/vendor_functions.d
 	doins etc/lfcd.fish
+
+	domenu lf.desktop
 }
