@@ -16,7 +16,7 @@ IUSE="pam"
 
 RDEPEND="
 	dev-libs/libev
-	pam? ( virtual/pam )
+	pam? ( sys-libs/pam )
 	x11-libs/cairo[X,xcb(+)]
 	x11-libs/libxcb[xkb]
 	x11-libs/libxkbcommon[X]
@@ -33,12 +33,9 @@ src_prepare() {
 	if use pam; then
 		sed -i -e 's:login:system-auth:g' "pam/${PN}" || die
 	fi
-
-	eautoreconf
 }
 
 src_install() {
-	default
+	meson_src_install
 	use pam || fperms u+s "/usr/bin/${PN}"
-	doman "${PN}.1"
 }
