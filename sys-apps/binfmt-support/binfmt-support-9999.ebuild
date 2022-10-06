@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools git-r3
+inherit git-r3
 
 DESCRIPTION="Support for extra binary formats"
 HOMEPAGE="http://${PN}.nongnu.org/"
