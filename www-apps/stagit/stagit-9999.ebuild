@@ -16,8 +16,8 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 
-DEPEND="dev-libs/libgit2:0="
-RDEPEND="${DEPEND}"
+RDEPEND="dev-libs/libgit2:0="
+DEPEND="${RDEPEND}"
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX=/usr \

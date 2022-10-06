@@ -19,12 +19,12 @@ SLOT="0"
 
 RESTRICT="network-sandbox"
 
-DEPEND="
+RDEPEND="
 	media-libs/libsdl2
 	media-video/ffmpeg
 	virtual/opengl
 	virtual/dotnet-sdk"
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
 
 src_compile() {
 	dotnet publish osu.Desktop \
