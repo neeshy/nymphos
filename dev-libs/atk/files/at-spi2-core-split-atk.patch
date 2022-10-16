@@ -1,6 +1,20 @@
 --- a/meson.build
 +++ b/meson.build
-@@ -42,11 +42,6 @@
+@@ -10,13 +10,9 @@
+ 
+ add_project_arguments([ '-D_POSIX_C_SOURCE=200809L', '-D_DEFAULT_SOURCE' ], language: 'c')
+ 
+-atspi_gir_ns = 'Atspi'
+-
+ cc = meson.get_compiler('c')
+ host_system = host_machine.system()
+ 
+-soversion = '0.0.1'
+-
+ atk_version = meson.project_version()
+ version = atk_version.split('.')
+ atk_major_version = version[0].to_int()
+@@ -42,11 +38,6 @@
    add_project_arguments(cc.get_supported_arguments(['-FImsvc_recommended_pragmas.h', '-utf-8']), language: 'c')
  endif
  
@@ -12,7 +26,7 @@
  # Compiler and linker flags
  common_cflags = []
  common_ldflags = []
-@@ -98,38 +93,19 @@
+@@ -98,38 +89,19 @@
  
  root_inc = include_directories('.')
  atk_inc = include_directories('atk')
@@ -51,7 +65,7 @@
  if cc.has_function('dlopen')
    dl_dep = []
  elif cc.has_function('dlopen', args: '-ldl')
-@@ -137,47 +113,11 @@
+@@ -137,49 +109,6 @@
  else
    error('Could not find a library with the dlopen function')
  endif
@@ -79,11 +93,11 @@
 -    x11_deps += xinput_dep
 -  endif
 -endif
- 
- # Alignments
- at_spi_conf.set('ALIGNOF_CHAR', cc.alignment('char'))
- at_spi_conf.set('ALIGNOF_DOUBLE', cc.alignment('double'))
- 
+-
+-# Alignments
+-at_spi_conf.set('ALIGNOF_CHAR', cc.alignment('char'))
+-at_spi_conf.set('ALIGNOF_DOUBLE', cc.alignment('double'))
+-
 -dbus_alignments = [
 -  'dbus_bool_t',
 -  'dbus_int16_t',
@@ -96,10 +110,12 @@
 -                  cc.alignment(a, prefix: '#include <dbus/dbus.h>', dependencies: libdbus_dep))
 -endforeach
 -
- at_spi_conf.set('ALIGNOF_DBIND_POINTER', cc.alignment('dbind_pointer', prefix: 'typedef void *dbind_pointer;'))
- at_spi_conf.set('ALIGNOF_DBIND_STRUCT', cc.alignment('dbind_struct', prefix: 'typedef struct { char s1; } dbind_struct;'))
+-at_spi_conf.set('ALIGNOF_DBIND_POINTER', cc.alignment('dbind_pointer', prefix: 'typedef void *dbind_pointer;'))
+-at_spi_conf.set('ALIGNOF_DBIND_STRUCT', cc.alignment('dbind_struct', prefix: 'typedef struct { char s1; } dbind_struct;'))
  
-@@ -200,24 +140,7 @@
+ # introspection support
+ have_gir = false
+@@ -200,24 +129,7 @@
  pkgconfig = import('pkgconfig')
  gnome = import('gnome')
  
