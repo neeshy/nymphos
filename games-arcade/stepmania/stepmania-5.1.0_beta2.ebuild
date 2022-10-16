@@ -23,11 +23,11 @@ RDEPEND="
 	dev-libs/libpcre
 	media-libs/glew:=
 	media-libs/libjpeg-turbo
+	media-libs/libva
 	media-libs/mesa[gles2?]
 	sys-libs/zlib
 	x11-libs/libICE
 	x11-libs/libSM
-	x11-libs/libva
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXrandr
