@@ -6,7 +6,7 @@ EAPI=8
 inherit git-r3
 
 DESCRIPTION="Support for extra binary formats"
-HOMEPAGE="http://${PN}.nongnu.org/"
+HOMEPAGE="https://${PN}.nongnu.org/"
 if [[ "${PV}" = 9999 ]]; then
 	EGIT_REPO_URI="https://gitlab.com/cjwatson/${PN}.git"
 else
