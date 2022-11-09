@@ -5,12 +5,13 @@ EAPI=8
 
 inherit xdg-utils
 
+MY_PV="2.1.2-23-e5438e85"
 MY_PN="${PN%-bin}"
-MY_P="${MY_PN}-${PV}"
+MY_P="${MY_PN}-${MY_PV}"
 
 DESCRIPTION="Downloads albums in bulk"
-HOMEPAGE="https://github.com/RipMeApp/${MY_PN}"
-SRC_URI="${HOMEPAGE}/releases/download/${PV}/ripme.jar -> ${MY_P}.jar"
+HOMEPAGE="https://github.com/ripmeapp2/${MY_PN}"
+SRC_URI="${HOMEPAGE}/releases/download/${PV}/${MY_P}.jar"
 
 LICENSE="MIT"
 SLOT="0"
@@ -20,14 +21,15 @@ RDEPEND="virtual/jre"
 
 S="${WORKDIR}"
 
+src_unpack() {
+	:
+}
+
 src_install() {
 	newbin "${FILESDIR}/${MY_PN}.sh" "${MY_PN}"
 
 	insinto "/opt/${MY_PN}"
 	newins "${DISTDIR}/${MY_P}.jar" "${MY_PN}.jar"
-
-	insinto /usr/share/pixmaps
-	newins icon.png "${MY_PN}.png"
 }
 
 pkg_postinst() {
