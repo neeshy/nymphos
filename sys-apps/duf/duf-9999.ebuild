@@ -76,7 +76,7 @@ SLOT="0"
 IUSE="+pie"
 
 src_compile() {
-	use pie && EGO_BUILD_FLAGS+=(-buildmode=pie)
+	use pie && EGO_BUILD_FLAGS+=( -buildmode=pie )
 	go build "${EGO_BUILD_FLAGS[@]}" || die
 }
 
