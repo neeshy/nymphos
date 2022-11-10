@@ -33,8 +33,15 @@ src_compile() {
 }
 
 src_install() {
+	local ver
+	if [[ "${PV}" = 9999 ]]; then
+		ver="$(git describe --tags --exclude latest-main | sed -E 's/-g([a-f0-9]+)$/-\1/g')"
+	else
+		ver="${PV}"
+	fi
+
 	newbin "${FILESDIR}/${PN}.sh" "${PN}"
 
 	insinto "/opt/${PN}"
-	newins "build/libs/${P}.jar" "${PN}.jar"
+	newins "build/libs/${PN}-${ver}.jar" "${PN}.jar"
 }
