@@ -8,24 +8,24 @@ CRATES="
 	autocfg-1.1.0
 	bitflags-1.3.2
 	cfg-if-1.0.0
-	clap-3.2.14
+	clap-3.2.23
 	clap_lex-0.2.4
 	colored-2.0.0
 	hashbrown-0.12.3
 	hermit-abi-0.1.19
-	indexmap-1.9.1
-	itoa-1.0.2
+	indexmap-1.9.2
+	itoa-1.0.4
 	lazy_static-1.4.0
-	libc-0.2.126
+	libc-0.2.137
 	log-0.4.17
 	mpvipc-1.2.2
-	os_str_bytes-6.2.0
-	ryu-1.0.10
-	serde-1.0.140
-	serde_json-1.0.82
+	os_str_bytes-6.4.0
+	ryu-1.0.11
+	serde-1.0.147
+	serde_json-1.0.88
 	strsim-0.10.0
 	termcolor-1.1.3
-	textwrap-0.15.0
+	textwrap-0.16.0
 	winapi-0.3.9
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5

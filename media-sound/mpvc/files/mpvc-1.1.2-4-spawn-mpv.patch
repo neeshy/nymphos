@@ -11,7 +11,7 @@
  
  use clap::{AppSettings, Arg, Command, SubCommand};
  use colored::*;
-@@ -301,11 +304,37 @@
+@@ -300,11 +303,37 @@
  
      //Input socket is always present, therefore unwrap
      let mpv;

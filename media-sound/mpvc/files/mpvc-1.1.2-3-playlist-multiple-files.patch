@@ -1,6 +1,6 @@
 --- a/src/main.rs
 +++ b/src/main.rs
-@@ -238,6 +238,7 @@
+@@ -237,6 +237,7 @@
                  .visible_alias("load")
                  .arg(Arg::with_name("file")
                      .value_name("FILE")
@@ -8,7 +8,7 @@
                      .required(true))
                  .arg(Arg::with_name("mode")
                      .short('m')
-@@ -786,25 +787,26 @@
+@@ -776,24 +777,25 @@
          Some(("playlist", playlist_matches)) => {
              match playlist_matches.subcommand() {
                  Some(("add", add_matches)) => {
@@ -37,8 +37,7 @@
 +                            file,
 +                            file_type,
 +                            add_option,
-+                        )
-+                        {
++                        ) {
 +                            error!("Error: {}", msg);
 +                        }
                      };
@@ -46,8 +45,7 @@
 -                        file,
 -                        file_type,
 -                        add_option,
--                    )
--                    {
+-                    ) {
 -                        error!("Error: {}", msg);
 -                    }
                  }

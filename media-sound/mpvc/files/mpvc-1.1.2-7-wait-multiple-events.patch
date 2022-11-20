@@ -8,7 +8,7 @@
  use std::process::Command as Cmd;
  use std::process::exit;
  use std::thread;
-@@ -229,6 +230,7 @@
+@@ -228,6 +229,7 @@
                          "PlaybackRestart",
                          "ChapterChange",
                          "Unimplemented"])
@@ -16,7 +16,7 @@
                      .required(true))))
          .subcommand(SubCommand::with_name("stop")
              .about("Stop playback and clear playlist."))
-@@ -626,13 +628,13 @@
+@@ -617,13 +619,13 @@
          Some(("events", events_matches)) => {
              match events_matches.subcommand() {
                  Some(("wait-for", wait_for_matches)) => {
