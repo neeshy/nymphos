@@ -51,8 +51,7 @@ PATCHES=(
 	"${FILESDIR}/${P}-4-spawn-mpv.patch"
 	"${FILESDIR}/${P}-5-macros.patch"
 	"${FILESDIR}/${P}-6-append-play.patch"
-	"${FILESDIR}/${P}-7-update-mpvipc.patch"
-	"${FILESDIR}/${P}-8-wait-multiple-events.patch"
+	"${FILESDIR}/${P}-7-wait-multiple-events.patch"
 )
 
 S="${WORKDIR}/${PN}-v${PV}"
