@@ -1,6 +1,6 @@
 --- a/src/main.rs
 +++ b/src/main.rs
-@@ -394,128 +394,59 @@
+@@ -393,128 +393,59 @@
  
              match mpv.get_metadata() {
                  Ok(metadata) => {
