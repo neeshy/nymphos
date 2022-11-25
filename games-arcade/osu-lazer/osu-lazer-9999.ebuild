@@ -23,11 +23,12 @@ RDEPEND="
 	media-libs/libsdl2
 	media-video/ffmpeg
 	virtual/opengl
-	virtual/dotnet-sdk"
+	virtual/dotnet-sdk:6.0"
 DEPEND="${RDEPEND}"
 
 src_compile() {
 	dotnet publish osu.Desktop \
+		--framework net6.0 \
 		--configuration Release \
 		--use-current-runtime \
 		--output output \
