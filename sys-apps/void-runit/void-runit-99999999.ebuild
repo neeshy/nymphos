@@ -17,10 +17,10 @@ LICENSE="CC0-1.0"
 SLOT="0"
 
 RDEPEND="
-	sys-process/runit
-	sys-process/procps
-	virtual/awk
+	app-alternatives/awk
 	sys-apps/util-linux[tty-helpers]
+	sys-process/procps
+	sys-process/runit
 	!sys-apps/sysvinit"
 
 PATCHES=( "${FILESDIR}/${PN}-gentoo.patch" )
