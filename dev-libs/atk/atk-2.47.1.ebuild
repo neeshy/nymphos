@@ -33,8 +33,8 @@ PATCHES=( "${FILESDIR}/at-spi2-core-split-atk.patch" )
 
 multilib_src_configure() {
 	local emesonargs=(
-		$(meson_native_use_bool gtk-doc docs)
-		-Dintrospection=$(multilib_native_usex introspection)
+		"$(meson_native_use_bool gtk-doc docs)"
+		"$(meson_native_use_feature introspection)"
 	)
 	meson_src_configure
 }
