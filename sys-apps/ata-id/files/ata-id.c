@@ -671,7 +671,7 @@ int main(int argc, char *argv[]) {
         char revision[9];
         const char *node = NULL;
         int export = 0;
-        int fd = -1;
+        int fd = -EBADF;
         uint16_t word;
         int is_packet_device = 0;
         static const struct option options[] = {
@@ -712,6 +712,7 @@ int main(int argc, char *argv[]) {
                 return 1;
         } else if (fd < 3) {
                 /* Not connected to one or more standard streams */
+                close(fd);
                 return 1;
         }
 
