@@ -46,6 +46,11 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	ffmpeg? ( || ( dev-lang/nasm dev-lang/yasm ) )"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-include-time.patch"
+	"${FILESDIR}/${PN}-select-audio-backends.patch"
+)
+
 S="${WORKDIR}/${MY_P}"
 
 src_configure() {
