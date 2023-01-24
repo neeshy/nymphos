@@ -1,0 +1,11 @@
+--- a/src/arch/ArchHooks/ArchHooks.h
++++ b/src/arch/ArchHooks/ArchHooks.h
+@@ -1,6 +1,8 @@
+ #ifndef ARCH_HOOKS_H
+ #define ARCH_HOOKS_H
+ 
++#include <time.h>
++
+ struct lua_State;
+ class ArchHooks
+ {
