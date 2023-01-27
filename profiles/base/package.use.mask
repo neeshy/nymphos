@@ -1,4 +1,0 @@
-dev-lang/rust -system-bootstrap -system-llvm
-dev-libs/boost -nls
-net-dns/dnscrypt-proxy -filecaps
-x11-base/xorg-server -udev
