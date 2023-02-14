@@ -8,7 +8,7 @@ LUA_COMPAT=( lua{5-{1,3,4},jit} )
 inherit lua
 
 DESCRIPTION="Lua Language Server written in Lua"
-HOMEPAGE="https://github.com/sumneko/${PN}"
+HOMEPAGE="https://github.com/LuaLS/${PN}"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"
