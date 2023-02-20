@@ -17,9 +17,7 @@ LICENSE="CC0-1.0"
 SLOT="0"
 
 RDEPEND="
-	app-alternatives/awk
 	sys-apps/util-linux[tty-helpers]
-	sys-process/procps
 	sys-process/runit
 	!sys-apps/sysvinit"
 
