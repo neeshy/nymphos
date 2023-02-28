@@ -31,7 +31,7 @@ src_prepare() {
 	default
 
 	if use pam; then
-		sed -i -e 's:login:system-auth:g' "pam/${PN}" || die
+		sed -i -e 's/login/system-auth/g' "pam/${PN}" || die
 	fi
 }
 
