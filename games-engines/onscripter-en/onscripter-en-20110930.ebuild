@@ -23,7 +23,7 @@ DEPEND="${RDEPEND}"
 
 src_configure() {
 	econf --no-werror
-	sed -i 's/.dll//g' Makefile || die
+	sed -i 's/\.dll//g' Makefile || die
 }
 
 src_install() {
