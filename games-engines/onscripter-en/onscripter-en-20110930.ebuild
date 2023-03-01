@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="A Free & Open Source implementation of the NScripter novel game engine"
 HOMEPAGE="https://kaisernet.org/onscripter/"
-SRC_URI="${HOMEPAGE}/releases/${P}-src.tar.bz2"
+SRC_URI="${HOMEPAGE}releases/${P}-src.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
