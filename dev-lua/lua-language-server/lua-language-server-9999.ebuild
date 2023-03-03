@@ -20,7 +20,8 @@ fi
 LICENSE="MIT"
 SLOT="0"
 
-BDEPEND="app-arch/unzip"
+BDEPEND="app-arch/unzip
+	dev-util/ninja"
 
 PATCHES=( "${FILESDIR}/${PN}-copy_binary.patch" )
 
