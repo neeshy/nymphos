@@ -28,5 +28,5 @@ src_configure() {
 
 src_install() {
 	dobin "${PN}"
-	einstalldocs
+	dodoc README CHANGES BUGS
 }
