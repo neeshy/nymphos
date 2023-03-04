@@ -26,6 +26,8 @@ RDEPEND="
 	virtual/dotnet-sdk:6.0"
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}/${P}-online.patch" )
+
 src_compile() {
 	dotnet publish osu.Desktop \
 		--framework net6.0 \
