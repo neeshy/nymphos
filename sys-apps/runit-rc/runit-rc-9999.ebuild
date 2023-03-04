@@ -6,7 +6,7 @@ EAPI=8
 inherit git-r3
 
 DESCRIPTION="Runit init scripts"
-HOMEPAGE="https://github.com/neeshy/runit-rc"
+HOMEPAGE="https://github.com/neeshy/${PN}"
 EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="CC0-1.0"

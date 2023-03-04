@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{8..11} )
 inherit python-any-r1 scons-utils git-r3
 
 DESCRIPTION="An open source implementation of the RealLive virtual machine for Linux and OSX"
-HOMEPAGE="https://github.com/eglaysher/rlvm"
+HOMEPAGE="https://github.com/eglaysher/${PN}"
 EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="GPL-3"

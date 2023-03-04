@@ -20,7 +20,7 @@ src_compile() {
 }
 
 src_install() {
-	dobin sx
-	doman sx.1
+	dobin "${PN}"
+	doman "${PN}.1"
 	dodoc README
 }
