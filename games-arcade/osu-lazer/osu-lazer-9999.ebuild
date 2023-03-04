@@ -10,7 +10,7 @@ if [[ "${PV}" = 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/ppy/osu.git"
 else
 	SRC_URI="https://github.com/ppy/osu/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="amd64"
 	S="${WORKDIR}/osu-${PV}"
 fi
 

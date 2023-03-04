@@ -14,7 +14,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${MY_PV}.tar.gz -> ${MY_P}.tar.
 
 LICENSE="MIT default-songs? ( CC-BY-NC-4.0 )"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="alsa cpu_flags_x86_sse2 crash-handler +default-songs doc ffmpeg gles2 +gtk jack lto +mp3 networking +ogg oss parport pulseaudio tty wav +xinerama"
 REQUIRED_USE="|| ( alsa oss pulseaudio jack )"
 

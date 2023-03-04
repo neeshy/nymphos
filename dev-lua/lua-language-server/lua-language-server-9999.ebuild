@@ -14,7 +14,7 @@ if [[ "${PV}" = 9999 ]]; then
 	EGIT_REPO_URI="${HOMEPAGE}.git"
 else
 	SRC_URI="${HOMEPAGE}/releases/download/${PV}/${P}-submodules.zip"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="amd64"
 fi
 
 LICENSE="MIT"

@@ -12,7 +12,7 @@ SRC_URI="https://web.archive.org/web/20190522051621if_/http://mirrors.antergos.c
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64"
 
 RDEPEND="x11-themes/gtk-engines-murrine"
 

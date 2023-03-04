@@ -13,7 +13,7 @@ SRC_URI="${HOMEPAGE}/downloads/${S_DIR}/hanazono-${PV}.zip"
 
 LICENSE="OFL-1.1 ${PN}"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64"
 
 BDEPEND="app-arch/unzip"
 
