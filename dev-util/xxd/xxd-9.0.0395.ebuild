@@ -14,7 +14,7 @@ SRC_URI="
 
 LICENSE="GPL-2 MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64"
 
 RDEPEND="!app-editors/vim-core"
 

@@ -10,7 +10,7 @@ if [[ "${PV}" = 99999999 ]]; then
 	EGIT_REPO_URI="${HOMEPAGE}.git"
 else
 	SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="amd64"
 fi
 
 LICENSE="CC0-1.0"

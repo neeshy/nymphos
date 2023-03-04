@@ -13,7 +13,7 @@ else
 	MY_PV="${PV}-${MY_COMMIT}"
 	MY_P="LegacyFox-v${MY_PV}"
 	SRC_URI="${HOMEPAGE}/snapshot/v${PV}.tar.gz -> ${MY_P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="amd64"
 	S="${WORKDIR}/${MY_P}"
 fi
 
