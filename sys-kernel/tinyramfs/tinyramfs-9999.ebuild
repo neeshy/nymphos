@@ -14,3 +14,7 @@ SLOT="0"
 
 RDEPEND="sys-apps/busybox"
 DEPEND="app-text/scdoc"
+
+src_install() {
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
+}

@@ -15,3 +15,10 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
+
+src_install() {
+	exeinto /lib/mdev
+	doexe dvbdev persistent-storage ptpdev usbdev
+	insinto /etc
+	doins mdev.conf
+}
