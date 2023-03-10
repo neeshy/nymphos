@@ -23,5 +23,5 @@ RDEPEND="
 DEPEND="sys-kernel/linux-headers"
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX=/usr LIBDIR="/usr/$(get_libdir)" install
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" LIBDIR="${EPREFIX}/usr/$(get_libdir)" install
 }

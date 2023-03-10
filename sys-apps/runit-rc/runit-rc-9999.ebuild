@@ -24,7 +24,7 @@ src_compile() {
 }
 
 src_install() {
-	default
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" install
 
 	# compatibility symlink
 	dosym /run/runit/runsvdir/current /var/service

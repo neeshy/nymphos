@@ -23,6 +23,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX=/usr install
+	dobin "${PN}"
 	dodoc README.md
 }
