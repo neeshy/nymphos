@@ -15,14 +15,14 @@ LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
-	media-libs/libsdl[opengl]
+	>=dev-games/guichan-0.8[opengl,sdl]
 	>=dev-libs/boost-1.42:0=
 	media-libs/glew:0=
-	media-libs/sdl-image[jpeg,png]
-	media-libs/sdl-ttf
-	media-libs/sdl-mixer[vorbis]
 	media-libs/libmad
-	>=dev-games/guichan-0.8[opengl,sdl]
+	media-libs/libsdl[opengl]
+	media-libs/sdl-image[jpeg,png]
+	media-libs/sdl-mixer[vorbis]
+	media-libs/sdl-ttf
 	x11-libs/gtk+:3"
 DEPEND="${RDEPEND}"
 

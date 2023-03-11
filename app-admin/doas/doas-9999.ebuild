@@ -20,8 +20,7 @@ src_install() {
 	dobin "${PN}"
 	fperms +s "/usr/bin/${PN}"
 
-	doman doas.1
-	doman doas.conf.5
+	doman "${PN}.1" "${PN}.conf.5"
 
 	keepdir "${STATE_DIR}"
 	fperms 700 "${STATE_DIR}"
