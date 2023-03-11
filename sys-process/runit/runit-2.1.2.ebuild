@@ -40,7 +40,7 @@ src_install() {
 	dosbin runit-init runit utmpset
 
 	cd .. || die
-	doman man/*.[18]
+	doman man/*.8
 	dodoc package/{CHANGES,README,THANKS,TODO}
 	docinto html
 	dodoc doc/*.html

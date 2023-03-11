@@ -22,8 +22,8 @@ RESTRICT="network-sandbox"
 RDEPEND="
 	media-libs/libsdl2
 	media-video/ffmpeg
-	virtual/opengl
-	virtual/dotnet-sdk:6.0"
+	virtual/dotnet-sdk:6.0
+	virtual/opengl"
 DEPEND="${RDEPEND}"
 
 PATCHES=( "${FILESDIR}/${P}-online.patch" )

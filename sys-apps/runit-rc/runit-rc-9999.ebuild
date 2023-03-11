@@ -16,8 +16,7 @@ RDEPEND="
 	sys-apps/seedrng
 	sys-apps/util-linux[tty-helpers]
 	sys-process/runit
-	!sys-apps/sysvinit
-	!sys-apps/void-runit"
+	!sys-apps/sysvinit"
 
 src_compile() {
 	:

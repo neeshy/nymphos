@@ -21,9 +21,9 @@ RDEPEND="!app-editors/vim-core"
 S="${WORKDIR}"
 
 src_unpack() {
-	cp "${DISTDIR}/${P}.c" xxd.c || die "cp failed"
+	cp "${DISTDIR}/${P}.c" "${PN}.c" || die "cp failed"
 	cp "${DISTDIR}/${P}.mk" Makefile || die "cp failed"
-	cp "${DISTDIR}/${P}.1" xxd.1 || die "cp failed"
+	cp "${DISTDIR}/${P}.1" "${PN}.1" || die "cp failed"
 }
 
 src_compile() {
@@ -31,6 +31,6 @@ src_compile() {
 }
 
 src_install() {
-	dobin xxd
-	doman xxd.1
+	dobin "${PN}"
+	doman "${PN}.1"
 }
