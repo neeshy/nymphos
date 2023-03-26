@@ -304,6 +304,18 @@ static size_t replace_chars(char *str, const char *allow) {
         return replaced;
 }
 
+static inline void unaligned_write_ne16(void *_u, uint16_t a) {
+        struct __attribute__((__packed__, __may_alias__)) { uint16_t x; } *u = _u;
+
+        u->x = a;
+}
+
+static inline uint16_t unaligned_read_le16(const void *_u) {
+        const struct __attribute__((__packed__, __may_alias__)) { uint16_t x; } *u = _u;
+
+        return le16toh(u->x);
+}
+
 static int disk_scsi_inquiry_command(
                 int fd,
                 void *buf,
@@ -555,15 +567,15 @@ static void disk_identify_fixup_string(
                 uint8_t identify[512],
                 unsigned offset_words,
                 size_t len) {
+        assert(offset_words < 512/2);
         disk_identify_get_string(identify, offset_words,
                                  (char *) identify + offset_words * 2, len);
 }
 
-static void disk_identify_fixup_uint16 (uint8_t identify[512], unsigned offset_words) {
-        uint16_t *p;
-
-        p = (uint16_t *) identify;
-        p[offset_words] = le16toh (p[offset_words]);
+static void disk_identify_fixup_uint16(uint8_t identify[512], unsigned offset_words) {
+        assert(offset_words < 512/2);
+        unaligned_write_ne16(identify + offset_words * 2,
+                             unaligned_read_le16(identify + offset_words * 2));
 }
 
 /**
