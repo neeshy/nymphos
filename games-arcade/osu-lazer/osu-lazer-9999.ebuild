@@ -24,17 +24,17 @@ RDEPEND="
 	media-video/ffmpeg
 	virtual/dotnet-sdk:6.0
 	virtual/opengl"
-DEPEND="${RDEPEND}"
+DEPEND="virtual/dotnet-sdk:6.0"
 
 PATCHES=( "${FILESDIR}/${P}-online.patch" )
 
 src_compile() {
-	dotnet publish osu.Desktop \
+	DOTNET_CLI_TELEMETRY_OPTOUT="1" dotnet publish osu.Desktop \
 		--framework net6.0 \
 		--configuration Release \
 		--use-current-runtime \
-		--output output \
 		--no-self-contained \
+		--output output \
 		$([[ "${PV}" = 9999 ]] || echo /property:Version="${PV}")
 }
 
