@@ -7,7 +7,7 @@ inherit git-r3 qmake-utils
 
 DESCRIPTION="Additional style plugins for Qt5"
 HOMEPAGE="https://code.qt.io/cgit/qt/${PN}.git"
-EGIT_REPO_URI="${HOMEPAGE}"
+EGIT_REPO_URI="https://code.qt.io/qt/${PN}.git"
 
 LICENSE="LGPL-2.1"
 SLOT="5"
