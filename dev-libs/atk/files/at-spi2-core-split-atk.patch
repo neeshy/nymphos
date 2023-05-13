@@ -28,7 +28,7 @@
  # Compiler and linker flags
  common_cflags = []
  common_ldflags = []
-@@ -100,40 +89,16 @@
+@@ -100,86 +89,16 @@
  
  root_inc = include_directories('.')
  atk_inc = include_directories('atk')
@@ -66,13 +66,15 @@
  glib_dep = dependency('glib-2.0', version: glib_req_version)
  gobject_dep = dependency('gobject-2.0', version: gobject_req_version)
 -gio_dep = dependency('gio-2.0', version: gio_req_version)
- if cc.has_function('dlopen')
-   dl_dep = []
- elif cc.has_function('dlopen', args: '-ldl')
-@@ -141,43 +106,6 @@
- else
-   error('Could not find a library with the dlopen function')
- endif
+-if not get_option('atk_only')
+-  if cc.has_function('dlopen')
+-    dl_dep = []
+-  elif cc.has_function('dlopen', args: '-ldl')
+-    dl_dep = cc.find_library('dl')
+-  else
+-    error('Could not find a library with the dlopen function')
+-  endif
+-endif
 -gmodule_dep = dependency('gmodule-2.0', version: gmodule_req_version)
 -libxml_dep = dependency('libxml-2.0', version: libxml_req_version)
 -
@@ -113,7 +115,7 @@
  
  # introspection support
  gir = find_program('g-ir-scanner', required : get_option('introspection'))
-@@ -190,28 +118,8 @@
+@@ -192,28 +111,8 @@
  pkgconfig = import('pkgconfig')
  gnome = import('gnome')
  
