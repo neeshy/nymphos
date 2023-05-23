@@ -1,0 +1,152 @@
+diff --git a/doc/meson.build b/doc/meson.build
+index 0de4f72..4398e6c 100644
+--- a/doc/meson.build
++++ b/doc/meson.build
+@@ -44,31 +44,32 @@ custom_target('atk-doc',
+ 
+ 
+ ################################ libatspi
+-libatspi_expand_content_files = []
++if not get_option('atk_only')
++  libatspi_expand_content_files = []
+ 
+-libatspi_toml_data = configuration_data()
+-libatspi_toml_data.set('VERSION', meson.project_version())
++  libatspi_toml_data = configuration_data()
++  libatspi_toml_data.set('VERSION', meson.project_version())
+ 
+-libatspi_toml = configure_file(
+-  input: 'libatspi.toml.in',
+-  output: 'libatspi.toml',
+-  configuration: libatspi_toml_data
+-)
+-
+-custom_target('libatspi-doc',
+-  input: [ libatspi_toml, libatspi_gir[0] ],
+-  output: 'libatspi',
+-  command: [
+-    gidocgen,
+-    'generate',
+-    gidocgen_common_args,
+-    '--config=@INPUT0@',
+-    '--output-dir=@OUTPUT@',
+-    '--content-dir=@0@'.format(meson.current_source_dir()),
+-    '@INPUT1@',
+-  ],
+-  install: true,
+-  install_dir: docs_dir,
+-  depend_files: libatspi_expand_content_files,
+-)
++  libatspi_toml = configure_file(
++    input: 'libatspi.toml.in',
++    output: 'libatspi.toml',
++    configuration: libatspi_toml_data
++  )
+ 
++  custom_target('libatspi-doc',
++    input: [ libatspi_toml, libatspi_gir[0] ],
++    output: 'libatspi',
++    command: [
++      gidocgen,
++      'generate',
++      gidocgen_common_args,
++      '--config=@INPUT0@',
++      '--output-dir=@OUTPUT@',
++      '--content-dir=@0@'.format(meson.current_source_dir()),
++      '@INPUT1@',
++    ],
++    install: true,
++    install_dir: docs_dir,
++    depend_files: libatspi_expand_content_files,
++  )
++endif
+diff --git a/meson.build b/meson.build
+index f051f8f..89084dc 100644
+--- a/meson.build
++++ b/meson.build
+@@ -133,8 +133,8 @@ endif
+ 
+ glib_dep = dependency('glib-2.0', version: glib_req_version)
+ gobject_dep = dependency('gobject-2.0', version: gobject_req_version)
+-gio_dep = dependency('gio-2.0', version: gio_req_version)
+ if not get_option('atk_only')
++  gio_dep = dependency('gio-2.0', version: gio_req_version)
+   if cc.has_function('dlopen')
+     dl_dep = []
+   elif cc.has_function('dlopen', args: '-ldl')
+@@ -142,9 +142,9 @@ if not get_option('atk_only')
+   else
+     error('Could not find a library with the dlopen function')
+   endif
++  gmodule_dep = dependency('gmodule-2.0', version: gmodule_req_version)
++  libxml_dep = dependency('libxml-2.0', version: libxml_req_version)
+ endif
+-gmodule_dep = dependency('gmodule-2.0', version: gmodule_req_version)
+-libxml_dep = dependency('libxml-2.0', version: libxml_req_version)
+ 
+ x11_deps = []
+ x11_dep = dependency('x11', required: get_option('x11'))
+@@ -184,6 +184,29 @@ at_spi_conf.set('ALIGNOF_DBIND_STRUCT', cc.alignment('dbind_struct', prefix: 'ty
+ # introspection support
+ gir = find_program('g-ir-scanner', required : get_option('introspection'))
+ have_gir = gir.found() and (not meson.is_cross_build() or get_option('introspection').enabled())
++introspection_sources = [
++  'Accessible.xml',
++  'Action.xml',
++  'Application.xml',
++  'Cache.xml',
++  'Collection.xml',
++  'Component.xml',
++  'DeviceEventController.xml',
++  'DeviceEventListener.xml',
++  'Document.xml',
++  'EditableText.xml',
++  'Event.xml',
++  'Hyperlink.xml',
++  'Hypertext.xml',
++  'Image.xml',
++  'Registry.xml',
++  'Selection.xml',
++  'Socket.xml',
++  'Table.xml',
++  'TableCell.xml',
++  'Text.xml',
++  'Value.xml',
++]
+ 
+ xgettext = find_program('xgettext', required : false)
+ 
+diff --git a/xml/meson.build b/xml/meson.build
+index 9cbc5a4..d6d58e1 100644
+--- a/xml/meson.build
++++ b/xml/meson.build
+@@ -1,29 +1,5 @@
+ generator = find_program('generate-introspection.py')
+ 
+-introspection_sources = [
+-  'Accessible.xml',
+-  'Action.xml',
+-  'Application.xml',
+-  'Cache.xml',
+-  'Collection.xml',
+-  'Component.xml',
+-  'DeviceEventController.xml',
+-  'DeviceEventListener.xml',
+-  'Document.xml',
+-  'EditableText.xml',
+-  'Event.xml',
+-  'Hyperlink.xml',
+-  'Hypertext.xml',
+-  'Image.xml',
+-  'Registry.xml',
+-  'Selection.xml',
+-  'Socket.xml',
+-  'Table.xml',
+-  'TableCell.xml',
+-  'Text.xml',
+-  'Value.xml',
+-]
+-
+ introspection_generated = custom_target(
+   'introspection_generated',
+   input: introspection_sources,
