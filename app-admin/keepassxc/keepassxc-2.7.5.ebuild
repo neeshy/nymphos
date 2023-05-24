@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake flag-o-matic
 
-DESCRIPTION="KeePassXC - KeePass Cross-platform Community Edition"
+DESCRIPTION="KeePassXC - KeePass Cross-platform Community Edition - CLI Only"
 HOMEPAGE="https://keepassxc.org/"
 
 if [[ "${PV}" = 9999 ]] ; then
@@ -43,7 +43,7 @@ BDEPEND="
 	doc? ( dev-ruby/asciidoctor )
 "
 
-PATCHES=( "${FILESDIR}/${P}-only-cli.patch" )
+PATCHES=( "${FILESDIR}/${P}-cli-only.patch" )
 
 src_prepare() {
 	if [[ "${PV}" != 9999 ]] && [[ ! -f .version ]] ; then
