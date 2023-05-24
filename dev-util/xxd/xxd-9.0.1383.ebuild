@@ -26,10 +26,6 @@ src_unpack() {
 	cp "${DISTDIR}/${P}.1" "${PN}.1" || die "cp failed"
 }
 
-src_compile() {
-	emake CC="$(tc-getCC)"
-}
-
 src_install() {
 	dobin "${PN}"
 	doman "${PN}.1"
