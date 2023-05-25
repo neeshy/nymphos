@@ -12,6 +12,8 @@ EGIT_REPO_URI="git://git.suckless.org/ubase"
 LICENSE="MIT"
 SLOT="0"
 
+PATCHES=( "${FILESDIR}" )
+
 src_compile() {
 	emake "${PN}"
 }

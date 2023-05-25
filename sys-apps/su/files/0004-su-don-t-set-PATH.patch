@@ -1,0 +1,37 @@
+From 8e3b662eb0db18f14c3fadb9f5fbc2cf0edd5e12 Mon Sep 17 00:00:00 2001
+From: neeshy <neeshy@tfwno.gf>
+Date: Wed, 24 May 2023 20:41:43 -0400
+Subject: [PATCH 4/4] su: don't set PATH
+
+Just /bin is too restrictive, and login shells set PATH anyway. Also,
+carrying the PATH over for non-login shells is useful.
+---
+ su.c | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/su.c b/su.c
+index b637a91..78f24a7 100644
+--- a/su.c
++++ b/su.c
+@@ -9,7 +9,6 @@
+ #include <string.h>
+ #include <unistd.h>
+ 
+-#include "config.h"
+ #include "passwd.h"
+ #include "util.h"
+ 
+@@ -103,10 +102,6 @@ main(int argc, char *argv[])
+ 		newargv[0] = shell;
+ 		newargv[1] = NULL;
+ 	}
+-	if (strcmp(pw->pw_name, "root") == 0)
+-		setenv("PATH", ENV_SUPATH, 1);
+-	else
+-		setenv("PATH", ENV_PATH, 1);
+ 	execve(shell, newargv, environ);
+ 	weprintf("execve %s:", shell);
+ 	return (errno == ENOENT) ? 127 : 126;
+-- 
+2.40.1
+
