@@ -11,11 +11,12 @@ HOMEPAGE="https://wiki.gnome.org/Accessibility https://gitlab.gnome.org/GNOME/at
 LICENSE="LGPL-2.1+"
 SLOT="2"
 KEYWORDS="amd64"
-IUSE="X dbus gtk-doc +introspection systemd"
+IUSE="X dbus dbus-broker gtk-doc +introspection systemd"
+REQUIRED_USE="dbus-broker? ( dbus systemd )"
 
 RESTRICT="!dbus? ( test )"
 
-RDEPEND="
+DEPEND="
 	>=dev-libs/glib-2.67.4:2[${MULTILIB_USEDEP}]
 	dbus? (
 		>=sys-apps/dbus-1.5[${MULTILIB_USEDEP}]
@@ -31,7 +32,8 @@ RDEPEND="
 
 	!<dev-libs/atk-2.46.0
 	!<app-accessibility/at-spi2-atk-2.46.0"
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}
+	dbus-broker? ( sys-apps/dbus-broker )"
 BDEPEND="
 	dev-util/glib-utils
 	gtk-doc? (
@@ -42,18 +44,15 @@ BDEPEND="
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig"
 
-PATCHES=(
-	"${FILESDIR}/${P}-more-build-fixes.patch"
-	"${FILESDIR}/${P}-build-no-dbus-broker.patch"
-	"${FILESDIR}/${PN}-atk-only-deps.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-atk-only-deps.patch" )
 
 multilib_src_configure() {
 	local emesonargs=(
+		-Ddefault_bus=$(usex dbus-broker dbus-broker dbus-daemon)
+		$(meson_use systemd use_systemd)
 		-Dsystemd_user_dir="$(systemd_get_userunitdir)"
 		$(meson_native_use_bool gtk-doc docs)
 		$(meson_native_use_feature introspection)
-		$(meson_use systemd use_systemd)
 		$(meson_feature X x11)
 		$(meson_native_use_bool !dbus atk_only)
 		-Ddisable_p2p=false
