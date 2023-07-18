@@ -1,8 +1,6 @@
-diff --git a/doc/meson.build b/doc/meson.build
-index 0de4f72..4398e6c 100644
 --- a/doc/meson.build
 +++ b/doc/meson.build
-@@ -44,31 +44,32 @@ custom_target('atk-doc',
+@@ -44,31 +44,32 @@
  
  
  ################################ libatspi
@@ -60,11 +58,9 @@ index 0de4f72..4398e6c 100644
 +    depend_files: libatspi_expand_content_files,
 +  )
 +endif
-diff --git a/meson.build b/meson.build
-index f051f8f..89084dc 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -133,8 +133,8 @@ endif
+@@ -135,8 +135,8 @@
  
  glib_dep = dependency('glib-2.0', version: glib_req_version)
  gobject_dep = dependency('gobject-2.0', version: gobject_req_version)
@@ -74,7 +70,7 @@ index f051f8f..89084dc 100644
    if cc.has_function('dlopen')
      dl_dep = []
    elif cc.has_function('dlopen', args: '-ldl')
-@@ -142,9 +142,9 @@ if not get_option('atk_only')
+@@ -144,9 +144,9 @@
    else
      error('Could not find a library with the dlopen function')
    endif
@@ -86,7 +82,7 @@ index f051f8f..89084dc 100644
  
  x11_deps = []
  x11_dep = dependency('x11', required: get_option('x11'))
-@@ -184,6 +184,29 @@ at_spi_conf.set('ALIGNOF_DBIND_STRUCT', cc.alignment('dbind_struct', prefix: 'ty
+@@ -186,6 +186,29 @@
  # introspection support
  gir = find_program('g-ir-scanner', required : get_option('introspection'))
  have_gir = gir.found() and (not meson.is_cross_build() or get_option('introspection').enabled())
@@ -116,8 +112,6 @@ index f051f8f..89084dc 100644
  
  xgettext = find_program('xgettext', required : false)
  
-diff --git a/xml/meson.build b/xml/meson.build
-index 9cbc5a4..d6d58e1 100644
 --- a/xml/meson.build
 +++ b/xml/meson.build
 @@ -1,29 +1,5 @@
