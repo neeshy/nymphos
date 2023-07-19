@@ -27,7 +27,7 @@ COMMON_DEPEND="
 	>=dev-libs/glib-2.57.2:2[${MULTILIB_USEDEP}]
 	media-libs/fontconfig[${MULTILIB_USEDEP}]
 	>=media-libs/harfbuzz-2.2.0:=
-	>=media-libs/libepoxy-1.4[X(+)?,${MULTILIB_USEDEP}]
+	>=media-libs/libepoxy-1.4[X(+)?,egl(+),${MULTILIB_USEDEP}]
 	virtual/libintl[${MULTILIB_USEDEP}]
 	>=x11-libs/cairo-1.14[aqua?,glib,svg(+),X?,${MULTILIB_USEDEP}]
 	>=x11-libs/gdk-pixbuf-2.30:2[introspection?,${MULTILIB_USEDEP}]
@@ -70,9 +70,14 @@ RDEPEND="${COMMON_DEPEND}
 "
 # librsvg for svg icons (PDEPEND to avoid circular dep), bug #547710
 PDEPEND="
-	adwaita-icon-theme? ( gnome-base/librsvg[${MULTILIB_USEDEP}]
-	  >=x11-themes/adwaita-icon-theme-3.14 )
-	!adwaita-icon-theme? ( x11-themes/hicolor-icon-theme virtual/freedesktop-icon-theme )
+	adwaita-icon-theme? (
+		gnome-base/librsvg[${MULTILIB_USEDEP}]
+		>=x11-themes/adwaita-icon-theme-3.14
+	)
+	!adwaita-icon-theme? (
+		x11-themes/hicolor-icon-theme
+		virtual/freedesktop-icon-theme
+	)
 	vim-syntax? ( app-vim/gtk-syntax )
 "
 BDEPEND="
