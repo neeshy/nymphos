@@ -7,11 +7,10 @@ inherit gnome2 meson-multilib multilib virtualx
 
 DESCRIPTION="Gimp ToolKit +"
 HOMEPAGE="https://www.gtk.org/"
-SRC_URI="${SRC_URI-}"
 
 LICENSE="LGPL-2+"
 SLOT="3"
-IUSE="adwaita-icon-theme aqua atk-bridge broadway cloudproviders colord cups examples gtk-doc +introspection sysprof test vim-syntax wayland +X xinerama"
+IUSE="adwaita-icon-theme aqua broadway cloudproviders colord cups dbus examples gtk-doc +introspection sysprof test vim-syntax wayland +X xinerama"
 REQUIRED_USE="
 	|| ( aqua wayland X )
 	test? ( X )
@@ -22,7 +21,7 @@ RESTRICT="!test? ( test )"
 KEYWORDS="amd64"
 
 COMMON_DEPEND="
-	atk-bridge? ( >=app-accessibility/at-spi2-core-2.46.0[introspection?,${MULTILIB_USEDEP}] )
+	>=app-accessibility/at-spi2-core-2.46.0[dbus?,introspection?,${MULTILIB_USEDEP}]
 	>=dev-libs/fribidi-0.19.7[${MULTILIB_USEDEP}]
 	>=dev-libs/glib-2.57.2:2[${MULTILIB_USEDEP}]
 	media-libs/fontconfig[${MULTILIB_USEDEP}]
@@ -111,9 +110,9 @@ PATCHES=(
 multilib_src_configure() {
 	local emesonargs=(
 		$(meson_use aqua quartz_backend)
-		$(meson_use atk-bridge atk_bridge)
 		$(meson_use broadway broadway_backend)
 		$(meson_use cloudproviders)
+		$(meson_use dbus atk_bridge)
 		$(meson_use examples demos)
 		$(meson_use examples)
 		$(meson_native_use_bool gtk-doc gtk_doc)
