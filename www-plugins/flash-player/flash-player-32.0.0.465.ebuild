@@ -48,7 +48,7 @@ RESTRICT="bindist strip"
 RDEPEND="
 	!www-plugins/chrome-binary-plugins[flash(-)]
 	nsplugin? (
-		dev-libs/atk[${MULTILIB_USEDEP}]
+		>=app-accessibility/at-spi2-core-2.46.0[${MULTILIB_USEDEP}]
 		dev-libs/glib:2[${MULTILIB_USEDEP}]
 		dev-libs/nspr[${MULTILIB_USEDEP}]
 		dev-libs/nss[${MULTILIB_USEDEP}]

@@ -40,7 +40,7 @@ RDEPEND="
 		media-libs/libogg
 		media-libs/libvorbis
 	)
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-sound/libpulse )
 	xinerama? ( x11-libs/libXinerama )"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
