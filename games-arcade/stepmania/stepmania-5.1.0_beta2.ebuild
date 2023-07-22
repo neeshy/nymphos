@@ -15,7 +15,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/v${MY_PV}.tar.gz -> ${MY_P}.tar.
 LICENSE="MIT default-songs? ( CC-BY-NC-4.0 )"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="alsa cpu_flags_x86_sse2 crash-handler +default-songs doc ffmpeg gles2 +gtk jack lto +mp3 networking +ogg oss parport pulseaudio tty wav +xinerama"
+IUSE="alsa cpu_flags_x86_sse2 crash-handler +default-songs doc gles2 +gtk jack lights lto +mp3 networking +ogg oss pulseaudio wav +xinerama"
 REQUIRED_USE="|| ( alsa oss pulseaudio jack )"
 
 RDEPEND="
@@ -32,7 +32,6 @@ RDEPEND="
 	x11-libs/libXext
 	x11-libs/libXrandr
 	alsa? ( media-libs/alsa-lib )
-	ffmpeg? ( media-video/ffmpeg )
 	gtk? ( x11-libs/gtk+:2 )
 	jack? ( media-sound/jack-audio-connection-kit )
 	mp3? ( media-libs/libmad )
@@ -43,8 +42,7 @@ RDEPEND="
 	pulseaudio? ( media-sound/libpulse )
 	xinerama? ( x11-libs/libXinerama )"
 DEPEND="${RDEPEND}
-	doc? ( app-doc/doxygen )
-	ffmpeg? ( || ( dev-lang/nasm dev-lang/yasm ) )"
+	doc? ( app-doc/doxygen )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-include-time.patch"
@@ -54,30 +52,26 @@ PATCHES=(
 S="${WORKDIR}/${MY_P}"
 
 src_configure() {
+	# Incompatible with FFmpeg 4
 	# Minimaid tries to use pre-built static libraries (x86 only, often fails to link)
-	# TTY input fails to compile
+	# Fails to compile with TTY input enabled
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX=/opt
 		-DWITH_FULL_RELEASE=NO
 		-DWITH_LTO="$(usex lto)"
-		-DWITH_GPL_LIBS=YES
-		-DWITH_PROFILING=NO
 		-DWITH_XINERAMA="$(usex xinerama)"
 		-DWITH_ALSA="$(usex alsa)"
 		-DWITH_OSS="$(usex oss)"
 		-DWITH_PULSEAUDIO="$(usex pulseaudio)"
 		-DWITH_JACK="$(usex jack)"
-		-DWITH_FFMPEG="$(usex ffmpeg)"
-		-DWITH_SYSTEM_FFMPEG="$(usex ffmpeg)"
+		-DWITH_FFMPEG=NO
 		-DWITH_MP3="$(usex mp3)"
 		-DWITH_OGG="$(usex ogg)"
 		-DWITH_WAV="$(usex wav)"
 		-DWITH_GLES2="$(usex gles2)"
 		-DWITH_GTK2="$(usex gtk)"
-		-DWITH_PORTABLE_TOMCRYPT=YES
 		-DWITH_NETWORKING="$(usex networking)"
-		-DWITH_PARALLEL_PORT="$(usex parport)"
-		-DWITH_TTY="$(usex tty)"
+		-DWITH_PARALLEL_PORT="$(usex lights)"
 		-DWITH_CRASH_HANDLER="$(usex crash-handler)"
 		-DWITH_SSE2="$(usex cpu_flags_x86_sse2)"
 		-DWITH_MINIMAID=NO
