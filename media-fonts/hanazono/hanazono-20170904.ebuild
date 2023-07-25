@@ -8,10 +8,10 @@ inherit font
 S_DIR="68253"
 
 DESCRIPTION="Hanazono font is a Japanese mincho font based on GlyphWiki"
-HOMEPAGE="https://osdn.net/projects/${PN}"
-SRC_URI="${HOMEPAGE}/downloads/${S_DIR}/hanazono-${PV}.zip"
+HOMEPAGE="https://osdn.net/projects/${PN}-font"
+SRC_URI="${HOMEPAGE}/downloads/${S_DIR}/${P}.zip"
 
-LICENSE="OFL-1.1 ${PN}"
+LICENSE="OFL-1.1 ${PN}-font"
 SLOT="0"
 KEYWORDS="amd64"
 
