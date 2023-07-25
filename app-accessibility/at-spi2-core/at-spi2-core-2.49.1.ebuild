@@ -50,7 +50,7 @@ multilib_src_configure() {
 	local emesonargs=(
 		-Ddefault_bus=$(usex dbus-broker dbus-broker dbus-daemon)
 		$(meson_use systemd use_systemd)
-		-Dsystemd_user_dir="$(systemd_get_userunitdir)"
+		-Dsystemd_user_dir=$(systemd_get_userunitdir)
 		$(meson_native_use_bool gtk-doc docs)
 		$(meson_native_use_feature introspection)
 		$(meson_feature X x11)
