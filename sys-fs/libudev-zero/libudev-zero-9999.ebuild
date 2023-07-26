@@ -17,7 +17,7 @@ LICENSE="ISC"
 SLOT="0"
 
 RDEPEND="
-	!sys-apps/systemd
+	!sys-apps/systemd-utils[udev]
 	!sys-fs/eudev
 	!sys-fs/udev"
 DEPEND="sys-kernel/linux-headers"
