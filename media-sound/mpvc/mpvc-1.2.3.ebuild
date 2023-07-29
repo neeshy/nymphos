@@ -4,53 +4,52 @@
 EAPI=8
 
 CRATES="
-	aho-corasick-1.0.1
-	anstream-0.3.1
-	anstyle-1.0.0
-	anstyle-parse-0.2.0
+	aho-corasick-1.0.2
+	anstream-0.3.2
+	anstyle-1.0.1
+	anstyle-parse-0.2.1
 	anstyle-query-1.0.0
 	anstyle-wincon-1.0.1
-	atty-0.2.14
 	bitflags-1.3.2
+	bitflags-2.3.3
 	cc-1.0.79
 	cfg-if-1.0.0
-	clap-4.2.7
-	clap_builder-4.2.7
-	clap_lex-0.4.1
+	clap-4.3.19
+	clap_builder-4.3.19
+	clap_lex-0.5.0
 	colorchoice-1.0.0
-	colored-2.0.0
+	colored-2.0.4
 	crossbeam-channel-0.5.8
-	crossbeam-utils-0.8.15
+	crossbeam-utils-0.8.16
 	env_logger-0.10.0
 	errno-0.3.1
 	errno-dragonfly-0.1.2
 	filetime-0.2.21
 	fsevent-sys-4.1.0
-	hermit-abi-0.1.19
-	hermit-abi-0.3.1
+	hermit-abi-0.3.2
 	humantime-2.1.0
 	inotify-0.9.6
 	inotify-sys-0.1.5
-	io-lifetimes-1.0.10
-	is-terminal-0.4.7
-	itoa-1.0.6
+	is-terminal-0.4.9
+	itoa-1.0.9
 	kqueue-1.0.7
 	kqueue-sys-1.0.3
 	lazy_static-1.4.0
-	libc-0.2.142
-	linux-raw-sys-0.3.4
-	log-0.4.17
+	libc-0.2.147
+	linux-raw-sys-0.4.3
+	log-0.4.19
 	memchr-2.5.0
-	mio-0.8.6
-	notify-5.1.0
+	mio-0.8.8
+	notify-6.0.1
 	redox_syscall-0.2.16
-	regex-1.8.1
-	regex-syntax-0.7.1
-	rustix-0.37.15
-	ryu-1.0.13
+	regex-1.9.1
+	regex-automata-0.3.4
+	regex-syntax-0.7.4
+	rustix-0.38.4
+	ryu-1.0.15
 	same-file-1.0.6
-	serde-1.0.163
-	serde_json-1.0.96
+	serde-1.0.178
+	serde_json-1.0.104
 	strsim-0.10.0
 	termcolor-1.2.0
 	utf8parse-0.2.1
@@ -60,11 +59,10 @@ CRATES="
 	winapi-i686-pc-windows-gnu-0.4.0
 	winapi-util-0.1.5
 	winapi-x86_64-pc-windows-gnu-0.4.0
-	windows-sys-0.42.0
 	windows-sys-0.45.0
 	windows-sys-0.48.0
 	windows-targets-0.42.2
-	windows-targets-0.48.0
+	windows-targets-0.48.1
 	windows_aarch64_gnullvm-0.42.2
 	windows_aarch64_gnullvm-0.48.0
 	windows_aarch64_msvc-0.42.2
