@@ -12,7 +12,7 @@ CRATES="
 	anstyle-wincon-1.0.1
 	bitflags-1.3.2
 	bitflags-2.3.3
-	cc-1.0.79
+	cc-1.0.81
 	cfg-if-1.0.0
 	clap-4.3.19
 	clap_builder-4.3.19
@@ -22,7 +22,7 @@ CRATES="
 	crossbeam-channel-0.5.8
 	crossbeam-utils-0.8.16
 	env_logger-0.10.0
-	errno-0.3.1
+	errno-0.3.2
 	errno-dragonfly-0.1.2
 	filetime-0.2.21
 	fsevent-sys-4.1.0
@@ -36,7 +36,7 @@ CRATES="
 	kqueue-sys-1.0.3
 	lazy_static-1.4.0
 	libc-0.2.147
-	linux-raw-sys-0.4.3
+	linux-raw-sys-0.4.5
 	log-0.4.19
 	memchr-2.5.0
 	mio-0.8.8
@@ -45,10 +45,10 @@ CRATES="
 	regex-1.9.1
 	regex-automata-0.3.4
 	regex-syntax-0.7.4
-	rustix-0.38.4
+	rustix-0.38.6
 	ryu-1.0.15
 	same-file-1.0.6
-	serde-1.0.178
+	serde-1.0.181
 	serde_json-1.0.104
 	strsim-0.10.0
 	termcolor-1.2.0
