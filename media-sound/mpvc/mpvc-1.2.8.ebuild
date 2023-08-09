@@ -9,13 +9,13 @@ CRATES="
 	anstyle-1.0.1
 	anstyle-parse-0.2.1
 	anstyle-query-1.0.0
-	anstyle-wincon-1.0.1
+	anstyle-wincon-1.0.2
 	bitflags-1.3.2
 	bitflags-2.3.3
-	cc-1.0.81
+	cc-1.0.82
 	cfg-if-1.0.0
-	clap-4.3.19
-	clap_builder-4.3.19
+	clap-4.3.21
+	clap_builder-4.3.21
 	clap_lex-0.5.0
 	colorchoice-1.0.0
 	colored-2.0.4
@@ -24,7 +24,7 @@ CRATES="
 	env_logger-0.10.0
 	errno-0.3.2
 	errno-dragonfly-0.1.2
-	filetime-0.2.21
+	filetime-0.2.22
 	fsevent-sys-4.1.0
 	hermit-abi-0.3.2
 	humantime-2.1.0
@@ -32,8 +32,8 @@ CRATES="
 	inotify-sys-0.1.5
 	is-terminal-0.4.9
 	itoa-1.0.9
-	kqueue-1.0.7
-	kqueue-sys-1.0.3
+	kqueue-1.0.8
+	kqueue-sys-1.0.4
 	lazy_static-1.4.0
 	libc-0.2.147
 	linux-raw-sys-0.4.5
@@ -41,14 +41,14 @@ CRATES="
 	memchr-2.5.0
 	mio-0.8.8
 	notify-6.0.1
-	redox_syscall-0.2.16
-	regex-1.9.1
-	regex-automata-0.3.4
+	redox_syscall-0.3.5
+	regex-1.9.3
+	regex-automata-0.3.6
 	regex-syntax-0.7.4
-	rustix-0.38.6
+	rustix-0.38.7
 	ryu-1.0.15
 	same-file-1.0.6
-	serde-1.0.181
+	serde-1.0.183
 	serde_json-1.0.104
 	strsim-0.10.0
 	termcolor-1.2.0
