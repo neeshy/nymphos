@@ -90,3 +90,12 @@ SLOT="0"
 KEYWORDS="amd64"
 
 RDEPEND="media-video/mpv"
+
+src_configure() {
+	cargo_src_configure --bins --examples
+}
+
+src_install() {
+	cargo_src_install
+	dobin examples/mpvc-fzf
+}
