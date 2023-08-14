@@ -4,14 +4,14 @@
 EAPI=8
 
 CRATES="
-	aho-corasick-1.0.2
+	aho-corasick-1.0.3
 	anstream-0.3.2
 	anstyle-1.0.1
 	anstyle-parse-0.2.1
 	anstyle-query-1.0.0
 	anstyle-wincon-1.0.2
 	bitflags-1.3.2
-	bitflags-2.3.3
+	bitflags-2.4.0
 	cc-1.0.82
 	cfg-if-1.0.0
 	clap-4.3.21
@@ -37,7 +37,7 @@ CRATES="
 	lazy_static-1.4.0
 	libc-0.2.147
 	linux-raw-sys-0.4.5
-	log-0.4.19
+	log-0.4.20
 	memchr-2.5.0
 	mio-0.8.8
 	notify-6.0.1
@@ -45,7 +45,7 @@ CRATES="
 	regex-1.9.3
 	regex-automata-0.3.6
 	regex-syntax-0.7.4
-	rustix-0.38.7
+	rustix-0.38.8
 	ryu-1.0.15
 	same-file-1.0.6
 	serde-1.0.183
