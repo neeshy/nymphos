@@ -44,7 +44,7 @@ PATCHES=( "${FILESDIR}/${P}-cli-only.patch" )
 
 src_prepare() {
 	if [[ "${PV}" != 9999 ]] && [[ ! -f .version ]] ; then
-		echo "${PV}" >.version || die
+		printf '%s' "${PV}" >.version || die
 	fi
 
 	cmake_src_prepare

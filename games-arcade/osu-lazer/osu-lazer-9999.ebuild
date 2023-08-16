@@ -35,7 +35,7 @@ src_compile() {
 		--use-current-runtime \
 		--no-self-contained \
 		--output output \
-		$([[ "${PV}" = 9999 ]] || echo /property:Version="${PV}")
+		$([[ "${PV}" = 9999 ]] || printf '/property:Version=%s' "${PV}")
 }
 
 src_install() {

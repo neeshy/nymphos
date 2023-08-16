@@ -30,8 +30,8 @@ src_prepare() {
 src_configure() {
 	use static && append-ldflags -static
 
-	echo "$(tc-getCC)" "${CFLAGS}" >conf-cc
-	echo "$(tc-getCC)" "${LDFLAGS}" >conf-ld
+	printf '%s %s' "$(tc-getCC)" "${CFLAGS}" >conf-cc
+	printf '%s %s' "$(tc-getCC)" "${LDFLAGS}" >conf-ld
 }
 
 src_install() {
