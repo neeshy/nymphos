@@ -29,13 +29,15 @@ DEPEND="virtual/dotnet-sdk:6.0"
 PATCHES=( "${FILESDIR}/${P}-online.patch" )
 
 src_compile() {
+	local mydotnetargs=()
+	[[ "${PV}" = 9999 ]] || mydotnetargs+=(/property:Version="${PV}")
 	DOTNET_CLI_TELEMETRY_OPTOUT="1" dotnet publish osu.Desktop \
 		--framework net6.0 \
 		--configuration Release \
 		--use-current-runtime \
 		--no-self-contained \
 		--output output \
-		$([[ "${PV}" = 9999 ]] || printf '/property:Version=%s' "${PV}")
+		"${mydotnetargs[@]}"
 }
 
 src_install() {
