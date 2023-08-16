@@ -60,7 +60,7 @@
 -
  set(KEEPASSXC_VERSION_MAJOR "2")
  set(KEEPASSXC_VERSION_MINOR "7")
- set(KEEPASSXC_VERSION_PATCH "5")
+ set(KEEPASSXC_VERSION_PATCH "6")
 @@ -489,26 +451,7 @@
  
  include(CLangFormat)
@@ -554,7 +554,7 @@
 -        # install OpenSSL library
 -        if(WITH_XC_NETWORKING)
 -            find_file(OPENSSL_DLL
--                    NAMES libssl-1_1.dll libssl-1_1-x64.dll
+-                    NAMES libssl-3.dll libssl-3-x64.dll
 -                    HINTS "${OPENSSL_ROOT_DIR}/bin"
 -                    )
 -            if (NOT OPENSSL_DLL)
@@ -562,7 +562,7 @@
 -            endif()
 -
 -            find_file(CRYPTO_DLL
--                    NAMES libcrypto-1_1.dll libcrypto-1_1-x64.dll
+-                    NAMES libcrypto-3.dll libcrypto-3-x64.dll
 -                    HINTS "${OPENSSL_ROOT_DIR}/bin"
 -                    )
 -            if (NOT CRYPTO_DLL)
