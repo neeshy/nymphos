@@ -6,7 +6,7 @@ EAPI=8
 CRATES="
 	aho-corasick-1.0.4
 	anstream-0.3.2
-	anstyle-1.0.1
+	anstyle-1.0.2
 	anstyle-parse-0.2.1
 	anstyle-query-1.0.0
 	anstyle-wincon-1.0.2
@@ -14,8 +14,8 @@ CRATES="
 	bitflags-2.4.0
 	cc-1.0.83
 	cfg-if-1.0.0
-	clap-4.3.23
-	clap_builder-4.3.23
+	clap-4.3.24
+	clap_builder-4.3.24
 	clap_lex-0.5.0
 	colorchoice-1.0.0
 	colored-2.0.4
@@ -40,7 +40,7 @@ CRATES="
 	log-0.4.20
 	memchr-2.5.0
 	mio-0.8.8
-	notify-6.1.0
+	notify-6.1.1
 	redox_syscall-0.3.5
 	regex-1.9.3
 	regex-automata-0.3.6
