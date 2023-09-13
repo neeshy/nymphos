@@ -5,18 +5,18 @@ EAPI=8
 
 CRATES="
 	aho-corasick-1.0.4
-	anstream-0.3.2
+	anstream-0.5.0
 	anstyle-1.0.2
 	anstyle-parse-0.2.1
 	anstyle-query-1.0.0
-	anstyle-wincon-1.0.2
+	anstyle-wincon-2.1.0
 	bitflags-1.3.2
 	bitflags-2.4.0
 	cc-1.0.83
 	cfg-if-1.0.0
-	clap-4.3.24
-	clap_builder-4.3.24
-	clap_lex-0.5.0
+	clap-4.4.3
+	clap_builder-4.4.2
+	clap_lex-0.5.1
 	colorchoice-1.0.0
 	colored-2.0.4
 	crossbeam-channel-0.5.8
@@ -41,6 +41,8 @@ CRATES="
 	memchr-2.5.0
 	mio-0.8.8
 	notify-6.1.1
+	proc-macro2-1.0.66
+	quote-1.0.33
 	redox_syscall-0.3.5
 	regex-1.9.3
 	regex-automata-0.3.6
@@ -48,10 +50,13 @@ CRATES="
 	rustix-0.38.8
 	ryu-1.0.15
 	same-file-1.0.6
-	serde-1.0.171
-	serde_json-1.0.105
+	serde-1.0.188
+	serde_derive-1.0.188
+	serde_json-1.0.106
 	strsim-0.10.0
+	syn-2.0.29
 	termcolor-1.2.0
+	unicode-ident-1.0.11
 	utf8parse-0.2.1
 	walkdir-2.3.3
 	wasi-0.11.0+wasi-snapshot-preview1
@@ -71,7 +76,7 @@ CRATES="
 
 inherit cargo
 
-DESCRIPTION="An mpc-like cli tool for mpv"
+DESCRIPTION="An mpc-like CLI tool for mpv"
 HOMEPAGE="https://github.com/neeshy/${PN}"
 SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	$(cargo_crate_uris)"
