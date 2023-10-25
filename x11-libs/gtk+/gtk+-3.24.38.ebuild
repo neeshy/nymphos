@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit gnome2 meson-multilib multilib virtualx
+inherit gnome2 meson-multilib multilib toolchain-funcs virtualx
 
 DESCRIPTION="Gimp ToolKit +"
 HOMEPAGE="https://www.gtk.org/"
@@ -95,6 +95,7 @@ BDEPEND="
 		app-text/docbook-xml-dtd:4.3
 		>=dev-util/gtk-doc-1.20
 	)
+	test? ( sys-apps/dbus )
 "
 
 MULTILIB_CHOST_TOOLS=(
@@ -106,6 +107,19 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.24.36-update-icon-cache.patch
 	"${FILESDIR}"/${PN}-3.24.38-atk-bridge.patch
 )
+
+src_prepare() {
+	default
+
+	# The border-image-excess-size.ui test is known to fail on big-endian platforms
+	# See https://gitlab.gnome.org/GNOME/gtk/-/issues/5904
+	if [[ $(tc-endian) == big ]]; then
+		sed -i \
+			-e "/border-image-excess-size.ui/d" \
+			-e "/^xfails =/a 'border-image-excess-size.ui'," \
+			testsuite/reftests/meson.build || die
+	fi
+}
 
 multilib_src_configure() {
 	local emesonargs=(
@@ -139,7 +153,7 @@ multilib_src_compile() {
 }
 
 multilib_src_test() {
-	virtx meson_src_test
+	virtx dbus-run-session meson test -C "${BUILD_DIR}" || die
 }
 
 multilib_src_install() {
