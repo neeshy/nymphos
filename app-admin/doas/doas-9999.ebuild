@@ -12,7 +12,7 @@ EGIT_REPO_URI="${HOMEPAGE}.git"
 LICENSE="ISC"
 SLOT="0"
 
-DEPEND="virtual/yacc"
+DEPEND="app-alternatives/yacc"
 
 export STATE_DIR="${STATE_DIR:-/var/cache/${PN}}"
 

@@ -6,7 +6,7 @@ EAPI=8
 inherit toolchain-funcs
 
 DESCRIPTION="Reads product/serial number from ATA drives"
-HOMEPAGE="https://www.freedesktop.org/wiki/Software/systemd"
+HOMEPAGE="https://systemd.io/"
 
 LICENSE="GPL-2+"
 SLOT="0"
