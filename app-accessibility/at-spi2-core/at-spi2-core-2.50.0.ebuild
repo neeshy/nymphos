@@ -55,7 +55,6 @@ multilib_src_configure() {
 		$(meson_native_use_feature introspection)
 		$(meson_feature X x11)
 		$(meson_native_use_bool !dbus atk_only)
-		-Ddisable_p2p=false
 	)
 	meson_src_configure
 }
