@@ -1,0 +1,11 @@
+--- a/qb/qb.params.sh
++++ b/qb/qb.params.sh
+@@ -130,7 +130,7 @@
+ 			;;
+ 			-h|--help) print_help; exit 0;;
+ 			--) break ;;
+-			'') : ;;
++			''|--infodir=*|--datadir=*|--localstatedir=*|--libdir=*) : ;;
+ 			*) die 1 "Unknown option $1";;
+ 		esac
+ 		shift

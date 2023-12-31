@@ -86,14 +86,7 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	vulkan? ( dev-util/vulkan-headers )"
 
-src_prepare() {
-	default
-
-	# RetroArch's configure is shell script, not autoconf one
-	# However it tryes to mimic autoconf configure options
-	sed -i 's#\(''\))\( : ;;\)#\1|--infodir=*|--datadir=*|--localstatedir=*|--libdir=*)\2#g' \
-		qb/qb.params.sh || die
-}
+PATCHES=( "${FILESDIR}/${PN}-configure-params.patch" )
 
 src_configure() {
 	if use cg; then
