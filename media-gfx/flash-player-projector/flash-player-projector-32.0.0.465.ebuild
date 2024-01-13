@@ -32,7 +32,7 @@ S="${WORKDIR}"
 
 QA_PREBUILT="usr/*"
 
-src_install(){
+src_install() {
 	if use debug; then
 		dobin flashplayerdebugger
 	else
