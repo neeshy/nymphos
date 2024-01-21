@@ -40,7 +40,7 @@ COMMON_DEPEND="
 	sysprof? ( >=dev-util/sysprof-capture-3.33.2:3[${MULTILIB_USEDEP}] )
 	wayland? (
 		>=dev-libs/wayland-1.14.91[${MULTILIB_USEDEP}]
-		>=dev-libs/wayland-protocols-1.21
+		>=dev-libs/wayland-protocols-1.32
 		media-libs/mesa[wayland,${MULTILIB_USEDEP}]
 		>=x11-libs/libxkbcommon-0.2[${MULTILIB_USEDEP}]
 	)
@@ -99,6 +99,9 @@ MULTILIB_CHOST_TOOLS=(
 )
 
 PATCHES=(
+	# Upstream gtk-3-24 branch regression fixes and tests compile compat for modern C
+	"${FILESDIR}"/${PV}-gdkscreen-x11-fixes.patch
+	"${FILESDIR}"/${PV}-test-casts-gcc14.patch
 	# gtk-update-icon-cache is installed by dev-util/gtk-update-icon-cache
 	"${FILESDIR}"/${PN}-3.24.36-update-icon-cache.patch
 	"${FILESDIR}"/${PN}-3.24.38-atk-bridge.patch
