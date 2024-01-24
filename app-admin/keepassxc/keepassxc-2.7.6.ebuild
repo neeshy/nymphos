@@ -8,7 +8,7 @@ inherit cmake flag-o-matic
 DESCRIPTION="KeePassXC - KeePass Cross-platform Community Edition - CLI Only"
 HOMEPAGE="https://keepassxc.org/"
 
-if [[ "${PV}" = 9999 ]] ; then
+if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/keepassxreboot/${PN}.git"
 else
@@ -43,7 +43,7 @@ BDEPEND="
 PATCHES=( "${FILESDIR}/${P}-cli-only.patch" )
 
 src_prepare() {
-	if [[ "${PV}" != 9999 ]] && [[ ! -f .version ]] ; then
+	if [[ "${PV}" != 9999 ]] && [[ ! -f .version ]]; then
 		printf '%s' "${PV}" >.version || die
 	fi
 
@@ -55,9 +55,6 @@ src_configure() {
 	filter-lto
 
 	local mycmakeargs=(
-		# Gentoo users enable ccache via e.g. FEATURES=ccache or
-		# other means. We don't want the build system to enable it for us.
-		-DWITH_CCACHE=OFF
 		-DWITH_TESTS="$(usex test)"
 		-DWITH_XC_DOCS="$(usex doc)"
 		-DWITH_XC_YUBIKEY="$(usex yubikey)"

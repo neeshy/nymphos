@@ -90,7 +90,7 @@ PATCHES=( "${FILESDIR}/${PN}-configure-params.patch" )
 
 src_configure() {
 	if use cg; then
-		append-ldflags -L/opt/nvidia-cg-toolkit/$(get_libdir)
+		append-ldflags -L/opt/nvidia-cg-toolkit/"$(get_libdir)"
 		append-cppflags -I/opt/nvidia-cg-toolkit/include
 	fi
 
@@ -108,46 +108,46 @@ src_configure() {
 		--disable-rsound \
 		--disable-vg \
 		--disable-videocore \
-		$(use_enable alsa) \
-		$(use_enable cdrom) \
-		$(use_enable cg) \
-		$(use_enable cpu_flags_x86_sse2 sse) \
-		$(use_enable dbus) \
-		$(use_enable drm plain_drm) \
-		$(use_enable egl) \
-		$(use_enable ffmpeg) \
-		$(use_enable flac) \
-		$(use_enable gles2 opengles) \
-		$(use_enable gles3 opengles3) \
-		$(use_enable gles3_1 opengles3_1) \
-		$(use_enable gles3_2 opengles3_2) \
-		$(use_enable jack) \
-		$(use_enable kms) \
-		$(use_enable libass ssa) \
-		$(use_enable libcaca caca) \
-		$(use_enable libusb) \
-		$(use_enable network networking) \
-		$(use_enable openal al) \
-		$(use_enable opengl) \
-		$(use_enable opengl_core) \
-		$(use_enable osmesa) \
-		$(use_enable parport) \
-		$(use_enable pulseaudio pulse) \
-		$(use_enable qt5 qt) \
-		$(use_enable sdl) \
-		$(use_enable sdl2) \
-		$(use_enable sixel) \
-		$(use_enable ssl) \
-		$(use_enable systemd) \
-		$(use_enable tinyalsa) \
-		$(use_enable truetype freetype) \
-		$(use_enable udev) \
-		$(use_enable v4l2) \
-		$(use_enable vulkan) \
-		$(use_enable wayland) \
-		$(use_enable xinerama) \
-		$(use_enable xrandr) \
-		$(use_enable xv xvideo) \
-		$(use_enable X x11) \
-		$(use_enable zlib)
+		"$(use_enable alsa)" \
+		"$(use_enable cdrom)" \
+		"$(use_enable cg)" \
+		"$(use_enable cpu_flags_x86_sse2 sse)" \
+		"$(use_enable dbus)" \
+		"$(use_enable drm plain_drm)" \
+		"$(use_enable egl)" \
+		"$(use_enable ffmpeg)" \
+		"$(use_enable flac)" \
+		"$(use_enable gles2 opengles)" \
+		"$(use_enable gles3 opengles3)" \
+		"$(use_enable gles3_1 opengles3_1)" \
+		"$(use_enable gles3_2 opengles3_2)" \
+		"$(use_enable jack)" \
+		"$(use_enable kms)" \
+		"$(use_enable libass ssa)" \
+		"$(use_enable libcaca caca)" \
+		"$(use_enable libusb)" \
+		"$(use_enable network networking)" \
+		"$(use_enable openal al)" \
+		"$(use_enable opengl)" \
+		"$(use_enable opengl_core)" \
+		"$(use_enable osmesa)" \
+		"$(use_enable parport)" \
+		"$(use_enable pulseaudio pulse)" \
+		"$(use_enable qt5 qt)" \
+		"$(use_enable sdl)" \
+		"$(use_enable sdl2)" \
+		"$(use_enable sixel)" \
+		"$(use_enable ssl)" \
+		"$(use_enable systemd)" \
+		"$(use_enable tinyalsa)" \
+		"$(use_enable truetype freetype)" \
+		"$(use_enable udev)" \
+		"$(use_enable v4l2)" \
+		"$(use_enable vulkan)" \
+		"$(use_enable wayland)" \
+		"$(use_enable xinerama)" \
+		"$(use_enable xrandr)" \
+		"$(use_enable xv xvideo)" \
+		"$(use_enable X x11)" \
+		"$(use_enable zlib)"
 }
