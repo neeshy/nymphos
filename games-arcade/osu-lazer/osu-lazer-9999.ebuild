@@ -3,14 +3,17 @@
 
 EAPI=8
 
-DESCRIPTION="rhythm is just a *click* away!"
+DESCRIPTION="A free-to-win rhythm game. Rhythm is just a *click* away!"
 HOMEPAGE="https://osu.ppy.sh/"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ppy/osu.git"
+	DOTNET_VERSION="8.0"
 else
 	SRC_URI="https://github.com/ppy/osu/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	DOTNET_VERSION="6.0"
 	KEYWORDS="amd64"
+	PATCHES=( "${FILESDIR}/${P}-online.patch" )
 	S="${WORKDIR}/osu-${PV}"
 fi
 
@@ -19,20 +22,17 @@ SLOT="0"
 
 RESTRICT="network-sandbox"
 
-RDEPEND="
+DEPEND="virtual/dotnet-sdk:${DOTNET_VERSION}"
+RDEPEND="${DEPEND}
 	media-libs/libsdl2
 	media-video/ffmpeg
-	virtual/dotnet-sdk:6.0
 	virtual/opengl"
-DEPEND="virtual/dotnet-sdk:6.0"
-
-PATCHES=( "${FILESDIR}/${P}-online.patch" )
 
 src_compile() {
 	local mydotnetargs=()
 	[[ "${PV}" = 9999 ]] || mydotnetargs+=(/property:Version="${PV}")
 	DOTNET_CLI_TELEMETRY_OPTOUT="1" dotnet publish osu.Desktop \
-		--framework net6.0 \
+		--framework "net${DOTNET_VERSION}" \
 		--configuration Release \
 		--use-current-runtime \
 		--no-self-contained \
