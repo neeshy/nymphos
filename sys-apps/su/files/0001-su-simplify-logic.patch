@@ -1,4 +1,4 @@
-From b38a93cf4fdadb675f2f4ce608e671c9225bc8f3 Mon Sep 17 00:00:00 2001
+From e3d919bbb2a53060c25f04957b750465ce60086a Mon Sep 17 00:00:00 2001
 From: neeshy <neeshy@tfwno.gf>
 Date: Wed, 24 May 2023 20:29:50 -0400
 Subject: [PATCH 1/4] su: simplify logic
@@ -122,5 +122,5 @@ index 329238f..bc7a94f 100644
 +	return (errno == ENOENT) ? 127 : 126;
 +}
 -- 
-2.40.1
+2.43.0
 

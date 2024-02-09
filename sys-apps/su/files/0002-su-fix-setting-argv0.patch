@@ -1,8 +1,10 @@
-From e4e84444d74bf025ad5f20ad4b50eef8abb3214e Mon Sep 17 00:00:00 2001
+From 34b801ea6637aa210f0fa55527dd242c7903a3f3 Mon Sep 17 00:00:00 2001
 From: neeshy <neeshy@tfwno.gf>
 Date: Wed, 24 May 2023 20:30:56 -0400
 Subject: [PATCH 2/4] su: fix setting argv0
 
+argv0 was being set to the user's login shell even when -p was
+specified. Only populate newargv once the shell is properly determined.
 ---
  su.c | 10 +++++-----
  1 file changed, 5 insertions(+), 5 deletions(-)
@@ -44,5 +46,5 @@ index bc7a94f..812aa43 100644
  	if (strcmp(pw->pw_name, "root") == 0)
  		setenv("PATH", ENV_SUPATH, 1);
 -- 
-2.40.1
+2.43.0
 

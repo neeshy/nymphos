@@ -1,16 +1,29 @@
-From 8e3b662eb0db18f14c3fadb9f5fbc2cf0edd5e12 Mon Sep 17 00:00:00 2001
+From a28669643d645d923d260bd282e4051e7e2ea2da Mon Sep 17 00:00:00 2001
 From: neeshy <neeshy@tfwno.gf>
 Date: Wed, 24 May 2023 20:41:43 -0400
-Subject: [PATCH 4/4] su: don't set PATH
+Subject: [PATCH 4/4] su: don't set $PATH
 
-Just /bin is too restrictive, and login shells set PATH anyway. Also,
-carrying the PATH over for non-login shells is useful.
+Just /bin is too restrictive, and login shells set the path anyway via
+the default profile. Also, carrying the path over for non-login shells
+conforms to the behavior of util-linux's su.
 ---
- su.c | 5 -----
- 1 file changed, 5 deletions(-)
+ config.def.h | 1 -
+ su.c         | 5 -----
+ 2 files changed, 6 deletions(-)
 
+diff --git a/config.def.h b/config.def.h
+index 577833e..257cfac 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -1,6 +1,5 @@
+ /* See LICENSE file for copyright and license details. */
+ 
+-#define ENV_SUPATH	"/bin"
+ #define ENV_PATH	"/bin"
+ #define PW_CIPHER	"$6$"	/* SHA-512 */
+ #undef UTMP_PATH
 diff --git a/su.c b/su.c
-index b637a91..78f24a7 100644
+index 4fc3c04..4fc72e8 100644
 --- a/su.c
 +++ b/su.c
 @@ -9,7 +9,6 @@
@@ -21,7 +34,7 @@ index b637a91..78f24a7 100644
  #include "passwd.h"
  #include "util.h"
  
-@@ -103,10 +102,6 @@ main(int argc, char *argv[])
+@@ -104,10 +103,6 @@ main(int argc, char *argv[])
  		newargv[0] = shell;
  		newargv[1] = NULL;
  	}
@@ -33,5 +46,5 @@ index b637a91..78f24a7 100644
  	weprintf("execve %s:", shell);
  	return (errno == ENOENT) ? 127 : 126;
 -- 
-2.40.1
+2.43.0
 
