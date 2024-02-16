@@ -31,6 +31,6 @@ src_install() {
 	emake INSTALL_ROOT="${D}" install
 	# remove unwanted styles and cmake files
 	rm -f \
-		"${ED}/usr/$(get_libdir)"/qt5/plugins/styles/lib{bb10styleplugin,qcleanlooksstyle,qmotifstyle,qplastiquestyle}.so \
-		"${ED}/usr/$(get_libdir)"/cmake/Qt5Widgets/Qt5Widgets_{QBB10StylePlugin,QCleanlooksStylePlugin,QMotifStylePlugin,QPlastiqueStylePlugin}.cmake
+		"${ED}"/usr/"$(get_libdir)"/qt5/plugins/styles/lib{bb10styleplugin,qcleanlooksstyle,qmotifstyle,qplastiquestyle}.so \
+		"${ED}"/usr/"$(get_libdir)"/cmake/Qt5Widgets/Qt5Widgets_{QBB10StylePlugin,QCleanlooksStylePlugin,QMotifStylePlugin,QPlastiqueStylePlugin}.cmake
 }
