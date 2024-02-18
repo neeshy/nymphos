@@ -34,6 +34,3 @@ index 812aa43..4fc3c04 100644
  		} else {
  			setenv("HOME", pw->pw_dir, 1);
  			setenv("SHELL", shell, 1);
--- 
-2.43.0
-

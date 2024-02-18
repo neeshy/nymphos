@@ -45,6 +45,3 @@ index bc7a94f..812aa43 100644
  	}
  	if (strcmp(pw->pw_name, "root") == 0)
  		setenv("PATH", ENV_SUPATH, 1);
--- 
-2.43.0
-

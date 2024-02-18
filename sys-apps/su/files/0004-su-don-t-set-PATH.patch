@@ -45,6 +45,3 @@ index 4fc3c04..4fc72e8 100644
  	execve(shell, newargv, environ);
  	weprintf("execve %s:", shell);
  	return (errno == ENOENT) ? 127 : 126;
--- 
-2.43.0
-

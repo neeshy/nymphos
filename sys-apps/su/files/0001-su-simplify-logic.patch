@@ -121,6 +121,3 @@ index 329238f..bc7a94f 100644
 +	weprintf("execve %s:", shell);
 +	return (errno == ENOENT) ? 127 : 126;
 +}
--- 
-2.43.0
-
