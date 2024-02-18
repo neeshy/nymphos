@@ -8,7 +8,7 @@ inherit toolchain-funcs
 DESCRIPTION="The simplest script for suspending to memory"
 HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
 
-LICENSE="WTFPL-2"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="amd64"
 
