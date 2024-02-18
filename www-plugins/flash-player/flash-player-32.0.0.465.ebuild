@@ -36,7 +36,7 @@ SRC_URI="
 	)"
 
 KEYWORDS="amd64"
-LICENSE="AdobeFlash-11.x"
+LICENSE="AdobeFlash"
 SLOT="0"
 IUSE="debug +nsplugin +ppapi"
 REQUIRED_USE="

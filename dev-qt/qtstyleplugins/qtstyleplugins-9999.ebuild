@@ -9,7 +9,7 @@ DESCRIPTION="Additional style plugins for Qt5"
 HOMEPAGE="https://code.qt.io/cgit/qt/${PN}.git"
 EGIT_REPO_URI="https://code.qt.io/qt/${PN}.git"
 
-LICENSE="LGPL-2.1"
+LICENSE="LGPL-2.1 LGPL-3"
 SLOT="5"
 
 RDEPEND="

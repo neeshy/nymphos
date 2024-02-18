@@ -16,7 +16,7 @@ SRC_URI="
 		${WB_URI}/20220331041147if_/${AF_URI}/flash_player_sa_linux_debug.x86_64.tar.gz -> flash_player_sa_linux_debug-${PV}-x86_64.tar.gz
 	)"
 
-LICENSE="AdobeFlash-11.x LGPL-3+"
+LICENSE="AdobeFlash"
 SLOT="0"
 KEYWORDS="amd64"
 IUSE="debug"

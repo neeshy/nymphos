@@ -9,7 +9,7 @@ DESCRIPTION="GNU Unifont - a Pan-Unicode X11 bitmap iso10646 font"
 HOMEPAGE="https://unifoundry.com/"
 SRC_URI="mirror://gnu/${PN}/${P}/${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="OFL-1.1 GPL-2+"
 SLOT="0"
 KEYWORDS="amd64"
 IUSE="bold"

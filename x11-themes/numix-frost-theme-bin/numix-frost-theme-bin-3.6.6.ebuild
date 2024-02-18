@@ -10,7 +10,7 @@ DESCRIPTION="A modern flat theme that supports Gnome, Unity, XFCE and Openbox."
 HOMEPAGE="https://numixproject.github.io/"
 SRC_URI="https://web.archive.org/web/20190522051621if_/http://mirrors.antergos.com/antergos/x86_64/${MY_P}-1-any.pkg.tar.xz"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="amd64"
 

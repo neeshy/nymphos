@@ -12,7 +12,7 @@ SRC_URI="
 	https://raw.githubusercontent.com/vim/vim/v${PV}/src/xxd/Makefile -> ${P}.mk
 	https://raw.githubusercontent.com/vim/vim/v${PV}/runtime/doc/xxd.1 -> ${P}.1"
 
-LICENSE="GPL-2 MIT"
+LICENSE="MIT GPL-2"
 SLOT="0"
 KEYWORDS="amd64"
 

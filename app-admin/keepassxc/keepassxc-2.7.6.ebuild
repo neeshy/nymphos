@@ -16,7 +16,7 @@ else
 	KEYWORDS="amd64"
 fi
 
-LICENSE="LGPL-2.1 GPL-2 GPL-3"
+LICENSE="GPL-2 GPL-3 LGPL-2.1"
 SLOT="0"
 IUSE="doc test yubikey"
 
