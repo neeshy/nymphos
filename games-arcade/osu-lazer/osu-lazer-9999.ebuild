@@ -8,10 +8,8 @@ HOMEPAGE="https://osu.ppy.sh/"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ppy/osu.git"
-	DOTNET_VERSION="8.0"
 else
 	SRC_URI="https://github.com/ppy/osu/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	DOTNET_VERSION="6.0"
 	KEYWORDS="amd64"
 	PATCHES=( "${FILESDIR}/${P}-online.patch" )
 	S="${WORKDIR}/osu-${PV}"
@@ -22,7 +20,7 @@ SLOT="0"
 
 RESTRICT="network-sandbox"
 
-DEPEND="virtual/dotnet-sdk:${DOTNET_VERSION}"
+DEPEND="virtual/dotnet-sdk:8.0"
 RDEPEND="${DEPEND}
 	media-libs/libsdl2
 	media-video/ffmpeg
@@ -32,7 +30,7 @@ src_compile() {
 	local mydotnetargs=()
 	[[ "${PV}" = 9999 ]] || mydotnetargs+=(/property:Version="${PV}")
 	DOTNET_CLI_TELEMETRY_OPTOUT="1" dotnet publish osu.Desktop \
-		--framework "net${DOTNET_VERSION}" \
+		--framework net8.0 \
 		--configuration Release \
 		--use-current-runtime \
 		--no-self-contained \
