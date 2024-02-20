@@ -42,13 +42,13 @@ CRATES="
 	regex@1.10.3
 	regex-automata@0.4.5
 	regex-syntax@0.8.2
-	ryu@1.0.16
+	ryu@1.0.17
 	same-file@1.0.6
-	serde@1.0.196
-	serde_derive@1.0.196
-	serde_json@1.0.113
+	serde@1.0.197
+	serde_derive@1.0.197
+	serde_json@1.0.114
 	strsim@0.11.0
-	syn@2.0.49
+	syn@2.0.50
 	unicode-ident@1.0.12
 	utf8parse@0.2.1
 	walkdir@2.4.0
