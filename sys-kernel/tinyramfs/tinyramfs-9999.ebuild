@@ -9,7 +9,7 @@ DESCRIPTION="Tiny initramfs written in POSIX shell"
 HOMEPAGE="https://github.com/neeshy/${PN}"
 EGIT_REPO_URI="${HOMEPAGE}.git"
 
-LICENSE="GPL-3+"
+LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="sys-apps/busybox"
