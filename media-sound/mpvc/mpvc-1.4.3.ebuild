@@ -83,7 +83,7 @@ HOMEPAGE="https://github.com/neeshy/${PN}"
 SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 
-LICENSE="GPL-3+"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64"
 
