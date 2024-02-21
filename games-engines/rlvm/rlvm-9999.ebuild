@@ -11,7 +11,7 @@ DESCRIPTION="An open source implementation of the RealLive virtual machine for L
 HOMEPAGE="https://github.com/eglaysher/${PN}"
 EGIT_REPO_URI="${HOMEPAGE}.git"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
