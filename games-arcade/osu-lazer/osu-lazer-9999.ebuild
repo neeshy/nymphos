@@ -11,7 +11,6 @@ if [[ "${PV}" = 9999 ]]; then
 else
 	SRC_URI="https://github.com/ppy/osu/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="amd64"
-	PATCHES=( "${FILESDIR}/${P}-online.patch" )
 	S="${WORKDIR}/osu-${PV}"
 fi
 
