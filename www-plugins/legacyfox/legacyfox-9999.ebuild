@@ -9,7 +9,7 @@ if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"
 else
-	MY_COMMIT="8841335"
+	MY_COMMIT="312a791"
 	MY_PV="${PV}-${MY_COMMIT}"
 	MY_P="LegacyFox-v${MY_PV}"
 	SRC_URI="${HOMEPAGE}/snapshot/v${PV}.tar.gz -> ${MY_P}.tar.gz"
