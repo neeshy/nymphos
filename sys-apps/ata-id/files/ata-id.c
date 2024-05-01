@@ -382,7 +382,7 @@ static int disk_scsi_inquiry_command(
                 if (io_hdr.status != 0 ||
                     io_hdr.host_status != 0 ||
                     io_hdr.driver_status != 0) {
-                        dprintf(2, "ioctl v3 failed\n");
+                        dprintf(2, "ioctl v3 failed.\n");
                         return -EIO;
                 }
 
@@ -391,7 +391,7 @@ static int disk_scsi_inquiry_command(
                 if (io_v4.device_status != 0 ||
                     io_v4.transport_status != 0 ||
                     io_v4.driver_status != 0) {
-                        dprintf(2, "ioctl v4 failed\n");
+                        dprintf(2, "ioctl v4 failed.\n");
                         return -EIO;
                 }
         }
@@ -464,7 +464,7 @@ static int disk_identify_command(
         } else {
                 if (!((sense[0] & 0x7f) == 0x72 && desc[0] == 0x9 && desc[1] == 0x0c) &&
                     !((sense[0] & 0x7f) == 0x70 && sense[12] == 0x00 && sense[13] == 0x1d)) {
-                        dprintf(2, "ioctl v4 failed: %m\n");
+                        dprintf(2, "ioctl v4 failed.\n");
                         return -EIO;
                 }
         }
@@ -542,7 +542,7 @@ static int disk_identify_packet_device_command(
                 }
         } else {
                 if ((sense[0] & 0x7f) != 0x72 || desc[0] != 0x9 || desc[1] != 0x0c) {
-                        dprintf(2, "ioctl v4 failed: %m\n");
+                        dprintf(2, "ioctl v4 failed.\n");
                         return -EIO;
                 }
         }
