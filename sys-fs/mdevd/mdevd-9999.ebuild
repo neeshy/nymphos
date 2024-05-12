@@ -16,13 +16,10 @@ fi
 LICENSE="ISC"
 SLOT="0"
 
-RDEPEND=">=dev-libs/skalibs-2.14.0.0"
+RDEPEND=">=dev-libs/skalibs-2.14.0.0:="
 DEPEND="${RDEPEND}
 	sys-kernel/linux-headers"
 
 src_configure() {
-	econf \
-		--dynlibdir="/usr/$(get_libdir)" \
-		--libdir="/usr/$(get_libdir)/${PN}" \
-		--with-sysdeps="/usr/$(get_libdir)/skalibs"
+	econf --with-sysdeps="/usr/$(get_libdir)/skalibs"
 }
