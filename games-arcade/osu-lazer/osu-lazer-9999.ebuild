@@ -3,49 +3,368 @@
 
 EAPI=8
 
+DOTNET_PKG_COMPAT="8.0"
+NUGETS="
+	AutoMapper@12.0.1
+	Clowd.Squirrel@2.11.1
+	DiffPlex@1.7.2
+	DiscordRichPresence@1.2.1.24
+	FFmpeg.AutoGen@4.3.0.1
+	Fody@6.8.0
+	HidSharpCore@1.2.1.1
+	HtmlAgilityPack@1.11.59
+	Humanizer@2.14.1
+	Humanizer.Core@2.14.1
+	Humanizer.Core.af@2.14.1
+	Humanizer.Core.ar@2.14.1
+	Humanizer.Core.az@2.14.1
+	Humanizer.Core.bg@2.14.1
+	Humanizer.Core.bn-BD@2.14.1
+	Humanizer.Core.cs@2.14.1
+	Humanizer.Core.da@2.14.1
+	Humanizer.Core.de@2.14.1
+	Humanizer.Core.el@2.14.1
+	Humanizer.Core.es@2.14.1
+	Humanizer.Core.fa@2.14.1
+	Humanizer.Core.fi-FI@2.14.1
+	Humanizer.Core.fr@2.14.1
+	Humanizer.Core.fr-BE@2.14.1
+	Humanizer.Core.he@2.14.1
+	Humanizer.Core.hr@2.14.1
+	Humanizer.Core.hu@2.14.1
+	Humanizer.Core.hy@2.14.1
+	Humanizer.Core.id@2.14.1
+	Humanizer.Core.is@2.14.1
+	Humanizer.Core.it@2.14.1
+	Humanizer.Core.ja@2.14.1
+	Humanizer.Core.ko-KR@2.14.1
+	Humanizer.Core.ku@2.14.1
+	Humanizer.Core.lv@2.14.1
+	Humanizer.Core.ms-MY@2.14.1
+	Humanizer.Core.mt@2.14.1
+	Humanizer.Core.nb@2.14.1
+	Humanizer.Core.nb-NO@2.14.1
+	Humanizer.Core.nl@2.14.1
+	Humanizer.Core.pl@2.14.1
+	Humanizer.Core.pt@2.14.1
+	Humanizer.Core.ro@2.14.1
+	Humanizer.Core.ru@2.14.1
+	Humanizer.Core.sk@2.14.1
+	Humanizer.Core.sl@2.14.1
+	Humanizer.Core.sr@2.14.1
+	Humanizer.Core.sr-Latn@2.14.1
+	Humanizer.Core.sv@2.14.1
+	Humanizer.Core.th-TH@2.14.1
+	Humanizer.Core.tr@2.14.1
+	Humanizer.Core.uk@2.14.1
+	Humanizer.Core.uz-Cyrl-UZ@2.14.1
+	Humanizer.Core.uz-Latn-UZ@2.14.1
+	Humanizer.Core.vi@2.14.1
+	Humanizer.Core.zh-CN@2.14.1
+	Humanizer.Core.zh-Hans@2.14.1
+	Humanizer.Core.zh-Hant@2.14.1
+	JetBrains.Annotations@2022.3.1
+	managed-midi@1.10.0
+	Markdig@0.23.0
+	MessagePack@2.5.140
+	MessagePack.Annotations@2.5.140
+	Microsoft.AspNetCore.Connections.Abstractions@7.0.15
+	Microsoft.AspNetCore.Http.Connections.Client@7.0.15
+	Microsoft.AspNetCore.Http.Connections.Common@7.0.15
+	Microsoft.AspNetCore.SignalR.Client@7.0.15
+	Microsoft.AspNetCore.SignalR.Client.Core@7.0.15
+	Microsoft.AspNetCore.SignalR.Common@7.0.15
+	Microsoft.AspNetCore.SignalR.Protocols.Json@7.0.15
+	Microsoft.AspNetCore.SignalR.Protocols.MessagePack@7.0.15
+	Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson@7.0.15
+	Microsoft.CodeAnalysis.BannedApiAnalyzers@3.3.4
+	Microsoft.CSharp@4.5.0
+	Microsoft.CSharp@4.7.0
+	Microsoft.Data.Sqlite.Core@7.0.12
+	Microsoft.Diagnostics.NETCore.Client@0.2.61701
+	Microsoft.Diagnostics.Runtime@2.0.161401
+	Microsoft.DotNet.PlatformAbstractions@2.0.3
+	Microsoft.Extensions.Configuration.Abstractions@7.0.0
+	Microsoft.Extensions.DependencyInjection@6.0.0-rc.1.21451.13
+	Microsoft.Extensions.DependencyInjection@7.0.0
+	Microsoft.Extensions.DependencyInjection.Abstractions@6.0.0-rc.1.21451.13
+	Microsoft.Extensions.DependencyInjection.Abstractions@7.0.0
+	Microsoft.Extensions.DependencyModel@2.0.3
+	Microsoft.Extensions.Features@7.0.15
+	Microsoft.Extensions.Logging@7.0.0
+	Microsoft.Extensions.Logging.Abstractions@7.0.0
+	Microsoft.Extensions.Logging.Abstractions@7.0.1
+	Microsoft.Extensions.ObjectPool@5.0.11
+	Microsoft.Extensions.Options@7.0.0
+	Microsoft.Extensions.Options@7.0.1
+	Microsoft.Extensions.Primitives@7.0.0
+	Microsoft.NETCore.Platforms@1.0.1
+	Microsoft.NETCore.Platforms@1.1.0
+	Microsoft.NETCore.Platforms@2.0.0
+	Microsoft.NETCore.Platforms@5.0.0
+	Microsoft.NETCore.Targets@1.0.1
+	Microsoft.NETCore.Targets@1.1.0
+	Microsoft.NET.StringTools@17.6.3
+	Microsoft.Toolkit.HighPerformance@7.1.2
+	Microsoft.Win32.Primitives@4.3.0
+	Microsoft.Win32.Registry@4.5.0
+	Microsoft.Win32.Registry@5.0.0
+	MongoDB.Bson@2.19.1
+	Mono.Posix.NETStandard@1.0.0
+	NativeLibraryLoader@1.0.13
+	NETStandard.Library@1.6.1
+	NETStandard.Library@2.0.0
+	Newtonsoft.Json@13.0.1
+	Newtonsoft.Json@13.0.3
+	NuGet.Common@5.11.0
+	NuGet.Configuration@5.11.0
+	NuGet.DependencyResolver.Core@5.11.0
+	NuGet.Frameworks@5.11.0
+	NuGet.LibraryModel@5.11.0
+	NuGet.Packaging@5.11.0
+	NuGet.ProjectModel@5.11.0
+	NuGet.Protocol@5.11.0
+	NuGet.Versioning@5.11.0
+	NUnit@3.14.0
+	OpenTabletDriver@0.6.4
+	OpenTabletDriver.Configurations@0.6.4
+	OpenTabletDriver.Native@0.6.4
+	OpenTabletDriver.Plugin@0.6.4
+	PolySharp@1.10.0
+	ppy.LocalisationAnalyser@2023.1117.0
+	ppy.ManagedBass@2022.1216.0
+	ppy.ManagedBass.Fx@2022.1216.0
+	ppy.ManagedBass.Mix@2022.1216.0
+	ppy.ManagedBass.Wasapi@2022.1216.0
+	ppy.osu.Framework@2024.329.0
+	ppy.osu.Framework.NativeLibs@2024.326.0-nativelibs
+	ppy.osu.Framework.SourceGeneration@2023.720.0
+	ppy.osu.Game.Resources@2024.410.0
+	ppy.osuTK.NS20@1.0.211
+	ppy.SDL2-CS@1.0.741-alpha
+	ppy.Veldrid@4.9.9-ga61b647961
+	ppy.Veldrid.MetalBindings@4.9.9-ga61b647961
+	ppy.Veldrid.OpenGLBindings@4.9.9-ga61b647961
+	ppy.Veldrid.SPIRV@1.0.15-gca6cec7843
+	Realm@11.5.0
+	Realm.PlatformHelpers@11.5.0
+	Remotion.Linq@2.2.0
+	runtime.any.System.Collections@4.3.0
+	runtime.any.System.Diagnostics.Tools@4.3.0
+	runtime.any.System.Diagnostics.Tracing@4.3.0
+	runtime.any.System.Globalization@4.3.0
+	runtime.any.System.Globalization.Calendars@4.3.0
+	runtime.any.System.IO@4.3.0
+	runtime.any.System.Reflection@4.3.0
+	runtime.any.System.Reflection.Extensions@4.3.0
+	runtime.any.System.Reflection.Primitives@4.3.0
+	runtime.any.System.Resources.ResourceManager@4.3.0
+	runtime.any.System.Runtime@4.3.0
+	runtime.any.System.Runtime.Handles@4.3.0
+	runtime.any.System.Runtime.InteropServices@4.3.0
+	runtime.any.System.Text.Encoding@4.3.0
+	runtime.any.System.Text.Encoding.Extensions@4.3.0
+	runtime.any.System.Threading.Tasks@4.3.0
+	runtime.any.System.Threading.Timer@4.3.0
+	runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.0
+	runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.0
+	runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.0
+	runtime.native.System@4.0.0
+	runtime.native.System@4.3.0
+	runtime.native.System.IO.Compression@4.3.0
+	runtime.native.System.Net.Http@4.3.0
+	runtime.native.System.Net.Security@4.3.0
+	runtime.native.System.Security.Cryptography.Apple@4.3.0
+	runtime.native.System.Security.Cryptography.OpenSsl@4.3.0
+	runtime.opensuse.13.2-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.0
+	runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.0
+	runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple@4.3.0
+	runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.0
+	runtime.rhel.7-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.0
+	runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.0
+	runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.0
+	runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.0
+	runtime.unix.Microsoft.Win32.Primitives@4.3.0
+	runtime.unix.System.Console@4.3.0
+	runtime.unix.System.Diagnostics.Debug@4.3.0
+	runtime.unix.System.IO.FileSystem@4.3.0
+	runtime.unix.System.Net.Primitives@4.3.0
+	runtime.unix.System.Net.Sockets@4.3.0
+	runtime.unix.System.Private.Uri@4.3.0
+	runtime.unix.System.Runtime.Extensions@4.3.0
+	Sentry@4.3.0
+	SharpCompress@0.36.0
+	SharpFNT@2.0.0
+	SharpGen.Runtime@2.0.0-beta.13
+	SharpGen.Runtime.COM@2.0.0-beta.13
+	SixLabors.ImageSharp@3.1.3
+	SQLitePCLRaw.bundle_e_sqlite3@2.1.8
+	SQLitePCLRaw.core@2.1.4
+	SQLitePCLRaw.core@2.1.8
+	SQLitePCLRaw.lib.e_sqlite3@2.1.8
+	SQLitePCLRaw.provider.e_sqlite3@2.1.8
+	StbiSharp@1.1.0
+	System.AppContext@4.1.0
+	System.AppContext@4.3.0
+	System.Buffers@4.3.0
+	System.Buffers@4.5.1
+	System.Collections@4.0.11
+	System.Collections@4.3.0
+	System.Collections.Concurrent@4.3.0
+	System.Collections.Immutable@1.7.1
+	System.ComponentModel.Annotations@5.0.0
+	System.Console@4.3.0
+	System.Diagnostics.Debug@4.0.11
+	System.Diagnostics.Debug@4.3.0
+	System.Diagnostics.DiagnosticSource@4.3.0
+	System.Diagnostics.Tools@4.3.0
+	System.Diagnostics.Tracing@4.3.0
+	System.Dynamic.Runtime@4.0.11
+	System.Dynamic.Runtime@4.3.0
+	System.Formats.Asn1@5.0.0
+	System.Globalization@4.0.11
+	System.Globalization@4.3.0
+	System.Globalization.Calendars@4.3.0
+	System.Globalization.Extensions@4.3.0
+	System.IO@4.1.0
+	System.IO@4.3.0
+	System.IO.Compression@4.3.0
+	System.IO.Compression.ZipFile@4.3.0
+	System.IO.FileSystem@4.0.1
+	System.IO.FileSystem@4.3.0
+	System.IO.FileSystem.Primitives@4.3.0
+	System.IO.Packaging@8.0.0
+	System.IO.Pipelines@7.0.0
+	System.Linq@4.1.0
+	System.Linq@4.3.0
+	System.Linq.Expressions@4.1.0
+	System.Linq.Expressions@4.3.0
+	System.Linq.Queryable@4.0.1
+	System.Memory@4.5.3
+	System.Memory@4.5.4
+	System.Memory@4.5.5
+	System.Net.Http@4.3.0
+	System.Net.NameResolution@4.3.0
+	System.Net.Primitives@4.3.0
+	System.Net.Security@4.3.0
+	System.Net.Sockets@4.3.0
+	System.Net.WebHeaderCollection@4.3.0
+	System.Net.WebSockets@4.3.0
+	System.Net.WebSockets.Client@4.3.2
+	System.Numerics.Tensors@8.0.0
+	System.ObjectModel@4.0.12
+	System.ObjectModel@4.3.0
+	System.Private.Uri@4.3.0
+	System.Reflection@4.1.0
+	System.Reflection@4.3.0
+	System.Reflection.Emit@4.0.1
+	System.Reflection.Emit@4.3.0
+	System.Reflection.Emit.ILGeneration@4.0.1
+	System.Reflection.Emit.ILGeneration@4.3.0
+	System.Reflection.Emit.Lightweight@4.0.1
+	System.Reflection.Emit.Lightweight@4.3.0
+	System.Reflection.Extensions@4.0.1
+	System.Reflection.Extensions@4.3.0
+	System.Reflection.Metadata@1.8.1
+	System.Reflection.Primitives@4.0.1
+	System.Reflection.Primitives@4.3.0
+	System.Reflection.TypeExtensions@4.1.0
+	System.Reflection.TypeExtensions@4.3.0
+	System.Resources.ResourceManager@4.0.1
+	System.Resources.ResourceManager@4.3.0
+	System.Runtime@4.1.0
+	System.Runtime@4.3.0
+	System.Runtime.CompilerServices.Unsafe@4.7.1
+	System.Runtime.CompilerServices.Unsafe@6.0.0
+	System.Runtime.CompilerServices.Unsafe@6.0.0-rc.1.21451.13
+	System.Runtime.Extensions@4.1.0
+	System.Runtime.Extensions@4.3.0
+	System.Runtime.Handles@4.3.0
+	System.Runtime.InteropServices@4.3.0
+	System.Runtime.InteropServices.RuntimeInformation@4.0.0
+	System.Runtime.InteropServices.RuntimeInformation@4.3.0
+	System.Runtime.Numerics@4.3.0
+	System.Security.AccessControl@4.5.0
+	System.Security.AccessControl@5.0.0
+	System.Security.Claims@4.3.0
+	System.Security.Cryptography.Algorithms@4.3.0
+	System.Security.Cryptography.Cng@4.3.0
+	System.Security.Cryptography.Cng@5.0.0
+	System.Security.Cryptography.Csp@4.3.0
+	System.Security.Cryptography.Encoding@4.3.0
+	System.Security.Cryptography.OpenSsl@4.3.0
+	System.Security.Cryptography.Pkcs@5.0.0
+	System.Security.Cryptography.Primitives@4.3.0
+	System.Security.Cryptography.ProtectedData@4.4.0
+	System.Security.Cryptography.X509Certificates@4.3.0
+	System.Security.Principal@4.3.0
+	System.Security.Principal.Windows@4.3.0
+	System.Security.Principal.Windows@4.5.0
+	System.Security.Principal.Windows@5.0.0
+	System.Text.Encoding@4.0.11
+	System.Text.Encoding@4.3.0
+	System.Text.Encoding.Extensions@4.3.0
+	System.Text.RegularExpressions@4.3.0
+	System.Threading@4.0.11
+	System.Threading@4.3.0
+	System.Threading.Channels@6.0.0
+	System.Threading.Channels@7.0.0
+	System.Threading.Tasks@4.0.11
+	System.Threading.Tasks@4.3.0
+	System.Threading.Tasks.Extensions@4.3.0
+	System.Threading.ThreadPool@4.3.0
+	System.Threading.Timer@4.3.0
+	System.Xml.ReaderWriter@4.3.0
+	System.Xml.XDocument@4.3.0
+	TagLibSharp@2.3.0
+	Vk@1.0.25
+	Vortice.D3DCompiler@2.4.2
+	Vortice.Direct3D11@2.4.2
+	Vortice.DirectX@2.4.2
+	Vortice.DXGI@2.4.2
+	Vortice.Mathematics@1.4.25
+	ZstdSharp.Port@0.7.4"
+
+inherit dotnet-pkg
+
 DESCRIPTION="A free-to-win rhythm game. Rhythm is just a *click* away!"
 HOMEPAGE="https://osu.ppy.sh/"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/ppy/osu.git"
+	EGIT_REPO_URI="https://github.com/ppy/osu.git
+		${NUGET_URIS}"
 else
-	SRC_URI="https://github.com/ppy/osu/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/ppy/osu/archive/${PV}.tar.gz -> ${P}.tar.gz
+		${NUGET_URIS}"
 	KEYWORDS="amd64"
 	S="${WORKDIR}/osu-${PV}"
+	DOTNET_PKG_BUILD_EXTRA_ARGS=( /property:Version="${PV}" )
 fi
 
 LICENSE="MIT CC-BY-NC-4.0"
 SLOT="0"
 
-RESTRICT="network-sandbox"
-
-DEPEND="virtual/dotnet-sdk:8.0"
-RDEPEND="${DEPEND}
+RDEPEND="
 	media-libs/libsdl2
 	media-video/ffmpeg
 	virtual/opengl"
 
-src_compile() {
-	local mydotnetargs=()
-	[[ "${PV}" = 9999 ]] || mydotnetargs+=(/property:Version="${PV}")
-	DOTNET_CLI_TELEMETRY_OPTOUT="1" dotnet publish osu.Desktop \
-		--framework net8.0 \
-		--configuration Release \
-		--use-current-runtime \
-		--no-self-contained \
-		--output output \
-		"${mydotnetargs[@]}"
+DOTNET_PKG_PROJECTS=( "${S}/osu.Desktop" )
+
+src_configure() {
+	dotnet-pkg-base_restore osu.Desktop
 }
 
 src_install() {
-	newbin "${FILESDIR}/${PN}.sh" "${PN}"
-
-	insinto "/opt/${PN}"
-	doins -r output/*
-	fperms +x "/opt/${PN}/osu!"
+	dotnet-pkg-base_install
+	dotnet-pkg-base_append-launchervar DOTNET_CLI_TELEMETRY_OPTOUT=1
+	dotnet-pkg-base_append-launchervar OSU_EXTERNAL_UPDATE_PROVIDER=1
+	dotnet-pkg-base_dolauncher_portable "/usr/share/${P}/osu!.dll" "${PN}"
 
 	insinto /usr/share/icons/hicolor/128x128/apps
 	newins assets/lazer-nuget.png "${PN}.png"
 	insinto /usr/share/icons/hicolor/1024x1024/apps
 	newins assets/lazer.png "${PN}.png"
+
+	dodoc README.md
 }
