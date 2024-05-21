@@ -63,7 +63,7 @@ NUGETS="
 	humanizer.core.zh-cn@2.14.1
 	humanizer.core.zh-hans@2.14.1
 	humanizer.core.zh-hant@2.14.1
-	jetbrains.annotations@2023.3.0
+	jetbrains.annotations@2022.3.1
 	managed-midi@1.10.0
 	markdig@0.23.0
 	messagepack@2.5.140
@@ -136,17 +136,16 @@ NUGETS="
 	ppy.managedbass.fx@2022.1216.0
 	ppy.managedbass.mix@2022.1216.0
 	ppy.managedbass.wasapi@2022.1216.0
-	ppy.osu.framework@2024.509.0
+	ppy.osu.framework@2024.329.0
 	ppy.osu.framework.nativelibs@2024.326.0-nativelibs
 	ppy.osu.framework.sourcegeneration@2023.720.0
-	ppy.osu.game.resources@2024.510.0
+	ppy.osu.game.resources@2024.517.0
 	ppy.osutk.ns20@1.0.211
-	ppy.sdl3-cs@2024.418.1
-	ppy.veldrid@4.9.11-ged7d28974e
-	ppy.veldrid.metalbindings@4.9.11-ged7d28974e
-	ppy.veldrid.openglbindings@4.9.11-ged7d28974e
+	ppy.sdl2-cs@1.0.741-alpha
+	ppy.veldrid@4.9.9-ga61b647961
+	ppy.veldrid.metalbindings@4.9.9-ga61b647961
+	ppy.veldrid.openglbindings@4.9.9-ga61b647961
 	ppy.veldrid.spirv@1.0.15-gca6cec7843
-	ppy.vk@1.0.26
 	realm@11.5.0
 	realm.platformhelpers@11.5.0
 	remotion.linq@2.2.0
@@ -198,7 +197,7 @@ NUGETS="
 	sharpfnt@2.0.0
 	sharpgen.runtime@2.0.0-beta.13
 	sharpgen.runtime.com@2.0.0-beta.13
-	sixlabors.imagesharp@3.1.4
+	sixlabors.imagesharp@3.1.3
 	sqlitepclraw.bundle_e_sqlite3@2.1.8
 	sqlitepclraw.core@2.1.4
 	sqlitepclraw.core@2.1.8
@@ -318,6 +317,7 @@ NUGETS="
 	system.xml.readerwriter@4.3.0
 	system.xml.xdocument@4.3.0
 	taglibsharp@2.3.0
+	vk@1.0.25
 	vortice.d3dcompiler@2.4.2
 	vortice.direct3d11@2.4.2
 	vortice.directx@2.4.2
