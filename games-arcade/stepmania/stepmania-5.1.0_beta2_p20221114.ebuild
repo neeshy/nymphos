@@ -3,6 +3,8 @@
 
 EAPI=8
 
+CMAKE_BUILD_TYPE="Release"
+
 inherit cmake desktop wrapper
 
 MY_PV="d55acb1ba26f1c5b5e3048d6d6c0bd116625216f"
@@ -92,7 +94,7 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
-	make_wrapper "${PN}" "./${PN}-release-symbols" "/opt/${PN}-5.1"
+	make_wrapper "${PN}" "./${PN}" "/opt/${PN}-5.1"
 	domenu "${PN}.desktop"
 	local size
 	for size in 16 22 24 32 36 48 64 72 96 128 192 256; do
