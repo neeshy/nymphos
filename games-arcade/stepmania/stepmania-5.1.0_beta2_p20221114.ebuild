@@ -13,7 +13,7 @@ MY_P="${PN}-${MY_PV}"
 DESCRIPTION="Advanced rhythm game. Designed for both home and arcade use."
 HOMEPAGE="https://www.stepmania.com/"
 SRC_URI="https://github.com/${PN}/${PN}/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz
-	https://github.com/${PN}/${PN}/pull/2247.patch -> ${PN}-ffmpeg_build_fix.patch"
+	https://github.com/${PN}/${PN}/commit/3fef5ef60b7674d6431f4e1e4ba8c69b0c21c023.patch -> ${PN}-ffmpeg_build_fix.patch"
 
 LICENSE="MIT CC-BY-NC-4.0"
 SLOT="0"
