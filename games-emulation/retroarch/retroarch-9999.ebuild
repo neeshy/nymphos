@@ -51,7 +51,7 @@ RDEPEND="
 	libass? ( media-libs/libass:= )
 	libcaca? ( media-libs/libcaca )
 	openal? ( media-libs/openal )
-	opengl? ( media-libs/mesa[gles2?] )
+	opengl? ( media-libs/mesa[opengl] )
 	osmesa? ( media-libs/mesa[osmesa] )
 	pulseaudio? ( media-sound/pulseaudio )
 	qt5? (

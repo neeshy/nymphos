@@ -29,7 +29,7 @@ RDEPEND="
 	media-libs/glu
 	media-libs/libjpeg-turbo
 	media-libs/libpng
-	media-libs/mesa[gles2?]
+	media-libs/mesa[opengl]
 	sys-libs/zlib
 	x11-libs/libX11
 	x11-libs/libXext
