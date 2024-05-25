@@ -48,5 +48,5 @@ RDEPEND="
 	x11-libs/libxcb
 	x11-libs/libX11
 	x11-libs/libXcursor"
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig"

@@ -18,7 +18,7 @@ fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-IUSE="alsa +cdrom cg cpu_flags_x86_sse2 dbus drm egl ffmpeg flac gles2 gles3 gles3_1 gles3_2 jack kms libass libcaca libusb +network openal +opengl +opengl_core osmesa parport pulseaudio qt5 sdl sdl2 sixel ssl systemd tinyalsa +truetype +udev v4l2 vulkan wayland X xrandr xinerama xv +zlib"
+IUSE="alsa +cdrom cg cpu_flags_x86_sse2 dbus drm egl ffmpeg flac gles2 gles3 gles3_1 gles3_2 jack kms libass libcaca +network openal +opengl +opengl_core osmesa parport pulseaudio qt5 sdl sdl2 sixel ssl systemd tinyalsa +truetype +udev usb v4l vulkan wayland X xrandr xinerama xv +zlib"
 
 REQUIRED_USE="
 	|| ( alsa jack pulseaudio )
@@ -50,7 +50,6 @@ RDEPEND="
 	jack? ( virtual/jack )
 	libass? ( media-libs/libass:= )
 	libcaca? ( media-libs/libcaca )
-	libusb? ( virtual/libusb:= )
 	openal? ( media-libs/openal )
 	opengl? ( media-libs/mesa[gles2?] )
 	osmesa? ( media-libs/mesa[osmesa] )
@@ -69,7 +68,8 @@ RDEPEND="
 	systemd? ( sys-apps/systemd )
 	truetype? ( media-libs/freetype:2= )
 	udev? ( virtual/udev )
-	v4l2? ( media-libs/libv4l:= )
+	usb? ( virtual/libusb:= )
+	v4l? ( media-libs/libv4l:= )
 	vulkan? ( media-libs/vulkan-loader[X?,wayland?] )
 	wayland? ( dev-libs/wayland )
 	X? (
@@ -83,8 +83,8 @@ RDEPEND="
 	xv? ( x11-libs/libXv )
 	zlib? ( sys-libs/zlib:= )"
 DEPEND="${RDEPEND}
-	virtual/pkgconfig
 	vulkan? ( dev-util/vulkan-headers )"
+BDEPEND="virtual/pkgconfig"
 
 PATCHES=( "${FILESDIR}/${PN}-configure-params.patch" )
 
@@ -125,7 +125,6 @@ src_configure() {
 		"$(use_enable kms)" \
 		"$(use_enable libass ssa)" \
 		"$(use_enable libcaca caca)" \
-		"$(use_enable libusb)" \
 		"$(use_enable network networking)" \
 		"$(use_enable openal al)" \
 		"$(use_enable opengl)" \
@@ -142,7 +141,8 @@ src_configure() {
 		"$(use_enable tinyalsa)" \
 		"$(use_enable truetype freetype)" \
 		"$(use_enable udev)" \
-		"$(use_enable v4l2)" \
+		"$(use_enable usb libusb)" \
+		"$(use_enable v4l v4l2)" \
 		"$(use_enable vulkan)" \
 		"$(use_enable wayland)" \
 		"$(use_enable xinerama)" \

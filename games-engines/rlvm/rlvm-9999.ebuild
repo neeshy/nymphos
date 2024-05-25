@@ -33,7 +33,7 @@ PATCHES=(
 )
 
 src_compile() {
-	escons --release CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" || die "build failed"
+	escons --release CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}"
 }
 
 src_install() {

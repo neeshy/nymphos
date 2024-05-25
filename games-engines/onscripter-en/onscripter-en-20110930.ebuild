@@ -12,7 +12,6 @@ SLOT="0"
 KEYWORDS="amd64"
 
 RDEPEND="
-	app-arch/bzip2
 	media-libs/freetype
 	media-libs/libsdl
 	media-libs/sdl-image[jpeg,png]
@@ -23,7 +22,7 @@ DEPEND="${RDEPEND}"
 
 src_configure() {
 	econf --no-werror
-	sed -i 's/\.dll//g' Makefile || die
+	sed -i 's/\.dll//g' Makefile || die "sed failed"
 }
 
 src_install() {

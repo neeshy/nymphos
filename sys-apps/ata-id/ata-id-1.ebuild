@@ -17,7 +17,7 @@ DEPEND="sys-kernel/linux-headers"
 S="${WORKDIR}"
 
 src_compile() {
-	"$(tc-getCC)" "${FILESDIR}/${PN}.c" -o "${PN}"
+	"$(tc-getCC)" "${FILESDIR}/${PN}.c" -o "${PN}" || die "build failed"
 }
 
 src_install() {

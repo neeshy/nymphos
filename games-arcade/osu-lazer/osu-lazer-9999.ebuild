@@ -331,8 +331,8 @@ DESCRIPTION="A free-to-win rhythm game. Rhythm is just a *click* away!"
 HOMEPAGE="https://osu.ppy.sh/"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/ppy/osu.git
-		${NUGET_URIS}"
+	EGIT_REPO_URI="https://github.com/ppy/osu.git"
+	SRC_URI="${NUGET_URIS}"
 else
 	SRC_URI="https://github.com/ppy/osu/archive/${PV}.tar.gz -> ${P}.tar.gz
 		${NUGET_URIS}"

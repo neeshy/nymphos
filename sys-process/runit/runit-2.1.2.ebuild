@@ -19,12 +19,12 @@ PATCHES=( "${FILESDIR}" )
 S="${WORKDIR}/admin/${P}/src"
 
 src_prepare() {
-	cd .. || die
+	cd .. || die "cd failed"
 
 	default
 
 	# we either build everything or nothing static
-	sed -i -e 's/-static/ /' src/Makefile
+	sed -i -e 's/-static/ /' src/Makefile || die "sed failed"
 }
 
 src_configure() {
@@ -39,7 +39,7 @@ src_install() {
 	dobin chpst runsv runsvchdir runsvdir sv svlogd
 	dosbin runit-init runit utmpset
 
-	cd .. || die
+	cd .. || die "cd failed"
 	doman man/*.8
 	dodoc package/{CHANGES,README,THANKS,TODO}
 	docinto html

@@ -17,7 +17,7 @@ RDEPEND="acct-group/power"
 S="${WORKDIR}"
 
 src_compile() {
-	"$(tc-getCC)" "${FILESDIR}/${PN}.c" -o "${PN}"
+	"$(tc-getCC)" "${FILESDIR}/${PN}.c" -o "${PN}" || die "build failed"
 }
 
 src_install() {
