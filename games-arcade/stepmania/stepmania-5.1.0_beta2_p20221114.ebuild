@@ -31,6 +31,7 @@ RDEPEND="
 	media-libs/libpng
 	media-libs/mesa[opengl]
 	sys-libs/zlib
+	virtual/libudev
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXtst
