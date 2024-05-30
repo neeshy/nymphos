@@ -27,7 +27,8 @@ RDEPEND="
 	media-libs/sdl-image[jpeg,png]
 	media-libs/sdl-mixer[vorbis]
 	media-libs/sdl-ttf
-	media-libs/smpeg"
+	media-libs/smpeg
+	x11-libs/libX11"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/${MY_P}"

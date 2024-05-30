@@ -24,7 +24,7 @@ src_prepare() {
 	default
 
 	# we either build everything or nothing static
-	sed -i -e 's/-static/ /' src/Makefile || die "sed failed"
+	sed -i 's/-static/ /' src/Makefile || die "sed failed"
 }
 
 src_configure() {
