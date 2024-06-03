@@ -14,6 +14,7 @@ DESCRIPTION="Advanced rhythm game. Designed for both home and arcade use."
 HOMEPAGE="https://www.stepmania.com/"
 SRC_URI="https://github.com/${PN}/${PN}/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz
 	https://github.com/${PN}/${PN}/commit/3fef5ef60b7674d6431f4e1e4ba8c69b0c21c023.patch -> ${PN}-ffmpeg_build_fix.patch"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT CC-BY-NC-4.0"
 SLOT="0"
@@ -52,8 +53,6 @@ DEPEND="${RDEPEND}
 	ffmpeg? ( || ( dev-lang/nasm dev-lang/yasm ) )"
 
 PATCHES=( "${DISTDIR}/${PN}-ffmpeg_build_fix.patch" )
-
-S="${WORKDIR}/${MY_P}"
 
 src_configure() {
 	local mycmakeargs=(

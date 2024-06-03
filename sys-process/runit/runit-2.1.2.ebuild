@@ -8,6 +8,7 @@ inherit toolchain-funcs flag-o-matic
 DESCRIPTION="A UNIX init scheme with service supervision"
 HOMEPAGE="http://smarden.org/${PN}/"
 SRC_URI="${HOMEPAGE}${P}.tar.gz"
+S="${WORKDIR}/admin/${P}/src"
 
 LICENSE="BSD"
 SLOT="0"
@@ -15,8 +16,6 @@ KEYWORDS="amd64"
 IUSE="static"
 
 PATCHES=( "${FILESDIR}" )
-
-S="${WORKDIR}/admin/${P}/src"
 
 src_prepare() {
 	cd .. || die "cd failed"

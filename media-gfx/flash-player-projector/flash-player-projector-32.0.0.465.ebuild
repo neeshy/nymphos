@@ -15,6 +15,7 @@ SRC_URI="
 	debug? (
 		${WB_URI}/20220331041147if_/${AF_URI}/flash_player_sa_linux_debug.x86_64.tar.gz -> flash_player_sa_linux_debug-${PV}-x86_64.tar.gz
 	)"
+S="${WORKDIR}"
 
 LICENSE="AdobeFlash"
 SLOT="0"
@@ -27,8 +28,6 @@ RDEPEND="
 	dev-libs/nss
 	media-libs/mesa
 	x11-libs/gtk+:2"
-
-S="${WORKDIR}"
 
 QA_PREBUILT="usr/*"
 

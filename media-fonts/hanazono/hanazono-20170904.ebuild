@@ -10,14 +10,13 @@ S_DIR="68253"
 DESCRIPTION="A Japanese Mincho font based on GlyphWiki"
 HOMEPAGE="https://osdn.net/projects/${PN}-font"
 SRC_URI="${HOMEPAGE}/downloads/${S_DIR}/${P}.zip"
+S="${WORKDIR}"
 
 LICENSE="OFL-1.1 ${PN}"
 SLOT="0"
 KEYWORDS="amd64"
 
 BDEPEND="app-arch/unzip"
-
-S="${WORKDIR}"
 
 FONT_SUFFIX="ttf"
 

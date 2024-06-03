@@ -336,8 +336,8 @@ if [[ "${PV}" = 9999 ]]; then
 else
 	SRC_URI="https://github.com/ppy/osu/archive/${PV}.tar.gz -> ${P}.tar.gz
 		${NUGET_URIS}"
-	KEYWORDS="amd64"
 	S="${WORKDIR}/osu-${PV}"
+	KEYWORDS="amd64"
 	DOTNET_PKG_BUILD_EXTRA_ARGS=( /property:Version="${PV}" )
 fi
 

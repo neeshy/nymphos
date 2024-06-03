@@ -3,18 +3,20 @@
 
 EAPI=8
 
+MY_PN="LegacyFox"
+MY_COMMIT="312a791"
+MY_PV="${PV}-${MY_COMMIT}"
+MY_P="${MY_PN}-v${MY_PV}"
+
 DESCRIPTION="Legacy bootstrapped extensions for Firefox 65 and beyond"
 HOMEPAGE="https://git.gir.st/LegacyFox.git"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"
 else
-	MY_COMMIT="312a791"
-	MY_PV="${PV}-${MY_COMMIT}"
-	MY_P="LegacyFox-v${MY_PV}"
 	SRC_URI="${HOMEPAGE}/snapshot/v${PV}.tar.gz -> ${MY_P}.tar.gz"
-	KEYWORDS="amd64"
 	S="${WORKDIR}/${MY_P}"
+	KEYWORDS="amd64"
 fi
 
 LICENSE="MPL-2.0"

@@ -11,14 +11,13 @@ SRC_URI="
 	https://raw.githubusercontent.com/vim/vim/v${PV}/src/xxd/xxd.c -> ${P}.c
 	https://raw.githubusercontent.com/vim/vim/v${PV}/src/xxd/Makefile -> ${P}.mk
 	https://raw.githubusercontent.com/vim/vim/v${PV}/runtime/doc/xxd.1 -> ${P}.1"
+S="${WORKDIR}"
 
 LICENSE="MIT GPL-2"
 SLOT="0"
 KEYWORDS="amd64"
 
 RDEPEND="!app-editors/vim-core"
-
-S="${WORKDIR}"
 
 src_unpack() {
 	cp "${DISTDIR}/${P}.c" "${PN}.c" || die "cp failed"

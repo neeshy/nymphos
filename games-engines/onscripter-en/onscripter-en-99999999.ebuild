@@ -14,6 +14,7 @@ if [[ "${PV}" = 99999999 ]]; then
 	EGIT_REPO_URI="https://github.com/Galladite27/${MY_PN}.git"
 else
 	SRC_URI="https://github.com/Galladite27/${MY_PN}/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
+	S="${WORKDIR}/${MY_P}"
 	KEYWORDS="amd64"
 fi
 
@@ -30,8 +31,6 @@ RDEPEND="
 	media-libs/smpeg
 	x11-libs/libX11"
 DEPEND="${RDEPEND}"
-
-S="${WORKDIR}/${MY_P}"
 
 src_configure() {
 	default

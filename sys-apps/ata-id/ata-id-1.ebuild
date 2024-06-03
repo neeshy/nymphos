@@ -7,14 +7,13 @@ inherit toolchain-funcs
 
 DESCRIPTION="Reads product/serial number from ATA drives"
 HOMEPAGE="https://systemd.io/"
+S="${WORKDIR}"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64"
 
 DEPEND="sys-kernel/linux-headers"
-
-S="${WORKDIR}"
 
 src_compile() {
 	"$(tc-getCC)" "${FILESDIR}/${PN}.c" -o "${PN}" || die "build failed"

@@ -12,8 +12,8 @@ if [[ "${PV}" = 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/libretro/RetroArch"
 else
 	SRC_URI="https://github.com/libretro/RetroArch/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64"
 	S="${WORKDIR}/RetroArch-${PV}"
+	KEYWORDS="amd64"
 fi
 
 LICENSE="GPL-3+"
