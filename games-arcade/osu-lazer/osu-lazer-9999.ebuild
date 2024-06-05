@@ -333,6 +333,11 @@ if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/ppy/osu.git"
 	SRC_URI="${NUGET_URIS}"
+
+	src_unpack() {
+		git-r3_src_unpack
+		dotnet-pkg_src_unpack
+	}
 else
 	SRC_URI="https://github.com/ppy/osu/archive/${PV}.tar.gz -> ${P}.tar.gz
 		${NUGET_URIS}"
