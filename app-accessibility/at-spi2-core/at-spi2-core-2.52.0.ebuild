@@ -31,9 +31,11 @@ DEPEND="
 	)
 
 	!<dev-libs/atk-2.46.0
-	!<app-accessibility/at-spi2-atk-2.46.0"
+	!<app-accessibility/at-spi2-atk-2.46.0
+"
 RDEPEND="${DEPEND}
-	dbus-broker? ( sys-apps/dbus-broker )"
+	dbus-broker? ( sys-apps/dbus-broker )
+"
 BDEPEND="
 	dev-util/glib-utils
 	gtk-doc? (
@@ -42,7 +44,8 @@ BDEPEND="
 		>=dev-util/gi-docgen-2021.1
 	)
 	>=sys-devel/gettext-0.19.8
-	virtual/pkgconfig"
+	virtual/pkgconfig
+"
 
 PATCHES=( "${FILESDIR}/${PN}-atk-only-deps.patch" )
 
