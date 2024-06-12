@@ -1,10 +1,8 @@
-From 369f6294202831ed6af43dea5a48eeb1d84d1b58 Mon Sep 17 00:00:00 2001
 From: Jan <cloux@rote.ch>
 Date: Sat, 2 Mar 2019 22:56:30 +0100
-Subject: [PATCH] fix: warning for undefined operation on sequence point in
- chpst.c
+Subject: fix: warning for undefined operation on sequence point in chpst.c
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
   chpst.c:312:33: warning: operation on ‘subgetoptarg’ may be undefined [-Wsequence-point]
@@ -34,6 +32,3 @@ index 8de213f..1c3073f 100644
            nicelvl =ul;
            nicelvl *=-1;
            break;
--- 
-2.30.0
-

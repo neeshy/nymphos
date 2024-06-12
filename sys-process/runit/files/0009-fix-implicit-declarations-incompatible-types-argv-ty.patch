@@ -1,9 +1,8 @@
-From 933c023af7b6db2e12366fcf710c23dcc5d03fe1 Mon Sep 17 00:00:00 2001
 From: Jan <cloux@rote.ch>
 Date: Sat, 2 Mar 2019 15:41:59 +0100
-Subject: [PATCH] fix: implicit declarations, incompatible types, argv type
+Subject: fix: implicit declarations, incompatible types, argv type
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
 Fixed a few compiler warnings:
@@ -390,7 +389,7 @@ index 41ad26a..5163148 100644
  extern int subgetoptind;
  extern int subgetoptpos;
 diff --git a/src/sv.c b/src/sv.c
-index 7c6f6ed..5571071 100644
+index 887e9d1..5b59159 100644
 --- a/src/sv.c
 +++ b/src/sv.c
 @@ -281,7 +281,7 @@ int main(int argc, char **argv) {
@@ -437,6 +436,3 @@ index 2e8a525..286d680 100644
    int opt;
    int wtmp =0;
  
--- 
-2.30.0
-

@@ -1,7 +1,6 @@
-From e33c4bcfc9128404b312382db03ef3de12010aaa Mon Sep 17 00:00:00 2001
 From: Jan <cloux@rote.ch>
 Date: Wed, 6 Mar 2019 18:38:04 +0100
-Subject: [PATCH] fix: replace obsolete usleep with nanosleep
+Subject: fix: replace obsolete usleep with nanosleep
 
  POSIX.1-2001 declares usleep obsolete,
  POSIX.1-2008 removes the specification of usleep,
@@ -11,7 +10,7 @@ Subject: [PATCH] fix: replace obsolete usleep with nanosleep
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/src/sv.c b/src/sv.c
-index 692a1a6..999ba4e 100644
+index 6cc2a8b..f97c5a2 100644
 --- a/src/sv.c
 +++ b/src/sv.c
 @@ -1,5 +1,6 @@
@@ -38,6 +37,3 @@ index 692a1a6..999ba4e 100644
        taia_now(&tnow);
      }
    return(rc > 99 ? 99 : rc);
--- 
-2.30.0
-

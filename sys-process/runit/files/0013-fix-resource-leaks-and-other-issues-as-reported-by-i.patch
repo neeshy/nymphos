@@ -1,7 +1,6 @@
-From f2a4017395cb4ad30e25b8350af27b1048614d8f Mon Sep 17 00:00:00 2001
 From: Jan <cloux@rote.ch>
 Date: Fri, 8 Mar 2019 21:18:35 +0100
-Subject: [PATCH] fix: resource leaks and other issues as reported by infer
+Subject: fix: resource leaks and other issues as reported by infer
 
  to run infer static code analyzer (fbinfer.com):
  cd src; infer run -- make
@@ -10,13 +9,49 @@ Subject: [PATCH] fix: resource leaks and other issues as reported by infer
  - fix: runit-init.c resource leak - close file handle
  - fix: svlogd.c dead storage - value never used
  - fix: x86cpuid.c uninitialized value read
+ - fix: package/install-man - do not use unreliable symlinks
 ---
- src/fd_move.c    | 5 ++++-
- src/runit-init.c | 6 +++---
- src/svlogd.c     | 2 +-
- src/x86cpuid.c   | 4 ++++
- 4 files changed, 12 insertions(+), 5 deletions(-)
+ package/install-man | 11 +++--------
+ src/fd_move.c       |  5 ++++-
+ src/runit-init.c    |  6 +++---
+ src/svlogd.c        |  2 +-
+ src/x86cpuid.c      |  4 ++++
+ 5 files changed, 15 insertions(+), 13 deletions(-)
 
+diff --git a/package/install-man b/package/install-man
+index cd49048..596104e 100755
+--- a/package/install-man
++++ b/package/install-man
+@@ -1,26 +1,21 @@
+ #!/bin/sh
+-set -e
+ 
+ umask 022
+ test -d package || sh -cx '! : Wrong working directory.'
+ test -d man || sh -cx '! : Wrong working directory.'
+ 
+-here=`env - PATH=$PATH pwd`
+-parent=`dirname $here`
+-
+ echo 'Compressing manpages...'
+ for i in man/*.[1-8]; do
+   gzip -c $i >${i}.gz
+ done
+ 
+-echo 'Making manpage links in /usr/local/man...'
++echo 'Installing into /usr/local/man...'
+ cd man
+ for i in 8; do
+   mkdir -p /usr/local/man/man$i
+   for j in *.$i; do
+-    rm -f /usr/local/man/man$i/$j.gz'{new}'
+-    ln -s $parent/runit/man/$j.gz /usr/local/man/man$i/$j.gz'{new}'
+-    mv -f /usr/local/man/man$i/$j.gz'{new}' /usr/local/man/man$i/$j.gz
++    mv -uv $j.gz /usr/local/man/man$i/$j.gz
++    rm -f $j.gz
+   done
+ done
+ cd ..
 diff --git a/src/fd_move.c b/src/fd_move.c
 index 49f723f..8f7420b 100644
 --- a/src/fd_move.c
@@ -88,6 +123,3 @@ index f81c593..ee9ab40 100644
  
    asm volatile(".byte 15;.byte 162" : "=a"(x[0]),"=b"(x[1]),"=c"(x[3]),"=d"(x[2]) : "0"(0) );
    if (!x[0]) return 0;
--- 
-2.30.0
-

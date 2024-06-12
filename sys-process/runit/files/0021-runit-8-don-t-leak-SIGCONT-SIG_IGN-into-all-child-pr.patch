@@ -1,0 +1,22 @@
+From ea5b73f47d7db321cdca31ccc8cbb2516129d9de Mon Sep 17 00:00:00 2001
+From: Leah Neukirchen <leah@vuxu.org>
+Date: Sun, 11 Dec 2022 18:43:53 +0100
+Subject: [PATCH] runit(8): don't leak SIGCONT SIG_IGN into all child processes
+
+---
+ src/runit.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/runit.c b/src/runit.c
+index 48620b3..8494e4a 100644
+--- a/src/runit.c
++++ b/src/runit.c
+@@ -125,7 +125,7 @@ int main (int argc, const char * const *argv, char * const *envp) {
+       sig_unblock(sig_child);
+       sig_uncatch(sig_child);
+       sig_unblock(sig_cont);
+-      sig_ignore(sig_cont);
++      sig_uncatch(sig_cont);
+       sig_unblock(sig_hangup);
+       sig_unblock(sig_int);
+       sig_uncatch(sig_int);

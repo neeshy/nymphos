@@ -1,7 +1,6 @@
-From 7b47a2ff4885fde4e3956d1248603818bfe465b3 Mon Sep 17 00:00:00 2001
 From: Dmitry Bogatov <KAction@gnu.org>
 Date: Tue, 12 Mar 2019 19:07:03 +0000
-Subject: [PATCH] Fix factual error in manpage.
+Subject: Fix factual error in manpage.
 
 Forwarded: no
 Last-Update: 2016-08-31
@@ -14,7 +13,7 @@ Last-Update: 2016-08-31
  1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/man/runsv.8 b/man/runsv.8
-index 53f1b1b..348bf3c 100644
+index 75bc73a..5202bfb 100644
 --- a/man/runsv.8
 +++ b/man/runsv.8
 @@ -54,10 +54,8 @@ and
@@ -30,6 +29,3 @@ index 53f1b1b..348bf3c 100644
  .P
  .B runsv
  maintains status information in a binary format (compatible to the
--- 
-2.30.0
-

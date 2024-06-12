@@ -1,0 +1,176 @@
+From 6d38669bcfe2b8c31cfd0e3c77b658922b1ce843 Mon Sep 17 00:00:00 2001
+From: neeshy <neeshy@tfwno.gf>
+Date: Tue, 11 Jun 2024 21:50:49 -0400
+Subject: [PATCH] Fix feature checks
+
+---
+ src/trycpp.c     |  3 +++
+ src/tryflock.c   |  2 +-
+ src/trymkffo.c   |  2 +-
+ src/trypoll.c    |  1 +
+ src/trysgact.c   |  2 +-
+ src/trysgprm.c   |  2 +-
+ src/tryshsgr.c   | 24 ++++++++++++++----------
+ src/tryulong64.c |  2 ++
+ src/trywaitp.c   |  2 +-
+ src/x86cpuid.c   |  4 +++-
+ 10 files changed, 28 insertions(+), 16 deletions(-)
+
+diff --git a/src/trycpp.c b/src/trycpp.c
+index e4503d4..4f59db9 100644
+--- a/src/trycpp.c
++++ b/src/trycpp.c
+@@ -1,5 +1,8 @@
+ /* Public domain. */
+ 
++#include <stdlib.h>
++#include <stdio.h>
++
+ int main()
+ {
+ #ifdef NeXT
+diff --git a/src/tryflock.c b/src/tryflock.c
+index a82ffc2..68599d3 100644
+--- a/src/tryflock.c
++++ b/src/tryflock.c
+@@ -4,7 +4,7 @@
+ #include <sys/file.h>
+ #include <fcntl.h>
+ 
+-main()
++int main()
+ {
+   flock(0,LOCK_EX | LOCK_UN | LOCK_NB);
+ }
+diff --git a/src/trymkffo.c b/src/trymkffo.c
+index 9356342..4f8b286 100644
+--- a/src/trymkffo.c
++++ b/src/trymkffo.c
+@@ -3,7 +3,7 @@
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ 
+-void main()
++int main()
+ {
+   mkfifo("temp-trymkffo",0);
+ }
+diff --git a/src/trypoll.c b/src/trypoll.c
+index 6506617..a7b26df 100644
+--- a/src/trypoll.c
++++ b/src/trypoll.c
+@@ -3,6 +3,7 @@
+ #include <sys/types.h>
+ #include <fcntl.h>
+ #include <poll.h>
++#include <unistd.h>
+ 
+ int main()
+ {
+diff --git a/src/trysgact.c b/src/trysgact.c
+index e264ef2..841b88a 100644
+--- a/src/trysgact.c
++++ b/src/trysgact.c
+@@ -2,7 +2,7 @@
+ 
+ #include <signal.h>
+ 
+-main()
++int main()
+ {
+   struct sigaction sa;
+   sa.sa_handler = 0;
+diff --git a/src/trysgprm.c b/src/trysgprm.c
+index a46c82c..3e78a82 100644
+--- a/src/trysgprm.c
++++ b/src/trysgprm.c
+@@ -2,7 +2,7 @@
+ 
+ #include <signal.h>
+ 
+-main()
++int main()
+ {
+   sigset_t ss;
+  
+diff --git a/src/tryshsgr.c b/src/tryshsgr.c
+index c5ed6d6..a7b600f 100644
+--- a/src/tryshsgr.c
++++ b/src/tryshsgr.c
+@@ -1,16 +1,20 @@
+ /* Public domain. */
+ 
++#include <stdlib.h>
++#include <unistd.h>
++#include <grp.h>
++
+ int main()
+ {
+-  short x[4];
+- 
+-  x[0] = x[1] = 1;
+-  if (getgroups(1,x) == 0) if (setgroups(1,x) == -1) _exit(1);
+- 
+-  if (getgroups(1,x) == -1) _exit(1);
+-  if (x[1] != 1) _exit(1);
+-  x[1] = 2;
+-  if (getgroups(1,x) == -1) _exit(1);
+-  if (x[1] != 2) _exit(1);
++  int s;
++  gid_t *x;
++
++  s = getgroups(0, NULL);
++  if (s == -1) _exit(1);
++  if (s == 0) _exit(0);
++  x = malloc(s * sizeof(gid_t));
++  if (x == NULL) _exit(0);
++
++  if (getgroups(s,x) != s) _exit(1);
+   _exit(0);
+ }
+diff --git a/src/tryulong64.c b/src/tryulong64.c
+index 003548a..a4b9839 100644
+--- a/src/tryulong64.c
++++ b/src/tryulong64.c
+@@ -1,5 +1,7 @@
+ /* Public domain. */
+ 
++#include <unistd.h>
++
+ int main()
+ {
+   unsigned long u;
+diff --git a/src/trywaitp.c b/src/trywaitp.c
+index 319b81f..76b3329 100644
+--- a/src/trywaitp.c
++++ b/src/trywaitp.c
+@@ -3,7 +3,7 @@
+ #include <sys/types.h>
+ #include <sys/wait.h>
+ 
+-main()
++int main()
+ {
+   waitpid(0,0,0);
+ }
+diff --git a/src/x86cpuid.c b/src/x86cpuid.c
+index ee9ab40..c822e0b 100644
+--- a/src/x86cpuid.c
++++ b/src/x86cpuid.c
+@@ -1,5 +1,7 @@
+ /* Public domain. */
+ 
++#include <stdlib.h>
++#include <stdio.h>
+ #include <signal.h>
+ 
+ void nope()
+@@ -38,7 +40,7 @@ int main()
+       putchar(c);
+     }
+ 
+-  printf("-%08x-%08x\n",y[0],y[3]);
++  printf("-%08lx-%08lx\n",y[0],y[3]);
+ 
+   return 0;
+ }

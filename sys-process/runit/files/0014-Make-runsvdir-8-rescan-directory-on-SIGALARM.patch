@@ -1,7 +1,6 @@
-From 3bc1044b4fe19cc32a17985e2cb4f22e780fbf66 Mon Sep 17 00:00:00 2001
 From: Dmitry Bogatov <KAction@debian.org>
 Date: Mon, 15 Jul 2019 23:51:43 +0000
-Subject: [PATCH] Make runsvdir(8) rescan directory on SIGALARM
+Subject: Make runsvdir(8) rescan directory on SIGALARM
 
 Generally runsvdir(8) rescans service directory every 5 seconds. This patch
 makes it possbile to force rescan by sending SIGALARM.
@@ -15,7 +14,7 @@ process for 5 seconds is sub-optimal in such situation.
  2 files changed, 39 insertions(+), 3 deletions(-)
 
 diff --git a/src/Makefile b/src/Makefile
-index d9624de..a73c9ab 100644
+index a5f3558..28db6fd 100644
 --- a/src/Makefile
 +++ b/src/Makefile
 @@ -14,8 +14,8 @@ runit-init: load runit-init.o unix.a byte.a
@@ -124,6 +123,3 @@ index c45b4ee..e98a4b5 100644
              while (fchdir(curdir) == -1) {
                warn("unable to change directory, pausing", 0);
                sleep(5);
--- 
-2.30.0
-

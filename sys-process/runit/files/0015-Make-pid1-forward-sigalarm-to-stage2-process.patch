@@ -1,7 +1,7 @@
-From d8d4e9b59219c04fcef5c9eda36162e0a35b48a8 Mon Sep 17 00:00:00 2001
 From: Dmitry Bogatov <KAction@debian.org>
 Date: Sun, 25 Aug 2019 19:02:46 +0000
-Subject: [PATCH] Make pid1 forward sigalarm to stage2 process
+Forwarded: <no>
+Subject: Make pid1 forward sigalarm to stage2 process
 
 ---
  src/runit.c | 18 ++++++++++++++++--
@@ -78,6 +78,3 @@ index 35cda0a..e04a598 100644
  #ifdef DEBUG
        strerr_warn2(WARNING, "no request.", 0);
  #endif
--- 
-2.30.0
-

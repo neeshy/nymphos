@@ -1,4 +1,3 @@
-From 1c5de15843b1bd160a25d42a6877c750ec510759 Mon Sep 17 00:00:00 2001
 From: Gerrit Pape <pape@smarden.org>
 Date: Thu, 31 Jul 2014 12:25:49 +0000
 Subject: [PATCH] utmpset.c: mixes "int32_t *" and "time_t *"
@@ -52,6 +51,3 @@ index eea41a5..2e8a525 100644
  #ifdef DEAD_PROCESS
    ut.ut_type =DEAD_PROCESS;
  #endif
--- 
-2.30.0
-

@@ -1,4 +1,4 @@
-From a3a4a48cfbc525dd6ad947db5a621f3bfac97083 Mon Sep 17 00:00:00 2001
+From fddc8d2187c3189fd82eef8391be56a58a842849 Mon Sep 17 00:00:00 2001
 From: Christopher Brannon <chris@the-brannons.com>
 Date: Sat, 3 Mar 2018 03:28:08 -0800
 Subject: [PATCH] fix segfault in svlogd discovered on armv7hf-musl.
@@ -9,14 +9,22 @@ I have no idea why this has never caused a problem before, but
 for me, svlogd consistently segfaults on armv7hf-musl when
 it is called by socklog.
 ---
- src/svlogd.c | 1 +
- 1 file changed, 1 insertion(+)
+ src/svlogd.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/src/svlogd.c b/src/svlogd.c
-index 4e14b84..a8be6b5 100644
+index 90a3321..8d61440 100644
 --- a/src/svlogd.c
 +++ b/src/svlogd.c
-@@ -717,6 +717,7 @@ int main(int argc, char **argv) {
+@@ -8,6 +8,7 @@
+ #include <dirent.h>
+ #include <unistd.h>
+ #include <stdio.h>
++#include <string.h>
+ #include "pmatch.h"
+ #include "fmt_ptime.h"
+ #include "alloc.h"
+@@ -705,6 +706,7 @@ int main(int argc, const char **argv) {
    coe(fdwdir);
    dir =(struct logdir*)alloc(dirn *sizeof(struct logdir));
    if (! dir) die_nomem();
@@ -24,6 +32,3 @@ index 4e14b84..a8be6b5 100644
    for (i =0; i < dirn; ++i) {
      dir[i].fddir =-1; dir[i].fdcur =-1;
      dir[i].btmp =(char*)alloc(buflen *sizeof(char));
--- 
-2.30.0
-

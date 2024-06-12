@@ -1,6 +1,6 @@
-From 00f9164bc501f738ac69615fd0701f0df11fd1ea Mon Sep 17 00:00:00 2001
 From: Dmitry Bogatov <KAction@gnu.org>
 Date: Mon, 28 May 2018 21:46:39 +0300
+Forwarded: <no>
 Subject: [PATCH] Fix spin lock on systems with poor clock
 
 ---
@@ -20,6 +20,3 @@ index 90a3321..fab8441 100644
          ++n;
          if (str_diff(f->d_name, oldest) < 0) byte_copy(oldest, 27, f->d_name);
        }
--- 
-2.30.0
-

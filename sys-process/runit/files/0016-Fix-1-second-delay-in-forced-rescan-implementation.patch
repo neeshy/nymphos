@@ -1,7 +1,7 @@
-From c996a3b38706608b816802e08da161a0d7bc39ba Mon Sep 17 00:00:00 2001
 From: Dmitry Bogatov <KAction@debian.org>
 Date: Sun, 15 Sep 2019 23:45:24 +0000
-Subject: [PATCH] Fix 1 second delay in forced-rescan implementation
+Forwarded: <no>
+Subject: Fix 1 second delay in forced-rescan implementation
 
 Ref: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=933078#40
 ---
@@ -21,6 +21,3 @@ index e98a4b5..de430f2 100644
                sleep(1);
              runsvdir();
              if (siga) {
--- 
-2.30.0
-

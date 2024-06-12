@@ -1,7 +1,7 @@
-From fd59ff3db662463a1fa59ba6ef1a5cc22806821e Mon Sep 17 00:00:00 2001
 From: Dmitry Bogatov <KAction@debian.org>
 Date: Tue, 12 Mar 2019 19:13:48 +0000
-Subject: [PATCH] Shutdown when runit-init receices SIGPWR
+Forwarded: <no>
+Subject: Shutdown when runit-init receices SIGPWR
 
 ---
  man/runit.8 |  6 ++++++
@@ -11,7 +11,7 @@ Subject: [PATCH] Shutdown when runit-init receices SIGPWR
  4 files changed, 25 insertions(+), 4 deletions(-)
 
 diff --git a/man/runit.8 b/man/runit.8
-index faf789b..612c664 100644
+index 6c07cf8..d597fdd 100644
 --- a/man/runit.8
 +++ b/man/runit.8
 @@ -75,6 +75,12 @@ exists and has the execute by owner permission set,
@@ -145,6 +145,3 @@ index 2a3c780..0ced62d 100644
  extern int sig_term;
  
  extern void (*sig_defaulthandler)();
--- 
-2.30.0
-

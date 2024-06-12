@@ -21,9 +21,6 @@ src_prepare() {
 	cd .. || die "cd failed"
 
 	default
-
-	# we either build everything or nothing static
-	sed -i 's/-static/ /' src/Makefile || die "sed failed"
 }
 
 src_configure() {

@@ -1,7 +1,6 @@
-From 6c3924e0f8e46fe718b9316455137dc4da1d5b00 Mon Sep 17 00:00:00 2001
 From: Jan <cloux@rote.ch>
 Date: Sat, 2 Mar 2019 21:47:29 +0100
-Subject: [PATCH] fix: 34 cases of -Wmisleading-indentation warnings
+Subject: fix: 34 cases of -Wmisleading-indentation warnings
 
  - fixed misleading indentation as reported by gcc 8.2.0
 ---
@@ -213,7 +212,7 @@ index dedd005..38c6e28 100644
    }
  }
 diff --git a/src/sv.c b/src/sv.c
-index 5571071..692a1a6 100644
+index 5b59159..6cc2a8b 100644
 --- a/src/sv.c
 +++ b/src/sv.c
 @@ -290,7 +290,8 @@ int main(int argc, char **argv) {
@@ -262,6 +261,3 @@ index a80b1fc..f433669 100644
    return len;
  }
  
--- 
-2.30.0
-
