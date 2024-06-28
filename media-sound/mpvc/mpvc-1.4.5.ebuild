@@ -4,77 +4,77 @@
 EAPI=8
 
 CRATES="
-	aho-corasick@1.1.2
-	anstream@0.6.12
-	anstyle@1.0.6
-	anstyle-parse@0.2.3
-	anstyle-query@1.0.2
-	anstyle-wincon@3.0.2
+	aho-corasick@1.1.3
+	anstream@0.6.14
+	anstyle@1.0.7
+	anstyle-parse@0.2.4
+	anstyle-query@1.1.0
+	anstyle-wincon@3.0.3
 	bitflags@1.3.2
-	bitflags@2.4.2
+	bitflags@2.6.0
 	cfg-if@1.0.0
-	clap@4.5.1
-	clap_builder@4.5.1
-	clap_lex@0.7.0
-	colorchoice@1.0.0
+	clap@4.5.7
+	clap_builder@4.5.7
+	clap_complete@4.5.6
+	clap_lex@0.7.1
+	colorchoice@1.0.1
 	colored@2.1.0
-	crossbeam-channel@0.5.11
-	crossbeam-utils@0.8.19
+	crossbeam-channel@0.5.13
+	crossbeam-utils@0.8.20
 	env_filter@0.1.0
-	env_logger@0.11.2
+	env_logger@0.11.3
 	filetime@0.2.23
 	fsevent-sys@4.1.0
 	humantime@2.1.0
 	inotify@0.9.6
 	inotify-sys@0.1.5
-	itoa@1.0.10
+	is_terminal_polyfill@1.70.0
+	itoa@1.0.11
 	kqueue@1.0.8
 	kqueue-sys@1.0.4
-	lazy_static@1.4.0
-	libc@0.2.153
-	log@0.4.20
-	memchr@2.7.1
-	mio@0.8.10
+	lazy_static@1.5.0
+	libc@0.2.155
+	log@0.4.22
+	memchr@2.7.4
+	mio@0.8.11
 	notify@6.1.1
-	proc-macro2@1.0.78
-	quote@1.0.35
+	proc-macro2@1.0.86
+	quote@1.0.36
 	redox_syscall@0.4.1
-	regex@1.10.3
-	regex-automata@0.4.5
-	regex-syntax@0.8.2
-	ryu@1.0.17
+	regex@1.10.5
+	regex-automata@0.4.7
+	regex-syntax@0.8.4
+	ryu@1.0.18
 	same-file@1.0.6
-	serde@1.0.197
-	serde_derive@1.0.197
-	serde_json@1.0.114
-	strsim@0.11.0
-	syn@2.0.50
+	serde@1.0.203
+	serde_derive@1.0.203
+	serde_json@1.0.118
+	strsim@0.11.1
+	syn@2.0.68
 	unicode-ident@1.0.12
-	utf8parse@0.2.1
-	walkdir@2.4.0
-	wasi@0.11.0+wasi-snapshot-preview1
-	winapi@0.3.9
-	winapi-i686-pc-windows-gnu@0.4.0
-	winapi-util@0.1.6
-	winapi-x86_64-pc-windows-gnu@0.4.0
+	utf8parse@0.2.2
+	walkdir@2.5.0
+	wasi-0.11.0+wasi-snapshot@preview1
+	winapi-util@0.1.8
 	windows-sys@0.48.0
 	windows-sys@0.52.0
 	windows-targets@0.48.5
-	windows-targets@0.52.0
+	windows-targets@0.52.5
 	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_gnullvm@0.52.0
+	windows_aarch64_gnullvm@0.52.5
 	windows_aarch64_msvc@0.48.5
-	windows_aarch64_msvc@0.52.0
+	windows_aarch64_msvc@0.52.5
 	windows_i686_gnu@0.48.5
-	windows_i686_gnu@0.52.0
+	windows_i686_gnu@0.52.5
+	windows_i686_gnullvm@0.52.5
 	windows_i686_msvc@0.48.5
-	windows_i686_msvc@0.52.0
+	windows_i686_msvc@0.52.5
 	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnu@0.52.0
+	windows_x86_64_gnu@0.52.5
 	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_gnullvm@0.52.0
+	windows_x86_64_gnullvm@0.52.5
 	windows_x86_64_msvc@0.48.5
-	windows_x86_64_msvc@0.52.0"
+	windows_x86_64_msvc@0.52.5"
 
 inherit cargo shell-completion
 
@@ -91,6 +91,13 @@ RDEPEND="media-video/mpv"
 
 src_configure() {
 	cargo_src_configure --bins --examples
+}
+
+src_compile() {
+	cargo_src_compile
+
+	target/release/mpvc completion bash >etc/mpvc.bash || die "mpvc completion failed"
+	target/release/mpvc completion fish >etc/mpvc.fish || die "mpvc completion failed"
 }
 
 src_install() {
