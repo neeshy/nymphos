@@ -13,9 +13,9 @@ CRATES="
 	bitflags@1.3.2
 	bitflags@2.6.0
 	cfg-if@1.0.0
-	clap@4.5.7
-	clap_builder@4.5.7
-	clap_complete@4.5.6
+	clap@4.5.8
+	clap_builder@4.5.8
+	clap_complete@4.5.7
 	clap_lex@0.7.1
 	colorchoice@1.0.1
 	colored@2.1.0
