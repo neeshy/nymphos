@@ -27,7 +27,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-include-memory.patch"
+	"${FILESDIR}/${PN}-includes.patch"
+	"${FILESDIR}/${PN}-warnings.patch"
 	"${FILESDIR}/${PN}-gtk+3.patch"
 	"${FILESDIR}/${PN}-custom-flags.patch"
 )

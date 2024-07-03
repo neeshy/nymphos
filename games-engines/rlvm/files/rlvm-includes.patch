@@ -10,11 +10,11 @@
  #include <utility>
 --- a/src/utilities/file.h
 +++ b/src/utilities/file.h
-@@ -30,6 +30,7 @@
- 
+@@ -31,6 +31,7 @@
  #include <boost/filesystem.hpp>
  
-+#include <memory>
  #include <iosfwd>
++#include <memory>
  #include <string>
  #include <vector>
+ 
