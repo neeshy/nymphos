@@ -110,7 +110,6 @@ NUGETS="
 	microsoft.win32.registry@4.5.0
 	microsoft.win32.registry@5.0.0
 	mongodb.bson@2.19.1
-	mono.posix.netstandard@1.0.0
 	nativelibraryloader@1.0.13
 	netstandard.library@1.6.1
 	netstandard.library@2.0.0
@@ -136,10 +135,10 @@ NUGETS="
 	ppy.managedbass.fx@2022.1216.0
 	ppy.managedbass.mix@2022.1216.0
 	ppy.managedbass.wasapi@2022.1216.0
-	ppy.osu.framework@2024.625.0
+	ppy.osu.framework@2024.716.0
 	ppy.osu.framework.nativelibs@2024.326.0-nativelibs
 	ppy.osu.framework.sourcegeneration@2023.720.0
-	ppy.osu.game.resources@2024.622.0
+	ppy.osu.game.resources@2024.713.0
 	ppy.osutk.ns20@1.0.211
 	ppy.sdl2-cs@1.0.741-alpha
 	ppy.sdl3-cs@2024.528.0
