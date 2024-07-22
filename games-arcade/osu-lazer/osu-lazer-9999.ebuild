@@ -325,7 +325,7 @@ NUGETS="
 	vortice.mathematics@1.4.25
 	zstdsharp.port@0.7.4"
 
-inherit dotnet-pkg xdg
+inherit desktop dotnet-pkg xdg
 
 DESCRIPTION="A free-to-win rhythm game. Rhythm is just a *click* away!"
 HOMEPAGE="https://osu.ppy.sh/"
@@ -366,10 +366,10 @@ src_install() {
 	dotnet-pkg-base_append-launchervar OSU_EXTERNAL_UPDATE_PROVIDER=1
 	dotnet-pkg-base_dolauncher_portable "/usr/share/${P}/osu!.dll" "${PN}"
 
-	insinto /usr/share/icons/hicolor/128x128/apps
-	newins assets/lazer-nuget.png "${PN}.png"
-	insinto /usr/share/icons/hicolor/1024x1024/apps
-	newins assets/lazer.png "${PN}.png"
+	newicon -s 128 assets/lazer-nuget.png "${PN}.png"
+	newicon -s 1024 assets/lazer.png "${PN}.png"
+
+	make_desktop_entry osu-lazer
 
 	dodoc README.md
 }

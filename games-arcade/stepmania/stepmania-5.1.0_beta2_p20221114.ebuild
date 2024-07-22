@@ -98,9 +98,7 @@ src_install() {
 	domenu "${PN}.desktop"
 	local size
 	for size in 16 22 24 32 36 48 64 72 96 128 192 256; do
-		insinto "/usr/share/icons/hicolor/${size}x${size}/apps"
-		doins "icons/hicolor/${size}x${size}/apps/${PN}-ssc.png"
+		doicon -s "${size}" "icons/hicolor/${size}x${size}/apps/${PN}-ssc.png"
 	done
-	insinto /usr/share/icons/hicolor/scalable/apps
-	doins "icons/hicolor/scalable/apps/${PN}-ssc.svg"
+	doicon -s scalable "icons/hicolor/scalable/apps/${PN}-ssc.svg"
 }
