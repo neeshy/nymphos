@@ -106,4 +106,4 @@ S="${WORKDIR}/${P}/cli"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"

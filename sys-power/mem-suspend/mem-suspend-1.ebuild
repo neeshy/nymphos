@@ -11,7 +11,7 @@ S="${WORKDIR}"
 
 LICENSE="0BSD"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 RDEPEND="acct-group/power"
 

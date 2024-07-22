@@ -19,7 +19,7 @@ S="${WORKDIR}"
 
 LICENSE="AdobeFlash"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="debug"
 
 RESTRICT="bindist strip"

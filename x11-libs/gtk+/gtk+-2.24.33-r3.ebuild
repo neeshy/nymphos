@@ -16,7 +16,7 @@ REQUIRED_USE="
 	xinerama? ( !aqua )
 "
 
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 # Upstream wants us to do their job:
 # https://bugzilla.gnome.org/show_bug.cgi?id=768663#c1

@@ -342,7 +342,7 @@ else
 	SRC_URI="https://github.com/ppy/osu/archive/${PV}.tar.gz -> ${P}.tar.gz
 		${NUGET_URIS}"
 	S="${WORKDIR}/osu-${PV}"
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 	DOTNET_PKG_BUILD_EXTRA_ARGS=( /property:Version="${PV}" )
 fi
 

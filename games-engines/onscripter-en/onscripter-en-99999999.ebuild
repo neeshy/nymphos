@@ -15,7 +15,7 @@ if [[ "${PV}" = 99999999 ]]; then
 else
 	SRC_URI="https://github.com/Galladite27/${MY_PN}/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 	S="${WORKDIR}/${MY_P}"
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="GPL-2"

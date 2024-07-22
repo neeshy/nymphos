@@ -10,7 +10,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/at-spi2-core"
 
 LICENSE="LGPL-2.1+"
 SLOT="2"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="X dbus dbus-broker gtk-doc +introspection systemd"
 REQUIRED_USE="dbus-broker? ( dbus systemd )"
 

@@ -428,7 +428,7 @@ else
 	SRC_URI+="
 		${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 		${EGO_SUM_SRC_URI}"
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="MPL-2.0"

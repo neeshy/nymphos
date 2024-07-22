@@ -11,7 +11,7 @@ SRC_URI="mirror://gnu/${PN}/${P}/${P}.tar.gz"
 
 LICENSE="OFL-1.1 GPL-2+"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="bold"
 
 DEPEND="

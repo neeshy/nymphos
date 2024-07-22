@@ -16,7 +16,7 @@ if [[ "${PV}" = 9999 ]]; then
 else
 	SRC_URI="${HOMEPAGE}/snapshot/v${PV}.tar.gz -> ${MY_P}.tar.gz"
 	S="${WORKDIR}/${MY_P}"
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="MPL-2.0"

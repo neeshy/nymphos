@@ -18,7 +18,7 @@ REQUIRED_USE="
 "
 RESTRICT="!test? ( test )"
 
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 COMMON_DEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0[dbus?,introspection?,${MULTILIB_USEDEP}]

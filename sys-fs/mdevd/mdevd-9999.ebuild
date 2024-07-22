@@ -10,7 +10,7 @@ if [[ "${PV}" = 9999 ]]; then
 	EGIT_REPO_URI="git://git.skarnet.org/${PN}"
 else
 	SRC_URI="${HOMEPAGE}${P}.tar.gz"
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="ISC"

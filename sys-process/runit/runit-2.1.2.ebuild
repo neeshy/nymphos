@@ -12,7 +12,7 @@ S="${WORKDIR}/admin/${P}/src"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="static"
 
 PATCHES=( "${FILESDIR}" )

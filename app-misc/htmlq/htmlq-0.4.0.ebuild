@@ -90,4 +90,4 @@ SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
