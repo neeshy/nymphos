@@ -76,7 +76,7 @@ CRATES="
 	untrusted@0.9.0
 	utf8parse@0.2.2
 	vcpkg@0.2.15
-	wasi-0.11.0+wasi-snapshot@preview1
+	wasi@0.11.0+wasi-snapshot-preview1
 	wasm-bindgen@0.2.92
 	wasm-bindgen-backend@0.2.92
 	wasm-bindgen-macro@0.2.92

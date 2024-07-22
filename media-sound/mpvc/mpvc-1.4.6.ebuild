@@ -54,7 +54,7 @@ CRATES="
 	unicode-ident@1.0.12
 	utf8parse@0.2.2
 	walkdir@2.5.0
-	wasi-0.11.0+wasi-snapshot@preview1
+	wasi@0.11.0+wasi-snapshot-preview1
 	winapi-util@0.1.8
 	windows-sys@0.48.0
 	windows-sys@0.52.0
