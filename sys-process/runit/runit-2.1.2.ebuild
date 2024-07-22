@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs flag-o-matic
+inherit flag-o-matic toolchain-funcs
 
 DESCRIPTION="A UNIX init scheme with service supervision"
 HOMEPAGE="http://smarden.org/${PN}/"
