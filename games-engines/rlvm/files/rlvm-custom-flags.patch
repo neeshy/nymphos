@@ -1,6 +1,6 @@
 --- a/SConstruct
 +++ b/SConstruct
-@@ -105,6 +105,11 @@
+@@ -107,6 +107,11 @@
    env['RANLIBCOMSTR'] = 'Indexing $TARGET ...'
    env['SHLINKCOMSTR'] = 'Linking $TARGET ...'
  

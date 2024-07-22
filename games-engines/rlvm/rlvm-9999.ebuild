@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} )
 
-inherit python-any-r1 scons-utils git-r3
+inherit git-r3 python-any-r1 scons-utils
 
 DESCRIPTION="An open source implementation of the RealLive virtual machine for Linux and OSX"
 HOMEPAGE="https://github.com/eglaysher/${PN}"
