@@ -325,7 +325,7 @@ NUGETS="
 	vortice.mathematics@1.4.25
 	zstdsharp.port@0.7.4"
 
-inherit dotnet-pkg
+inherit dotnet-pkg xdg
 
 DESCRIPTION="A free-to-win rhythm game. Rhythm is just a *click* away!"
 HOMEPAGE="https://osu.ppy.sh/"

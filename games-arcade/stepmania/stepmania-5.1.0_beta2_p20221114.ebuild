@@ -5,7 +5,7 @@ EAPI=8
 
 CMAKE_BUILD_TYPE="Release"
 
-inherit cmake desktop wrapper
+inherit cmake desktop wrapper xdg
 
 MY_PV="d55acb1ba26f1c5b5e3048d6d6c0bd116625216f"
 MY_P="${PN}-${MY_PV}"

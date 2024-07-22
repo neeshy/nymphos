@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit flag-o-matic
+inherit flag-o-matic xdg
 
 DESCRIPTION="Reference frontend for libretro-based emulators"
 HOMEPAGE="https://www.retroarch.com/"
