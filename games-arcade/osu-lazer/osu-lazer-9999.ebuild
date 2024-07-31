@@ -138,7 +138,7 @@ NUGETS="
 	ppy.osu.framework@2024.720.0
 	ppy.osu.framework.nativelibs@2024.326.0-nativelibs
 	ppy.osu.framework.sourcegeneration@2023.720.0
-	ppy.osu.game.resources@2024.713.0
+	ppy.osu.game.resources@2024.731.0
 	ppy.osutk.ns20@1.0.211
 	ppy.sdl2-cs@1.0.741-alpha
 	ppy.sdl3-cs@2024.717.0
