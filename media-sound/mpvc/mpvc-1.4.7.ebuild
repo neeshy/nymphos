@@ -5,30 +5,30 @@ EAPI=8
 
 CRATES="
 	aho-corasick@1.1.3
-	anstream@0.6.14
-	anstyle@1.0.7
-	anstyle-parse@0.2.4
-	anstyle-query@1.1.0
+	anstream@0.6.15
+	anstyle@1.0.8
+	anstyle-parse@0.2.5
+	anstyle-query@1.1.1
 	anstyle-wincon@3.0.3
 	bitflags@1.3.2
 	bitflags@2.6.0
 	cfg-if@1.0.0
-	clap@4.5.8
-	clap_builder@4.5.8
-	clap_complete@4.5.7
-	clap_lex@0.7.1
-	colorchoice@1.0.1
+	clap@4.5.13
+	clap_builder@4.5.13
+	clap_complete@4.5.12
+	clap_lex@0.7.2
+	colorchoice@1.0.2
 	colored@2.1.0
 	crossbeam-channel@0.5.13
 	crossbeam-utils@0.8.20
 	env_filter@0.1.0
-	env_logger@0.11.3
+	env_logger@0.11.5
 	filetime@0.2.23
 	fsevent-sys@4.1.0
 	humantime@2.1.0
 	inotify@0.9.6
 	inotify-sys@0.1.5
-	is_terminal_polyfill@1.70.0
+	is_terminal_polyfill@1.70.1
 	itoa@1.0.11
 	kqueue@1.0.8
 	kqueue-sys@1.0.4
@@ -46,35 +46,35 @@ CRATES="
 	regex-syntax@0.8.4
 	ryu@1.0.18
 	same-file@1.0.6
-	serde@1.0.203
-	serde_derive@1.0.203
-	serde_json@1.0.118
+	serde@1.0.204
+	serde_derive@1.0.204
+	serde_json@1.0.121
 	strsim@0.11.1
-	syn@2.0.68
+	syn@2.0.72
 	unicode-ident@1.0.12
 	utf8parse@0.2.2
 	walkdir@2.5.0
-	wasi@0.11.0+wasi-snapshot-preview1
+	wasi-0.11.0+wasi-snapshot@preview1
 	winapi-util@0.1.8
 	windows-sys@0.48.0
 	windows-sys@0.52.0
 	windows-targets@0.48.5
-	windows-targets@0.52.5
+	windows-targets@0.52.6
 	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_gnullvm@0.52.5
+	windows_aarch64_gnullvm@0.52.6
 	windows_aarch64_msvc@0.48.5
-	windows_aarch64_msvc@0.52.5
+	windows_aarch64_msvc@0.52.6
 	windows_i686_gnu@0.48.5
-	windows_i686_gnu@0.52.5
-	windows_i686_gnullvm@0.52.5
+	windows_i686_gnu@0.52.6
+	windows_i686_gnullvm@0.52.6
 	windows_i686_msvc@0.48.5
-	windows_i686_msvc@0.52.5
+	windows_i686_msvc@0.52.6
 	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnu@0.52.5
+	windows_x86_64_gnu@0.52.6
 	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_gnullvm@0.52.5
+	windows_x86_64_gnullvm@0.52.6
 	windows_x86_64_msvc@0.48.5
-	windows_x86_64_msvc@0.52.5"
+	windows_x86_64_msvc@0.52.6"
 
 inherit cargo shell-completion
 
