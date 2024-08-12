@@ -3,7 +3,7 @@
 
 EAPI=8
 
-MY_PN="${PN%-bin}s"
+MY_PN="numix-frost-themes"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="A modern flat theme that supports Gnome, Unity, XFCE and Openbox."
