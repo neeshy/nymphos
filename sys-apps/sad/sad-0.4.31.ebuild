@@ -100,7 +100,7 @@ inherit cargo
 DESCRIPTION="Space Age seD"
 HOMEPAGE="https://github.com/ms-jpq/${PN}"
 SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	$(cargo_crate_uris)"
+	${CARGO_CRATE_URIS}"
 
 LICENSE="MIT"
 SLOT="0"

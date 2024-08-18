@@ -7,8 +7,8 @@ inherit go-module shell-completion
 
 DESCRIPTION="Simple and flexible tool for managing secrets"
 HOMEPAGE="https://github.com/getsops/${PN}"
-SRC_URI="https://raw.githubusercontent.com/urfave/cli/b2f61fafb88722b6a05624d5bad3e0541b65900a/autocomplete/bash_autocomplete -> ${P}-urfave-cli-bash_autocomplete
-	https://raw.githubusercontent.com/urfave/cli/9aa459e1d750baf10f5843a6cac14a3f7fbeb2d0/autocomplete/zsh_autocomplete -> ${P}-urfave-cli-zsh_autocomplete"
+SRC_URI="https://raw.githubusercontent.com/urfave/cli/b2f61fafb88722b6a05624d5bad3e0541b65900a/autocomplete/bash_autocomplete -> urfave-cli-b2f61fafb88722b6a05624d5bad3e0541b65900a-bash_autocomplete
+	https://raw.githubusercontent.com/urfave/cli/24197c9938b2b5fd633be9257157832b129d4b60/autocomplete/zsh_autocomplete -> urfave-cli-24197c9938b2b5fd633be9257157832b129d4b60-zsh_autocomplete"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"
@@ -438,9 +438,9 @@ src_prepare() {
 	default
 
 	sed 's/--generate-shell-completion/--generate-bash-completion/g' \
-		"${DISTDIR}/${P}-urfave-cli-bash_autocomplete" >"${PN}.bash" || die "sed failed"
+		"${DISTDIR}/urfave-cli-b2f61fafb88722b6a05624d5bad3e0541b65900a-bash_autocomplete" >"${PN}.bash" || die "sed failed"
 	sed "s/--generate-shell-completion/--generate-bash-completion/g;s/\\\$PROG/${PN}/g" \
-		"${DISTDIR}/${P}-urfave-cli-zsh_autocomplete" >"${PN}.zsh" || die "sed failed"
+		"${DISTDIR}/urfave-cli-24197c9938b2b5fd633be9257157832b129d4b60-zsh_autocomplete" >"${PN}.zsh" || die "sed failed"
 }
 
 src_compile() {

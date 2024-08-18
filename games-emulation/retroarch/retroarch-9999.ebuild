@@ -53,7 +53,7 @@ RDEPEND="
 	openal? ( media-libs/openal )
 	opengl? ( media-libs/mesa[opengl] )
 	osmesa? ( media-libs/mesa[osmesa] )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 	qt5? (
 		dev-qt/qtconcurrent:5
 		dev-qt/qtcore:5
