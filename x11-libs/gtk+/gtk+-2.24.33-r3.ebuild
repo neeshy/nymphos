@@ -11,7 +11,7 @@ HOMEPAGE="https://www.gtk.org/"
 
 LICENSE="LGPL-2+"
 SLOT="2"
-IUSE="adwaita-icon-theme aqua cups doc examples +introspection test vim-syntax xinerama"
+IUSE="adwaita-icon-theme aqua cups examples +introspection test vim-syntax xinerama"
 REQUIRED_USE="
 	xinerama? ( !aqua )
 "
@@ -79,13 +79,11 @@ PDEPEND="
 # docbook-4.1.2 and xsl required for man pages
 # docbook-4.3 required for gtk-doc
 BDEPEND="
-	doc? (
-		app-text/docbook-xml-dtd:4.1.2
-		app-text/docbook-xml-dtd:4.3
-		app-text/docbook-xsl-stylesheets
-		dev-libs/libxslt
-	)
+	app-text/docbook-xml-dtd:4.1.2
+	app-text/docbook-xml-dtd:4.3
+	app-text/docbook-xsl-stylesheets
 	dev-libs/gobject-introspection-common
+	dev-libs/libxslt
 	dev-util/glib-utils
 	>=dev-build/gtk-doc-am-1.20
 	>=sys-devel/gettext-0.18.3
@@ -140,6 +138,8 @@ src_prepare() {
 	# -O3 and company cause random crashes in applications, bug #133469
 	replace-flags -O3 -O2
 	strip-flags
+	# Not compatible with C23 decls
+	append-flags -std=gnu17
 
 	if ! use test ; then
 		# don't waste time building tests
@@ -185,10 +185,6 @@ src_prepare() {
 multilib_src_configure() {
 	[[ ${ABI} == ppc64 ]] && append-flags -mminimal-toc
 
-	local myg2conf=()
-	if use doc; then
-		myg2conf+=(--enable-man --with-xml-catalog="${EPREFIX}/etc/xml/catalog")
-	fi
 	ECONF_SOURCE=${S} \
 	gnome2_src_configure \
 		$(usex aqua --with-gdktarget=quartz --with-gdktarget=x11) \
@@ -197,7 +193,8 @@ multilib_src_configure() {
 		$(multilib_native_use_enable introspection) \
 		$(use_enable xinerama) \
 		--disable-papi \
-		"${myg2conf[@]}" \
+		--enable-man \
+		--with-xml-catalog="${EPREFIX}"/etc/xml/catalog \
 		CUPS_CONFIG="${EPREFIX}/usr/bin/${CHOST}-cups-config"
 
 	# work-around gtk-doc out-of-source brokedness
@@ -233,9 +230,7 @@ multilib_src_install_all() {
 
 	# dev-util/gtk-builder-convert split off into a separate package, #402905
 	rm "${ED}"/usr/bin/gtk-builder-convert || die
-	if use doc; then
-		rm "${ED}"/usr/share/man/man1/gtk-builder-convert.* || die
-	fi
+	rm "${ED}"/usr/share/man/man1/gtk-builder-convert.* || die
 
 	readme.gentoo_create_doc
 }
