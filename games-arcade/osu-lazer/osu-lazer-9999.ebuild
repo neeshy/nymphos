@@ -6,7 +6,6 @@ EAPI=8
 DOTNET_PKG_COMPAT="8.0"
 NUGETS="
 	automapper@12.0.1
-	clowd.squirrel@2.11.1
 	diffplex@1.7.2
 	discordrichpresence@1.2.1.24
 	ffmpeg.autogen@4.3.0.1
@@ -64,7 +63,7 @@ NUGETS="
 	humanizer.core.zh-hans@2.14.1
 	humanizer.core.zh-hant@2.14.1
 	jetbrains.annotations@2023.3.0
-	managed-midi@1.10.0
+	managed-midi@1.10.1
 	markdig@0.23.0
 	messagepack@2.5.140
 	messagepack.annotations@2.5.140
@@ -89,11 +88,13 @@ NUGETS="
 	microsoft.extensions.dependencyinjection@7.0.0
 	microsoft.extensions.dependencyinjection.abstractions@6.0.0-rc.1.21451.13
 	microsoft.extensions.dependencyinjection.abstractions@7.0.0
+	microsoft.extensions.dependencyinjection.abstractions@8.0.0
 	microsoft.extensions.dependencymodel@2.0.3
 	microsoft.extensions.features@7.0.15
 	microsoft.extensions.logging@7.0.0
 	microsoft.extensions.logging.abstractions@7.0.0
 	microsoft.extensions.logging.abstractions@7.0.1
+	microsoft.extensions.logging.abstractions@8.0.0
 	microsoft.extensions.objectpool@5.0.11
 	microsoft.extensions.options@7.0.0
 	microsoft.extensions.options@7.0.1
@@ -124,6 +125,7 @@ NUGETS="
 	nuget.projectmodel@5.11.0
 	nuget.protocol@5.11.0
 	nuget.versioning@5.11.0
+	nuget.versioning@6.10.1
 	nunit@3.14.0
 	opentabletdriver@0.6.4
 	opentabletdriver.configurations@0.6.4
@@ -135,17 +137,17 @@ NUGETS="
 	ppy.managedbass.fx@2022.1216.0
 	ppy.managedbass.mix@2022.1216.0
 	ppy.managedbass.wasapi@2022.1216.0
-	ppy.osu.framework@2024.809.2
+	ppy.osu.framework@2024.907.1
 	ppy.osu.framework.nativelibs@2024.809.1-nativelibs
 	ppy.osu.framework.sourcegeneration@2023.720.0
-	ppy.osu.game.resources@2024.810.0
+	ppy.osu.game.resources@2024.904.0
 	ppy.osutk.ns20@1.0.211
 	ppy.sdl2-cs@1.0.741-alpha
 	ppy.sdl3-cs@2024.807.1
-	ppy.veldrid@4.9.58-gfe61932a71
-	ppy.veldrid.metalbindings@4.9.58-gfe61932a71
-	ppy.veldrid.openglbindings@4.9.58-gfe61932a71
-	ppy.veldrid.spirv@1.0.15-g0c0fcee30c
+	ppy.veldrid@4.9.62-gca0239da6b
+	ppy.veldrid.metalbindings@4.9.62-gca0239da6b
+	ppy.veldrid.openglbindings@4.9.62-gca0239da6b
+	ppy.veldrid.spirv@1.0.15-gfbb03d21c2
 	ppy.vk@1.0.26
 	realm@11.5.0
 	realm.platformhelpers@11.5.0
@@ -318,6 +320,7 @@ NUGETS="
 	system.xml.readerwriter@4.3.0
 	system.xml.xdocument@4.3.0
 	taglibsharp@2.3.0
+	velopack@0.0.598-g933b2ab
 	vortice.d3dcompiler@2.4.2
 	vortice.direct3d11@2.4.2
 	vortice.directx@2.4.2
