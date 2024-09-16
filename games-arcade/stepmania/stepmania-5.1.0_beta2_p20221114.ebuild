@@ -23,6 +23,7 @@ IUSE="alsa cpu_flags_x86_sse2 crash-handler ffmpeg gles2 +gtk jack lights lto +m
 REQUIRED_USE="|| ( alsa oss pulseaudio jack )"
 
 RDEPEND="
+	dev-libs/jsoncpp:=
 	dev-libs/libpcre
 	dev-libs/libtomcrypt
 	dev-libs/libtommath
