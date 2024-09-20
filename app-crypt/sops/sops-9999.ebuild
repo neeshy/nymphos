@@ -444,11 +444,11 @@ src_prepare() {
 }
 
 src_compile() {
-	go build "./cmd/${PN}" || die "build failed"
+	ego build "./cmd/${PN}"
 }
 
 src_test() {
-	go test -work || die "test failed"
+	ego test -work
 }
 
 src_install() {
