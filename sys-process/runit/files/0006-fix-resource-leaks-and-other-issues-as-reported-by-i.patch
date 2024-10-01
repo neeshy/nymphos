@@ -7,16 +7,12 @@ Subject: fix: resource leaks and other issues as reported by infer
 
  - fix: fd_move.c resource leak - close file handle
  - fix: runit-init.c resource leak - close file handle
- - fix: svlogd.c dead storage - value never used
- - fix: x86cpuid.c uninitialized value read
  - fix: package/install-man - do not use unreliable symlinks
 ---
  package/install-man | 11 +++--------
  src/fd_move.c       |  5 ++++-
  src/runit-init.c    |  6 +++---
- src/svlogd.c        |  2 +-
- src/x86cpuid.c      |  4 ++++
- 5 files changed, 15 insertions(+), 13 deletions(-)
+ 3 files changed, 10 insertions(+), 12 deletions(-)
 
 diff --git a/package/install-man b/package/install-man
 index cd49048..596104e 100755
@@ -95,31 +91,3 @@ index 00dc3c9..8a966df 100644
      strerr_die4sys(111, FATAL, "unable to create ", REBOOT, ": ");
    if (chmod(REBOOT, 0100) == -1)
      strerr_die4sys(111, FATAL, "unable to chmod ", REBOOT, ": ");
-diff --git a/src/svlogd.c b/src/svlogd.c
-index f433669..09ab402 100644
---- a/src/svlogd.c
-+++ b/src/svlogd.c
-@@ -407,7 +407,7 @@ unsigned int ip4_scan(const char *s,char ip[4])
-   ++s; ++len;
-   i = scan_ulong(s,&u);
-   if (!i) return 0;
--  ip[3] = u; s += i; len += i;
-+  ip[3] = u; len += i;
-   return len;
- }
- 
-diff --git a/src/x86cpuid.c b/src/x86cpuid.c
-index f81c593..ee9ab40 100644
---- a/src/x86cpuid.c
-+++ b/src/x86cpuid.c
-@@ -21,6 +21,10 @@ int main()
-   x[1] = 0;
-   x[2] = 0;
-   x[3] = 0;
-+  y[0] = 0;
-+  y[1] = 0;
-+  y[2] = 0;
-+  y[3] = 0;
- 
-   asm volatile(".byte 15;.byte 162" : "=a"(x[0]),"=b"(x[1]),"=c"(x[3]),"=d"(x[2]) : "0"(0) );
-   if (!x[0]) return 0;

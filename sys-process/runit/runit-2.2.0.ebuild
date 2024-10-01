@@ -6,7 +6,7 @@ EAPI=8
 inherit flag-o-matic toolchain-funcs
 
 DESCRIPTION="A UNIX init scheme with service supervision"
-HOMEPAGE="http://smarden.org/${PN}/"
+HOMEPAGE="https://smarden.org/${PN}/"
 SRC_URI="${HOMEPAGE}${P}.tar.gz"
 S="${WORKDIR}/admin/${P}/src"
 
@@ -37,7 +37,7 @@ src_install() {
 
 	cd .. || die "cd failed"
 	doman man/*.8
-	dodoc package/{CHANGES,README,THANKS,TODO}
+	dodoc package/{CHANGES,README,THANKS}
 	docinto html
 	dodoc doc/*.html
 }

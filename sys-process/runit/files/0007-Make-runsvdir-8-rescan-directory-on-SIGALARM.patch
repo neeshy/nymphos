@@ -39,7 +39,7 @@ index c45b4ee..e98a4b5 100644
 +#include "fmt_ptime.h"
  
  #define USAGE " [-P] dir"
- #define VERSION "$Id: ecebd0a50510e91639c6a45dda8b0947aa8eb885 $"
+ #define VERSION "$Id: 28cb04495cffccf27650de3cf2981942679781cd $"
  
 +/*
 + * After rescan of {svdir} that was forced by sig_alarm (as opposed to regular
@@ -93,7 +93,7 @@ index c45b4ee..e98a4b5 100644
      sig_uncatch(sig_term);
 +    sig_uncatch(sig_alarm);
      if (pgrp) setsid();
-     pathexec_run(*prog, prog, (char * const *)environ);
+     pathexec_run(*prog, prog, (char* const*)environ);
      fatal("unable to start runsv ", name);
 @@ -183,6 +214,7 @@ int main(int argc, char **argv) {
  

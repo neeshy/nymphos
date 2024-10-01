@@ -1,5 +1,6 @@
 From: Gerrit Pape <pape@smarden.org>
 Date: Wed, 7 May 2008 23:51:16 +0000
+Forwarded: <not-needed>
 Subject: [PATCH] default directory for services on void is /var/service/, not
  /service/
 
