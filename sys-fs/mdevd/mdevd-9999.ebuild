@@ -16,7 +16,7 @@ fi
 LICENSE="ISC"
 SLOT="0"
 
-RDEPEND=">=dev-libs/skalibs-2.14.2.0:="
+RDEPEND=">=dev-libs/skalibs-2.14.3.0:="
 DEPEND="${RDEPEND}
 	sys-kernel/linux-headers"
 
