@@ -137,13 +137,13 @@ NUGETS="
 	ppy.managedbass.fx@2022.1216.0
 	ppy.managedbass.mix@2022.1216.0
 	ppy.managedbass.wasapi@2022.1216.0
-	ppy.osu.framework@2024.907.1
+	ppy.osu.framework@2024.1009.0
 	ppy.osu.framework.nativelibs@2024.809.1-nativelibs
 	ppy.osu.framework.sourcegeneration@2023.720.0
-	ppy.osu.game.resources@2024.904.0
+	ppy.osu.game.resources@2024.1003.0
 	ppy.osutk.ns20@1.0.211
 	ppy.sdl2-cs@1.0.741-alpha
-	ppy.sdl3-cs@2024.807.1
+	ppy.sdl3-cs@2024.916.0
 	ppy.veldrid@4.9.62-gca0239da6b
 	ppy.veldrid.metalbindings@4.9.62-gca0239da6b
 	ppy.veldrid.openglbindings@4.9.62-gca0239da6b
@@ -236,7 +236,7 @@ NUGETS="
 	system.io.filesystem@4.0.1
 	system.io.filesystem@4.3.0
 	system.io.filesystem.primitives@4.3.0
-	system.io.packaging@8.0.0
+	system.io.packaging@8.0.1
 	system.io.pipelines@7.0.0
 	system.linq@4.1.0
 	system.linq@4.3.0
@@ -320,7 +320,7 @@ NUGETS="
 	system.xml.readerwriter@4.3.0
 	system.xml.xdocument@4.3.0
 	taglibsharp@2.3.0
-	velopack@0.0.598-g933b2ab
+	velopack@0.0.630-g9c52e40
 	vortice.d3dcompiler@2.4.2
 	vortice.direct3d11@2.4.2
 	vortice.directx@2.4.2
