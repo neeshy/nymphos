@@ -5,13 +5,13 @@ EAPI=8
 
 DOTNET_PKG_COMPAT="8.0"
 NUGETS="
-	automapper@12.0.1
+	automapper@13.0.1
 	diffplex@1.7.2
 	discordrichpresence@1.2.1.24
 	ffmpeg.autogen@4.3.0.1
 	fody@6.8.0
 	hidsharpcore@1.2.1.1
-	htmlagilitypack@1.11.59
+	htmlagilitypack@1.11.70
 	humanizer@2.14.1
 	humanizer.core@2.14.1
 	humanizer.core.af@2.14.1
@@ -65,40 +65,40 @@ NUGETS="
 	jetbrains.annotations@2023.3.0
 	managed-midi@1.10.1
 	markdig@0.23.0
-	messagepack@2.5.140
-	messagepack.annotations@2.5.140
-	microsoft.aspnetcore.connections.abstractions@7.0.15
-	microsoft.aspnetcore.http.connections.client@7.0.15
-	microsoft.aspnetcore.http.connections.common@7.0.15
-	microsoft.aspnetcore.signalr.client@7.0.15
-	microsoft.aspnetcore.signalr.client.core@7.0.15
-	microsoft.aspnetcore.signalr.common@7.0.15
-	microsoft.aspnetcore.signalr.protocols.json@7.0.15
-	microsoft.aspnetcore.signalr.protocols.messagepack@7.0.15
-	microsoft.aspnetcore.signalr.protocols.newtonsoftjson@7.0.15
+	messagepack@2.5.187
+	messagepack.annotations@2.5.187
+	microsoft.aspnetcore.connections.abstractions@8.0.10
+	microsoft.aspnetcore.http.connections.client@8.0.10
+	microsoft.aspnetcore.http.connections.common@8.0.10
+	microsoft.aspnetcore.signalr.client@8.0.10
+	microsoft.aspnetcore.signalr.client.core@8.0.10
+	microsoft.aspnetcore.signalr.common@8.0.10
+	microsoft.aspnetcore.signalr.protocols.json@8.0.10
+	microsoft.aspnetcore.signalr.protocols.messagepack@8.0.10
+	microsoft.aspnetcore.signalr.protocols.newtonsoftjson@8.0.10
 	microsoft.codeanalysis.bannedapianalyzers@3.3.4
 	microsoft.csharp@4.5.0
-	microsoft.csharp@4.7.0
-	microsoft.data.sqlite.core@7.0.12
+	microsoft.data.sqlite.core@8.0.10
 	microsoft.diagnostics.netcore.client@0.2.61701
 	microsoft.diagnostics.runtime@2.0.161401
 	microsoft.dotnet.platformabstractions@2.0.3
-	microsoft.extensions.configuration.abstractions@7.0.0
+	microsoft.extensions.configuration.abstractions@8.0.0
 	microsoft.extensions.dependencyinjection@6.0.0-rc.1.21451.13
-	microsoft.extensions.dependencyinjection@7.0.0
+	microsoft.extensions.dependencyinjection@8.0.1
+	microsoft.extensions.dependencyinjection.abstractions@6.0.0
 	microsoft.extensions.dependencyinjection.abstractions@6.0.0-rc.1.21451.13
-	microsoft.extensions.dependencyinjection.abstractions@7.0.0
 	microsoft.extensions.dependencyinjection.abstractions@8.0.0
+	microsoft.extensions.dependencyinjection.abstractions@8.0.2
 	microsoft.extensions.dependencymodel@2.0.3
-	microsoft.extensions.features@7.0.15
-	microsoft.extensions.logging@7.0.0
-	microsoft.extensions.logging.abstractions@7.0.0
-	microsoft.extensions.logging.abstractions@7.0.1
+	microsoft.extensions.features@8.0.10
+	microsoft.extensions.logging@8.0.1
 	microsoft.extensions.logging.abstractions@8.0.0
+	microsoft.extensions.logging.abstractions@8.0.2
 	microsoft.extensions.objectpool@5.0.11
-	microsoft.extensions.options@7.0.0
-	microsoft.extensions.options@7.0.1
-	microsoft.extensions.primitives@7.0.0
+	microsoft.extensions.options@6.0.0
+	microsoft.extensions.options@8.0.2
+	microsoft.extensions.primitives@6.0.0
+	microsoft.extensions.primitives@8.0.0
 	microsoft.netcore.platforms@1.0.1
 	microsoft.netcore.platforms@1.1.0
 	microsoft.netcore.platforms@2.0.0
@@ -125,7 +125,7 @@ NUGETS="
 	nuget.projectmodel@5.11.0
 	nuget.protocol@5.11.0
 	nuget.versioning@5.11.0
-	nuget.versioning@6.10.1
+	nuget.versioning@6.12.1
 	nunit@3.14.0
 	opentabletdriver@0.6.4
 	opentabletdriver.configurations@0.6.4
@@ -137,13 +137,13 @@ NUGETS="
 	ppy.managedbass.fx@2022.1216.0
 	ppy.managedbass.mix@2022.1216.0
 	ppy.managedbass.wasapi@2022.1216.0
-	ppy.osu.framework@2024.1009.0
+	ppy.osu.framework@2024.1115.0
 	ppy.osu.framework.nativelibs@2024.809.1-nativelibs
 	ppy.osu.framework.sourcegeneration@2023.720.0
-	ppy.osu.game.resources@2024.1003.0
+	ppy.osu.game.resources@2024.1106.0
 	ppy.osutk.ns20@1.0.211
 	ppy.sdl2-cs@1.0.741-alpha
-	ppy.sdl3-cs@2024.916.0
+	ppy.sdl3-cs@2024.1022.0
 	ppy.veldrid@4.9.62-gca0239da6b
 	ppy.veldrid.metalbindings@4.9.62-gca0239da6b
 	ppy.veldrid.openglbindings@4.9.62-gca0239da6b
@@ -195,17 +195,17 @@ NUGETS="
 	runtime.unix.system.net.sockets@4.3.0
 	runtime.unix.system.private.uri@4.3.0
 	runtime.unix.system.runtime.extensions@4.3.0
-	sentry@4.3.0
-	sharpcompress@0.36.0
+	sentry@4.13.0
+	sharpcompress@0.38.0
 	sharpfnt@2.0.0
 	sharpgen.runtime@2.0.0-beta.13
 	sharpgen.runtime.com@2.0.0-beta.13
 	sixlabors.imagesharp@3.1.5
-	sqlitepclraw.bundle_e_sqlite3@2.1.8
-	sqlitepclraw.core@2.1.4
-	sqlitepclraw.core@2.1.8
-	sqlitepclraw.lib.e_sqlite3@2.1.8
-	sqlitepclraw.provider.e_sqlite3@2.1.8
+	sqlitepclraw.bundle_e_sqlite3@2.1.10
+	sqlitepclraw.core@2.1.10
+	sqlitepclraw.core@2.1.6
+	sqlitepclraw.lib.e_sqlite3@2.1.10
+	sqlitepclraw.provider.e_sqlite3@2.1.10
 	stbisharp@1.1.0
 	system.appcontext@4.1.0
 	system.appcontext@4.3.0
@@ -237,7 +237,7 @@ NUGETS="
 	system.io.filesystem@4.3.0
 	system.io.filesystem.primitives@4.3.0
 	system.io.packaging@8.0.1
-	system.io.pipelines@7.0.0
+	system.io.pipelines@8.0.0
 	system.linq@4.1.0
 	system.linq@4.3.0
 	system.linq.expressions@4.1.0
@@ -311,7 +311,7 @@ NUGETS="
 	system.threading@4.0.11
 	system.threading@4.3.0
 	system.threading.channels@6.0.0
-	system.threading.channels@7.0.0
+	system.threading.channels@8.0.0
 	system.threading.tasks@4.0.11
 	system.threading.tasks@4.3.0
 	system.threading.tasks.extensions@4.3.0
@@ -320,13 +320,13 @@ NUGETS="
 	system.xml.readerwriter@4.3.0
 	system.xml.xdocument@4.3.0
 	taglibsharp@2.3.0
-	velopack@0.0.630-g9c52e40
+	velopack@0.0.915
 	vortice.d3dcompiler@2.4.2
 	vortice.direct3d11@2.4.2
 	vortice.directx@2.4.2
 	vortice.dxgi@2.4.2
 	vortice.mathematics@1.4.25
-	zstdsharp.port@0.7.4"
+	zstdsharp.port@0.8.1"
 
 inherit desktop dotnet-pkg xdg
 
