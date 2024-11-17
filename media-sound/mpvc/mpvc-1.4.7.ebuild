@@ -93,17 +93,12 @@ src_configure() {
 	cargo_src_configure --bins --examples
 }
 
-src_compile() {
-	cargo_src_compile
-
-	target/release/mpvc completion bash >etc/mpvc.bash || die "mpvc completion failed"
-	target/release/mpvc completion fish >etc/mpvc.fish || die "mpvc completion failed"
-}
-
 src_install() {
 	cargo_src_install
 	dobin "examples/${PN}-fzf"
 
+	"${ED}/usr/bin/mpvc" completion bash >etc/mpvc.bash || die "mpvc completion failed"
+	"${ED}/usr/bin/mpvc" completion fish >etc/mpvc.fish || die "mpvc completion failed"
 	newbashcomp "etc/${PN}.bash" "${PN}"
 	newzshcomp "etc/${PN}.zsh" "_${PN}"
 	dofishcomp "etc/${PN}.fish"
