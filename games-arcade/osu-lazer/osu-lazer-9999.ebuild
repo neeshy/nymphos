@@ -116,15 +116,6 @@ NUGETS="
 	netstandard.library@2.0.0
 	newtonsoft.json@13.0.1
 	newtonsoft.json@13.0.3
-	nuget.common@5.11.0
-	nuget.configuration@5.11.0
-	nuget.dependencyresolver.core@5.11.0
-	nuget.frameworks@5.11.0
-	nuget.librarymodel@5.11.0
-	nuget.packaging@5.11.0
-	nuget.projectmodel@5.11.0
-	nuget.protocol@5.11.0
-	nuget.versioning@5.11.0
 	nuget.versioning@6.12.1
 	nunit@3.14.0
 	opentabletdriver@0.6.4
@@ -137,13 +128,13 @@ NUGETS="
 	ppy.managedbass.fx@2022.1216.0
 	ppy.managedbass.mix@2022.1216.0
 	ppy.managedbass.wasapi@2022.1216.0
-	ppy.osu.framework@2024.1115.0
+	ppy.osu.framework@2024.1206.0
 	ppy.osu.framework.nativelibs@2024.809.1-nativelibs
-	ppy.osu.framework.sourcegeneration@2023.720.0
-	ppy.osu.game.resources@2024.1106.0
+	ppy.osu.framework.sourcegeneration@2024.1128.0
+	ppy.osu.game.resources@2024.1202.0
 	ppy.osutk.ns20@1.0.211
 	ppy.sdl2-cs@1.0.741-alpha
-	ppy.sdl3-cs@2024.1022.0
+	ppy.sdl3-cs@2024.1128.0
 	ppy.veldrid@4.9.62-gca0239da6b
 	ppy.veldrid.metalbindings@4.9.62-gca0239da6b
 	ppy.veldrid.openglbindings@4.9.62-gca0239da6b
@@ -224,7 +215,6 @@ NUGETS="
 	system.diagnostics.tracing@4.3.0
 	system.dynamic.runtime@4.0.11
 	system.dynamic.runtime@4.3.0
-	system.formats.asn1@5.0.0
 	system.globalization@4.0.11
 	system.globalization@4.3.0
 	system.globalization.calendars@4.3.0
@@ -292,13 +282,10 @@ NUGETS="
 	system.security.claims@4.3.0
 	system.security.cryptography.algorithms@4.3.0
 	system.security.cryptography.cng@4.3.0
-	system.security.cryptography.cng@5.0.0
 	system.security.cryptography.csp@4.3.0
 	system.security.cryptography.encoding@4.3.0
 	system.security.cryptography.openssl@4.3.0
-	system.security.cryptography.pkcs@5.0.0
 	system.security.cryptography.primitives@4.3.0
-	system.security.cryptography.protecteddata@4.4.0
 	system.security.cryptography.x509certificates@4.3.0
 	system.security.principal@4.3.0
 	system.security.principal.windows@4.3.0
