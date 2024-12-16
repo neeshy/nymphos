@@ -13,7 +13,8 @@ MY_P="${PN}-${MY_PV}"
 DESCRIPTION="Advanced rhythm game. Designed for both home and arcade use."
 HOMEPAGE="https://www.stepmania.com/"
 SRC_URI="https://github.com/${PN}/${PN}/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz
-	https://github.com/${PN}/${PN}/commit/3fef5ef60b7674d6431f4e1e4ba8c69b0c21c023.patch -> ${PN}-ffmpeg_build_fix.patch"
+	https://github.com/${PN}/${PN}/commit/3fef5ef60b7674d6431f4e1e4ba8c69b0c21c023.patch -> ${PN}-ffmpeg_build_fix.patch
+	https://github.com/${PN}/${PN}/commit/e0d2a5182dcd855e181fffa086273460c553c7ff.patch -> ${PN}-ffmpeg_crash_fix.patch"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT CC-BY-NC-4.0"
@@ -50,10 +51,14 @@ RDEPEND="
 	sdl? ( media-libs/libsdl2 )
 	xinerama? ( x11-libs/libXinerama )
 	xrandr? ( x11-libs/libXrandr )"
-DEPEND="${RDEPEND}
-	ffmpeg? ( || ( dev-lang/nasm dev-lang/yasm ) )"
+DEPEND="${RDEPEND}"
 
-PATCHES=( "${DISTDIR}/${PN}-ffmpeg_build_fix.patch" )
+PATCHES=(
+	"${DISTDIR}/${PN}-ffmpeg_build_fix.patch"
+	"${DISTDIR}/${PN}-ffmpeg_crash_fix.patch"
+	"${FILESDIR}/${PN}-ffmpeg-7.patch"
+	"${FILESDIR}/${PN}-ffmpeg-remove-asm-requirement.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
@@ -95,7 +100,7 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
-	make_wrapper "${PN}" "./${PN}" "/opt/${PN}-5.1"
+	make_wrapper "${PN}" "/opt/${PN}-5.1/${PN}"
 	domenu "${PN}.desktop"
 	local size
 	for size in 16 22 24 32 36 48 64 72 96 128 192 256; do
