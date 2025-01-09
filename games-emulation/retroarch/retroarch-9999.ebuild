@@ -64,7 +64,7 @@ RDEPEND="
 	sdl? ( media-libs/libsdl )
 	sdl2? ( media-libs/libsdl2 )
 	sixel? ( media-libs/libsixel )
-	ssl? ( net-libs/mbedtls )
+	ssl? ( net-libs/mbedtls:= )
 	systemd? ( sys-apps/systemd )
 	truetype? ( media-libs/freetype:2= )
 	udev? ( virtual/udev )
