@@ -1,4 +1,4 @@
-# Copyright 2024 NymphOS Authors
+# Copyright 2025 NymphOS Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
