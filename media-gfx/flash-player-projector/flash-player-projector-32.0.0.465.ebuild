@@ -22,7 +22,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="debug"
 
-RESTRICT="bindist strip"
+RESTRICT="bindist mirror strip"
 
 RDEPEND="
 	dev-libs/nss
