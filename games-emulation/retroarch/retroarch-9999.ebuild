@@ -46,7 +46,7 @@ RDEPEND="
 	cg? ( media-gfx/nvidia-cg-toolkit )
 	drm? ( x11-libs/libdrm )
 	ffmpeg? ( media-video/ffmpeg:= )
-	flac? ( media-libs/flac )
+	flac? ( media-libs/flac:= )
 	jack? ( virtual/jack )
 	libass? ( media-libs/libass:= )
 	libcaca? ( media-libs/libcaca )
