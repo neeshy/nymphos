@@ -107,8 +107,6 @@ PATCHES=(
 	# such support.
 	# https://bugs.gentoo.org/624960
 	"${FILESDIR}"/0001-gdk-add-a-poison-macro-to-hide-GDK_WINDOWING_.patch
-	# Backport from 3.24 branch
-	"${FILESDIR}"/${P}-signal-handler.patch
 	"${FILESDIR}"/${PN}-3.24.38-atk-bridge.patch
 )
 
