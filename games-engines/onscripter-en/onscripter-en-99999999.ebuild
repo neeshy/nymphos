@@ -22,8 +22,8 @@ LICENSE="GPL-2"
 SLOT="0"
 
 RDEPEND="
-	app-arch/bzip2
-	media-libs/freetype
+	app-arch/bzip2:=
+	media-libs/freetype:=
 	media-libs/libsdl
 	media-libs/sdl-image[jpeg,png]
 	media-libs/sdl-mixer[vorbis]
