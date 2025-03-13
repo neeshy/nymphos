@@ -25,21 +25,21 @@ REQUIRED_USE="|| ( alsa oss pulseaudio jack )"
 
 RDEPEND="
 	dev-libs/jsoncpp:=
-	dev-libs/libpcre
-	dev-libs/libtomcrypt
+	dev-libs/libpcre:=
+	dev-libs/libtomcrypt:=
 	dev-libs/libtommath
 	media-libs/glew:=
 	media-libs/glu
-	media-libs/libjpeg-turbo
-	media-libs/libpng
+	media-libs/libjpeg-turbo:=
+	media-libs/libpng:=
 	media-libs/mesa[opengl]
-	sys-libs/zlib
-	virtual/libudev
+	sys-libs/zlib:=
+	virtual/libudev:=
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXtst
 	alsa? ( media-libs/alsa-lib )
-	ffmpeg? ( media-video/ffmpeg )
+	ffmpeg? ( media-video/ffmpeg:= )
 	gtk? ( x11-libs/gtk+:3 )
 	jack? ( virtual/jack )
 	mp3? ( media-libs/libmad )
