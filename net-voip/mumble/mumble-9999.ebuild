@@ -83,7 +83,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}/${PN}-dbus.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-1.5.735-Fix-building-with-GCC-15.patch"
+	"${FILESDIR}/${PN}-dbus.patch"
+)
 
 pkg_setup() {
 	python-any-r1_pkg_setup
