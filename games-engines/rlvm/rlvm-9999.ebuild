@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..13} )
 
-inherit git-r3 python-any-r1 scons-utils
+inherit desktop git-r3 python-any-r1 scons-utils
 
 DESCRIPTION="An open source implementation of the RealLive virtual machine for Linux and OSX"
 HOMEPAGE="https://github.com/eglaysher/${PN}"
@@ -39,6 +39,14 @@ src_compile() {
 
 src_install() {
 	dobin "build/${PN}"
+
 	doman "debian/${PN}.6"
 	dodoc README.md {AUTHORS,NEWS,STATUS}.TXT
+
+	domenu "src/platforms/gtk/${PN}.desktop"
+	local size
+	for size in 16 24 32 48 128 256; do
+		doicon -s "${size}" "resources/${size}/${PN}.png"
+	done
+	newicon -s 512 resources/512.png "${PN}.png"
 }
