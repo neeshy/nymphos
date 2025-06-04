@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit autotools gnome2-utils xdg
+GNOME2_EAUTORECONF="yes"
+
+inherit gnome2
 
 DESCRIPTION="Display GTK+ dialog boxes from command line or shell scripts"
 HOMEPAGE="https://github.com/v1cont/${PN}"
@@ -27,11 +29,6 @@ BDEPEND="
 	sys-devel/gettext
 	virtual/pkgconfig"
 
-src_prepare() {
-	default
-	eautoreconf
-}
-
 src_configure() {
 	econf \
 		"$(use_enable nls)" \
@@ -42,19 +39,4 @@ src_configure() {
 		--enable-icon-browser \
 		--enable-tools \
 		--enable-tray
-}
-
-pkg_preinst() {
-	xdg_pkg_preinst
-	gnome2_schemas_savelist
-}
-
-pkg_postinst() {
-	xdg_pkg_postinst
-	gnome2_schemas_update
-}
-
-pkg_postrm() {
-	xdg_pkg_postrm
-	gnome2_schemas_update
 }
