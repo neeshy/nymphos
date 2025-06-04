@@ -6,8 +6,8 @@ EAPI=8
 inherit qmake-utils
 
 DESCRIPTION="GTK+2.0 integration plugins for Qt6"
-HOMEPAGE="https://github.com/trialuser02/${PN}"
-SRC_URI="https://github.com/trialuser02/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://www.opencode.net/trialuser/${PN}"
+SRC_URI="${HOMEPAGE}/-/archive/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
