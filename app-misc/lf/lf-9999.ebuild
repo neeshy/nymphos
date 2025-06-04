@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module desktop
+inherit go-module desktop xdg
 
 DESCRIPTION="Terminal file manager"
 HOMEPAGE="https://github.com/gokcehan/${PN}"
