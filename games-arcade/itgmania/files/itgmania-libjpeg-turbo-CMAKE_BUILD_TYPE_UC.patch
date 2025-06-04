@@ -1,0 +1,22 @@
+--- a/extern/libjpeg-turbo/CMakeLists.txt
++++ b/extern/libjpeg-turbo/CMakeLists.txt
+@@ -395,7 +395,7 @@
+ # COMPILER SETTINGS
+ ###############################################################################
+
+-string(TOUPPER ${CMAKE_BUILD_TYPE} CMAKE_BUILD_TYPE_UC)
++set(CMAKE_BUILD_TYPE_UC RELEASE)
+
+ if(MSVC_LIKE)
+   option(WITH_CRT_DLL
+--- a/extern/libjpeg-turbo/simd/CMakeLists.txt
++++ b/extern/libjpeg-turbo/simd/CMakeLists.txt
+@@ -108,7 +108,7 @@
+   endif()
+ endif()
+
+-string(TOUPPER ${CMAKE_BUILD_TYPE} CMAKE_BUILD_TYPE_UC)
++set(CMAKE_BUILD_TYPE_UC RELEASE)
+ set(EFFECTIVE_ASM_NASM_FLAGS "${CMAKE_ASM_NASM_FLAGS} ${CMAKE_ASM_NASM_FLAGS_${CMAKE_BUILD_TYPE_UC}}")
+ message(STATUS "CMAKE_ASM_NASM_FLAGS = ${EFFECTIVE_ASM_NASM_FLAGS}")
+
