@@ -21,5 +21,5 @@ DEPEND="${RDEPEND}
 	sys-kernel/linux-headers"
 
 src_configure() {
-	econf --with-sysdeps="/usr/$(get_libdir)/skalibs"
+	econf --with-sysdeps="/usr/$(get_libdir)/skalibs" --disable-allstatic
 }
