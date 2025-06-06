@@ -65,6 +65,6 @@ src_install() {
 	cmake_src_install
 	make_wrapper "${PN}" "/opt/${PN}/${PN}"
 	domenu "${PN}.desktop"
-	doicon -s 48 Data/icon.png
-	doicon -s scalable Data/icon.svg
+	newicon -s 48 Data/icon.png "${PN}.png"
+	newicon -s scalable Data/logo.svg "${PN}.svg"
 }
