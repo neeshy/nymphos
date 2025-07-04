@@ -704,9 +704,10 @@ int main(int argc, char *argv[]) {
 
 	assert(arg_device);
 	fd = open(arg_device, O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_NOCTTY);
-	if (fd < 0) {
-		dprintf(2, "Cannot open %s: %m\n", arg_device);
-		return 1;
+        if (fd < 0) {
+		bool ignore = r == ENODEV || r == ENXIO || r == ENOENT;
+                dprintf(2, "Failed to open device node '%s'%s: %m", arg_device, ignore ? ", ignoring" : "");
+                return ignore ? 0 : -errno;
 	} else if (fd < 3) {
 		/* Not connected to one or more standard streams */
 		close(fd);
