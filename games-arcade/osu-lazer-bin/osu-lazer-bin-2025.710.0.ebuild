@@ -7,7 +7,7 @@ MY_PN="osu-lazer"
 
 DESCRIPTION="A free-to-win rhythm game. Rhythm is just a *click* away!"
 HOMEPAGE="https://osu.ppy.sh/"
-SRC_URI="https://github.com/ppy/osu/releases/download/${PV}/osu.AppImage -> osu-${PV}.AppImage"
+SRC_URI="https://github.com/ppy/osu/releases/download/${PV}-lazer/osu.AppImage -> osu-${PV}.AppImage"
 S="${WORKDIR}"
 
 LICENSE="MIT CC-BY-NC-4.0"
