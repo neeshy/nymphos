@@ -32,11 +32,6 @@ RDEPEND="
 	x11-libs/libX11"
 DEPEND="${RDEPEND}"
 
-src_configure() {
-	default
-	sed -i 's/-lbz2 /-lbz2 -lX11 /' Makefile || die "sed failed"
-}
-
 src_install() {
 	dobin "${PN}"
 	dodoc README.md CHANGES BUGS
