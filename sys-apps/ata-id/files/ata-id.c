@@ -705,7 +705,7 @@ int main(int argc, char *argv[]) {
 	assert(arg_device);
 	fd = open(arg_device, O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_NOCTTY);
         if (fd < 0) {
-		bool ignore = r == ENODEV || r == ENXIO || r == ENOENT;
+		bool ignore = r == ENODEV || r == ENXIO || r == ENOENT || r == ENOMEDIUM;
                 dprintf(2, "Failed to open device node '%s'%s: %m", arg_device, ignore ? ", ignoring" : "");
                 return ignore ? 0 : -errno;
 	} else if (fd < 3) {
