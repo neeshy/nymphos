@@ -1,0 +1,19 @@
+--- a/src/terminal.rs
++++ b/src/terminal.rs
+@@ -26,7 +26,7 @@
+ 	context: &context::Context<'a>,
+ ) -> Result<PromptState<'a>, Box<dyn error::Error>> {
+ 	use rustyline::{
+-		Cmd, Editor, KeyCode, KeyEvent, Modifiers, Movement, config::Builder, history::FileHistory,
++		Cmd, EditMode, Editor, KeyCode, KeyEvent, Modifiers, Movement, config::Builder, history::FileHistory,
+ 	};
+ 
+ 	let mut rl = Editor::<helper::Helper<'_>, FileHistory>::with_config(
+@@ -34,6 +34,7 @@
+ 			.history_ignore_space(true)
+ 			.auto_add_history(true)
+ 			.max_history_size(config.max_history_size)?
++			.edit_mode(EditMode::Vi)
+ 			.build(),
+ 	)?;
+ 	rl.set_helper(Some(helper::Helper::new(context.clone(), config)));

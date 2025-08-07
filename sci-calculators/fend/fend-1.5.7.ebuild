@@ -220,3 +220,5 @@ S="${WORKDIR}/${P}/cli"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
+PATCHES=( "${FILESDIR}/${PN}-vi.patch" )
