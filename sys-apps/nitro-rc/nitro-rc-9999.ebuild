@@ -15,6 +15,7 @@ SLOT="0"
 RDEPEND="
 	sys-apps/seedrng
 	sys-process/nitro
+	sys-process/runit
 	!sys-apps/sysvinit"
 
 src_compile() {
