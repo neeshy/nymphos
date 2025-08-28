@@ -7,49 +7,13 @@ Subject: fix: resource leaks and other issues as reported by infer
 
  - fix: fd_move.c resource leak - close file handle
  - fix: runit-init.c resource leak - close file handle
- - fix: package/install-man - do not use unreliable symlinks
+ 
 ---
- package/install-man | 11 +++--------
+
  src/fd_move.c       |  5 ++++-
  src/runit-init.c    |  6 +++---
- 3 files changed, 10 insertions(+), 12 deletions(-)
+ 2 files changed, 7 insertions(+), 4 deletions(-)
 
-diff --git a/package/install-man b/package/install-man
-index cd49048..596104e 100755
---- a/package/install-man
-+++ b/package/install-man
-@@ -1,26 +1,21 @@
- #!/bin/sh
--set -e
- 
- umask 022
- test -d package || sh -cx '! : Wrong working directory.'
- test -d man || sh -cx '! : Wrong working directory.'
- 
--here=`env - PATH=$PATH pwd`
--parent=`dirname $here`
--
- echo 'Compressing manpages...'
- for i in man/*.[1-8]; do
-   gzip -c $i >${i}.gz
- done
- 
--echo 'Making manpage links in /usr/local/man...'
-+echo 'Installing into /usr/local/man...'
- cd man
- for i in 8; do
-   mkdir -p /usr/local/man/man$i
-   for j in *.$i; do
--    rm -f /usr/local/man/man$i/$j.gz'{new}'
--    ln -s $parent/runit/man/$j.gz /usr/local/man/man$i/$j.gz'{new}'
--    mv -f /usr/local/man/man$i/$j.gz'{new}' /usr/local/man/man$i/$j.gz
-+    mv -uv $j.gz /usr/local/man/man$i/$j.gz
-+    rm -f $j.gz
-   done
- done
- cd ..
-diff --git a/src/fd_move.c b/src/fd_move.c
-index 49f723f..8f7420b 100644
 --- a/src/fd_move.c
 +++ b/src/fd_move.c
 @@ -6,7 +6,10 @@
@@ -64,11 +28,9 @@ index 49f723f..8f7420b 100644
    close(from);
    return 0;
  }
-diff --git a/src/runit-init.c b/src/runit-init.c
-index 00dc3c9..8a966df 100644
 --- a/src/runit-init.c
 +++ b/src/runit-init.c
-@@ -17,7 +17,7 @@ const char *progname;
+@@ -17,7 +17,7 @@
  void usage(void) { strerr_die4x(0, "usage: ", progname, USAGE, "\n"); }
  
  void runit_halt () {
@@ -77,7 +39,7 @@ index 00dc3c9..8a966df 100644
      strerr_die4sys(111, FATAL, "unable to create ", STOPIT, ": ");
    if (chmod(STOPIT, 0100) == -1)
      strerr_die4sys(111, FATAL, "unable to chmod ", STOPIT, ": ");
-@@ -29,11 +29,11 @@ void runit_halt () {
+@@ -29,11 +29,11 @@
  }
  
  void runit_reboot () {

@@ -11,11 +11,9 @@ Subject: [PATCH] default directory for services on void is /var/service/, not
  src/sv.c         | 2 +-
  4 files changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/man/runsv.8 b/man/runsv.8
-index 7c5abfc..53f1b1b 100644
 --- a/man/runsv.8
 +++ b/man/runsv.8
-@@ -157,9 +157,9 @@ This command is ignored if it is given to
+@@ -155,9 +155,9 @@
  .IR service /log/supervise/control.
  .P
  Example: to send a TERM signal to the socklog-unix service, either do
@@ -27,11 +25,9 @@ index 7c5abfc..53f1b1b 100644
  .P
  .BR printf (1)
  usually blocks if no
-diff --git a/man/runsvchdir.8 b/man/runsvchdir.8
-index f7f94dc..793d653 100644
 --- a/man/runsvchdir.8
 +++ b/man/runsvchdir.8
-@@ -27,13 +27,13 @@ with a symlink pointing to
+@@ -27,13 +27,13 @@
  .IR dir .
  .P
  Normally 
@@ -47,11 +43,9 @@ index f7f94dc..793d653 100644
  .SH EXIT CODES
  .B runsvchdir
  prints an error message and exits 111 on error.
-diff --git a/man/sv.8 b/man/sv.8
-index 7ed9852..58f1c07 100644
 --- a/man/sv.8
 +++ b/man/sv.8
-@@ -30,7 +30,7 @@ If
+@@ -30,7 +30,7 @@
  .I service
  doesn't start with a dot or slash and doesn't end with a slash, it is
  searched in the default services directory
@@ -60,7 +54,7 @@ index 7ed9852..58f1c07 100644
  otherwise relative to the current directory.
  .P
  .I command
-@@ -232,7 +232,7 @@ This option implies
+@@ -232,7 +232,7 @@
  .TP
  .B SVDIR
  The environment variable $SVDIR overrides the default services directory
@@ -69,11 +63,9 @@ index 7ed9852..58f1c07 100644
  .TP
  .B SVWAIT
  The environment variable $SVWAIT overrides the default 7 seconds to wait
-diff --git a/src/sv.c b/src/sv.c
-index 0125795..7c6f6ed 100644
 --- a/src/sv.c
 +++ b/src/sv.c
-@@ -32,7 +32,7 @@
+@@ -33,7 +33,7 @@
  char *progname;
  char *action;
  char *acts;

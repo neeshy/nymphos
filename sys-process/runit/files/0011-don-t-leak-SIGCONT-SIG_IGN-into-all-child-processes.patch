@@ -1,7 +1,7 @@
 From ea5b73f47d7db321cdca31ccc8cbb2516129d9de Mon Sep 17 00:00:00 2001
 From: Leah Neukirchen <leah@vuxu.org>
 Date: Sun, 11 Dec 2022 18:43:53 +0100
-Subject: [PATCH] runit(8): don't leak SIGCONT SIG_IGN into all child processes
+Subject: [PATCH] don't leak SIGCONT SIG_IGN into all child processes
 
 ---
  src/runit.c | 2 +-

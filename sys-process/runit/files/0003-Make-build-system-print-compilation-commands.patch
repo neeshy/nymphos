@@ -7,8 +7,6 @@ Subject: [PATCH] Make build system print compilation commands
  src/warn-auto.sh | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/src/warn-auto.sh b/src/warn-auto.sh
-index 36d2313..eb35010 100644
 --- a/src/warn-auto.sh
 +++ b/src/warn-auto.sh
 @@ -1,2 +1,2 @@

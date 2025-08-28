@@ -2,16 +2,15 @@ From: Dmitry Bogatov <KAction@gnu.org>
 Date: Mon, 28 May 2018 21:46:39 +0300
 Forwarded: <no>
 Subject: [PATCH] Fix spin lock on systems with poor clock
+Ref: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=%23878476
 
 ---
  src/svlogd.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/src/svlogd.c b/src/svlogd.c
-index 90a3321..fab8441 100644
 --- a/src/svlogd.c
 +++ b/src/svlogd.c
-@@ -234,7 +234,7 @@ void rmoldest(struct logdir *ld) {
+@@ -234,7 +234,7 @@
          if (unlink(f->d_name) == -1)
            warn2("unable to unlink processor leftover", f->d_name);
        }
