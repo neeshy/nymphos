@@ -65,6 +65,7 @@ RDEPEND="
 	portaudio? ( media-libs/portaudio )
 	pulseaudio? ( media-libs/libpulse )
 	pipewire? ( media-video/pipewire )
+	rnnoise? ( media-libs/rnnoise )
 	speech? ( >=app-accessibility/speech-dispatcher-0.8.0 )
 	zeroconf? ( net-dns/avahi[mdnsresponder-compat] )
 "
