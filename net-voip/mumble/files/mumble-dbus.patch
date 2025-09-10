@@ -1,4 +1,4 @@
-From 4501e7812df034ee2703c294b5bc4e073d64ba11 Mon Sep 17 00:00:00 2001
+From 0d814f1addb52446607e958da683bb9e939a8e4e Mon Sep 17 00:00:00 2001
 From: neeshy <neeshy@tfwno.gf>
 Date: Mon, 10 Jun 2024 23:58:29 -0400
 Subject: [PATCH] Revert "BUILD(cmake): Always use DBus on Linux(-like)
@@ -6,20 +6,17 @@ Subject: [PATCH] Revert "BUILD(cmake): Always use DBus on Linux(-like)
 
 This reverts commit a4cd707128087e5c39dd72d8ae83cec6d88719d0.
 ---
- docs/dev/build-instructions/cmake_options.md |  5 ++++
- src/CMakeLists.txt                           |  2 ++
- src/mumble/CMakeLists.txt                    |  4 ++--
- src/mumble/Log_unix.cpp                      |  8 ++++++-
- src/murmur/CMakeLists.txt                    |  4 ++--
- src/murmur/DBus.h                            | 24 +++++++++++---------
- 6 files changed, 31 insertions(+), 16 deletions(-)
+ docs/dev/build-instructions/cmake_options.md | 5 +++++
+ src/CMakeLists.txt                           | 2 ++
+ src/mumble/CMakeLists.txt                    | 2 +-
+ 3 files changed, 8 insertions(+), 1 deletion(-)
 
 diff --git a/docs/dev/build-instructions/cmake_options.md b/docs/dev/build-instructions/cmake_options.md
-index f8fda72c0..a19ae9f2d 100644
+index 3ddb5bcba..8d5d90060 100644
 --- a/docs/dev/build-instructions/cmake_options.md
 +++ b/docs/dev/build-instructions/cmake_options.md
-@@ -69,6 +69,11 @@ Build support for CoreAudio.
- Include support for reporting crashes to the Mumble developers.
+@@ -99,6 +99,11 @@ Whether to include the PostgreSQL database tests (requires special setup)
+ Whether to include the SQLite database tests
  (Default: ON)
  
 +### dbus
@@ -31,7 +28,7 @@ index f8fda72c0..a19ae9f2d 100644
  
  Prints extended information during the search for the needed dependencies
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
-index f1b7cb02d..324e26cc2 100644
+index ded59a214..bef537cbd 100644
 --- a/src/CMakeLists.txt
 +++ b/src/CMakeLists.txt
 @@ -12,6 +12,8 @@ option(qssldiffiehellmanparameters "Build support for custom Diffie-Hellman para
@@ -44,121 +41,15 @@ index f1b7cb02d..324e26cc2 100644
  
  option(bundled-gsl "Use the bundled GSL version instead of looking for one on the system" ON)
 diff --git a/src/mumble/CMakeLists.txt b/src/mumble/CMakeLists.txt
-index fa41283bc..f15abe293 100644
+index c383c6568..7a25253e2 100644
 --- a/src/mumble/CMakeLists.txt
 +++ b/src/mumble/CMakeLists.txt
-@@ -820,7 +820,7 @@ if(NOT update)
+@@ -835,7 +835,7 @@ if(NOT update)
  	target_compile_definitions(mumble_client_object_lib PUBLIC "NO_UPDATE_CHECK")
  endif()
  
 -if(NOT WIN32 AND NOT APPLE)
 +if(dbus AND NOT WIN32 AND NOT APPLE)
- 	find_pkg(Qt5 COMPONENTS DBus REQUIRED)
+ 	find_pkg(Qt6 COMPONENTS DBus REQUIRED)
  
  	target_sources(mumble_client_object_lib
-@@ -828,7 +828,7 @@ if(NOT WIN32 AND NOT APPLE)
- 			"DBus.cpp"
- 			"DBus.h"
- 	)
--	
-+
- 	target_compile_definitions(mumble_client_object_lib PUBLIC "USE_DBUS")
- 	target_link_libraries(mumble_client_object_lib PUBLIC Qt5::DBus)
- endif()
-diff --git a/src/mumble/Log_unix.cpp b/src/mumble/Log_unix.cpp
-index 8e775ff3d..765dbeb62 100644
---- a/src/mumble/Log_unix.cpp
-+++ b/src/mumble/Log_unix.cpp
-@@ -7,7 +7,9 @@
- #include "MainWindow.h"
- #include "Settings.h"
- 
--#include <QDBusInterface>
-+#ifdef USE_DBUS
-+#	include <QtDBus/QDBusInterface>
-+#endif
- 
- void Log::postNotification(MsgType mt, const QString &plain) {
- 	// Message notification with balloon tooltips
-@@ -28,6 +30,7 @@ void Log::postNotification(MsgType mt, const QString &plain) {
- 			break;
- 	}
- 
-+#ifdef USE_DBUS
- 	QDBusMessage response;
- 	QVariantMap hints;
- 	hints.insert(QLatin1String("desktop-entry"), QLatin1String("mumble"));
-@@ -63,6 +66,9 @@ void Log::postNotification(MsgType mt, const QString &plain) {
- 	if (response.type() == QDBusMessage::ReplyMessage && response.arguments().count() == 1) {
- 		uiLastId = response.arguments().at(0).toUInt();
- 	} else {
-+#else
-+	if (true) {
-+#endif
- 		postQtNotification(mt, plain);
- 	}
- }
-diff --git a/src/murmur/CMakeLists.txt b/src/murmur/CMakeLists.txt
-index 1916db4ec..67b855206 100644
---- a/src/murmur/CMakeLists.txt
-+++ b/src/murmur/CMakeLists.txt
-@@ -183,7 +183,7 @@ if(zeroconf)
- 	)
- endif()
- 
--if(NOT WIN32 AND NOT APPLE)
-+if(dbus AND NOT WIN32 AND NOT APPLE)
- 	find_pkg(Qt5 COMPONENTS DBus REQUIRED)
- 
- 	target_sources(mumble-server
-@@ -192,7 +192,7 @@ if(NOT WIN32 AND NOT APPLE)
- 			"DBus.h"
- 	)
- 
--	target_compile_definitions(mumble-server PUBLIC "USE_DBUS")
-+	target_compile_definitions(mumble-server PRIVATE "USE_DBUS")
- 	target_link_libraries(mumble-server PRIVATE Qt5::DBus)
- endif()
- 
-diff --git a/src/murmur/DBus.h b/src/murmur/DBus.h
-index eefa7d15c..5b84aca50 100644
---- a/src/murmur/DBus.h
-+++ b/src/murmur/DBus.h
-@@ -3,19 +3,20 @@
- // that can be found in the LICENSE file at the root of the
- // Mumble source tree or at <https://www.mumble.info/LICENSE>.
- 
--#ifndef MUMBLE_MURMUR_DBUS_H_
--#define MUMBLE_MURMUR_DBUS_H_
-+#ifdef USE_DBUS
-+#	ifndef MUMBLE_MURMUR_DBUS_H_
-+#		define MUMBLE_MURMUR_DBUS_H_
- 
--#include <QDBusAbstractAdaptor>
--#include <QDBusConnection>
-+#		include <QtDBus/QDBusAbstractAdaptor>
-+#		include <QtDBus/QDBusConnection>
- 
--#include "ACL.h"
--#include "Channel.h"
--#include "Group.h"
--#include "Meta.h"
--#include "Server.h"
--#include "ServerDB.h"
--#include "User.h"
-+#		include "ACL.h"
-+#		include "Channel.h"
-+#		include "Group.h"
-+#		include "Meta.h"
-+#		include "Server.h"
-+#		include "ServerDB.h"
-+#		include "User.h"
- 
- struct Ban;
- class QDBusObjectPath;
-@@ -238,4 +239,5 @@ signals:
- 	void stopped(int server_id);
- };
- 
-+#	endif
- #endif
