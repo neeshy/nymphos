@@ -24,7 +24,6 @@ if [[ "${PV}" == 9999 ]] ; then
 		3rdparty/renamenoise
 		3rdparty/speexdsp
 		3rdparty/tracy
-		3rdparty/utfcpp
 	)
 else
 	if [[ "${PV}" == *_pre* ]] ; then
@@ -74,6 +73,7 @@ DEPEND="${RDEPEND}
 	dev-cpp/nlohmann_json
 	dev-qt/qtbase:6[concurrent]
 	dev-libs/boost
+	dev-libs/utfcpp
 	x11-base/xorg-proto
 "
 BDEPEND="
@@ -81,7 +81,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}/${PN}-dbus.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-1.6-unbundle-utf8cpp.patch"
+	"${FILESDIR}/${PN}-dbus.patch"
+)
 
 pkg_setup() {
 	python-any-r1_pkg_setup
