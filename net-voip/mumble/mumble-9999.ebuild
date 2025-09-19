@@ -24,6 +24,7 @@ if [[ "${PV}" == 9999 ]] ; then
 		3rdparty/renamenoise
 		3rdparty/speexdsp
 		3rdparty/tracy
+		3rdparty/utfcpp
 	)
 else
 	if [[ "${PV}" == *_pre* ]] ; then
@@ -81,10 +82,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	"${FILESDIR}/${PN}-1.6-unbundle-utf8cpp.patch"
-	"${FILESDIR}/${PN}-dbus.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-dbus.patch" )
 
 pkg_setup() {
 	python-any-r1_pkg_setup
@@ -108,6 +106,7 @@ src_configure() {
 		-Dbundled-spdlog="OFF"
 		-Dbundled-soci="OFF"
 		-Dbundled-speex="OFF"
+		-Dbundled-utf8="OFF"
 		-Ddbus="$(usex dbus)"
 		-Dg15="OFF"
 		-Djackaudio="$(usex jack)"
