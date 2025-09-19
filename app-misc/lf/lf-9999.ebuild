@@ -80,7 +80,7 @@ else
 
 	SRC_URI="${HOMEPAGE}/archive/r${PV}.tar.gz -> ${P}.tar.gz
 		${EGO_SUM_SRC_URI}"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64"
 	S="${WORKDIR}/${PN}-r${PV}"
 
 	src_compile () {
