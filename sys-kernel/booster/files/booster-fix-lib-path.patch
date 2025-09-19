@@ -1,0 +1,23 @@
+--- a/generator/generator.go
++++ b/generator/generator.go
+@@ -262,8 +262,7 @@
+ 		{"/usr/local/bin", "../bin"},
+ 		{"/usr/local/sbin", "../bin"},
+ 		{"/var/run", "../run"},
+-		{"/usr/lib64", "lib"},
+-		{"/lib64", "usr/lib"},
++		{"/lib64", "usr/lib64"},
+ 	}
+ 
+ 	for _, l := range symlinks {
+--- a/generator/image.go
++++ b/generator/image.go
+@@ -314,7 +314,7 @@
+ 	return string(b[:bytes.IndexByte(b, '\x00')]), nil
+ }
+ 
+-var elfLibDir = []string{"/usr/lib", "/lib", "/usr/lib64", "/usr/lib/x86_64-linux-gnu"}
++var elfLibDir = []string{"/usr/lib64", "/usr/lib", "/lib"}
+ 
+ // for a given library (e.g. libc.so.6) finds absolute path to the library file
+ func elfPath(lib string) string {
