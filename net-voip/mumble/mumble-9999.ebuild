@@ -24,7 +24,6 @@ if [[ "${PV}" == 9999 ]] ; then
 		3rdparty/renamenoise
 		3rdparty/speexdsp
 		3rdparty/tracy
-		3rdparty/utfcpp
 	)
 else
 	if [[ "${PV}" == *_pre* ]] ; then
@@ -45,8 +44,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-cpp/cli11
-	dev-cpp/ms-gsl
-	dev-db/soci[sqlite]
+	>=dev-db/soci-4.1.0[sqlite]
 	>=dev-libs/openssl-1.0.0b:0=
 	dev-libs/poco:=[util,xml,zip]
 	>=dev-libs/protobuf-2.2.0:=
@@ -100,13 +98,12 @@ src_configure() {
 	local mycmakeargs=(
 		-Dalsa="$(usex alsa)"
 		-Dbundled-cli11="OFF"
-		-Dbundled-gsl="OFF"
 		-Dbundled-json="OFF"
 		-Dbundled-rnnoise="OFF"
 		-Dbundled-spdlog="OFF"
 		-Dbundled-soci="OFF"
 		-Dbundled-speex="OFF"
-		-Dbundled-utf8="OFF"
+		-Dbundled-utfcpp="OFF"
 		-Ddbus="$(usex dbus)"
 		-Dg15="OFF"
 		-Djackaudio="$(usex jack)"
