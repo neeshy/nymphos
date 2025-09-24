@@ -20,7 +20,7 @@ RDEPEND="
 	>=x11-libs/gtk+-3.22.0:3
 	sourceview? ( >=x11-libs/gtksourceview-3.18.0:3.0= )
 	spell? ( app-text/gspell:= )
-	webkit? ( net-libs/webkit-gtk:4.1 )"
+	webkit? ( net-libs/webkit-gtk:4.1= )"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-build/autoconf-2.59

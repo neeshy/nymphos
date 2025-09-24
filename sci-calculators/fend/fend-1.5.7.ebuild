@@ -222,7 +222,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="man"
 
-RDEPEND="dev-libs/openssl:="
+RDEPEND="dev-libs/openssl:0="
 DEPEND="${RDEPEND}"
 BDEPEND="man? ( virtual/pandoc )"
 

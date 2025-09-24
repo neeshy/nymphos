@@ -23,7 +23,7 @@ SLOT="0"
 
 RDEPEND="
 	app-arch/bzip2:=
-	media-libs/freetype:=
+	media-libs/freetype:2
 	media-libs/libsdl
 	media-libs/sdl-image[jpeg,png]
 	media-libs/sdl-mixer[vorbis]

@@ -66,7 +66,7 @@ RDEPEND="
 	sixel? ( media-libs/libsixel )
 	ssl? ( net-libs/mbedtls:= )
 	systemd? ( sys-apps/systemd )
-	truetype? ( media-libs/freetype:2= )
+	truetype? ( media-libs/freetype:2 )
 	udev? ( virtual/udev )
 	usb? ( virtual/libusb:= )
 	v4l? ( media-libs/libv4l:= )
