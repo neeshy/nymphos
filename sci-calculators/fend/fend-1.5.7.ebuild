@@ -220,5 +220,25 @@ S="${WORKDIR}/${P}/cli"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="man"
+
+RDEPEND="dev-libs/openssl:="
+DEPEND="${RDEPEND}"
+BDEPEND="man? ( virtual/pandoc )"
 
 PATCHES=( "${FILESDIR}/${PN}-vi.patch" )
+
+src_configure() {
+	local myfeatures=( native-tls )
+	cargo_src_configure --no-default-features
+}
+
+src_compile() {
+	cargo_src_compile
+	use man && ../documentation/build.sh
+}
+
+src_install() {
+	cargo_src_install
+	use man && doman ../documentation/fend.1
+}
