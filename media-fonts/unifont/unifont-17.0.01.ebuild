@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="bold"
 
-DEPEND="
+BDEPEND="
 	bold? (
 		media-gfx/mkbold-mkitalic
 		x11-apps/bdftopcf
