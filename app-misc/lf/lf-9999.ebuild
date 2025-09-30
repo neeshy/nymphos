@@ -17,7 +17,7 @@ if [[ "${PV}" = 9999 ]]; then
 	}
 
 	src_compile () {
-		gen/build.sh || die
+		gen/build.sh || die "build failed"
 	}
 else
 	EGO_SUM=(
@@ -84,7 +84,7 @@ else
 	S="${WORKDIR}/${PN}-r${PV}"
 
 	src_compile () {
-		version="r${PV}" gen/build.sh || die
+		version="r${PV}" gen/build.sh || die "build failed"
 	}
 fi
 

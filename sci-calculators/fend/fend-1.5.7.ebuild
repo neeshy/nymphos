@@ -235,7 +235,9 @@ src_configure() {
 
 src_compile() {
 	cargo_src_compile
-	use man && ../documentation/build.sh
+	if use man; then
+		../documentation/build.sh || die "documentation build failed"
+	fi
 }
 
 src_install() {
