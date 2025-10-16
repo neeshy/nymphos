@@ -21,13 +21,13 @@ CRATES="
 	memchr@2.6.4
 	once_cell@1.18.0
 	pin-project-lite@0.2.13
-	polyfuse@0.4.1
 	polyfuse-kernel@0.1.0
+	polyfuse@0.4.1
 	proc-macro2@1.0.69
 	quote@1.0.33
-	regex@1.10.2
 	regex-automata@0.4.3
 	regex-syntax@0.8.2
+	regex@1.10.2
 	relative-path@1.9.0
 	strsim@0.8.0
 	syn@1.0.109
@@ -36,26 +36,26 @@ CRATES="
 	termcolor@1.3.0
 	termios@0.3.3
 	textwrap@0.11.0
-	tracing@0.1.40
 	tracing-attributes@0.1.27
 	tracing-core@0.1.32
+	tracing@0.1.40
 	unicode-ident@1.0.12
 	unicode-width@0.1.11
 	unicode-xid@0.2.4
 	vec_map@0.8.2
-	winapi@0.3.9
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.6
 	winapi-x86_64-pc-windows-gnu@0.4.0
-	zerocopy@0.3.0
-	zerocopy-derive@0.2.0"
+	winapi@0.3.9
+	zerocopy-derive@0.2.0
+	zerocopy@0.3.0"
 
 inherit cargo
 
 DESCRIPTION="A read-only FUSE filesystem for mounting compressed archives, inspired by archivemount"
 HOMEPAGE="https://github.com/bugnano/${PN}"
 SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> ${P}.tar.gz
-	$(cargo_crate_uris)"
+	${CARGO_CRATE_URIS}"
 
 LICENSE="GPL-3+"
 SLOT="0"

@@ -11,10 +11,10 @@ CRATES="
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
 	anstream@0.6.14
-	anstyle@1.0.10
 	anstyle-parse@0.2.4
 	anstyle-query@1.0.3
 	anstyle-wincon@3.0.3
+	anstyle@1.0.10
 	anyhow@1.0.97
 	ariadne@0.5.1
 	arrayvec@0.7.6
@@ -29,8 +29,8 @@ CRATES="
 	bitflags@2.9.0
 	bitvec@1.0.1
 	blanket@0.4.0
-	borsh@1.5.0
 	borsh-derive@1.5.0
+	borsh@1.5.0
 	bstr@1.9.1
 	bumpalo@3.16.0
 	bytecheck@0.6.12
@@ -57,8 +57,8 @@ CRATES="
 	crossterm@0.28.1
 	crossterm_winapi@0.9.1
 	displaydoc@0.2.4
-	divan@0.1.17
 	divan-macros@0.1.17
+	divan@0.1.17
 	either@1.13.0
 	encode_unicode@0.3.6
 	encoding_rs@0.8.34
@@ -75,9 +75,9 @@ CRATES="
 	form_urlencoded@1.2.1
 	funty@2.0.0
 	fxhash@0.2.1
-	genawaiter@0.99.1
 	genawaiter-macro@0.99.1
 	genawaiter-proc-macro@0.99.1
+	genawaiter@0.99.1
 	getrandom@0.2.15
 	getrandom@0.3.1
 	glob@0.3.1
@@ -87,8 +87,8 @@ CRATES="
 	heck@0.5.0
 	hex@0.4.3
 	home@0.5.9
-	iana-time-zone@0.1.60
 	iana-time-zone-haiku@0.1.2
+	iana-time-zone@0.1.60
 	ibig@0.3.6
 	icu@1.5.0
 	icu_calendar@1.5.2
@@ -126,8 +126,8 @@ CRATES="
 	idna@1.0.3
 	idna_adapter@1.2.0
 	indexmap@2.8.0
-	indextree@4.7.2
 	indextree-macros@0.1.1
+	indextree@4.7.2
 	insta@1.42.2
 	iri-string@0.7.7
 	is_terminal_polyfill@1.70.0
@@ -137,13 +137,13 @@ CRATES="
 	js-sys@0.3.69
 	json@0.12.4
 	lazy_static@1.4.0
-	lexical@7.0.4
 	lexical-core@1.0.5
 	lexical-parse-float@1.0.5
 	lexical-parse-integer@1.0.5
 	lexical-util@1.0.6
 	lexical-write-float@1.0.5
 	lexical-write-integer@1.0.5
+	lexical@7.0.4
 	libc@0.2.171
 	libm@0.2.8
 	linked-hash-map@0.5.6
@@ -152,16 +152,15 @@ CRATES="
 	litemap@0.7.5
 	lock_api@0.4.12
 	log@0.4.26
-	logos@0.15.0
 	logos-codegen@0.15.0
 	logos-derive@0.15.0
+	logos@0.15.0
 	memchr@2.7.2
 	mio@1.0.3
-	next-gen@0.1.1
 	next-gen-proc_macros@0.1.1
+	next-gen@0.1.1
 	nibble_vec@0.1.0
 	nix@0.29.0
-	num@0.4.3
 	num-bigint@0.4.5
 	num-complex@0.4.6
 	num-derive@0.4.2
@@ -169,19 +168,20 @@ CRATES="
 	num-iter@0.1.45
 	num-rational@0.4.2
 	num-traits@0.2.19
+	num@0.4.3
 	once_cell@1.21.1
 	ordered-float@5.0.0
 	parking_lot@0.12.2
 	parking_lot_core@0.9.10
 	percent-encoding@2.3.1
-	pin-project@1.1.10
 	pin-project-internal@1.1.10
+	pin-project@1.1.10
 	ppv-lite86@0.2.17
 	proc-macro-crate@3.3.0
-	proc-macro-error@0.4.12
-	proc-macro-error@1.0.4
 	proc-macro-error-attr@0.4.12
 	proc-macro-error-attr@1.0.4
+	proc-macro-error@0.4.12
+	proc-macro-error@1.0.4
 	proc-macro-hack@0.5.20+deprecated
 	proc-macro2@0.4.30
 	proc-macro2@1.0.86
@@ -200,13 +200,13 @@ CRATES="
 	rand_xorshift@0.3.0
 	rand_xoshiro@0.6.0
 	redox_syscall@0.5.1
-	regex@1.11.1
 	regex-automata@0.2.0
 	regex-automata@0.3.9
 	regex-automata@0.4.9
 	regex-lite@0.1.6
 	regex-syntax@0.7.5
 	regex-syntax@0.8.5
+	regex@1.11.1
 	regexml@0.2.1
 	rend@0.4.2
 	rkyv@0.7.44
@@ -229,9 +229,9 @@ CRATES="
 	serde@1.0.201
 	serde_derive@1.0.201
 	serde_json@1.0.117
-	signal-hook@0.3.17
 	signal-hook-mio@0.2.4
 	signal-hook-registry@1.4.2
+	signal-hook@0.3.17
 	simdutf8@0.1.4
 	similar@2.5.0
 	smallvec@1.13.2
@@ -243,20 +243,20 @@ CRATES="
 	strum@0.27.1
 	strum_macros@0.26.4
 	strum_macros@0.27.1
+	syn-mid@0.5.4
 	syn@0.15.44
 	syn@1.0.109
 	syn@2.0.87
-	syn-mid@0.5.4
 	syn_derive@0.1.8
 	synstructure@0.13.1
 	tap@1.0.1
 	tempfile@3.19.0
 	terminal_size@0.4.1
 	test-generator@0.3.1
-	thiserror@1.0.63
-	thiserror@2.0.12
 	thiserror-impl@1.0.63
 	thiserror-impl@2.0.12
+	thiserror@1.0.63
+	thiserror@2.0.12
 	tinystr@0.7.5
 	tinyvec@1.6.0
 	tinyvec_macros@0.1.1
@@ -280,15 +280,15 @@ CRATES="
 	walkdir@2.5.0
 	wasi@0.11.0+wasi-snapshot-preview1
 	wasi@0.13.3+wasi-0.2.2
-	wasm-bindgen@0.2.92
 	wasm-bindgen-backend@0.2.92
-	wasm-bindgen-macro@0.2.92
 	wasm-bindgen-macro-support@0.2.92
+	wasm-bindgen-macro@0.2.92
 	wasm-bindgen-shared@0.2.92
-	winapi@0.3.9
+	wasm-bindgen@0.2.92
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.8
 	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
 	windows-core@0.52.0
 	windows-link@0.1.0
 	windows-sys@0.52.0
@@ -311,22 +311,22 @@ CRATES="
 	xmlparser@0.13.6
 	xot@0.31.2
 	yansi@1.0.1
-	yoke@0.7.5
 	yoke-derive@0.7.5
-	zerocopy@0.7.34
+	yoke@0.7.5
 	zerocopy-derive@0.7.34
-	zerofrom@0.1.3
+	zerocopy@0.7.34
 	zerofrom-derive@0.1.3
+	zerofrom@0.1.3
 	zerotrie@0.1.3
-	zerovec@0.10.4
-	zerovec-derive@0.10.3"
+	zerovec-derive@0.10.3
+	zerovec@0.10.4"
 
 inherit cargo
 
 DESCRIPTION="Swiss Army knife for XML, XPath and XSLT"
 HOMEPAGE="https://github.com/Paligo/${PN}"
 SRC_URI="${HOMEPAGE}/archive/${PN}-v${PV}.tar.gz
-	$(cargo_crate_uris)"
+	${CARGO_CRATE_URIS}"
 
 LICENSE="MIT"
 SLOT="0"

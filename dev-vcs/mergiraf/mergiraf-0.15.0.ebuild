@@ -8,10 +8,10 @@ CRATES="
 	aho-corasick@1.1.3
 	android_system_properties@0.1.5
 	anstream@0.6.20
-	anstyle@1.0.11
 	anstyle-parse@0.2.7
 	anstyle-query@1.1.4
 	anstyle-wincon@3.0.10
+	anstyle@1.0.11
 	arbitrary@1.4.2
 	arrayvec@0.7.6
 	autocfg@1.5.0
@@ -48,8 +48,8 @@ CRATES="
 	heck@0.5.0
 	hermit-abi@0.5.2
 	home@0.5.11
-	iana-time-zone@0.1.64
 	iana-time-zone-haiku@0.1.2
+	iana-time-zone@0.1.64
 	imara-diff@0.1.8
 	indexmap@1.9.3
 	indexmap@2.11.2
@@ -81,9 +81,9 @@ CRATES="
 	rand@0.9.2
 	rand_chacha@0.9.0
 	rand_core@0.9.3
-	regex@1.11.2
 	regex-automata@0.4.10
 	regex-syntax@0.8.6
+	regex@1.11.2
 	relative-path@1.9.3
 	rstest@0.26.1
 	rstest_macros@0.26.1
@@ -106,11 +106,10 @@ CRATES="
 	syn@2.0.106
 	tempfile@3.22.0
 	termcolor@1.1.3
-	thiserror@1.0.69
 	thiserror-impl@1.0.69
+	thiserror@1.0.69
 	thread_local@1.1.9
 	tree-edit-distance@0.4.0
-	tree-sitter@0.25.9
 	tree-sitter-c-sharp@0.23.1
 	tree-sitter-cmake@0.7.1
 	tree-sitter-cpp@0.23.4
@@ -147,16 +146,17 @@ CRATES="
 	tree-sitter-typescript@0.23.2
 	tree-sitter-xml@0.7.0
 	tree-sitter-yaml@0.7.1
+	tree-sitter@0.25.9
 	typed-arena@2.0.2
 	unicode-ident@1.0.19
 	utf8parse@0.2.2
 	wasi@0.14.6+wasi-0.2.4
 	wasip2@1.0.1+wasi-0.2.4
-	wasm-bindgen@0.2.101
 	wasm-bindgen-backend@0.2.101
-	wasm-bindgen-macro@0.2.101
 	wasm-bindgen-macro-support@0.2.101
+	wasm-bindgen-macro@0.2.101
 	wasm-bindgen-shared@0.2.101
+	wasm-bindgen@0.2.101
 	winapi-util@0.1.11
 	windows-core@0.62.0
 	windows-implement@0.60.0
@@ -188,8 +188,8 @@ CRATES="
 	windows_x86_64_msvc@0.52.6
 	windows_x86_64_msvc@0.53.0
 	wit-bindgen@0.46.0
-	zerocopy@0.8.27
 	zerocopy-derive@0.8.27
+	zerocopy@0.8.27
 	zip@5.1.1
 	zlib-rs@0.5.2
 	zopfli@0.8.2"
@@ -197,9 +197,9 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="A syntax-aware merge driver for Git"
-HOMEPAGE="https://codeberg.org/${PN}/${PN}"
-SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	$(cargo_crate_uris)"
+HOMEPAGE="https://mergiraf.org/"
+SRC_URI="https://codeberg.org/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	${CARGO_CRATE_URIS}"
 
 LICENSE="GPL-3"
 SLOT="0"

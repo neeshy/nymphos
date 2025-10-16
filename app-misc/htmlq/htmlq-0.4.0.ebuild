@@ -11,11 +11,11 @@ CRATES="
 	cfg-if@1.0.0
 	clap@2.33.3
 	convert_case@0.4.0
-	cssparser@0.27.2
 	cssparser-macros@0.6.0
+	cssparser@0.27.2
 	derive_more@0.99.16
-	dtoa@0.4.8
 	dtoa-short@0.3.3
+	dtoa@0.4.8
 	form_urlencoded@1.0.1
 	futf@0.1.4
 	fxhash@0.2.1
@@ -52,8 +52,8 @@ CRATES="
 	rand_pcg@0.2.1
 	rustc_version@0.3.3
 	selectors@0.22.0
-	semver@0.11.0
 	semver-parser@0.10.2
+	semver@0.11.0
 	serde@1.0.130
 	servo_arc@0.1.1
 	siphasher@0.3.7
@@ -77,9 +77,9 @@ CRATES="
 	utf-8@0.7.6
 	vec_map@0.8.2
 	wasi@0.9.0+wasi-snapshot-preview1
-	winapi@0.3.9
 	winapi-i686-pc-windows-gnu@0.4.0
-	winapi-x86_64-pc-windows-gnu@0.4.0"
+	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9"
 
 inherit cargo
 

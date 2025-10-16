@@ -27,9 +27,9 @@ CRATES="
 	unicode-width@0.1.8
 	vec_map@0.8.2
 	version_check@0.9.3
-	winapi@0.3.9
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
 	x11@2.18.2
 	xcb@0.9.0"
 

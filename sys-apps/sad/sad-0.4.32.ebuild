@@ -9,10 +9,10 @@ CRATES="
 	aho-corasick@1.1.3
 	ansi_term@0.12.1
 	anstream@0.6.14
-	anstyle@1.0.8
 	anstyle-parse@0.2.4
 	anstyle-query@1.1.0
 	anstyle-wincon@3.0.3
+	anstyle@1.0.8
 	autocfg@1.3.0
 	backtrace@0.3.73
 	bitflags@2.6.0
@@ -28,7 +28,6 @@ CRATES="
 	either@1.13.0
 	env_home@0.1.0
 	errno@0.3.9
-	futures@0.3.31
 	futures-channel@0.3.31
 	futures-core@0.3.31
 	futures-executor@0.3.31
@@ -37,6 +36,7 @@ CRATES="
 	futures-sink@0.3.31
 	futures-task@0.3.31
 	futures-util@0.3.31
+	futures@0.3.31
 	getrandom@0.2.15
 	gimli@0.29.0
 	heck@0.5.0
@@ -52,9 +52,9 @@ CRATES="
 	pin-utils@0.1.0
 	proc-macro2@1.0.86
 	quote@1.0.36
-	regex@1.11.1
 	regex-automata@0.4.9
 	regex-syntax@0.8.5
+	regex@1.11.1
 	rustc-demangle@0.1.24
 	rustix@0.38.34
 	shlex@1.3.0
@@ -70,9 +70,9 @@ CRATES="
 	uuid@1.12.1
 	wasi@0.11.0+wasi-snapshot-preview1
 	which@7.0.1
-	winapi@0.3.9
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-x86_64-pc-windows-gnu@0.4.0
+	winapi@0.3.9
 	windows-sys@0.52.0
 	windows-sys@0.59.0
 	windows-targets@0.52.6

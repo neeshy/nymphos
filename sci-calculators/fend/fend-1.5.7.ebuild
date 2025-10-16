@@ -16,9 +16,9 @@ CRATES="
 	cfg-if@1.0.1
 	cfg_aliases@0.2.1
 	clipboard-win@5.4.0
-	core-foundation@0.9.4
-	core-foundation@0.10.1
 	core-foundation-sys@0.8.7
+	core-foundation@0.10.1
+	core-foundation@0.9.4
 	displaydoc@0.2.5
 	endian-type@0.1.2
 	equivalent@1.0.2
@@ -27,8 +27,8 @@ CRATES="
 	fastrand@2.3.0
 	fd-lock@4.0.4
 	fnv@1.0.7
-	foreign-types@0.3.2
 	foreign-types-shared@0.1.1
+	foreign-types@0.3.2
 	form_urlencoded@1.2.1
 	futures-channel@0.3.31
 	futures-core@0.3.31
@@ -40,14 +40,14 @@ CRATES="
 	gimli@0.31.1
 	h2@0.4.11
 	hashbrown@0.15.4
-	http@1.3.1
-	http-body@1.0.1
 	http-body-util@0.1.3
+	http-body@1.0.1
+	http@1.3.1
 	httparse@1.10.1
-	hyper@1.6.0
 	hyper-rustls@0.27.7
 	hyper-tls@0.6.0
 	hyper-util@0.1.15
+	hyper@1.6.0
 	icu_collections@2.0.0
 	icu_locale_core@2.0.0
 	icu_normalizer@2.0.0
@@ -76,10 +76,10 @@ CRATES="
 	nix@0.30.1
 	object@0.36.7
 	once_cell@1.21.3
-	openssl@0.10.73
 	openssl-macros@0.1.1
 	openssl-probe@0.1.6
 	openssl-sys@0.9.109
+	openssl@0.10.73
 	percent-encoding@2.3.1
 	pin-project-lite@0.2.16
 	pin-utils@0.1.0
@@ -87,9 +87,9 @@ CRATES="
 	potential_utf@0.1.2
 	ppv-lite86@0.2.21
 	proc-macro2@1.0.95
-	quinn@0.11.8
 	quinn-proto@0.11.12
 	quinn-udp@0.5.13
+	quinn@0.11.8
 	quote@1.0.40
 	r-efi@5.3.0
 	radix_trie@0.2.1
@@ -101,17 +101,17 @@ CRATES="
 	rustc-demangle@0.1.25
 	rustc-hash@2.1.1
 	rustix@1.0.7
-	rustls@0.23.29
 	rustls-native-certs@0.8.1
 	rustls-pki-types@1.12.0
 	rustls-webpki@0.103.4
+	rustls@0.23.29
 	rustversion@1.0.21
 	rustyline@16.0.0
 	ryu@1.0.20
 	schannel@0.1.27
+	security-framework-sys@2.14.0
 	security-framework@2.11.1
 	security-framework@3.2.0
-	security-framework-sys@2.14.0
 	serde@1.0.219
 	serde_derive@1.0.219
 	serde_json@1.0.140
@@ -127,29 +127,29 @@ CRATES="
 	syn@2.0.104
 	sync_wrapper@1.0.2
 	synstructure@0.13.2
-	system-configuration@0.6.1
 	system-configuration-sys@0.6.0
+	system-configuration@0.6.1
 	tempfile@3.20.0
-	thiserror@2.0.12
 	thiserror-impl@2.0.12
+	thiserror@2.0.12
 	tinystr@0.8.1
 	tinyvec@1.9.0
 	tinyvec_macros@0.1.1
-	tokio@1.46.1
 	tokio-macros@2.5.0
 	tokio-native-tls@0.3.1
 	tokio-rustls@0.26.2
 	tokio-util@0.7.15
+	tokio@1.46.1
 	toml@0.9.2
 	toml_datetime@0.7.0
 	toml_parser@1.0.1
 	toml_writer@1.0.2
-	tower@0.5.2
 	tower-http@0.6.6
 	tower-layer@0.3.3
 	tower-service@0.3.3
-	tracing@0.1.41
+	tower@0.5.2
 	tracing-core@0.1.34
+	tracing@0.1.41
 	try-lock@0.2.5
 	unicode-ident@1.0.18
 	unicode-segmentation@1.12.0
@@ -162,12 +162,12 @@ CRATES="
 	want@0.3.1
 	wasi@0.11.1+wasi-snapshot-preview1
 	wasi@0.14.2+wasi-0.2.4
-	wasm-bindgen@0.2.100
 	wasm-bindgen-backend@0.2.100
 	wasm-bindgen-futures@0.4.50
-	wasm-bindgen-macro@0.2.100
 	wasm-bindgen-macro-support@0.2.100
+	wasm-bindgen-macro@0.2.100
 	wasm-bindgen-shared@0.2.100
+	wasm-bindgen@0.2.100
 	web-sys@0.3.77
 	web-time@1.1.0
 	windows-link@0.1.3
@@ -198,16 +198,16 @@ CRATES="
 	winnow@0.7.12
 	wit-bindgen-rt@0.39.0
 	writeable@0.6.1
-	yoke@0.8.0
 	yoke-derive@0.8.0
-	zerocopy@0.8.26
+	yoke@0.8.0
 	zerocopy-derive@0.8.26
-	zerofrom@0.1.6
+	zerocopy@0.8.26
 	zerofrom-derive@0.1.6
+	zerofrom@0.1.6
 	zeroize@1.8.1
 	zerotrie@0.2.2
-	zerovec@0.11.2
-	zerovec-derive@0.11.1"
+	zerovec-derive@0.11.1
+	zerovec@0.11.2"
 
 inherit cargo
 
