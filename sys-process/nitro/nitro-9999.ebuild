@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit shell-completion
+
 DESCRIPTION="Tiny but flexible init system and process supervisor"
 HOMEPAGE="https://git.vuxu.org/${PN}"
 if [[ "${PV}" = 9999 ]]; then
@@ -23,4 +25,6 @@ src_install() {
 
 	doman nitro.8 nitroctl.1 halt.8
 	dodoc README.md
+
+	dozshcomp contrib/_nitroctl
 }
