@@ -80,8 +80,8 @@ else
 
 	SRC_URI="${HOMEPAGE}/archive/r${PV}.tar.gz -> ${P}.tar.gz
 		${EGO_SUM_SRC_URI}"
-	KEYWORDS="~amd64"
 	S="${WORKDIR}/${PN}-r${PV}"
+	KEYWORDS="~amd64"
 
 	src_compile () {
 		version="r${PV}" gen/build.sh || die "build failed"

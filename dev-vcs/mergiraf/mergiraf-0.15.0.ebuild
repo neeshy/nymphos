@@ -200,11 +200,10 @@ DESCRIPTION="A syntax-aware merge driver for Git"
 HOMEPAGE="https://mergiraf.org/"
 SRC_URI="https://codeberg.org/mergiraf/mergiraf/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
+S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 MIT Unicode-3.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/${PN}"

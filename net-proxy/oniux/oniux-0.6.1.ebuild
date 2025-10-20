@@ -573,11 +573,10 @@ DESCRIPTION="Isolate applications over Tor using Linux Namespaces"
 HOMEPAGE="https://gitlab.torproject.org/tpo/core/oniux"
 SRC_URI="${HOMEPAGE}/-/archive/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
+S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="|| ( Apache-2.0 MIT )"
 # Dependent crate licenses
 LICENSE+=" 0BSD Apache-2.0 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0 Unlicense ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-
-S="${WORKDIR}/${PN}-v${PV}"
