@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="Daemonless replacement for libudev"
-HOMEPAGE="https://github.com/illiliti/${PN}"
+HOMEPAGE="https://github.com/illiliti/libudev-zero"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"

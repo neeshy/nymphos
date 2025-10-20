@@ -6,7 +6,7 @@ EAPI=8
 inherit shell-completion
 
 DESCRIPTION="Tiny but flexible init system and process supervisor"
-HOMEPAGE="https://git.vuxu.org/${PN}"
+HOMEPAGE="https://git.vuxu.org/nitro"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"

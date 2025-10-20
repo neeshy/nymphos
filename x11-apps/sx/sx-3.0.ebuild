@@ -4,7 +4,7 @@
 EAPI=8
 
 DESCRIPTION="Start an xorg server"
-HOMEPAGE="https://github.com/Earnestly/${PN}"
+HOMEPAGE="https://github.com/Earnestly/sx"
 SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"

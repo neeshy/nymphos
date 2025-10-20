@@ -11,9 +11,9 @@ DESCRIPTION="An enhanced open-source implementation of the NScripter visual nove
 HOMEPAGE="https://galladite.net/~galladite/ons-en/"
 if [[ "${PV}" = 99999999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/Galladite27/${MY_PN}.git"
+	EGIT_REPO_URI="https://github.com/Galladite27/ONScripter-EN.git"
 else
-	SRC_URI="https://github.com/Galladite27/${MY_PN}/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
+	SRC_URI="https://github.com/Galladite27/ONScripter-EN/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 	S="${WORKDIR}/${MY_P}"
 	KEYWORDS="~amd64"
 fi

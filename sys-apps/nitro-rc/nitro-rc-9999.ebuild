@@ -6,7 +6,7 @@ EAPI=8
 inherit git-r3
 
 DESCRIPTION="nitro init scripts"
-HOMEPAGE="https://github.com/neeshy/${PN}"
+HOMEPAGE="https://github.com/neeshy/nitro-rc"
 EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="CC0-1.0"

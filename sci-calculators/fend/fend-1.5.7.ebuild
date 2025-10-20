@@ -212,7 +212,7 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="Arbitrary-precision unit-aware calculator"
-HOMEPAGE="https://github.com/printfn/${PN}"
+HOMEPAGE="https://github.com/printfn/fend"
 SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 S="${WORKDIR}/${P}/cli"

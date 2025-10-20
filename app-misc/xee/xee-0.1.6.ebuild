@@ -324,7 +324,7 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="Swiss Army knife for XML, XPath and XSLT"
-HOMEPAGE="https://github.com/Paligo/${PN}"
+HOMEPAGE="https://github.com/Paligo/xee"
 SRC_URI="${HOMEPAGE}/archive/${PN}-v${PV}.tar.gz
 	${CARGO_CRATE_URIS}"
 

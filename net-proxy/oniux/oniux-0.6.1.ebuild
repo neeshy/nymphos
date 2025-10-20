@@ -570,7 +570,7 @@ declare -A GIT_CRATES=(
 inherit cargo
 
 DESCRIPTION="Isolate applications over Tor using Linux Namespaces"
-HOMEPAGE="https://gitlab.torproject.org/tpo/core/${PN}"
+HOMEPAGE="https://gitlab.torproject.org/tpo/core/oniux"
 SRC_URI="${HOMEPAGE}/-/archive/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 

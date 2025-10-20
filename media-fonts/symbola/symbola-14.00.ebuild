@@ -10,7 +10,7 @@ MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Unicode font for Latin, IPA Extensions, Greek, Cyrillic and many Symbol Blocks"
 HOMEPAGE="https://dn-works.com/ufas/"
-SRC_URI="https://web.archive.org/web/20240107144224/https://dn-works.com/wp-content/uploads/2021/UFAS121921/Symbola.pdf -> ${MY_P}.pdf"
+SRC_URI="https://web.archive.org/web/20240107144224/https://dn-works.com/wp-content/uploads/2021/UFAS121921/${MY_PN}.pdf -> ${MY_P}.pdf"
 S="${WORKDIR}"
 
 LICENSE="UFAS"

@@ -8,7 +8,7 @@ GNOME2_EAUTORECONF="yes"
 inherit gnome2
 
 DESCRIPTION="Display GTK+ dialog boxes from command line or shell scripts"
-HOMEPAGE="https://github.com/v1cont/${PN}"
+HOMEPAGE="https://github.com/v1cont/yad"
 SRC_URI="${HOMEPAGE}/archive/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-3"

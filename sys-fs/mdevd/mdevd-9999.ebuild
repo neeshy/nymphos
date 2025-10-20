@@ -4,10 +4,10 @@
 EAPI=8
 
 DESCRIPTION="A mdev-compatible Linux hotplug manager daemon"
-HOMEPAGE="https://skarnet.org/software/${PN}/"
+HOMEPAGE="https://skarnet.org/software/mdevd/"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="git://git.skarnet.org/${PN}"
+	EGIT_REPO_URI="git://git.skarnet.org/mdevd"
 else
 	SRC_URI="${HOMEPAGE}${P}.tar.gz"
 	KEYWORDS="~amd64"

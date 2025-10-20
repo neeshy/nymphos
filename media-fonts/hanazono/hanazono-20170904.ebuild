@@ -8,7 +8,7 @@ inherit font
 S_DIR="68253"
 
 DESCRIPTION="A Japanese Mincho font based on GlyphWiki"
-HOMEPAGE="https://osdn.net/projects/${PN}-font"
+HOMEPAGE="https://osdn.net/projects/hanazono-font"
 SRC_URI="${HOMEPAGE}/downloads/${S_DIR}/${P}.zip"
 S="${WORKDIR}"
 

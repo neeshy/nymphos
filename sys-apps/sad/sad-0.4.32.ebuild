@@ -89,7 +89,7 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="Space Age seD"
-HOMEPAGE="https://github.com/ms-jpq/${PN}"
+HOMEPAGE="https://github.com/ms-jpq/sad"
 SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 

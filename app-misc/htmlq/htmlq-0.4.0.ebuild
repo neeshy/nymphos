@@ -84,7 +84,7 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="Like jq, but for HTML"
-HOMEPAGE="https://github.com/mgdm/${PN}"
+HOMEPAGE="https://github.com/mgdm/htmlq"
 SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 

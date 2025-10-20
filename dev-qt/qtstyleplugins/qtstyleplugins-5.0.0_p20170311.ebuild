@@ -9,8 +9,8 @@ MY_PV="335dbece103e2cbf6c7cf819ab6672c2956b17b3"
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="Additional style plugins for Qt5"
-HOMEPAGE="https://code.qt.io/cgit/qt/${PN}.git"
-SRC_URI="https://github.com/qt/${PN}/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
+HOMEPAGE="https://code.qt.io/cgit/qt/qtstyleplugins.git"
+SRC_URI="https://github.com/qt/qtstyleplugins/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="LGPL-2.1 LGPL-3"

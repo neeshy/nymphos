@@ -6,7 +6,7 @@ EAPI=8
 inherit go-module optfeature shell-completion
 
 DESCRIPTION="Fast and secure initramfs generator"
-HOMEPAGE="https://github.com/anatol/${PN}"
+HOMEPAGE="https://github.com/anatol/booster"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"

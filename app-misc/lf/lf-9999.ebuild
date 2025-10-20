@@ -6,7 +6,7 @@ EAPI=8
 inherit go-module desktop xdg
 
 DESCRIPTION="Terminal file manager"
-HOMEPAGE="https://github.com/gokcehan/${PN}"
+HOMEPAGE="https://github.com/gokcehan/lf"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="${HOMEPAGE}.git"

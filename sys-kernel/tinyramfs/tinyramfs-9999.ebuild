@@ -6,7 +6,7 @@ EAPI=8
 inherit git-r3
 
 DESCRIPTION="Tiny initramfs written in POSIX shell"
-HOMEPAGE="https://github.com/neeshy/${PN}"
+HOMEPAGE="https://github.com/neeshy/tinyramfs"
 EGIT_REPO_URI="${HOMEPAGE}.git"
 
 LICENSE="GPL-3"

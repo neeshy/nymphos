@@ -82,7 +82,7 @@ CRATES="
 inherit cargo shell-completion
 
 DESCRIPTION="An mpc-like CLI tool for mpv"
-HOMEPAGE="https://github.com/neeshy/${PN}"
+HOMEPAGE="https://github.com/neeshy/mpvc"
 SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 

@@ -6,7 +6,7 @@ EAPI=8
 inherit flag-o-matic toolchain-funcs
 
 DESCRIPTION="A UNIX init scheme with service supervision"
-HOMEPAGE="https://smarden.org/${PN}/"
+HOMEPAGE="https://smarden.org/runit/"
 SRC_URI="${HOMEPAGE}${P}.tar.gz"
 S="${WORKDIR}/admin/${P}/src"
 

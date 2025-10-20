@@ -53,7 +53,7 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="A read-only FUSE filesystem for mounting compressed archives, inspired by archivemount"
-HOMEPAGE="https://github.com/bugnano/${PN}"
+HOMEPAGE="https://github.com/bugnano/archivefs"
 SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 

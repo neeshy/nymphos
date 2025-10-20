@@ -36,7 +36,7 @@ CRATES="
 inherit cargo
 
 DESCRIPTION="Lightweight color picker for X11"
-HOMEPAGE="https://github.com/Soft/${PN}"
+HOMEPAGE="https://github.com/Soft/xcolor"
 SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 

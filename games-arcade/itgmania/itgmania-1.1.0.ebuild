@@ -10,7 +10,7 @@ inherit cmake desktop git-r3 wrapper xdg
 
 DESCRIPTION="A fork of StepMania 5.1, improved for the post-ITG community"
 HOMEPAGE="https://www.itgmania.com/"
-EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
+EGIT_REPO_URI="https://github.com/itgmania/itgmania.git"
 EGIT_COMMIT="v${PV}"
 
 LICENSE="GPL-3+ CC-BY-NC-4.0"

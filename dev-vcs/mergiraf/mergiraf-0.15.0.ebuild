@@ -198,7 +198,7 @@ inherit cargo
 
 DESCRIPTION="A syntax-aware merge driver for Git"
 HOMEPAGE="https://mergiraf.org/"
-SRC_URI="https://codeberg.org/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+SRC_URI="https://codeberg.org/mergiraf/mergiraf/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 
 LICENSE="GPL-3"
