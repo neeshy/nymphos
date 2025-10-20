@@ -52,7 +52,7 @@ RDEPEND="
 	libcaca? ( media-libs/libcaca )
 	openal? ( media-libs/openal )
 	opengl? ( media-libs/mesa[opengl] )
-	osmesa? ( media-libs/mesa[osmesa] )
+	osmesa? ( <media-libs/mesa-25.1.0[osmesa] )
 	pulseaudio? ( media-libs/libpulse )
 	qt5? (
 		dev-qt/qtconcurrent:5
