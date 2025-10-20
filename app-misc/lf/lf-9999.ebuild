@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module desktop xdg
+inherit go-module desktop shell-completion xdg
 
 DESCRIPTION="Terminal file manager"
 HOMEPAGE="https://github.com/gokcehan/lf"
@@ -98,14 +98,11 @@ src_install() {
 	docinto examples
 	dodoc etc/{lf.{csh,nu,vim},lfcd.{{,c}sh,nu},lfrc.example}
 
-	insinto /usr/share/bash-completion/completions
-	newins etc/lf.bash lf
-	insinto /usr/share/zsh/site-functions
-	newins etc/lf.zsh _lf
-	insinto /usr/share/fish/vendor_completions.d
-	doins etc/lf.fish
+	newbashcomp "etc/${PN}.bash" "${PN}"
+	newzshcomp "etc/${PN}.zsh" "_${PN}"
+	dofishcomp "etc/${PN}.fish"
 	insinto /usr/share/fish/vendor_functions.d
 	doins etc/lfcd.fish
 
-	domenu lf.desktop
+	domenu "${PN}.desktop"
 }
