@@ -69,11 +69,11 @@ BDEPEND="man? ( app-text/asciidoc )"
 src_compile() {
 	cargo_src_compile
 	if use man; then
-		a2x -f manpage doc/archivefs.1.adoc || die "a2x failed"
+		a2x -f manpage "doc/${PN}.1.adoc" || die "a2x failed"
 	fi
 }
 
 src_install() {
 	cargo_src_install
-	use man && doman doc/archivefs.1
+	use man && doman "doc/${PN}.1"
 }

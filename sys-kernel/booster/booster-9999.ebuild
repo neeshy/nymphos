@@ -142,13 +142,13 @@ src_compile() {
 }
 
 src_install() {
-	newbin generator/generator booster
-	exeinto /usr/lib/booster
+	newbin generator/generator "${PN}"
+	exeinto "/usr/lib/${PN}"
 	doexe init/init
 	insinto /etc
-	: | newins - booster.yaml
-	use man && newman docs/manpage.1 booster.1
-	newbashcomp contrib/completion/bash booster
+	: | newins - "${PN}.yaml"
+	use man && newman docs/manpage.1 "${PN}.1"
+	newbashcomp contrib/completion/bash "${PN}"
 }
 
 pkg_postinst() {

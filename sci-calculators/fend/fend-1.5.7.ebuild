@@ -244,5 +244,5 @@ src_compile() {
 
 src_install() {
 	cargo_src_install
-	use man && doman ../documentation/fend.1
+	use man && doman "../documentation/${PN}.1"
 }
