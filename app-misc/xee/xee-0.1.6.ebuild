@@ -329,6 +329,8 @@ SRC_URI="${HOMEPAGE}/archive/${PN}-v${PV}.tar.gz
 	${CARGO_CRATE_URIS}"
 
 LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+=" Apache-2.0 BSD Boost-1.0 Unicode-3.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 

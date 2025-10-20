@@ -58,6 +58,8 @@ SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 
 LICENSE="GPL-3+"
+# Dependent crate licenses
+LICENSE+=" BSD MIT Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+man"

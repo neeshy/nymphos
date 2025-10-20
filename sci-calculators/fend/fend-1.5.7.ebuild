@@ -218,6 +218,8 @@ SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 S="${WORKDIR}/${P}/cli"
 
 LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+=" Apache-2.0 BSD Boost-1.0 ISC Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="man"

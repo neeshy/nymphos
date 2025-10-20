@@ -87,6 +87,10 @@ SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 
 LICENSE="GPL-3"
+# Dependent crate licenses
+LICENSE+="
+	CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0
+	|| ( Apache-2.0 Boost-1.0 )"
 SLOT="0"
 KEYWORDS="~amd64"
 

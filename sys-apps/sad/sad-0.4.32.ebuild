@@ -94,5 +94,7 @@ SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 
 LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+=" Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="~amd64"

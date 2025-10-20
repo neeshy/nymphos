@@ -89,5 +89,7 @@ SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	${CARGO_CRATE_URIS}"
 
 LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+=" MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
