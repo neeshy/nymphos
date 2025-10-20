@@ -18,7 +18,7 @@ fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-IUSE="alsa +cdrom cg cpu_flags_x86_sse2 dbus drm egl ffmpeg flac gles2 gles3 gles3_1 gles3_2 jack kms libass libcaca +network openal +opengl +opengl_core osmesa parport pulseaudio qt5 sdl sdl2 sixel ssl systemd tinyalsa +truetype +udev usb v4l vulkan wayland X xrandr xinerama xv +zlib"
+IUSE="alsa +cdrom cg cpu_flags_x86_sse2 dbus drm egl ffmpeg flac gles2 gles3 gles3_1 gles3_2 jack kms libass libcaca +network openal +opengl +opengl_core osmesa parport pulseaudio qt sdl sdl2 sixel ssl systemd tinyalsa +truetype +udev usb v4l vulkan wayland X xrandr xinerama xv +zlib"
 
 REQUIRED_USE="
 	|| ( alsa jack pulseaudio )
@@ -54,13 +54,7 @@ RDEPEND="
 	opengl? ( media-libs/mesa[opengl] )
 	osmesa? ( <media-libs/mesa-25.1.0[osmesa] )
 	pulseaudio? ( media-libs/libpulse )
-	qt5? (
-		dev-qt/qtconcurrent:5
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtwidgets:5
-	)
+	qt? ( dev-qt/qtbase:6[concurrent,gui,network,widgets] )
 	sdl? ( media-libs/libsdl )
 	sdl2? ( media-libs/libsdl2 )
 	sixel? ( media-libs/libsixel )
@@ -132,7 +126,7 @@ src_configure() {
 		"$(use_enable osmesa)" \
 		"$(use_enable parport)" \
 		"$(use_enable pulseaudio pulse)" \
-		"$(use_enable qt5 qt)" \
+		"$(use_enable qt)" \
 		"$(use_enable sdl)" \
 		"$(use_enable sdl2)" \
 		"$(use_enable sixel)" \
