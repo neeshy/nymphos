@@ -92,17 +92,18 @@ LICENSE="MIT"
 SLOT="0"
 
 src_install() {
-	dobin "${PN}"
-	doman "${PN}.1"
+	dobin lf
+	doman lf.1
 	dodoc README.md
 	docinto examples
 	dodoc etc/{lf.{csh,nu,vim},lfcd.{{,c}sh,nu},lfrc.example}
 
-	newbashcomp "etc/${PN}.bash" "${PN}"
-	newzshcomp "etc/${PN}.zsh" "_${PN}"
-	dofishcomp "etc/${PN}.fish"
+	newbashcomp etc/lf.bash lf
+	bashcomp_alias lf lfcd
+	newzshcomp etc/lf.zsh _lf
+	dofishcomp etc/lf.fish
 	insinto /usr/share/fish/vendor_functions.d
 	doins etc/lfcd.fish
 
-	domenu "${PN}.desktop"
+	domenu lf.desktop
 }
