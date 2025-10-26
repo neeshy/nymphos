@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,7 +22,7 @@ DEPEND="
 		>=sys-apps/dbus-1.5[${MULTILIB_USEDEP}]
 		>=dev-libs/libxml2-2.9.1:2=[${MULTILIB_USEDEP}]
 	)
-	introspection? ( >=dev-libs/gobject-introspection-1.54.0:= )
+	introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= )
 	systemd? ( sys-apps/systemd[${MULTILIB_USEDEP}] )
 	X? (
 		x11-libs/libX11[${MULTILIB_USEDEP}]
@@ -31,7 +31,6 @@ DEPEND="
 	)
 
 	!<dev-libs/atk-2.46.0
-	!<app-accessibility/at-spi2-atk-2.46.0
 "
 RDEPEND="${DEPEND}
 	dbus-broker? ( sys-apps/dbus-broker )
