@@ -3,7 +3,7 @@
 
 EAPI=8
 
-MY_PN="osu-lazer"
+MY_PN="${PN%-bin}"
 
 DESCRIPTION="A free-to-win rhythm game. Rhythm is just a *click* away!"
 HOMEPAGE="https://osu.ppy.sh/"
