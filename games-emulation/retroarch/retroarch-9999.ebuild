@@ -75,7 +75,7 @@ RDEPEND="
 	xrandr? ( x11-libs/libXrandr )
 	xinerama? ( x11-libs/libXinerama )
 	xv? ( x11-libs/libXv )
-	zlib? ( sys-libs/zlib:= )"
+	zlib? ( virtual/zlib:= )"
 DEPEND="${RDEPEND}
 	vulkan? ( dev-util/vulkan-headers )"
 BDEPEND="virtual/pkgconfig"

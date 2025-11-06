@@ -18,8 +18,8 @@ RESTRICT="strip"
 
 RDEPEND="
 	sys-fs/fuse:0
-	sys-libs/zlib
-	virtual/opengl"
+	virtual/opengl
+	virtual/zlib"
 
 src_unpack() {
 	:
