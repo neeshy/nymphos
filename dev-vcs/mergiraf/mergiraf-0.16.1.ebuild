@@ -7,25 +7,25 @@ CRATES="
 	adler2@2.0.1
 	aho-corasick@1.1.3
 	android_system_properties@0.1.5
-	anstream@0.6.20
+	anstream@0.6.21
 	anstyle-parse@0.2.7
 	anstyle-query@1.1.4
 	anstyle-wincon@3.0.10
-	anstyle@1.0.11
+	anstyle@1.0.13
 	arbitrary@1.4.2
 	arrayvec@0.7.6
 	autocfg@1.5.0
-	bitflags@2.9.4
+	bitflags@2.10.0
 	boxcar@0.2.14
 	bumpalo@3.19.0
 	caplog@0.3.0
-	cc@1.2.37
-	cfg-if@1.0.3
+	cc@1.2.43
+	cfg-if@1.0.4
 	chrono@0.4.42
-	clap@4.5.47
-	clap_builder@4.5.47
-	clap_derive@4.5.47
-	clap_lex@0.7.5
+	clap@4.5.50
+	clap_builder@4.5.50
+	clap_derive@4.5.49
+	clap_lex@0.7.6
 	colorchoice@1.0.4
 	core-foundation-sys@0.8.7
 	crc32fast@1.5.0
@@ -37,53 +37,54 @@ CRATES="
 	errno@0.3.14
 	etcetera@0.10.0
 	fastrand@2.3.0
-	find-msvc-tools@0.1.1
+	find-msvc-tools@0.1.4
 	fixedbitset@0.4.2
-	flate2@1.1.2
+	flate2@1.1.5
 	foldhash@0.1.5
-	getrandom@0.3.3
+	getrandom@0.3.4
 	glob@0.3.3
 	hashbrown@0.12.3
 	hashbrown@0.15.5
+	hashbrown@0.16.0
 	heck@0.5.0
 	hermit-abi@0.5.2
-	home@0.5.11
+	home@0.5.12
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.64
 	imara-diff@0.1.8
 	indexmap@1.9.3
-	indexmap@2.11.2
+	indexmap@2.12.0
 	integer-sqrt@0.1.5
-	is-terminal@0.4.16
-	is_terminal_polyfill@1.70.1
+	is-terminal@0.4.17
+	is_terminal_polyfill@1.70.2
 	itertools@0.10.5
 	itertools@0.14.0
 	itoa@1.0.15
-	js-sys@0.3.78
+	js-sys@0.3.81
 	lazy_static@1.5.0
-	libc@0.2.175
+	libc@0.2.177
 	libz-rs-sys@0.5.2
 	linux-raw-sys@0.11.0
 	log@0.4.28
-	memchr@2.7.5
+	memchr@2.7.6
 	miniz_oxide@0.8.9
-	nonempty-collections@1.0.1
-	nu-ansi-term@0.50.1
+	nonempty-collections@1.1.0
+	nu-ansi-term@0.50.3
 	num-traits@0.2.19
 	once_cell@1.21.3
-	once_cell_polyfill@1.70.1
+	once_cell_polyfill@1.70.2
 	oneshot@0.1.11
 	pathfinding@3.0.14
 	ppv-lite86@0.2.21
-	proc-macro2@1.0.101
-	quote@1.0.40
+	proc-macro2@1.0.103
+	quote@1.0.41
 	r-efi@5.3.0
 	rand@0.9.2
 	rand_chacha@0.9.0
 	rand_core@0.9.3
-	regex-automata@0.4.10
-	regex-syntax@0.8.6
-	regex@1.11.2
+	regex-automata@0.4.13
+	regex-syntax@0.8.8
+	regex@1.12.2
 	relative-path@1.9.3
 	rstest@0.26.1
 	rstest_macros@0.26.1
@@ -94,103 +95,103 @@ CRATES="
 	rustversion@1.0.22
 	ryu@1.0.20
 	semver@1.0.27
-	serde@1.0.224
-	serde_core@1.0.224
-	serde_derive@1.0.224
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
 	serde_json@1.0.145
 	shlex@1.3.0
 	simd-adler32@0.3.7
 	stderrlog@0.6.0
 	streaming-iterator@0.1.9
 	strsim@0.11.1
-	syn@2.0.106
-	tempfile@3.22.0
+	syn@2.0.108
+	tempfile@3.23.0
 	termcolor@1.1.3
 	thiserror-impl@1.0.69
+	thiserror-impl@2.0.17
 	thiserror@1.0.69
+	thiserror@2.0.17
 	thread_local@1.1.9
 	tree-edit-distance@0.4.0
 	tree-sitter-c-sharp@0.23.1
+	tree-sitter-c@0.24.1
 	tree-sitter-cmake@0.7.1
 	tree-sitter-cpp@0.23.4
-	tree-sitter-dart-orchard@0.1.1
+	tree-sitter-dart-orchard@0.3.1
 	tree-sitter-devicetree@0.14.1
 	tree-sitter-elixir@0.3.4
 	tree-sitter-go@0.25.0
-	tree-sitter-gomod-orchard@0.4.0
-	tree-sitter-gosum-orchard@0.2.0
+	tree-sitter-gomod-orchard@0.5.1
+	tree-sitter-gosum-orchard@0.3.1
 	tree-sitter-haskell@0.23.1
 	tree-sitter-hcl@1.1.0
 	tree-sitter-html@0.23.2
 	tree-sitter-ini@1.3.0
-	tree-sitter-java-orchard@0.2.0
+	tree-sitter-java-orchard@0.3.1
 	tree-sitter-javascript@0.25.0
 	tree-sitter-json@0.24.8
 	tree-sitter-kotlin-ng@1.1.0
 	tree-sitter-language@0.1.5
 	tree-sitter-lua@0.2.0
 	tree-sitter-make@1.1.1
-	tree-sitter-md@0.3.2
+	tree-sitter-md@0.5.1
 	tree-sitter-nix@0.3.0
 	tree-sitter-ocaml@0.24.2
 	tree-sitter-php@0.24.2
 	tree-sitter-properties@0.3.0
-	tree-sitter-python-orchard@0.3.0
+	tree-sitter-python-orchard@0.4.1
 	tree-sitter-ruby@0.23.1
-	tree-sitter-rust-orchard@0.12.0
+	tree-sitter-rust-orchard@0.14.0
 	tree-sitter-scala@0.24.0
 	tree-sitter-solidity@1.2.13
 	tree-sitter-starlark@1.3.0
-	tree-sitter-systemverilog@0.2.1
+	tree-sitter-systemverilog@0.3.1
 	tree-sitter-toml-ng@0.7.0
 	tree-sitter-typescript@0.23.2
 	tree-sitter-xml@0.7.0
-	tree-sitter-yaml@0.7.1
-	tree-sitter@0.25.9
+	tree-sitter-yaml@0.7.2
+	tree-sitter@0.25.10
 	typed-arena@2.0.2
-	unicode-ident@1.0.19
+	unicode-ident@1.0.20
 	utf8parse@0.2.2
-	wasi@0.14.6+wasi-0.2.4
 	wasip2@1.0.1+wasi-0.2.4
-	wasm-bindgen-backend@0.2.101
-	wasm-bindgen-macro-support@0.2.101
-	wasm-bindgen-macro@0.2.101
-	wasm-bindgen-shared@0.2.101
-	wasm-bindgen@0.2.101
+	wasm-bindgen-backend@0.2.104
+	wasm-bindgen-macro-support@0.2.104
+	wasm-bindgen-macro@0.2.104
+	wasm-bindgen-shared@0.2.104
+	wasm-bindgen@0.2.104
 	winapi-util@0.1.11
-	windows-core@0.62.0
-	windows-implement@0.60.0
-	windows-interface@0.59.1
-	windows-link@0.1.3
-	windows-link@0.2.0
-	windows-result@0.4.0
-	windows-strings@0.5.0
-	windows-sys@0.52.0
+	windows-core@0.62.2
+	windows-implement@0.60.2
+	windows-interface@0.59.3
+	windows-link@0.2.1
+	windows-result@0.4.1
+	windows-strings@0.5.1
 	windows-sys@0.59.0
 	windows-sys@0.60.2
-	windows-sys@0.61.0
+	windows-sys@0.61.2
 	windows-targets@0.52.6
-	windows-targets@0.53.3
+	windows-targets@0.53.5
 	windows_aarch64_gnullvm@0.52.6
-	windows_aarch64_gnullvm@0.53.0
+	windows_aarch64_gnullvm@0.53.1
 	windows_aarch64_msvc@0.52.6
-	windows_aarch64_msvc@0.53.0
+	windows_aarch64_msvc@0.53.1
 	windows_i686_gnu@0.52.6
-	windows_i686_gnu@0.53.0
+	windows_i686_gnu@0.53.1
 	windows_i686_gnullvm@0.52.6
-	windows_i686_gnullvm@0.53.0
+	windows_i686_gnullvm@0.53.1
 	windows_i686_msvc@0.52.6
-	windows_i686_msvc@0.53.0
+	windows_i686_msvc@0.53.1
 	windows_x86_64_gnu@0.52.6
-	windows_x86_64_gnu@0.53.0
+	windows_x86_64_gnu@0.53.1
 	windows_x86_64_gnullvm@0.52.6
-	windows_x86_64_gnullvm@0.53.0
+	windows_x86_64_gnullvm@0.53.1
 	windows_x86_64_msvc@0.52.6
-	windows_x86_64_msvc@0.53.0
+	windows_x86_64_msvc@0.53.1
 	wit-bindgen@0.46.0
 	zerocopy-derive@0.8.27
 	zerocopy@0.8.27
-	zip@5.1.1
+	zip@6.0.0
 	zlib-rs@0.5.2
 	zopfli@0.8.2"
 
