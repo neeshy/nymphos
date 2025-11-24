@@ -20,6 +20,8 @@ RDEPEND="
 	x11-libs/pango"
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}/${PN}-dbus.patch" )
+
 src_configure() {
 	eqmake6
 }

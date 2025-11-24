@@ -1,0 +1,13 @@
+diff --git a/src/qt6gtk2-qtplugin/qt6gtk2-qtplugin.pro b/src/qt6gtk2-qtplugin/qt6gtk2-qtplugin.pro
+index 59e9909..4c431e8 100644
+--- a/src/qt6gtk2-qtplugin/qt6gtk2-qtplugin.pro
++++ b/src/qt6gtk2-qtplugin/qt6gtk2-qtplugin.pro
+@@ -4,8 +4,6 @@ TARGET = qt6gtk2
+ 
+ QT += core-private gui-private
+ 
+-greaterThan(QT_MINOR_VERSION, 9):QT += dbus
+-
+ HEADERS += \
+     qt6gtk2theme.h \
+     qt6gtk2dialoghelpers.h
