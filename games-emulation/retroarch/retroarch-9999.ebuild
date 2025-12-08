@@ -92,7 +92,7 @@ src_configure() {
 		--enable-mmap \
 		--enable-threads \
 		--disable-audioio \
-		--disable-builtinflac \
+		--enable-builtinflac \
 		--disable-builtinmbedtls \
 		--disable-builtinzlib \
 		--disable-coreaudio \
