@@ -20,6 +20,8 @@ RDEPEND=">=dev-libs/skalibs-2.14.5.0:="
 DEPEND="${RDEPEND}
 	sys-kernel/linux-headers"
 
+DOCS=( AUTHORS NEWS README doc examples )
+
 src_configure() {
 	econf --with-sysdeps="/usr/$(get_libdir)/skalibs" --disable-allstatic
 }
