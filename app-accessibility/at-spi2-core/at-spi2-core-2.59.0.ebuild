@@ -39,7 +39,7 @@ BDEPEND="
 	dev-util/glib-utils
 	gtk-doc? (
 		dev-python/sphinx
-		dev-util/gdbus-codegen
+		>=dev-util/gdbus-codegen-2.80.5-r1
 		>=dev-util/gi-docgen-2021.1
 	)
 	>=sys-devel/gettext-0.19.8
