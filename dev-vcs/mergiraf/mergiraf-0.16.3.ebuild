@@ -27,12 +27,16 @@ CRATES="
 	clap_derive@4.5.49
 	clap_lex@0.7.6
 	colorchoice@1.0.4
+	console@0.15.11
 	core-foundation-sys@0.8.7
 	crc32fast@1.5.0
 	derive_arbitrary@1.4.2
+	derive_more-impl@2.1.1
 	derive_more@0.99.20
+	derive_more@2.1.1
 	diffy-imara@0.3.2
 	either@1.15.0
+	encode_unicode@1.0.0
 	equivalent@1.0.2
 	errno@0.3.14
 	etcetera@0.10.0
@@ -54,6 +58,7 @@ CRATES="
 	imara-diff@0.1.8
 	indexmap@1.9.3
 	indexmap@2.12.0
+	insta@1.43.2
 	integer-sqrt@0.1.5
 	is-terminal@0.4.17
 	is_terminal_polyfill@1.70.2
@@ -101,6 +106,7 @@ CRATES="
 	serde_json@1.0.145
 	shlex@1.3.0
 	simd-adler32@0.3.7
+	similar@2.7.0
 	stderrlog@0.6.0
 	streaming-iterator@0.1.9
 	strsim@0.11.1
@@ -145,7 +151,7 @@ CRATES="
 	tree-sitter-scala@0.24.0
 	tree-sitter-solidity@1.2.13
 	tree-sitter-starlark@1.3.0
-	tree-sitter-systemverilog@0.3.1
+	tree-sitter-systemverilog@0.2.1
 	tree-sitter-toml-ng@0.7.0
 	tree-sitter-typescript@0.23.2
 	tree-sitter-xml@0.7.0
