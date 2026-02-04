@@ -54,13 +54,13 @@ else
 		"golang.org/x/sys v0.0.0-20220615213510-4f61da869c0c/go.mod"
 		"golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f/go.mod"
 		"golang.org/x/sys v0.5.0/go.mod"
-		"golang.org/x/sys v0.39.0"
-		"golang.org/x/sys v0.39.0/go.mod"
+		"golang.org/x/sys v0.40.0"
+		"golang.org/x/sys v0.40.0/go.mod"
 		"golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1/go.mod"
 		"golang.org/x/term v0.0.0-20210927222741-03fcf44c2211/go.mod"
 		"golang.org/x/term v0.5.0/go.mod"
-		"golang.org/x/term v0.38.0"
-		"golang.org/x/term v0.38.0/go.mod"
+		"golang.org/x/term v0.39.0"
+		"golang.org/x/term v0.39.0/go.mod"
 		"golang.org/x/text v0.3.0/go.mod"
 		"golang.org/x/text v0.3.3/go.mod"
 		"golang.org/x/text v0.3.7/go.mod"
@@ -95,7 +95,7 @@ src_install() {
 	doman lf.1
 	dodoc README.md
 	docinto examples
-	dodoc etc/{lf.{csh,nu,vim},lfcd.{{,c}sh,nu},lfrc.example}
+	dodoc etc/{lf.{csh,nu,vim},lfcd.{{,c}sh,nu},lfrc.example,ruler.default}
 
 	newbashcomp etc/lf.bash lf
 	bashcomp_alias lf lfcd
