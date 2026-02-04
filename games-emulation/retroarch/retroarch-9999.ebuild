@@ -9,7 +9,7 @@ DESCRIPTION="Reference frontend for libretro-based emulators"
 HOMEPAGE="https://www.retroarch.com/"
 if [[ "${PV}" = 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/libretro/RetroArch"
+	EGIT_REPO_URI="https://github.com/libretro/RetroArch.git"
 else
 	SRC_URI="https://github.com/libretro/RetroArch/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/RetroArch-${PV}"
