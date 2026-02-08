@@ -21,7 +21,7 @@ CRATES="
 	anstyle-query@1.1.5
 	anstyle-wincon@3.0.11
 	anstyle@1.0.13
-	anyhow@1.0.100
+	anyhow@1.0.101
 	arrayvec@0.7.6
 	arti-client@0.39.0
 	arti@2.0.0
@@ -55,7 +55,7 @@ CRATES="
 	by_address@1.2.1
 	bytemuck@1.25.0
 	byteorder@1.5.0
-	bytes@1.11.0
+	bytes@1.11.1
 	cached@0.56.0
 	cached_proc_macro@0.25.0
 	cached_proc_macro_types@0.1.1
@@ -70,8 +70,8 @@ CRATES="
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
 	cipher@0.4.4
-	clap@4.5.56
-	clap_builder@4.5.56
+	clap@4.5.57
+	clap_builder@4.5.57
 	clap_derive@4.5.55
 	clap_lex@0.7.7
 	cmake@0.1.57
@@ -86,8 +86,8 @@ CRATES="
 	cpufeatures@0.2.17
 	crc32fast@1.5.0
 	criterion-cycles-per-byte@0.8.0
-	criterion-plot@0.8.1
-	criterion@0.8.1
+	criterion-plot@0.8.2
+	criterion@0.8.2
 	critical-section@1.2.0
 	crossbeam-channel@0.5.15
 	crossbeam-deque@0.8.6
@@ -242,7 +242,7 @@ CRATES="
 	lzma-sys@0.1.20
 	managed@0.8.0
 	matchers@0.2.0
-	memchr@2.7.6
+	memchr@2.8.0
 	memmap2@0.9.9
 	merlin@3.0.0
 	minimal-lexical@0.2.1
@@ -336,9 +336,9 @@ CRATES="
 	redox_users@0.5.2
 	ref-cast-impl@1.0.25
 	ref-cast@1.0.25
-	regex-automata@0.4.13
-	regex-syntax@0.8.8
-	regex@1.12.2
+	regex-automata@0.4.14
+	regex-syntax@0.8.9
+	regex@1.12.3
 	retry-error@0.10.1
 	rfc6979@0.4.0
 	ring@0.17.14
@@ -420,8 +420,8 @@ CRATES="
 	thiserror@2.0.18
 	thread_local@1.1.9
 	time-core@0.1.8
-	time-macros@0.2.26
-	time@0.3.46
+	time-macros@0.2.27
+	time@0.3.47
 	tinystr@0.8.2
 	tinytemplate@1.2.1
 	tinyvec@1.10.0
@@ -482,8 +482,8 @@ CRATES="
 	tracing-core@0.1.36
 	tracing-log@0.2.0
 	tracing-subscriber@0.3.22
-	tracing-test-macro@0.2.5
-	tracing-test@0.2.5
+	tracing-test-macro@0.2.6
+	tracing-test@0.2.6
 	tracing@0.1.44
 	typed-index-collections@3.5.0
 	typenum@1.19.0
@@ -565,8 +565,8 @@ CRATES="
 	xz2@0.1.7
 	yoke-derive@0.8.1
 	yoke@0.8.1
-	zerocopy-derive@0.8.37
-	zerocopy@0.8.37
+	zerocopy-derive@0.8.39
+	zerocopy@0.8.39
 	zerofrom-derive@0.1.6
 	zerofrom@0.1.6
 	zeroize@1.8.2
@@ -580,10 +580,10 @@ CRATES="
 	zstd@0.13.3"
 
 declare -A GIT_CRATES=(
-	[onion-tunnel]='https://gitlab.torproject.org/tpo/core/onionmasq;4ae12488662cd9aa15a693d51df79030863e20ee;onionmasq-%commit%/crates/onion-tunnel;gitlab'
-	[onionmasq-device-testing]='https://gitlab.torproject.org/tpo/core/onionmasq;4ae12488662cd9aa15a693d51df79030863e20ee;onionmasq-%commit%/crates/onionmasq-device-testing;gitlab'
-	[simple-proc-net]='https://gitlab.torproject.org/tpo/core/onionmasq;4ae12488662cd9aa15a693d51df79030863e20ee;onionmasq-%commit%/crates/simple-proc-net;gitlab'
-	[smoltcp]='https://github.com/smoltcp-rs/smoltcp;39cd44e585aae109f37a2bc9f31376414968456d;smoltcp-%commit%'
+	[onion-tunnel]='https://gitlab.torproject.org/tpo/core/onionmasq;dcacb25eeacca15ab4f0ebc747131e5725623f8a;onionmasq-%commit%/crates/onion-tunnel;gitlab'
+	[onionmasq-device-testing]='https://gitlab.torproject.org/tpo/core/onionmasq;dcacb25eeacca15ab4f0ebc747131e5725623f8a;onionmasq-%commit%/crates/onionmasq-device-testing;gitlab'
+	[simple-proc-net]='https://gitlab.torproject.org/tpo/core/onionmasq;dcacb25eeacca15ab4f0ebc747131e5725623f8a;onionmasq-%commit%/crates/simple-proc-net;gitlab'
+	[smoltcp]='https://github.com/smoltcp-rs/smoltcp;08c7be0f067debcfef564f98066659c24752c439;smoltcp-%commit%'
 )
 
 inherit cargo
