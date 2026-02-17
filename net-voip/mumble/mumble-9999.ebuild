@@ -44,7 +44,6 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-cpp/cli11
-	>=dev-db/soci-4.1.2-r2[sqlite]
 	>=dev-libs/openssl-1.0.0b:0=
 	dev-libs/poco:=[util,xml,zip]
 	>=dev-libs/protobuf-2.2.0:=
@@ -80,8 +79,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}/${PN}-dbus.patch" )
-
 pkg_setup() {
 	python-any-r1_pkg_setup
 }
@@ -101,7 +98,6 @@ src_configure() {
 		-Dbundled-json="OFF"
 		-Dbundled-rnnoise="OFF"
 		-Dbundled-spdlog="OFF"
-		-Dbundled-soci="OFF"
 		-Dbundled-speex="OFF"
 		-Dbundled-utfcpp="OFF"
 		-Ddbus="$(usex dbus)"
