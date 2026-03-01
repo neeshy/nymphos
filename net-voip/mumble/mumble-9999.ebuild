@@ -44,9 +44,11 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-cpp/cli11
+	>=dev-db/soci-4.1.2-r2[sqlite]
 	>=dev-libs/openssl-1.0.0b:0=
 	dev-libs/poco:=[util,xml,zip]
 	>=dev-libs/protobuf-2.2.0:=
+	dev-libs/libfmt:=
 	dev-libs/spdlog:=
 	dev-qt/qtbase:6[dbus?,gui,network,sql,sqlite,ssl,widgets,xml]
 	dev-qt/qtsvg:6
@@ -96,6 +98,7 @@ src_configure() {
 		-Dbundled-cli11="OFF"
 		-Dbundled-json="OFF"
 		-Dbundled-rnnoise="OFF"
+		-Dbundled-soci="OFF"
 		-Dbundled-spdlog="OFF"
 		-Dbundled-speex="OFF"
 		-Dbundled-utfcpp="OFF"
