@@ -1,0 +1,12 @@
+--- a/src/archutils/Unix/AssertionHandler.cpp
++++ b/src/archutils/Unix/AssertionHandler.cpp
+@@ -4,7 +4,8 @@
+ #include "RageThreads.h"
+ #include "RageUtil.h"
+ #include "global.h"
+-#if defined(HAVE_UNISTD_H)
++#ifndef CRASH_HANDLER
++#include "EmergencyShutdown.h"
+ #endif
+ #include <assert.h>
+ 

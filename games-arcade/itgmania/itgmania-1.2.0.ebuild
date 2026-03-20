@@ -36,6 +36,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
+	"${FILESDIR}/${PN}-fix-building-without-crash_handler.patch"
 	"${FILESDIR}/${PN}-libjpeg-turbo-CMAKE_BUILD_TYPE_UC.patch"
 	"${FILESDIR}/${PN}-install-sm5-songs.patch"
 )
