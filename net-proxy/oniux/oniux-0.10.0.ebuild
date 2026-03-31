@@ -8,38 +8,36 @@ CRATES="
 	aes@0.8.4
 	ahash@0.8.12
 	aho-corasick@1.1.4
-	alloca@0.4.0
 	allocator-api2@0.2.21
 	amplify@4.9.0
 	amplify_derive@4.0.1
 	amplify_num@0.5.3
 	amplify_syn@2.0.1
 	android_system_properties@0.1.5
-	anes@0.1.6
-	anstream@0.6.21
-	anstyle-parse@0.2.7
+	anstream@1.0.0
+	anstyle-parse@1.0.0
 	anstyle-query@1.1.5
 	anstyle-wincon@3.0.11
-	anstyle@1.0.13
+	anstyle@1.0.14
 	anyhow@1.0.102
 	arrayvec@0.7.6
-	arti-client@0.40.0
-	arti@2.1.0
+	arti-client@0.41.0
+	arti@2.2.0
 	ascii@1.1.0
 	asn1-rs-derive@0.6.0
 	asn1-rs-impl@0.2.0
 	asn1-rs@0.7.1
 	assert_matches@1.5.0
 	async-compression@0.4.19
-	async-native-tls@0.5.0
+	async-native-tls@0.6.0
 	async-trait@0.1.89
 	async_executors@0.7.0
 	asynchronous-codec@0.7.0
 	atomic@0.5.3
 	atomic@0.6.1
 	autocfg@1.5.0
-	aws-lc-rs@1.16.1
-	aws-lc-sys@0.38.0
+	aws-lc-rs@1.16.2
+	aws-lc-sys@0.39.1
 	base16ct@0.2.0
 	base64@0.22.1
 	base64ct@1.8.3
@@ -56,28 +54,24 @@ CRATES="
 	bytemuck@1.25.0
 	byteorder@1.5.0
 	bytes@1.11.1
-	cached@0.56.0
-	cached_proc_macro@0.25.0
+	cached@0.59.0
+	cached_proc_macro@0.27.0
 	cached_proc_macro_types@0.1.1
 	caps@0.5.6
 	caret@0.9.0
-	cast@0.3.0
-	cc@1.2.56
+	cc@1.2.58
 	cfg-if@1.0.4
 	cfg_aliases@0.2.1
 	chacha20@0.10.0
 	chrono@0.4.44
-	ciborium-io@0.2.2
-	ciborium-ll@0.2.2
-	ciborium@0.2.2
 	cipher@0.4.4
-	clap@4.5.60
-	clap_builder@4.5.60
-	clap_derive@4.5.55
-	clap_lex@1.0.0
-	cmake@0.1.57
+	clap@4.6.0
+	clap_builder@4.6.0
+	clap_derive@4.6.0
+	clap_lex@1.1.0
+	cmake@0.1.58
 	coarsetime@0.1.37
-	colorchoice@1.0.4
+	colorchoice@1.0.5
 	concurrent-queue@2.5.0
 	const-oid@0.9.6
 	convert_case@0.10.0
@@ -87,16 +81,10 @@ CRATES="
 	cpufeatures@0.2.17
 	cpufeatures@0.3.0
 	crc32fast@1.5.0
-	criterion-cycles-per-byte@0.8.0
-	criterion-plot@0.8.2
-	criterion@0.8.2
 	critical-section@1.2.0
 	crossbeam-channel@0.5.15
-	crossbeam-deque@0.8.6
-	crossbeam-epoch@0.9.18
 	crossbeam-queue@0.3.12
 	crossbeam-utils@0.8.21
-	crunchy@0.2.4
 	crypto-bigint@0.5.5
 	crypto-common@0.1.7
 	ctr@0.9.2
@@ -105,12 +93,15 @@ CRATES="
 	darling@0.14.4
 	darling@0.20.11
 	darling@0.21.3
+	darling@0.23.0
 	darling_core@0.14.4
 	darling_core@0.20.11
 	darling_core@0.21.3
+	darling_core@0.23.0
 	darling_macro@0.14.4
 	darling_macro@0.20.11
 	darling_macro@0.21.3
+	darling_macro@0.23.0
 	data-encoding@2.10.0
 	defmt-macros@1.0.1
 	defmt-parser@1.0.0
@@ -165,12 +156,12 @@ CRATES="
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
 	form_urlencoded@1.2.2
-	fs-mistrust@0.14.0
+	fs-mistrust@0.14.1
 	fs_extra@1.3.0
 	fslock@0.2.1
 	funty@2.0.0
 	futures-channel@0.3.32
-	futures-copy@0.3.0
+	futures-copy@0.3.1
 	futures-core@0.3.32
 	futures-executor@0.3.32
 	futures-io@0.3.32
@@ -187,7 +178,6 @@ CRATES="
 	getset@0.1.6
 	glob-match@0.2.1
 	group@0.13.0
-	half@2.7.1
 	hash32@0.3.1
 	hashbrown@0.12.3
 	hashbrown@0.15.5
@@ -218,27 +208,27 @@ CRATES="
 	ident_case@1.0.1
 	idna@1.1.0
 	idna_adapter@1.2.1
+	imara-diff@0.2.0
 	indexmap@1.9.3
 	indexmap@2.13.0
 	inotify-sys@0.1.5
-	inotify@0.11.0
+	inotify@0.11.1
 	inout@0.1.4
-	inventory@0.3.22
+	inventory@0.3.24
 	ipnet@2.12.0
 	is_terminal_polyfill@1.70.2
-	itertools@0.13.0
 	itertools@0.14.0
-	itoa@1.0.17
+	itoa@1.0.18
 	jobserver@0.1.34
-	js-sys@0.3.91
+	js-sys@0.3.93
 	keccak@0.1.6
 	kqueue-sys@1.0.4
 	kqueue@1.1.1
 	lazy_static@1.5.0
 	leb128fmt@0.1.0
-	libc@0.2.182
+	libc@0.2.183
 	libm@0.2.16
-	libredox@0.1.14
+	libredox@0.1.15
 	libsqlite3-sys@0.36.0
 	linux-raw-sys@0.12.1
 	litemap@0.8.1
@@ -252,7 +242,7 @@ CRATES="
 	merlin@3.0.0
 	minimal-lexical@0.2.1
 	miniz_oxide@0.8.9
-	mio@1.1.1
+	mio@1.2.0
 	native-tls@0.2.18
 	netlink-packet-core@0.8.1
 	netlink-packet-route@0.29.0
@@ -266,30 +256,28 @@ CRATES="
 	nu-ansi-term@0.50.3
 	num-bigint-dig@0.8.6
 	num-bigint@0.4.6
-	num-conv@0.2.0
+	num-conv@0.2.1
 	num-integer@0.1.46
 	num-iter@0.1.45
 	num-traits@0.2.19
-	num_enum@0.7.5
-	num_enum_derive@0.7.5
+	num_enum@0.7.6
+	num_enum_derive@0.7.6
 	objc2-core-foundation@0.3.2
 	objc2-io-kit@0.3.2
-	once_cell@1.21.3
+	once_cell@1.21.4
 	once_cell_polyfill@1.70.2
 	oneshot-fused-workaround@0.6.0
-	oorandom@11.1.5
 	openssl-macros@0.1.1
 	openssl-probe@0.2.1
 	openssl-src@300.5.5+3.5.5
-	openssl-sys@0.9.111
-	openssl@0.10.75
+	openssl-sys@0.9.112
+	openssl@0.10.76
 	option-ext@0.2.0
 	ordered-float@2.10.1
 	os_str_bytes@6.6.1
 	p256@0.13.2
 	p384@0.13.1
 	p521@0.13.3
-	page_size@0.6.0
 	parking@2.2.1
 	parking_lot@0.12.5
 	parking_lot_core@0.9.12
@@ -307,9 +295,6 @@ CRATES="
 	pkcs8@0.10.2
 	pkg-config@0.3.32
 	plain@0.2.3
-	plotters-backend@0.3.7
-	plotters-svg@0.3.7
-	plotters@0.3.7
 	portable-atomic@1.13.1
 	postage@0.5.0
 	potential_utf@0.1.4
@@ -337,8 +322,6 @@ CRATES="
 	rand_core@0.9.5
 	rand_jitter@0.5.0
 	rangemap@1.7.1
-	rayon-core@1.13.0
-	rayon@1.11.0
 	rdrand@0.8.3
 	redox_syscall@0.5.18
 	redox_syscall@0.7.3
@@ -348,7 +331,7 @@ CRATES="
 	regex-automata@0.4.14
 	regex-syntax@0.8.10
 	regex@1.12.3
-	retry-error@0.11.0
+	retry-error@0.12.0
 	rfc6979@0.4.0
 	ring@0.17.14
 	rlimit@0.11.0
@@ -360,14 +343,14 @@ CRATES="
 	rustix-linux-procfs@0.1.1
 	rustix@1.1.4
 	rustls-pki-types@1.14.0
-	rustls-webpki@0.103.9
+	rustls-webpki@0.103.10
 	rustls@0.23.37
 	rustversion@1.0.22
-	safelog@0.8.0
+	safelog@0.8.1
 	same-file@1.0.6
 	sanitize-filename@0.6.0
 	saturating-time@0.3.0
-	schannel@0.1.28
+	schannel@0.1.29
 	schemars@0.9.0
 	schemars@1.2.1
 	scopeguard@1.2.0
@@ -384,9 +367,9 @@ CRATES="
 	serde_ignored@0.1.14
 	serde_json@1.0.149
 	serde_spanned@0.6.9
-	serde_spanned@1.0.4
-	serde_with@3.17.0
-	serde_with_macros@3.17.0
+	serde_spanned@1.1.0
+	serde_with@3.18.0
+	serde_with_macros@3.18.0
 	sha1@0.10.6
 	sha2@0.10.9
 	sha3@0.10.8
@@ -395,34 +378,36 @@ CRATES="
 	shlex@1.3.0
 	signal-hook-registry@1.4.8
 	signature@2.2.0
-	simd-adler32@0.3.8
+	simd-adler32@0.3.9
 	siphasher@1.0.2
 	slab@0.4.12
 	slotmap-careful@0.7.0
 	slotmap@1.1.1
 	smallvec@1.15.1
-	socket2@0.6.2
+	socket2@0.6.3
 	spin@0.9.8
 	spki@0.7.3
 	sqlite-wasm-rs@0.5.2
-	ssh-cipher@0.2.0
-	ssh-encoding@0.2.0
-	ssh-key@0.6.7
+	ssh-cipher-fork-arti@0.2.0
+	ssh-encoding-fork-arti@0.2.0
+	ssh-key-fork-arti@0.6.7
 	stable_deref_trait@1.2.1
 	static_assertions@1.1.0
 	strsim@0.10.0
 	strsim@0.11.1
 	strum@0.27.2
+	strum@0.28.0
 	strum_macros@0.27.2
+	strum_macros@0.28.0
 	subtle@2.6.1
 	syn@1.0.109
 	syn@2.0.117
 	sync_wrapper@1.0.2
 	synstructure@0.13.2
-	sysinfo@0.36.1
+	sysinfo@0.38.4
 	tap@1.0.1
-	tempfile@3.26.0
-	terminal_size@0.4.3
+	tempfile@3.27.0
+	terminal_size@0.4.4
 	thiserror-impl@1.0.69
 	thiserror-impl@2.0.18
 	thiserror@1.0.69
@@ -432,66 +417,64 @@ CRATES="
 	time-macros@0.2.27
 	time@0.3.47
 	tinystr@0.8.2
-	tinytemplate@1.2.1
-	tinyvec@1.10.0
+	tinyvec@1.11.0
 	tinyvec_macros@0.1.1
 	tokio-macros@2.6.1
 	tokio-util@0.7.18
 	tokio@1.50.0
 	toml@0.8.23
-	toml@0.9.12+spec-1.1.0
+	toml@1.1.0+spec-1.1.0
 	toml_datetime@0.6.11
-	toml_datetime@0.7.5+spec-1.1.0
-	toml_datetime@1.0.0+spec-1.1.0
+	toml_datetime@1.1.0+spec-1.1.0
 	toml_edit@0.22.27
-	toml_edit@0.25.4+spec-1.1.0
-	toml_parser@1.0.9+spec-1.1.0
+	toml_edit@0.25.8+spec-1.1.0
+	toml_parser@1.1.0+spec-1.1.0
 	toml_write@0.1.2
-	toml_writer@1.0.6+spec-1.1.0
-	tor-async-utils@0.40.0
-	tor-basic-utils@0.40.0
-	tor-bytes@0.40.0
-	tor-cell@0.40.0
-	tor-cert@0.40.0
-	tor-chanmgr@0.40.0
-	tor-checkable@0.40.0
-	tor-circmgr@0.40.0
-	tor-config-path@0.40.0
-	tor-config@0.40.0
-	tor-consdiff@0.40.0
-	tor-dirclient@0.40.0
-	tor-dircommon@0.40.0
-	tor-dirmgr@0.40.0
-	tor-error@0.40.0
-	tor-general-addr@0.40.0
-	tor-geoip@0.40.0
-	tor-guardmgr@0.40.0
-	tor-hsclient@0.40.0
-	tor-hscrypto@0.40.0
-	tor-key-forge@0.40.0
-	tor-keymgr@0.40.0
-	tor-linkspec@0.40.0
-	tor-llcrypto@0.40.0
-	tor-log-ratelim@0.40.0
-	tor-memquota-cost@0.40.0
-	tor-memquota@0.40.0
-	tor-netdir@0.40.0
-	tor-netdoc@0.40.0
-	tor-persist@0.40.0
-	tor-proto@0.40.0
-	tor-protover@0.40.0
-	tor-ptmgr@0.40.0
-	tor-relay-crypto@0.40.0
-	tor-relay-selection@0.40.0
-	tor-rtcompat@0.40.0
-	tor-rtmock@0.40.0
-	tor-socksproto@0.40.0
-	tor-units@0.40.0
+	toml_writer@1.1.0+spec-1.1.0
+	tor-async-utils@0.41.0
+	tor-basic-utils@0.41.0
+	tor-bytes@0.41.0
+	tor-cell@0.41.0
+	tor-cert@0.41.0
+	tor-chanmgr@0.41.0
+	tor-checkable@0.41.0
+	tor-circmgr@0.41.0
+	tor-config-path@0.41.0
+	tor-config@0.41.0
+	tor-consdiff@0.41.0
+	tor-dirclient@0.41.0
+	tor-dircommon@0.41.0
+	tor-dirmgr@0.41.0
+	tor-error@0.41.0
+	tor-general-addr@0.41.0
+	tor-geoip@0.41.0
+	tor-guardmgr@0.41.0
+	tor-hsclient@0.41.0
+	tor-hscrypto@0.41.0
+	tor-key-forge@0.41.0
+	tor-keymgr@0.41.0
+	tor-linkspec@0.41.0
+	tor-llcrypto@0.41.0
+	tor-log-ratelim@0.41.0
+	tor-memquota-cost@0.41.0
+	tor-memquota@0.41.0
+	tor-netdir@0.41.0
+	tor-netdoc@0.41.0
+	tor-persist@0.41.0
+	tor-proto@0.41.0
+	tor-protover@0.41.0
+	tor-ptmgr@0.41.0
+	tor-relay-crypto@0.41.0
+	tor-relay-selection@0.41.0
+	tor-rtcompat@0.41.0
+	tor-rtmock@0.41.0
+	tor-socksproto@0.41.0
+	tor-units@0.41.0
 	tracing-appender@0.2.4
 	tracing-attributes@0.1.31
 	tracing-core@0.1.36
 	tracing-log@0.2.0
-	tracing-subscriber@0.3.22
+	tracing-subscriber@0.3.23
 	tracing-test-macro@0.2.6
 	tracing-test@0.2.6
 	tracing@0.1.44
@@ -499,7 +482,7 @@ CRATES="
 	typenum@1.19.0
 	uncased@0.9.10
 	unicode-ident@1.0.24
-	unicode-segmentation@1.12.0
+	unicode-segmentation@1.13.2
 	unicode-xid@0.2.6
 	untrusted@0.9.0
 	unty@0.0.4
@@ -516,44 +499,35 @@ CRATES="
 	wasip2@1.0.2+wasi-0.2.9
 	wasip3@0.4.0+wasi-0.3.0-rc-2026-01-06
 	wasix@0.13.1
-	wasm-bindgen-macro-support@0.2.114
-	wasm-bindgen-macro@0.2.114
-	wasm-bindgen-shared@0.2.114
-	wasm-bindgen@0.2.114
+	wasm-bindgen-macro-support@0.2.116
+	wasm-bindgen-macro@0.2.116
+	wasm-bindgen-shared@0.2.116
+	wasm-bindgen@0.2.116
 	wasm-encoder@0.244.0
 	wasm-metadata@0.244.0
 	wasmparser@0.244.0
 	weak-table@0.3.2
-	web-sys@0.3.91
+	web-time-compat@0.1.0
 	web-time@1.1.0
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.11
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
-	windows-collections@0.2.0
 	windows-collections@0.3.2
-	windows-core@0.61.2
 	windows-core@0.62.2
-	windows-future@0.2.1
 	windows-future@0.3.2
 	windows-implement@0.60.2
 	windows-interface@0.59.3
-	windows-link@0.1.3
 	windows-link@0.2.1
-	windows-numerics@0.2.0
 	windows-numerics@0.3.1
-	windows-result@0.3.4
 	windows-result@0.4.1
-	windows-strings@0.4.2
 	windows-strings@0.5.1
 	windows-sys@0.52.0
 	windows-sys@0.60.2
 	windows-sys@0.61.2
 	windows-targets@0.52.6
 	windows-targets@0.53.5
-	windows-threading@0.1.0
 	windows-threading@0.2.1
-	windows@0.61.3
 	windows@0.62.2
 	windows_aarch64_gnullvm@0.52.6
 	windows_aarch64_gnullvm@0.53.1
@@ -571,7 +545,8 @@ CRATES="
 	windows_x86_64_gnullvm@0.53.1
 	windows_x86_64_msvc@0.52.6
 	windows_x86_64_msvc@0.53.1
-	winnow@0.7.14
+	winnow@0.7.15
+	winnow@1.0.1
 	wit-bindgen-core@0.51.0
 	wit-bindgen-rust-macro@0.51.0
 	wit-bindgen-rust@0.51.0
@@ -584,8 +559,8 @@ CRATES="
 	xz2@0.1.7
 	yoke-derive@0.8.1
 	yoke@0.8.1
-	zerocopy-derive@0.8.40
-	zerocopy@0.8.40
+	zerocopy-derive@0.8.48
+	zerocopy@0.8.48
 	zerofrom-derive@0.1.6
 	zerofrom@0.1.6
 	zeroize@1.8.2
@@ -599,9 +574,9 @@ CRATES="
 	zstd@0.13.3"
 
 declare -A GIT_CRATES=(
-	[onion-tunnel]='https://gitlab.torproject.org/tpo/core/onionmasq;7599e06f8e9dddc2529ff656368b43c20e60a597;onionmasq-%commit%/crates/onion-tunnel;gitlab'
-	[onionmasq-device-testing]='https://gitlab.torproject.org/tpo/core/onionmasq;7599e06f8e9dddc2529ff656368b43c20e60a597;onionmasq-%commit%/crates/onionmasq-device-testing;gitlab'
-	[simple-proc-net]='https://gitlab.torproject.org/tpo/core/onionmasq;7599e06f8e9dddc2529ff656368b43c20e60a597;onionmasq-%commit%/crates/simple-proc-net;gitlab'
+	[onion-tunnel]='https://gitlab.torproject.org/tpo/core/onionmasq;3c4f3862cb1d438bf85d52e7f17133fdb5954ce0;onionmasq-%commit%/crates/onion-tunnel;gitlab'
+	[onionmasq-device-testing]='https://gitlab.torproject.org/tpo/core/onionmasq;3c4f3862cb1d438bf85d52e7f17133fdb5954ce0;onionmasq-%commit%/crates/onionmasq-device-testing;gitlab'
+	[simple-proc-net]='https://gitlab.torproject.org/tpo/core/onionmasq;3c4f3862cb1d438bf85d52e7f17133fdb5954ce0;onionmasq-%commit%/crates/simple-proc-net;gitlab'
 	[smoltcp]='https://github.com/smoltcp-rs/smoltcp;39cd44e585aae109f37a2bc9f31376414968456d;smoltcp-%commit%'
 )
 
@@ -616,7 +591,7 @@ S="${WORKDIR}/${PN}-v${PV}"
 LICENSE="|| ( Apache-2.0 MIT )"
 # Dependent crate licenses
 LICENSE+="
-	0BSD Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 openssl
-	Unicode-3.0 Unlicense ZLIB"
+	0BSD Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0
+	Unlicense ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
