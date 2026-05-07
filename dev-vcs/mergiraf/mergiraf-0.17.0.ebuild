@@ -5,27 +5,29 @@ EAPI=8
 
 CRATES="
 	adler2@2.0.1
-	aho-corasick@1.1.3
+	aho-corasick@1.1.4
 	android_system_properties@0.1.5
 	anstream@0.6.21
 	anstyle-parse@0.2.7
-	anstyle-query@1.1.4
-	anstyle-wincon@3.0.10
+	anstyle-query@1.1.5
+	anstyle-wincon@3.0.11
 	anstyle@1.0.13
 	arbitrary@1.4.2
 	arrayvec@0.7.6
+	assert_cmd@2.2.0
 	autocfg@1.5.0
 	bitflags@2.10.0
 	boxcar@0.2.14
-	bumpalo@3.19.0
+	bstr@1.12.1
+	bumpalo@3.19.1
 	caplog@0.3.0
-	cc@1.2.43
+	cc@1.2.54
 	cfg-if@1.0.4
-	chrono@0.4.42
-	clap@4.5.50
-	clap_builder@4.5.50
+	chrono@0.4.43
+	clap@4.5.54
+	clap_builder@4.5.54
 	clap_derive@4.5.49
-	clap_lex@0.7.6
+	clap_lex@0.7.7
 	colorchoice@1.0.4
 	console@0.15.11
 	core-foundation-sys@0.8.7
@@ -34,6 +36,8 @@ CRATES="
 	derive_more-impl@2.1.1
 	derive_more@0.99.20
 	derive_more@2.1.1
+	diff@0.1.13
+	difflib@0.4.0
 	diffy-imara@0.3.2
 	either@1.15.0
 	encode_unicode@1.0.0
@@ -41,15 +45,15 @@ CRATES="
 	errno@0.3.14
 	etcetera@0.10.0
 	fastrand@2.3.0
-	find-msvc-tools@0.1.4
+	find-msvc-tools@0.1.8
 	fixedbitset@0.4.2
-	flate2@1.1.5
+	flate2@1.1.8
 	foldhash@0.1.5
 	getrandom@0.3.4
 	glob@0.3.3
 	hashbrown@0.12.3
 	hashbrown@0.15.5
-	hashbrown@0.16.0
+	hashbrown@0.16.1
 	heck@0.5.0
 	hermit-abi@0.5.2
 	home@0.5.12
@@ -57,36 +61,39 @@ CRATES="
 	iana-time-zone@0.1.64
 	imara-diff@0.1.8
 	indexmap@1.9.3
-	indexmap@2.12.0
-	insta@1.43.2
+	indexmap@2.13.0
+	insta@1.46.1
 	integer-sqrt@0.1.5
 	is-terminal@0.4.17
 	is_terminal_polyfill@1.70.2
 	itertools@0.10.5
 	itertools@0.14.0
-	itoa@1.0.15
-	js-sys@0.3.81
+	itoa@1.0.17
+	js-sys@0.3.85
 	lazy_static@1.5.0
-	libc@0.2.177
-	libz-rs-sys@0.5.2
+	libc@0.2.180
 	linux-raw-sys@0.11.0
-	log@0.4.28
+	log@0.4.29
 	memchr@2.7.6
 	miniz_oxide@0.8.9
-	nonempty-collections@1.1.0
+	nonempty-collections@1.3.0
 	nu-ansi-term@0.50.3
 	num-traits@0.2.19
 	once_cell@1.21.3
 	once_cell_polyfill@1.70.2
-	oneshot@0.1.11
+	oneshot@0.1.12
 	pathfinding@3.0.14
 	ppv-lite86@0.2.21
-	proc-macro2@1.0.103
-	quote@1.0.41
+	predicates-core@1.0.10
+	predicates-tree@1.0.13
+	predicates@3.1.4
+	pretty_assertions@1.4.1
+	proc-macro2@1.0.106
+	quote@1.0.44
 	r-efi@5.3.0
 	rand@0.9.2
 	rand_chacha@0.9.0
-	rand_core@0.9.3
+	rand_core@0.9.5
 	regex-automata@0.4.13
 	regex-syntax@0.8.8
 	regex@1.12.2
@@ -96,56 +103,59 @@ CRATES="
 	rustc-hash@1.1.0
 	rustc-hash@2.1.1
 	rustc_version@0.4.1
-	rustix@1.1.2
+	rustix@1.1.3
 	rustversion@1.0.22
-	ryu@1.0.20
 	semver@1.0.27
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
-	serde_json@1.0.145
+	serde_json@1.0.149
 	shlex@1.3.0
-	simd-adler32@0.3.7
+	simd-adler32@0.3.8
 	similar@2.7.0
 	stderrlog@0.6.0
 	streaming-iterator@0.1.9
 	strsim@0.11.1
-	syn@2.0.108
-	tempfile@3.23.0
+	syn@2.0.114
+	tempfile@3.24.0
 	termcolor@1.1.3
+	termtree@0.5.1
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.17
+	thiserror-impl@2.0.18
 	thiserror@1.0.69
-	thiserror@2.0.17
+	thiserror@2.0.18
 	thread_local@1.1.9
 	tree-edit-distance@0.4.0
 	tree-sitter-c-sharp@0.23.1
 	tree-sitter-c@0.24.1
 	tree-sitter-cmake@0.7.1
 	tree-sitter-cpp@0.23.4
-	tree-sitter-dart-orchard@0.3.1
+	tree-sitter-dart-orchard@0.3.2
 	tree-sitter-devicetree@0.14.1
 	tree-sitter-elixir@0.3.4
+	tree-sitter-fortran@0.5.1
 	tree-sitter-go@0.25.0
-	tree-sitter-gomod-orchard@0.5.1
-	tree-sitter-gosum-orchard@0.3.1
+	tree-sitter-gomod-orchard@0.5.3
+	tree-sitter-gosum-orchard@0.3.2
 	tree-sitter-haskell@0.23.1
 	tree-sitter-hcl@1.1.0
 	tree-sitter-html@0.23.2
-	tree-sitter-ini@1.3.0
+	tree-sitter-ini@1.4.0
 	tree-sitter-java-orchard@0.3.1
 	tree-sitter-javascript@0.25.0
 	tree-sitter-json@0.24.8
 	tree-sitter-kotlin-ng@1.1.0
-	tree-sitter-language@0.1.5
+	tree-sitter-language@0.1.6
 	tree-sitter-lua@0.2.0
 	tree-sitter-make@1.1.1
-	tree-sitter-md@0.5.1
+	tree-sitter-md@0.5.2
 	tree-sitter-nix@0.3.0
 	tree-sitter-ocaml@0.24.2
 	tree-sitter-php@0.24.2
 	tree-sitter-properties@0.3.0
-	tree-sitter-python-orchard@0.4.1
+	tree-sitter-python-orchard@0.4.2
+	tree-sitter-r@1.2.0
+	tree-sitter-requirements@0.6.0
 	tree-sitter-ruby@0.23.1
 	tree-sitter-rust-orchard@0.14.0
 	tree-sitter-scala@0.24.0
@@ -158,14 +168,14 @@ CRATES="
 	tree-sitter-yaml@0.7.2
 	tree-sitter@0.25.10
 	typed-arena@2.0.2
-	unicode-ident@1.0.20
+	unicode-ident@1.0.22
 	utf8parse@0.2.2
-	wasip2@1.0.1+wasi-0.2.4
-	wasm-bindgen-backend@0.2.104
-	wasm-bindgen-macro-support@0.2.104
-	wasm-bindgen-macro@0.2.104
-	wasm-bindgen-shared@0.2.104
-	wasm-bindgen@0.2.104
+	wait-timeout@0.2.1
+	wasip2@1.0.2+wasi-0.2.9
+	wasm-bindgen-macro-support@0.2.108
+	wasm-bindgen-macro@0.2.108
+	wasm-bindgen-shared@0.2.108
+	wasm-bindgen@0.2.108
 	winapi-util@0.1.11
 	windows-core@0.62.2
 	windows-implement@0.60.2
@@ -174,32 +184,24 @@ CRATES="
 	windows-result@0.4.1
 	windows-strings@0.5.1
 	windows-sys@0.59.0
-	windows-sys@0.60.2
 	windows-sys@0.61.2
 	windows-targets@0.52.6
-	windows-targets@0.53.5
 	windows_aarch64_gnullvm@0.52.6
-	windows_aarch64_gnullvm@0.53.1
 	windows_aarch64_msvc@0.52.6
-	windows_aarch64_msvc@0.53.1
 	windows_i686_gnu@0.52.6
-	windows_i686_gnu@0.53.1
 	windows_i686_gnullvm@0.52.6
-	windows_i686_gnullvm@0.53.1
 	windows_i686_msvc@0.52.6
-	windows_i686_msvc@0.53.1
 	windows_x86_64_gnu@0.52.6
-	windows_x86_64_gnu@0.53.1
 	windows_x86_64_gnullvm@0.52.6
-	windows_x86_64_gnullvm@0.53.1
 	windows_x86_64_msvc@0.52.6
-	windows_x86_64_msvc@0.53.1
-	wit-bindgen@0.46.0
-	zerocopy-derive@0.8.27
-	zerocopy@0.8.27
+	wit-bindgen@0.51.0
+	yansi@1.0.1
+	zerocopy-derive@0.8.34
+	zerocopy@0.8.34
 	zip@6.0.0
-	zlib-rs@0.5.2
-	zopfli@0.8.2"
+	zlib-rs@0.5.5
+	zmij@1.0.17
+	zopfli@0.8.3"
 
 inherit cargo
 
