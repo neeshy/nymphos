@@ -603,27 +603,19 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 BSD-2 BSD Boost-1.0 CC0-1.0 ISC MIT MPL-2.0 UoI-NCSA
-	Unicode-3.0 Unicode-DFS-2016 WTFPL-2 ZLIB
-"
+	Unicode-3.0 Unicode-DFS-2016 WTFPL-2 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
-
-IUSE="+cli"
-
-QA_FLAGS_IGNORED="usr/bin/ya.*"
 
 RDEPEND="dev-libs/oniguruma"
 DEPEND="${RDEPEND}"
 
-DOCS=(
-	README.md
-	yazi-config/preset/{keymap-default,theme-dark,theme-light,yazi-default}.toml
-)
+QA_FLAGS_IGNORED="usr/bin/ya.*"
 
 src_prepare() {
 	export YAZI_GEN_COMPLETIONS=true
-	sed -i -r 's/strip\s+= true/strip = false/' Cargo.toml || die "sed failed"
-	eapply_user
+	sed -E 's/strip\s+= true/strip = false/' -i Cargo.toml || die "sed failed"
+	default
 }
 
 src_compile() {
@@ -631,23 +623,22 @@ src_compile() {
 	# unvendor libonig from rust-onig. see bugs 943785, 945008
 	export RUSTONIG_SYSTEM_LIBONIG=1
 	cargo_src_compile
-	use cli && cargo_src_compile -p "${PN}-cli"
+	cargo_src_compile -p yazi-cli
 }
 
 src_install() {
-	dobin "$(cargo_target_dir)/${PN}"
-	use cli && dobin "$(cargo_target_dir)/ya"
+	dobin "$(cargo_target_dir)/yazi"
+	dobin "$(cargo_target_dir)/ya"
 
-	newbashcomp "${S}/yazi-boot/completions/${PN}.bash" "${PN}"
-	dozshcomp "${S}/yazi-boot/completions/_${PN}"
-	dofishcomp "${S}/yazi-boot/completions/${PN}.fish"
+	dodoc README.md yazi-config/preset/{keymap-default,theme-dark,theme-light,yazi-default}.toml
 
-	if use cli; then
-		newbashcomp "${S}/yazi-cli/completions/ya.bash" "ya"
-		dozshcomp "${S}/yazi-cli/completions/_ya"
-		dofishcomp "${S}/yazi-cli/completions/ya.fish"
-	fi
+	newbashcomp yazi-boot/completions/yazi.bash yazi
+	dozshcomp yazi-boot/completions/_yazi
+	dofishcomp yazi-boot/completions/yazi.fish
 
-	domenu "assets/${PN}.desktop"
-	einstalldocs
+	newbashcomp yazi-cli/completions/ya.bash ya
+	dozshcomp yazi-cli/completions/_ya
+	dofishcomp yazi-cli/completions/ya.fish
+
+	domenu assets/yazi.desktop
 }
