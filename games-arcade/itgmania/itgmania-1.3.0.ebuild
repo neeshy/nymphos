@@ -16,7 +16,7 @@ EGIT_COMMIT="v${PV}"
 LICENSE="GPL-3+ CC-BY-NC-4.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="alsa cpu_flags_x86_sse2 crash-handler gles2 +gtk jack lights lto oss pulseaudio xinerama xrandr"
+IUSE="alsa cpu_flags_x86_sse2 gles2 +gtk jack lights lto oss pulseaudio xinerama xrandr"
 REQUIRED_USE="|| ( alsa oss pulseaudio jack )"
 
 RDEPEND="
@@ -35,11 +35,7 @@ RDEPEND="
 	xrandr? ( x11-libs/libXrandr )"
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-fix-building-without-crash_handler.patch"
-	"${FILESDIR}/${PN}-libjpeg-turbo-CMAKE_BUILD_TYPE_UC.patch"
-	"${FILESDIR}/${PN}-install-sm5-songs.patch"
-)
+PATCHES=( "${FILESDIR}/${PN}-install-sm5-songs.patch" )
 
 src_configure() {
 	local mycmakeargs=(
@@ -56,7 +52,6 @@ src_configure() {
 		-DWITH_GLES2="$(usex gles2)"
 		-DWITH_GTK3="$(usex gtk)"
 		-DWITH_PARALLEL_PORT="$(usex lights)"
-		-DWITH_CRASH_HANDLER="$(usex crash-handler)"
 		-DWITH_SSE2="$(usex cpu_flags_x86_sse2)"
 	)
 	cmake_src_configure
