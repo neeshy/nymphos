@@ -7,133 +7,139 @@ CRATES="
 	adler2@2.0.1
 	aho-corasick@1.1.4
 	android_system_properties@0.1.5
-	anstream@0.6.21
-	anstyle-parse@0.2.7
+	anstream@1.0.0
+	anstyle-parse@1.0.0
 	anstyle-query@1.1.5
 	anstyle-wincon@3.0.11
-	anstyle@1.0.13
-	arbitrary@1.4.2
-	arrayvec@0.7.6
-	assert_cmd@2.2.0
-	autocfg@1.5.0
-	bitflags@2.10.0
+	anstyle@1.0.14
+	arrayvec@0.7.8
+	assert_cmd@2.2.2
+	autocfg@1.5.1
+	bitflags@2.13.0
 	boxcar@0.2.14
-	bstr@1.12.1
-	bumpalo@3.19.1
+	bstr@1.12.3
+	bumpalo@3.20.3
 	caplog@0.3.0
-	cc@1.2.54
+	cc@1.2.67
 	cfg-if@1.0.4
-	chrono@0.4.43
-	clap@4.5.54
-	clap_builder@4.5.54
-	clap_derive@4.5.49
-	clap_lex@0.7.7
-	colorchoice@1.0.4
-	console@0.15.11
+	chrono@0.4.45
+	clap@4.6.1
+	clap_builder@4.6.0
+	clap_derive@4.6.1
+	clap_lex@1.1.0
+	colorchoice@1.0.5
+	console@0.16.4
 	core-foundation-sys@0.8.7
 	crc32fast@1.5.0
-	derive_arbitrary@1.4.2
 	derive_more-impl@2.1.1
 	derive_more@0.99.20
 	derive_more@2.1.1
 	diff@0.1.13
 	difflib@0.4.0
 	diffy-imara@0.3.2
-	either@1.15.0
+	either@1.16.0
 	encode_unicode@1.0.0
 	equivalent@1.0.2
 	errno@0.3.14
-	etcetera@0.10.0
-	fastrand@2.3.0
-	find-msvc-tools@0.1.8
+	etcetera@0.11.0
+	fastrand@2.4.1
+	find-msvc-tools@0.1.9
 	fixedbitset@0.4.2
-	flate2@1.1.8
+	flate2@1.1.9
 	foldhash@0.1.5
+	futures-core@0.3.32
+	futures-task@0.3.32
+	futures-util@0.3.32
 	getrandom@0.3.4
+	getrandom@0.4.3
 	glob@0.3.3
 	hashbrown@0.12.3
 	hashbrown@0.15.5
-	hashbrown@0.16.1
+	hashbrown@0.17.1
 	heck@0.5.0
 	hermit-abi@0.5.2
-	home@0.5.12
 	iana-time-zone-haiku@0.1.2
-	iana-time-zone@0.1.64
+	iana-time-zone@0.1.65
 	imara-diff@0.1.8
 	indexmap@1.9.3
-	indexmap@2.13.0
-	insta@1.46.1
+	indexmap@2.14.0
+	insta@1.48.0
 	integer-sqrt@0.1.5
 	is-terminal@0.4.17
 	is_terminal_polyfill@1.70.2
 	itertools@0.10.5
-	itertools@0.14.0
-	itoa@1.0.17
-	js-sys@0.3.85
+	itertools@0.15.0
+	itoa@1.0.18
+	js-sys@0.3.103
 	lazy_static@1.5.0
-	libc@0.2.180
-	linux-raw-sys@0.11.0
-	log@0.4.29
-	memchr@2.7.6
+	libc@0.2.186
+	linux-raw-sys@0.12.1
+	log@0.4.33
+	memchr@2.8.3
 	miniz_oxide@0.8.9
 	nonempty-collections@1.3.0
 	nu-ansi-term@0.50.3
 	num-traits@0.2.19
-	once_cell@1.21.3
+	once_cell@1.21.4
 	once_cell_polyfill@1.70.2
-	oneshot@0.1.12
+	oneshot@0.2.1
 	pathfinding@3.0.14
+	pin-project-lite@0.2.17
 	ppv-lite86@0.2.21
 	predicates-core@1.0.10
 	predicates-tree@1.0.13
 	predicates@3.1.4
 	pretty_assertions@1.4.1
 	proc-macro2@1.0.106
-	quote@1.0.44
+	quote@1.0.46
 	r-efi@5.3.0
-	rand@0.9.2
+	r-efi@6.0.0
+	rand@0.9.5
 	rand_chacha@0.9.0
 	rand_core@0.9.5
-	regex-automata@0.4.13
-	regex-syntax@0.8.8
-	regex@1.12.2
+	regex-automata@0.4.15
+	regex-syntax@0.8.11
+	regex@1.13.0
 	relative-path@1.9.3
 	rstest@0.26.1
 	rstest_macros@0.26.1
 	rustc-hash@1.1.0
-	rustc-hash@2.1.1
+	rustc-hash@2.1.3
 	rustc_version@0.4.1
-	rustix@1.1.3
-	rustversion@1.0.22
-	semver@1.0.27
+	rustix@1.1.4
+	rustversion@1.0.23
+	semver@1.0.28
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
-	serde_json@1.0.149
-	shlex@1.3.0
-	simd-adler32@0.3.8
+	serde_json@1.0.150
+	shlex@2.0.1
+	simd-adler32@0.3.9
 	similar@2.7.0
+	slab@0.4.12
 	stderrlog@0.6.0
 	streaming-iterator@0.1.9
 	strsim@0.11.1
-	syn@2.0.114
-	tempfile@3.24.0
+	syn@2.0.118
+	tempfile@3.27.0
 	termcolor@1.1.3
 	termtree@0.5.1
 	thiserror-impl@1.0.69
 	thiserror-impl@2.0.18
 	thiserror@1.0.69
 	thiserror@2.0.18
-	thread_local@1.1.9
+	thread_local@1.1.10
 	tree-edit-distance@0.4.0
-	tree-sitter-c-sharp@0.23.1
-	tree-sitter-c@0.24.1
-	tree-sitter-cmake@0.7.1
+	tree-sitter-bash@0.25.1
+	tree-sitter-c-sharp@0.23.5
+	tree-sitter-c@0.24.2
+	tree-sitter-cmake@0.7.4
 	tree-sitter-cpp@0.23.4
 	tree-sitter-dart-orchard@0.3.2
-	tree-sitter-devicetree@0.14.1
-	tree-sitter-elixir@0.3.4
-	tree-sitter-fortran@0.5.1
+	tree-sitter-devicetree@0.15.0
+	tree-sitter-elixir@0.3.5
+	tree-sitter-fortran@0.6.0
+	tree-sitter-gleam@1.0.0
 	tree-sitter-go@0.25.0
 	tree-sitter-gomod-orchard@0.5.3
 	tree-sitter-gosum-orchard@0.3.2
@@ -141,41 +147,43 @@ CRATES="
 	tree-sitter-hcl@1.1.0
 	tree-sitter-html@0.23.2
 	tree-sitter-ini@1.4.0
-	tree-sitter-java-orchard@0.3.1
+	tree-sitter-java-orchard@0.5.8
 	tree-sitter-javascript@0.25.0
 	tree-sitter-json@0.24.8
 	tree-sitter-kotlin-ng@1.1.0
-	tree-sitter-language@0.1.6
-	tree-sitter-lua@0.2.0
+	tree-sitter-language@0.1.7
+	tree-sitter-lua@0.5.0
 	tree-sitter-make@1.1.1
-	tree-sitter-md@0.5.2
+	tree-sitter-md@0.5.3
 	tree-sitter-nix@0.3.0
-	tree-sitter-ocaml@0.24.2
+	tree-sitter-ocaml@0.25.0
 	tree-sitter-php@0.24.2
 	tree-sitter-properties@0.3.0
 	tree-sitter-python-orchard@0.4.2
-	tree-sitter-r@1.2.0
-	tree-sitter-requirements@0.6.0
+	tree-sitter-r@1.3.0
+	tree-sitter-requirements@0.6.1
 	tree-sitter-ruby@0.23.1
-	tree-sitter-rust-orchard@0.14.0
-	tree-sitter-scala@0.24.0
+	tree-sitter-rust-orchard@0.16.8
+	tree-sitter-scala@0.26.0
+	tree-sitter-scheme@0.24.7
 	tree-sitter-solidity@1.2.13
 	tree-sitter-starlark@1.3.0
-	tree-sitter-systemverilog@0.2.1
+	tree-sitter-systemverilog@0.3.1
 	tree-sitter-toml-ng@0.7.0
 	tree-sitter-typescript@0.23.2
 	tree-sitter-xml@0.7.0
 	tree-sitter-yaml@0.7.2
-	tree-sitter@0.25.10
+	tree-sitter@0.26.11
 	typed-arena@2.0.2
-	unicode-ident@1.0.22
+	typed-path@0.12.3
+	unicode-ident@1.0.24
 	utf8parse@0.2.2
 	wait-timeout@0.2.1
-	wasip2@1.0.2+wasi-0.2.9
-	wasm-bindgen-macro-support@0.2.108
-	wasm-bindgen-macro@0.2.108
-	wasm-bindgen-shared@0.2.108
-	wasm-bindgen@0.2.108
+	wasip2@1.0.4+wasi-0.2.12
+	wasm-bindgen-macro-support@0.2.126
+	wasm-bindgen-macro@0.2.126
+	wasm-bindgen-shared@0.2.126
+	wasm-bindgen@0.2.126
 	winapi-util@0.1.11
 	windows-core@0.62.2
 	windows-implement@0.60.2
@@ -183,24 +191,14 @@ CRATES="
 	windows-link@0.2.1
 	windows-result@0.4.1
 	windows-strings@0.5.1
-	windows-sys@0.59.0
 	windows-sys@0.61.2
-	windows-targets@0.52.6
-	windows_aarch64_gnullvm@0.52.6
-	windows_aarch64_msvc@0.52.6
-	windows_i686_gnu@0.52.6
-	windows_i686_gnullvm@0.52.6
-	windows_i686_msvc@0.52.6
-	windows_x86_64_gnu@0.52.6
-	windows_x86_64_gnullvm@0.52.6
-	windows_x86_64_msvc@0.52.6
-	wit-bindgen@0.51.0
+	wit-bindgen@0.57.1
 	yansi@1.0.1
-	zerocopy-derive@0.8.34
-	zerocopy@0.8.34
-	zip@6.0.0
-	zlib-rs@0.5.5
-	zmij@1.0.17
+	zerocopy-derive@0.8.54
+	zerocopy@0.8.54
+	zip@8.6.0
+	zlib-rs@0.6.6
+	zmij@1.0.23
 	zopfli@0.8.3"
 
 inherit cargo
