@@ -4,7 +4,7 @@
 EAPI=8
 
 MY_PN="LegacyFox"
-MY_COMMIT="836dade"
+MY_COMMIT="4013123"
 MY_PV="${PV}-${MY_COMMIT}"
 MY_P="${MY_PN}-v${MY_PV}"
 
