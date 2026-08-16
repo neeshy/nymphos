@@ -20,12 +20,12 @@ CRATES="
 	bstr@1.12.3
 	bumpalo@3.20.3
 	caplog@0.3.0
-	cc@1.2.67
+	cc@1.4.0
 	cfg-if@1.0.4
 	chrono@0.4.45
-	clap@4.6.1
-	clap_builder@4.6.0
-	clap_derive@4.6.1
+	clap@4.6.5
+	clap_builder@4.6.5
+	clap_derive@4.6.4
 	clap_lex@1.1.0
 	colorchoice@1.0.5
 	console@0.16.4
@@ -37,7 +37,7 @@ CRATES="
 	diff@0.1.13
 	difflib@0.4.0
 	diffy-imara@0.3.2
-	either@1.16.0
+	either@1.17.0
 	encode_unicode@1.0.0
 	equivalent@1.0.2
 	errno@0.3.14
@@ -77,7 +77,7 @@ CRATES="
 	log@0.4.33
 	memchr@2.8.3
 	miniz_oxide@0.8.9
-	nonempty-collections@1.3.0
+	nonempty-collections@1.4.0
 	nu-ansi-term@0.50.3
 	num-traits@0.2.19
 	once_cell@1.21.4
@@ -97,9 +97,9 @@ CRATES="
 	rand@0.9.5
 	rand_chacha@0.9.0
 	rand_core@0.9.5
-	regex-automata@0.4.15
+	regex-automata@0.4.16
 	regex-syntax@0.8.11
-	regex@1.13.0
+	regex@1.13.1
 	relative-path@1.9.3
 	rstest@0.26.1
 	rstest_macros@0.26.1
@@ -121,13 +121,14 @@ CRATES="
 	streaming-iterator@0.1.9
 	strsim@0.11.1
 	syn@2.0.118
+	syn@3.0.3
 	tempfile@3.27.0
 	termcolor@1.1.3
 	termtree@0.5.1
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.18
+	thiserror-impl@2.0.19
 	thiserror@1.0.69
-	thiserror@2.0.18
+	thiserror@2.0.19
 	thread_local@1.1.10
 	tree-edit-distance@0.4.0
 	tree-sitter-bash@0.25.1
@@ -135,31 +136,33 @@ CRATES="
 	tree-sitter-c@0.24.2
 	tree-sitter-cmake@0.7.4
 	tree-sitter-cpp@0.23.4
-	tree-sitter-dart-orchard@0.3.2
+	tree-sitter-dart-orchard@0.5.0
 	tree-sitter-devicetree@0.15.0
 	tree-sitter-elixir@0.3.5
+	tree-sitter-erlang@0.20.0
 	tree-sitter-fortran@0.6.0
 	tree-sitter-gleam@1.0.0
 	tree-sitter-go@0.25.0
 	tree-sitter-gomod-orchard@0.5.3
-	tree-sitter-gosum-orchard@0.3.2
+	tree-sitter-gosum-orchard@0.3.3
 	tree-sitter-haskell@0.23.1
 	tree-sitter-hcl@1.1.0
 	tree-sitter-html@0.23.2
 	tree-sitter-ini@1.4.0
-	tree-sitter-java-orchard@0.5.8
+	tree-sitter-java-orchard@0.5.10
 	tree-sitter-javascript@0.25.0
 	tree-sitter-json@0.24.8
 	tree-sitter-kotlin-ng@1.1.0
 	tree-sitter-language@0.1.7
 	tree-sitter-lua@0.5.0
 	tree-sitter-make@1.1.1
+	tree-sitter-matlab@1.3.0
 	tree-sitter-md@0.5.3
 	tree-sitter-nix@0.3.0
 	tree-sitter-ocaml@0.25.0
 	tree-sitter-php@0.24.2
 	tree-sitter-properties@0.3.0
-	tree-sitter-python-orchard@0.4.2
+	tree-sitter-python-orchard@0.4.3
 	tree-sitter-r@1.3.0
 	tree-sitter-requirements@0.6.1
 	tree-sitter-ruby@0.23.1
@@ -168,7 +171,7 @@ CRATES="
 	tree-sitter-scheme@0.24.7
 	tree-sitter-solidity@1.2.13
 	tree-sitter-starlark@1.3.0
-	tree-sitter-systemverilog@0.3.1
+	tree-sitter-systemverilog@0.4.0
 	tree-sitter-toml-ng@0.7.0
 	tree-sitter-typescript@0.23.2
 	tree-sitter-xml@0.7.0
