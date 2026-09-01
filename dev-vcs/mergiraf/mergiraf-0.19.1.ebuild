@@ -20,11 +20,11 @@ CRATES="
 	bstr@1.12.3
 	bumpalo@3.20.3
 	caplog@0.3.0
-	cc@1.4.0
+	cc@1.4.3
 	cfg-if@1.0.4
 	chrono@0.4.45
-	clap@4.6.5
-	clap_builder@4.6.5
+	clap@4.6.6
+	clap_builder@4.6.6
 	clap_derive@4.6.4
 	clap_lex@1.1.0
 	colorchoice@1.0.5
@@ -43,9 +43,10 @@ CRATES="
 	errno@0.3.14
 	etcetera@0.11.0
 	fastrand@2.4.1
-	find-msvc-tools@0.1.9
+	find-msvc-tools@0.1.11
 	fixedbitset@0.4.2
 	flate2@1.1.9
+	float-cmp@0.10.0
 	foldhash@0.1.5
 	futures-core@0.3.32
 	futures-task@0.3.32
@@ -78,6 +79,7 @@ CRATES="
 	memchr@2.8.3
 	miniz_oxide@0.8.9
 	nonempty-collections@1.4.0
+	normalize-line-endings@0.3.0
 	nu-ansi-term@0.50.3
 	num-traits@0.2.19
 	once_cell@1.21.4
@@ -126,9 +128,9 @@ CRATES="
 	termcolor@1.1.3
 	termtree@0.5.1
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.19
+	thiserror-impl@2.0.20
 	thiserror@1.0.69
-	thiserror@2.0.19
+	thiserror@2.0.20
 	thread_local@1.1.10
 	tree-edit-distance@0.4.0
 	tree-sitter-bash@0.25.1
@@ -136,7 +138,7 @@ CRATES="
 	tree-sitter-c@0.24.2
 	tree-sitter-cmake@0.7.4
 	tree-sitter-cpp@0.23.4
-	tree-sitter-dart-orchard@0.5.0
+	tree-sitter-dart-orchard@0.6.0
 	tree-sitter-devicetree@0.15.0
 	tree-sitter-elixir@0.3.5
 	tree-sitter-erlang@0.20.0
@@ -149,7 +151,7 @@ CRATES="
 	tree-sitter-hcl@1.1.0
 	tree-sitter-html@0.23.2
 	tree-sitter-ini@1.4.0
-	tree-sitter-java-orchard@0.5.10
+	tree-sitter-java-orchard@0.5.15
 	tree-sitter-javascript@0.25.0
 	tree-sitter-json@0.24.8
 	tree-sitter-kotlin-ng@1.1.0
@@ -167,7 +169,7 @@ CRATES="
 	tree-sitter-requirements@0.6.1
 	tree-sitter-ruby@0.23.1
 	tree-sitter-rust-orchard@0.16.8
-	tree-sitter-scala@0.26.0
+	tree-sitter-scala@0.26.2
 	tree-sitter-scheme@0.24.7
 	tree-sitter-solidity@1.2.13
 	tree-sitter-starlark@1.3.0
@@ -176,7 +178,7 @@ CRATES="
 	tree-sitter-typescript@0.23.2
 	tree-sitter-xml@0.7.0
 	tree-sitter-yaml@0.7.2
-	tree-sitter@0.26.11
+	tree-sitter@0.26.12
 	typed-arena@2.0.2
 	typed-path@0.12.3
 	unicode-ident@1.0.24
