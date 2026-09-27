@@ -20,12 +20,12 @@ CRATES="
 	bstr@1.12.3
 	bumpalo@3.20.3
 	caplog@0.3.0
-	cc@1.4.3
+	cc@1.4.7
 	cfg-if@1.0.4
 	chrono@0.4.45
-	clap@4.6.6
-	clap_builder@4.6.6
-	clap_derive@4.6.4
+	clap@4.6.7
+	clap_builder@4.6.7
+	clap_derive@4.6.7
 	clap_lex@1.1.0
 	colorchoice@1.0.5
 	console@0.16.4
@@ -37,13 +37,13 @@ CRATES="
 	diff@0.1.13
 	difflib@0.4.0
 	diffy-imara@0.3.2
-	either@1.17.0
+	either@1.18.0
 	encode_unicode@1.0.0
 	equivalent@1.0.2
 	errno@0.3.14
 	etcetera@0.11.0
 	fastrand@2.4.1
-	find-msvc-tools@0.1.11
+	find-msvc-tools@0.1.13
 	fixedbitset@0.4.2
 	flate2@1.1.9
 	float-cmp@0.10.0
@@ -75,7 +75,7 @@ CRATES="
 	lazy_static@1.5.0
 	libc@0.2.186
 	linux-raw-sys@0.12.1
-	log@0.4.33
+	log@0.4.34
 	memchr@2.8.3
 	miniz_oxide@0.8.9
 	nonempty-collections@1.4.0
@@ -103,8 +103,8 @@ CRATES="
 	regex-syntax@0.8.11
 	regex@1.13.1
 	relative-path@1.9.3
-	rstest@0.26.1
-	rstest_macros@0.26.1
+	rstest@0.27.0
+	rstest_macros@0.27.0
 	rustc-hash@1.1.0
 	rustc-hash@2.1.3
 	rustc_version@0.4.1
@@ -136,9 +136,9 @@ CRATES="
 	tree-sitter-bash@0.25.1
 	tree-sitter-c-sharp@0.23.5
 	tree-sitter-c@0.24.2
-	tree-sitter-cmake@0.7.4
+	tree-sitter-cmake@0.7.5
 	tree-sitter-cpp@0.23.4
-	tree-sitter-dart-orchard@0.6.0
+	tree-sitter-dart-orchard@0.7.0
 	tree-sitter-devicetree@0.15.0
 	tree-sitter-elixir@0.3.5
 	tree-sitter-erlang@0.20.0
@@ -151,34 +151,35 @@ CRATES="
 	tree-sitter-hcl@1.1.0
 	tree-sitter-html@0.23.2
 	tree-sitter-ini@1.4.0
-	tree-sitter-java-orchard@0.5.15
+	tree-sitter-java-orchard@0.5.18
 	tree-sitter-javascript@0.25.0
 	tree-sitter-json@0.24.8
 	tree-sitter-kotlin-ng@1.1.0
 	tree-sitter-language@0.1.7
 	tree-sitter-lua@0.5.0
 	tree-sitter-make@1.1.1
-	tree-sitter-matlab@1.3.0
+	tree-sitter-matlab@1.3.1
 	tree-sitter-md@0.5.3
 	tree-sitter-nix@0.3.0
-	tree-sitter-ocaml@0.25.0
+	tree-sitter-ocaml@0.26.0
 	tree-sitter-php@0.24.2
 	tree-sitter-properties@0.3.0
 	tree-sitter-python-orchard@0.4.3
+	tree-sitter-qmljs@0.3.0
 	tree-sitter-r@1.3.0
 	tree-sitter-requirements@0.6.1
 	tree-sitter-ruby@0.23.1
-	tree-sitter-rust-orchard@0.16.8
+	tree-sitter-rust-orchard@0.16.10
 	tree-sitter-scala@0.26.2
 	tree-sitter-scheme@0.24.7
 	tree-sitter-solidity@1.2.13
 	tree-sitter-starlark@1.3.0
-	tree-sitter-systemverilog@0.4.0
+	tree-sitter-systemverilog@0.4.1
 	tree-sitter-toml-ng@0.7.0
 	tree-sitter-typescript@0.23.2
 	tree-sitter-xml@0.7.0
 	tree-sitter-yaml@0.7.2
-	tree-sitter@0.26.12
+	tree-sitter@0.26.13
 	typed-arena@2.0.2
 	typed-path@0.12.3
 	unicode-ident@1.0.24
