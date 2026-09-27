@@ -2,12 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 GNOME2_EAUTORECONF="yes"
 
 inherit flag-o-matic gnome2 multilib multilib-minimal readme.gentoo-r1 toolchain-funcs virtualx
 
 DESCRIPTION="Gimp ToolKit +"
 HOMEPAGE="https://www.gtk.org/"
+SRC_URI="${SRC_URI}
+	https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/10154.patch -> ${P}-G_GNUC_CONST.patch"
 
 LICENSE="LGPL-2+"
 SLOT="2"
@@ -103,14 +106,34 @@ MULTILIB_CHOST_TOOLS=(
 PATCHES=(
 	# Fix tests running when building out of sources, bug #510596, upstream bug #730319
 	"${FILESDIR}"/${PN}-2.24.24-out-of-source.patch
+
 	# Rely on split gtk-update-icon-cache package, bug #528810
 	"${FILESDIR}"/${PN}-2.24.31-update-icon-cache.patch # requires eautoreconf
+
 	# Respect ${NM}, bug #725852
 	"${FILESDIR}"/${PN}-2.24.33-respect-NM.patch # requires eautoreconf
-	# Fix casts, bug #880617
-	"${FILESDIR}"/${PN}-2.24.33-Fix-casts.patch
+
 	# Fixes "ac_fn_c_try_run: command not found", bug #887337
 	"${FILESDIR}"/${PN}-2.24.33-configure.ac-Use-AC_RUN_IFELSE.patch # requires eautoreconf
+
+	# Check for attribute availability before accessing it to adapt to
+	# glib-2.76 changes.
+	"${FILESDIR}"/${P}-glib-2.76-attribute.patch
+
+	# Stop looking for modules in cwd
+	"${FILESDIR}"/${P}-CVE-2024-6655.patch
+
+	# Remove the G_GNUC_CONST attribute from _get_type() and _get_quark() functions
+	"${DISTDIR}"/${P}-G_GNUC_CONST.patch
+
+	# Fix building with recent gcc (from Fedora)
+	"${FILESDIR}"/${P}-c99.patch
+	"${FILESDIR}"/${P}-c89.patch
+	"${FILESDIR}"/${P}-c89-2.patch
+	"${FILESDIR}"/${P}-c89-3.patch
+	"${FILESDIR}"/${P}-c89-4.patch
+	"${FILESDIR}"/${P}-c89-5.patch
+	"${FILESDIR}"/${P}-c89-6.patch
 )
 
 strip_builddir() {
@@ -140,7 +163,7 @@ src_prepare() {
 	replace-flags -O3 -O2
 	strip-flags
 	# Not compatible with C23 decls
-	append-flags -std=gnu17
+	append-flags -std=gnu99
 
 	if ! use test ; then
 		# don't waste time building tests
@@ -291,6 +314,15 @@ pkg_postinst() {
 		elog "Removing deprecated file."
 		rm -f "${EROOT}/etc/gtk-2.0/gdk-pixbuf.loaders"
 	fi
+
+	for dir in "${EROOT}"/usr/lib/gtk-2.0/2.[^1]*; do
+		if [[ -e "${dir}" ]]; then
+			elog "You need to rebuild ebuilds that installed into" "${EROOT}"/usr/lib/gtk-2.0/2.[^1]*
+			elog "to do that you can use qfile from portage-utils:"
+			elog "emerge -va1 \$(qfile -qC ${EPREFIX}/usr/lib/gtk-2.0/2.[^1]*)"
+			break
+		fi
+	done
 
 	if [[ -e "${EROOT}"/usr/lib/gtk-2.0/2.[^1]* ]]; then
 		elog "You need to rebuild ebuilds that installed into" "${EROOT}"/usr/lib/gtk-2.0/2.[^1]*
