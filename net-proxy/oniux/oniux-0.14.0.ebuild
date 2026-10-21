@@ -21,8 +21,8 @@ CRATES="
 	anstyle@1.0.14
 	anyhow@1.0.104
 	arrayvec@0.7.8
-	arti-client@0.46.0
-	arti@2.6.0
+	arti-client@0.47.0
+	arti@2.7.0
 	ascii@1.1.0
 	asn1-rs-derive@0.6.0
 	asn1-rs-impl@0.2.0
@@ -36,8 +36,8 @@ CRATES="
 	atomic@0.5.3
 	atomic@0.6.1
 	autocfg@1.5.1
-	aws-lc-rs@1.18.1
-	aws-lc-sys@0.45.0
+	aws-lc-rs@1.18.2
+	aws-lc-sys@0.46.0
 	base16ct@0.2.0
 	base64@0.22.1
 	base64@0.23.1
@@ -45,7 +45,7 @@ CRATES="
 	bbqueue@0.5.1
 	bincode@2.0.1
 	bitflags@1.3.2
-	bitflags@2.13.1
+	bitflags@2.13.2
 	bitvec@1.1.1
 	blanket@0.3.0
 	block-buffer@0.10.4
@@ -61,23 +61,23 @@ CRATES="
 	cached_proc_macro@0.27.0
 	cached_proc_macro_types@0.1.1
 	caps@0.5.6
-	caret@0.10.1
-	cc@1.4.5
-	cfg-if@1.0.4
+	caret@0.11.0
+	cc@1.9.0
+	cfg-if@1.0.5
 	cfg_aliases@0.2.2
 	chacha20@0.10.2
 	chrono@0.4.45
 	cipher@0.4.4
 	cipher@0.5.2
-	clap@4.6.6
-	clap_builder@4.6.6
-	clap_derive@4.6.4
-	clap_lex@1.1.0
+	clap@4.6.7
+	clap_builder@4.6.7
+	clap_derive@4.6.7
+	clap_lex@1.1.1
 	cmake@0.1.58
 	cmov@0.5.4
-	coarsetime@0.1.37
+	coarsetime@0.1.38
 	colorchoice@1.0.5
-	combine@4.6.8
+	combine@4.6.9
 	const-oid@0.10.2
 	const-oid@0.9.6
 	convert_case@0.10.0
@@ -87,7 +87,7 @@ CRATES="
 	cpubits@0.1.1
 	cpufeatures@0.2.17
 	cpufeatures@0.3.1
-	crc32fast@1.5.1
+	crc32fast@1.5.3
 	critical-section@1.2.0
 	crossbeam-channel@0.5.17
 	crossbeam-queue@0.3.14
@@ -96,7 +96,7 @@ CRATES="
 	crypto-common@0.1.7
 	crypto-common@0.2.2
 	ctr@0.10.1
-	ctutils@0.4.2
+	ctutils@0.4.3
 	curve25519-dalek-derive@0.1.1
 	curve25519-dalek@4.1.3
 	darling@0.14.4
@@ -112,15 +112,15 @@ CRATES="
 	darling_macro@0.21.3
 	darling_macro@0.24.1
 	data-encoding@2.11.1
-	defmt-macros@1.1.1
-	defmt-parser@1.0.0
-	defmt@0.3.100
-	defmt@1.1.1
+	defmt-macros@1.2.0
+	defmt-parser@1.1.0
+	defmt@0.3.101
+	defmt@1.2.0
 	der-parser@10.0.0
 	der@0.7.10
-	deranged@0.5.8
-	derive-deftly-macros@1.11.5
-	derive-deftly@1.11.5
+	deranged@0.5.9
+	derive-deftly-macros@1.12.1
+	derive-deftly@1.12.1
 	derive_builder_core_fork_arti@0.11.2
 	derive_builder_fork_arti@0.11.2
 	derive_builder_macro_fork_arti@0.11.2
@@ -140,13 +140,13 @@ CRATES="
 	ed25519-dalek@2.2.0
 	ed25519@2.2.3
 	educe@0.4.23
-	either@1.18.0
+	either@1.19.0
 	elliptic-curve@0.13.8
 	enum-ordinalize@3.1.15
 	enum_dispatch@0.3.13
 	enumset@1.1.14
 	enumset_derive@0.15.0
-	equivalent@1.0.2
+	equivalent@1.0.3
 	errno@0.3.14
 	event-listener@5.4.2
 	extend@1.2.0
@@ -157,7 +157,7 @@ CRATES="
 	fiat-crypto@0.2.9
 	figment@0.10.19
 	filetime@0.2.29
-	find-msvc-tools@0.1.12
+	find-msvc-tools@0.1.15
 	flate2@1.1.10
 	fluid-let@1.0.0
 	fnv@1.0.7
@@ -166,12 +166,12 @@ CRATES="
 	foreign-types-shared@0.1.1
 	foreign-types@0.3.2
 	form_urlencoded@1.2.2
-	fs-mistrust@0.15.1
+	fs-mistrust@0.16.0
 	fs_extra@1.3.0
-	fslock-guard@0.8.2
+	fslock-guard@0.9.0
 	funty@2.0.0
 	futures-channel@0.3.34
-	futures-copy@0.4.2
+	futures-copy@0.5.0
 	futures-core@0.3.34
 	futures-executor@0.3.34
 	futures-io@0.3.34
@@ -193,11 +193,11 @@ CRATES="
 	hashbrown@0.15.5
 	hashbrown@0.16.1
 	hashbrown@0.17.1
-	hashlink@0.11.1
+	hashlink@0.12.2
 	heapless@0.9.3
 	heck@0.5.0
 	hex@0.4.3
-	hickory-proto@0.26.2
+	hickory-proto@0.26.3
 	hkdf@0.12.4
 	hmac@0.12.1
 	hostname-validator@1.1.1
@@ -225,33 +225,33 @@ CRATES="
 	inotify-sys@0.1.8
 	inotify@0.11.5
 	inout@0.1.4
-	inout@0.2.2
-	inventory@0.3.24
+	inout@0.2.5
+	inventory@0.3.25
 	ipnet@2.12.2
 	iprange@0.6.7
 	is_terminal_polyfill@1.70.2
 	itertools@0.15.0
 	itoa@1.0.18
-	jiff-core@0.1.0
-	jiff-static@0.2.35
+	jiff-core@0.1.1
+	jiff-static@0.2.38
 	jiff-tzdb-platform@0.1.3
-	jiff-tzdb@0.1.8
-	jiff@0.2.35
+	jiff-tzdb@0.1.9
+	jiff@0.2.38
 	jni-macros@0.22.4
 	jni-sys-macros@0.4.1
 	jni-sys@0.4.1
 	jni@0.22.4
 	jobserver@0.1.35
-	js-sys@0.3.105
+	js-sys@0.3.106
 	keccak@0.1.6
 	keccak@0.2.2
 	kqueue-sys@1.1.2
 	kqueue@1.2.1
-	lazy_static@1.5.0
-	libc@0.2.189
+	lazy_static@1.5.1
+	libc@0.2.191
 	libm@0.2.16
-	libredox@0.1.23
-	libsqlite3-sys@0.37.0
+	libredox@0.1.25
+	libsqlite3-sys@0.38.2
 	linux-raw-sys@0.12.1
 	litemap@0.8.3
 	lock_api@0.4.14
@@ -264,10 +264,10 @@ CRATES="
 	merlin@3.0.0
 	minimal-lexical@0.2.1
 	miniz_oxide@0.9.1
-	mio@1.2.3
+	mio@1.2.4
 	native-tls@0.2.18
-	netlink-packet-core@0.8.2
-	netlink-packet-route@0.32.1
+	netlink-packet-core@0.9.0
+	netlink-packet-route@0.33.0
 	netlink-sys@0.9.0
 	nix@0.31.3
 	nom@7.1.3
@@ -288,7 +288,7 @@ CRATES="
 	objc2-io-kit@0.3.2
 	once_cell@1.21.4
 	once_cell_polyfill@1.70.2
-	oneshot-fused-workaround@0.7.1
+	oneshot-fused-workaround@0.8.0
 	openssl-macros@0.1.1
 	openssl-probe@0.2.1
 	openssl-src@300.6.1+3.6.3
@@ -321,7 +321,7 @@ CRATES="
 	portable-atomic@1.15.0
 	postage@0.5.0
 	potential_utf@0.1.6
-	powerfmt@0.2.0
+	powerfmt@0.2.1
 	ppv-lite86@0.2.21
 	primeorder@0.13.6
 	priority-queue@2.7.0
@@ -332,7 +332,7 @@ CRATES="
 	r-efi@5.3.0
 	r-efi@6.0.0
 	radium@0.7.0
-	rand@0.10.2
+	rand@0.10.3
 	rand@0.8.8
 	rand_chacha@0.10.0
 	rand_chacha@0.3.1
@@ -342,52 +342,53 @@ CRATES="
 	rangemap@1.8.0
 	rdrand@0.9.0
 	redox_syscall@0.5.18
-	redox_users@0.5.2
+	redox_users@0.5.3
 	ref-cast-impl@1.0.27
 	ref-cast@1.0.27
 	regex-automata@0.4.18
 	regex-syntax@0.8.11
 	regex@1.13.1
 	reseeding_rng@0.10.7
-	retry-error@0.13.1
+	retry-error@0.14.0
 	rfc6979@0.4.0
 	ring@0.17.14
 	rlimit@0.11.0
 	rsa@0.9.10
 	rsqlite-vfs@0.1.1
-	rusqlite@0.39.0
+	rusqlite@0.40.2
 	rustc_version@0.4.1
 	rusticata-macros@4.1.0
 	rustix-linux-procfs@0.1.1
-	rustix@1.1.4
+	rustix@1.1.5
 	rustls-pki-types@1.15.1
-	rustls-webpki@0.103.15
-	rustls@0.23.44
+	rustls-webpki@0.103.16
+	rustls@0.23.46
 	rustversion@1.0.23
+	safelog@0.10.0
 	safelog@0.9.1
 	same-file@1.0.6
 	sanitize-filename@0.6.0
-	saturating-time@0.4.0
-	schannel@0.1.29
+	saturating-time@0.5.0
+	schannel@0.1.30
 	schemars@0.9.0
-	schemars@1.2.2
+	schemars@1.2.3
 	scopeguard@1.2.0
 	sec1@0.7.3
 	secmem-proc@0.3.8
 	security-framework-sys@2.17.0
 	security-framework@3.7.0
 	semver@1.0.28
-	sendfd@0.4.4
+	sendfd@0.4.5
 	serde-value@0.7.0
 	serde@1.0.229
 	serde_core@1.0.229
 	serde_derive@1.0.229
 	serde_ignored@0.1.14
-	serde_json@1.0.151
+	serde_json@1.0.154
 	serde_spanned@0.6.9
-	serde_spanned@1.1.1
-	serde_with@3.23.0
-	serde_with_macros@3.23.0
+	serde_spanned@1.1.2
+	serde_with@3.24.0
+	serde_with_macros@3.24.0
 	sha1@0.10.7
 	sha2@0.10.9
 	sha3@0.10.9
@@ -400,12 +401,13 @@ CRATES="
 	simd-adler32@0.3.10
 	simd_cesu8@1.2.0
 	simdutf8@0.1.5
-	siphasher@1.0.3
+	siphasher@1.0.4
 	slab@0.4.12
-	slotmap-careful@0.8.1
+	slotmap-careful@0.9.0
 	slotmap@1.1.1
-	smallvec@1.16.0
+	smallvec@1.16.3
 	smoltcp@0.13.1
+	smoltcp@0.14.0
 	socket2@0.6.5
 	spin@0.9.9
 	spki@0.7.3
@@ -424,76 +426,76 @@ CRATES="
 	symlink@0.1.0
 	syn@1.0.109
 	syn@2.0.119
-	syn@3.0.5
+	syn@3.0.9
 	sync_wrapper@1.0.2
 	synstructure@0.13.2
+	synstructure@0.14.0
 	sysinfo@0.38.4
 	tap@1.0.1
 	tempfile@3.27.0
 	terminal_size@0.4.4
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.20
+	thiserror-impl@2.0.21
 	thiserror@1.0.69
-	thiserror@2.0.20
+	thiserror@2.0.21
 	thread_local@1.1.10
 	time-core@0.1.9
 	time-macros@0.2.32
 	time@0.3.55
 	tinystr@0.8.4
-	tinyvec@1.13.2
-	tinyvec_macros@0.1.1
+	tinyvec@1.13.3
 	tokio-macros@2.7.2
-	tokio-util@0.7.19
-	tokio@1.53.1
+	tokio-util@0.7.20
+	tokio@1.54.0
 	toml@0.8.23
-	toml@1.1.5+spec-1.1.0
+	toml@1.1.8+spec-1.1.0
 	toml_datetime@0.6.11
-	toml_datetime@1.1.1+spec-1.1.0
+	toml_datetime@1.1.2+spec-1.1.0
 	toml_edit@0.22.27
-	toml_edit@0.25.13+spec-1.1.0
-	toml_parser@1.1.3+spec-1.1.0
+	toml_edit@0.25.17+spec-1.1.0
+	toml_parser@1.1.5+spec-1.1.0
 	toml_write@0.1.2
-	toml_writer@1.1.2+spec-1.1.0
-	tor-async-utils@0.46.0
-	tor-basic-utils@0.46.0
-	tor-bytes@0.46.0
-	tor-cell@0.46.0
-	tor-cert@0.46.0
-	tor-chanmgr@0.46.0
-	tor-checkable@0.46.0
-	tor-circmgr@0.46.0
-	tor-config-path@0.46.0
-	tor-config-shared@0.46.0
-	tor-config@0.46.0
-	tor-consdiff@0.46.0
-	tor-dirclient@0.46.0
-	tor-dircommon@0.46.0
-	tor-dirmgr@0.46.0
-	tor-error@0.46.0
-	tor-general-addr@0.46.0
-	tor-geoip-db@0.1.0-pre2
-	tor-geoip@0.46.0
-	tor-guardmgr@0.46.0
-	tor-hsclient@0.46.0
-	tor-hscrypto@0.46.0
-	tor-key-forge@0.46.0
-	tor-keymgr@0.46.0
-	tor-linkspec@0.46.0
-	tor-llcrypto@0.46.0
-	tor-log-ratelim@0.46.0
-	tor-memquota-cost@0.46.0
-	tor-memquota@0.46.0
-	tor-netdir@0.46.0
-	tor-netdoc@0.46.0
-	tor-persist@0.46.0
-	tor-proto@0.46.0
-	tor-protover@0.46.0
-	tor-ptmgr@0.46.0
-	tor-relay-selection@0.46.0
-	tor-rtcompat@0.46.0
-	tor-rtmock@0.46.0
-	tor-socksproto@0.46.0
-	tor-units@0.46.0
+	toml_writer@1.1.3+spec-1.1.0
+	tor-async-utils@0.47.0
+	tor-basic-utils@0.47.0
+	tor-bytes@0.47.0
+	tor-cell@0.47.0
+	tor-cert@0.47.0
+	tor-chanmgr@0.47.0
+	tor-checkable@0.47.0
+	tor-circmgr@0.47.0
+	tor-config-path@0.47.0
+	tor-config-shared@0.47.0
+	tor-config@0.47.0
+	tor-consdiff@0.47.0
+	tor-dirclient@0.47.0
+	tor-dircommon@0.47.0
+	tor-dirmgr@0.47.0
+	tor-error@0.47.0
+	tor-general-addr@0.47.0
+	tor-geoip-db@0.1.1
+	tor-geoip@0.47.0
+	tor-guardmgr@0.47.0
+	tor-hsclient@0.47.0
+	tor-hscrypto@0.47.0
+	tor-key-forge@0.47.0
+	tor-keymgr@0.47.0
+	tor-linkspec@0.47.0
+	tor-llcrypto@0.47.0
+	tor-log-ratelim@0.47.0
+	tor-memquota-cost@0.47.0
+	tor-memquota@0.47.0
+	tor-netdir@0.47.0
+	tor-netdoc@0.47.0
+	tor-persist@0.47.0
+	tor-proto@0.47.0
+	tor-protover@0.47.0
+	tor-ptmgr@0.47.0
+	tor-relay-selection@0.47.0
+	tor-rtcompat@0.47.0
+	tor-rtmock@0.47.0
+	tor-socksproto@0.47.0
+	tor-units@0.47.0
 	tracing-appender@0.2.5
 	tracing-attributes@0.1.31
 	tracing-core@0.1.36
@@ -505,7 +507,7 @@ CRATES="
 	typed-index-collections@3.5.0
 	typenum@1.20.1
 	uncased@0.9.10
-	unicode-ident@1.0.24
+	unicode-ident@1.0.27
 	unicode-segmentation@1.13.3
 	unicode-xid@0.2.6
 	universal-hash@0.6.1
@@ -523,12 +525,12 @@ CRATES="
 	wasi@0.11.1+wasi-snapshot-preview1
 	wasip2@1.0.4+wasi-0.2.12
 	wasix@0.13.2
-	wasm-bindgen-macro-support@0.2.128
-	wasm-bindgen-macro@0.2.128
-	wasm-bindgen-shared@0.2.128
-	wasm-bindgen@0.2.128
+	wasm-bindgen-macro-support@0.2.129
+	wasm-bindgen-macro@0.2.129
+	wasm-bindgen-shared@0.2.129
+	wasm-bindgen@0.2.129
 	weak-table@0.4.0
-	web-time-compat@0.2.1
+	web-time-compat@0.3.0
 	web-time@1.1.0
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.11
@@ -574,28 +576,27 @@ CRATES="
 	wyz@0.5.1
 	x25519-dalek@2.0.1
 	xz2@0.1.7
-	yoke-derive@0.8.2
+	yoke-derive@0.8.4
 	yoke@0.8.3
-	zerocopy-derive@0.8.57
-	zerocopy@0.8.57
-	zerofrom-derive@0.1.7
+	zerocopy-derive@0.8.63
+	zerocopy@0.8.63
+	zerofrom-derive@0.1.8
 	zerofrom@0.1.8
-	zeroize@1.9.0
+	zeroize@1.9.1
 	zeroize_derive@1.5.0
 	zerotrie@0.2.5
 	zerovec-derive@0.11.6
 	zerovec@0.11.8
-	zlib-rs@0.6.7
+	zlib-rs@0.6.8
 	zmij@1.0.23
 	zstd-safe@7.3.0
-	zstd-sys@2.1.0+zstd.1.5.7
+	zstd-sys@2.1.2+zstd.1.5.7
 	zstd@0.13.3"
 
-
 declare -A GIT_CRATES=(
-	[onion-tunnel]='https://gitlab.torproject.org/tpo/core/onionmasq;849a8d14d16501d530f03b10792d160aecdc8dfd;onionmasq-%commit%/crates/onion-tunnel;gitlab'
-	[onionmasq-device-testing]='https://gitlab.torproject.org/tpo/core/onionmasq;849a8d14d16501d530f03b10792d160aecdc8dfd;onionmasq-%commit%/crates/onionmasq-device-testing;gitlab'
-	[simple-proc-net]='https://gitlab.torproject.org/tpo/core/onionmasq;849a8d14d16501d530f03b10792d160aecdc8dfd;onionmasq-%commit%/crates/simple-proc-net;gitlab'
+	[onion-tunnel]='https://gitlab.torproject.org/tpo/core/onionmasq;ebfa00695e6bcc55a8f97f9edc30c3c7a049624f;onionmasq-%commit%/crates/onion-tunnel;gitlab'
+	[onionmasq-device-testing]='https://gitlab.torproject.org/tpo/core/onionmasq;ebfa00695e6bcc55a8f97f9edc30c3c7a049624f;onionmasq-%commit%/crates/onionmasq-device-testing;gitlab'
+	[simple-proc-net]='https://gitlab.torproject.org/tpo/core/onionmasq;ebfa00695e6bcc55a8f97f9edc30c3c7a049624f;onionmasq-%commit%/crates/simple-proc-net;gitlab'
 )
 
 inherit cargo
