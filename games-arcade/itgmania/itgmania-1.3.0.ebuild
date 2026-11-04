@@ -30,7 +30,7 @@ RDEPEND="
 	alsa? ( media-libs/alsa-lib )
 	gtk? ( x11-libs/gtk+:3 )
 	jack? ( virtual/jack )
-	pulseaudio? ( media-sound/libpulse )
+	pulseaudio? ( media-libs/libpulse )
 	xinerama? ( x11-libs/libXinerama )
 	xrandr? ( x11-libs/libXrandr )"
 DEPEND="${RDEPEND}"
