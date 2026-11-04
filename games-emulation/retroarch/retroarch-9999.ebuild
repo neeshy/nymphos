@@ -80,7 +80,10 @@ DEPEND="${RDEPEND}
 	vulkan? ( dev-util/vulkan-headers )"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/${PN}-configure-params.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-configure-params.patch"
+	"${FILESDIR}/${PN}-libchdr_flac-unconditionally.patch"
+)
 
 src_configure() {
 	if use cg; then
@@ -92,7 +95,7 @@ src_configure() {
 		--enable-mmap \
 		--enable-threads \
 		--disable-audioio \
-		--enable-builtinflac \
+		--disable-builtinflac \
 		--disable-builtinmbedtls \
 		--disable-builtinzlib \
 		--disable-coreaudio \
@@ -136,6 +139,7 @@ src_configure() {
 		"$(use_enable truetype freetype)" \
 		"$(use_enable udev)" \
 		"$(use_enable usb libusb)" \
+		"$(use_enable usb hid)" \
 		"$(use_enable v4l v4l2)" \
 		"$(use_enable vulkan)" \
 		"$(use_enable wayland)" \
