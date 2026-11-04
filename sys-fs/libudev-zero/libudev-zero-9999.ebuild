@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit multilib-minimal
+
 DESCRIPTION="Daemonless replacement for libudev"
 HOMEPAGE="https://github.com/illiliti/libudev-zero"
 if [[ "${PV}" = 9999 ]]; then
@@ -15,13 +17,27 @@ fi
 
 LICENSE="ISC"
 SLOT="0"
+IUSE="static-libs"
 
 RDEPEND="
 	!sys-apps/systemd
 	!sys-apps/systemd-utils[udev]
-	!virtual/udev"
+	sys-apps/hwdata"
 DEPEND="sys-kernel/linux-headers"
 
-src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr" LIBDIR="${EPREFIX}/usr/$(get_libdir)" install
+src_prepare() {
+	default
+	multilib_copy_sources
+}
+
+multilib_src_compile() {
+	local myemakeargs=( PREFIX="${EPREFIX}/usr" )
+	emake "${myemakeargs[@]}" libudev.so.1
+	use static-libs && emake "${myemakeargs[@]}" libudev.a
+}
+
+multilib_src_install() {
+	local myemakeargs=( DESTDIR="${D}" PREFIX="${EPREFIX}/usr" LIBDIR="${EPREFIX}/usr/$(get_libdir)" )
+	emake "${myemakeargs[@]}" install-shared
+	use static-libs && emake "${myemakeargs[@]}" install-static
 }
