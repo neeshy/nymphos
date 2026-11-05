@@ -3,11 +3,15 @@
 
 EAPI=8
 
-inherit git-r3
-
 DESCRIPTION="Minimal X-application which hides the cursor on key-press and unhides it on mouse-movement efficiently"
 HOMEPAGE="https://github.com/astier/xhidecursor"
-EGIT_REPO_URI="${HOMEPAGE}.git"
+if [[ "${PV}" = 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="${HOMEPAGE}.git"
+else
+	SRC_URI="${HOMEPAGE}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="MIT"
 SLOT="0"
