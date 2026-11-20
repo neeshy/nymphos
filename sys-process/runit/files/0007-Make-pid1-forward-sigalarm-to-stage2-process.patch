@@ -15,17 +15,17 @@ Subject: Make pid1 forward sigalarm to stage2 process
  int sigp =0;
 +int siga =0;
  
- void sig_cont_handler (void) {
+ void sig_cont_handler (int unused) {
    sigc++;
 @@ -44,6 +45,10 @@
    sigp++;
    write(selfpipe[1], "", 1);
  }
-+void sig_alarm_handler (void) {
++void sig_alarm_handler (int unused) {
 +  siga++;
 +  write(selfpipe[1], "", 1);
 +}
- void sig_child_handler (void) { write(selfpipe[1], "", 1); }
+ void sig_child_handler (int unused) { write(selfpipe[1], "", 1); }
  
  void sync_if_needed() {
 @@ -69,6 +74,7 @@
@@ -70,7 +70,7 @@ Subject: Make pid1 forward sigalarm to stage2 process
          continue;
        }
        if (sigi && (stat(CTRLALTDEL, &s) != -1) && (s.st_mode & S_IXUSR)) {
-@@ -295,7 +303,13 @@
+@@ -317,7 +325,13 @@
          /* enter stage 3 */
          break;
        }

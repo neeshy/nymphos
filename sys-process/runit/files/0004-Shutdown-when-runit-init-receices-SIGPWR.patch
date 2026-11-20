@@ -1,0 +1,189 @@
+From: Dmitry Bogatov <KAction@debian.org>
+Date: Tue, 12 Mar 2019 19:13:48 +0000
+Forwarded: <no>
+Subject: Shutdown when runit-init receices SIGPWR
+Ref: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=%23923924
+
+---
+ man/runit.8 |  6 ++++++
+ src/runit.c | 17 +++++++++++++----
+ src/sig.c   |  5 +++++
+ src/sig.h   |  1 +
+ 4 files changed, 25 insertions(+), 4 deletions(-)
+--- a/man/runit.8
++++ b/man/runit.8
+@@ -78,6 +78,19 @@
+ If
+ .B runit
+ receives an INT signal, a ctrl-alt-del keyboard request is triggered.
++.P
++If
++.B runit
++receives a PWR signal and the file
++.I /etc/runit/pwrfail
++exists and has the execute by owner permission set,
++.B runit
++sets the execute by owner permission on
++.I /etc/runit/stopit ;
++then it runs
++.IR /etc/runit/pwrfail ,
++waits for it to terminate and sends itself a CONT signal.
++On platforms where PWR is not defined, USR2 is used instead.
+ .SH SEE ALSO
+ runit-init(8),
+ runsvdir(8),
+--- a/src/runit.c
++++ b/src/runit.c
+@@ -30,6 +30,7 @@
+ int selfpipe[2];
+ int sigc =0;
+ int sigi =0;
++int sigp =0;
+ 
+ void sig_cont_handler (int unused) {
+   sigc++;
+@@ -39,6 +40,10 @@
+   sigi++;
+   write(selfpipe[1], "", 1);
+ }
++void sig_pwr_handler (int unused) {
++  sigp++;
++  write(selfpipe[1], "", 1);
++}
+ void sig_child_handler (int unused) { write(selfpipe[1], "", 1); }
+ 
+ void sync_if_needed() {
+@@ -71,6 +76,8 @@
+   sig_block(sig_hangup);
+   sig_block(sig_int);
+   sig_catch(sig_int, sig_int_handler);
++  sig_block(sig_pwr);
++  sig_catch(sig_pwr, sig_pwr_handler);
+   sig_block(sig_pipe);
+   sig_block(sig_term);
+ 
+@@ -150,6 +157,7 @@
+       sig_unblock(sig_child);
+       sig_unblock(sig_cont);
+       sig_unblock(sig_int);
++      sig_unblock(sig_pwr);
+ #ifdef IOPAUSE_POLL
+       poll(&x, 1, 14000);
+ #else
+@@ -161,6 +169,7 @@
+       sig_block(sig_cont);
+       sig_block(sig_child);
+       sig_block(sig_int);
++      sig_block(sig_pwr);
+       
+       while (read(selfpipe[0], &ch, 1) == 1) {}
+       while ((child =wait_nohang(&wstat)) > 0)
+@@ -211,7 +220,7 @@
+       }
+ 
+       /* sig? */
+-      if (!sigc  && !sigi) {
++      if (!sigc && !sigi && !sigp) {
+ #ifdef DEBUG
+         strerr_warn2(WARNING, "poll: ", &strerr_sys);
+ #endif
+@@ -219,7 +228,7 @@
+       }
+       if (st != 1) {
+         strerr_warn2(WARNING, "signals only work in stage 2.", 0);
+-        sigc =sigi =0;
++        sigc =sigi =sigp =0;
+         continue;
+       }
+       if (sigi && (stat(CTRLALTDEL, &s) != -1) && (s.st_mode & S_IXUSR)) {
+@@ -244,6 +253,28 @@
+         sigi =0;
+         sigc++;
+       }
++      if (sigp && (stat(PWRFAIL, &s) != -1) && (s.st_mode & S_IXUSR)) {
++        strerr_warn2(INFO, "powerfail event...", 0);
++        prog[0] =PWRFAIL; prog[1] =0;
++        if (stat(STOPIT, &s) != -1) chmod(STOPIT, 0100);
++        if ((pid2 =fork()) == -1) {
++          strerr_warn4(FATAL, "unable to fork for \"", PWRFAIL,
++                       "\" forcing shutdown: ", &strerr_sys);
++        }
++        if (!pid2) {
++          /* child */
++          strerr_warn3(INFO, "enter stage: ", prog[0], 0);
++          execve(*prog, (char *const *) prog, envp);
++          strerr_die4sys(0, FATAL, "unable to start child: ", prog[0], ": ");
++        }
++        if (wait_pid(&wstat, pid2) == -1)
++          strerr_warn2(FATAL, "wait_pid: ", &strerr_sys);
++        if (wait_crashed(wstat))
++          strerr_warn3(WARNING, "child crashed: ", PWRFAIL, 0);
++        strerr_warn3(INFO, "leave stage: ", prog[0], 0);
++        sigp =0;
++        sigc++;
++      }
+       if (sigc && (stat(STOPIT, &s) != -1) && (s.st_mode & S_IXUSR)) {
+         int i;
+         /* unlink(STOPIT); */
+@@ -286,7 +317,7 @@
+         /* enter stage 3 */
+         break;
+       }
+-      sigc =sigi =0;
++      sigc =sigi =sigp =0;
+ #ifdef DEBUG
+       strerr_warn2(WARNING, "no request.", 0);
+ #endif
+--- a/src/sig.c
++++ b/src/sig.c
+@@ -3,12 +3,17 @@
+ #include <signal.h>
+ #include "sig.h"
+ 
++#ifndef SIGPWR
++#define SIGPWR SIGUSR2 /* as in sysvinit */
++#endif
++
+ int sig_alarm = SIGALRM;
+ int sig_child = SIGCHLD;
+ int sig_cont = SIGCONT;
+ int sig_hangup = SIGHUP;
+ int sig_int = SIGINT;
+ int sig_pipe = SIGPIPE;
++int sig_pwr = SIGPWR;
+ int sig_term = SIGTERM;
+ 
+ void (*sig_defaulthandler)(int) = SIG_DFL;
+--- a/src/sig.h
++++ b/src/sig.h
+@@ -9,6 +9,7 @@
+ extern int sig_hangup;
+ extern int sig_int;
+ extern int sig_pipe;
++extern int sig_pwr;
+ extern int sig_term;
+ 
+ extern void (*sig_defaulthandler)(int);
+--- a/src/runit.h
++++ b/src/runit.h
+@@ -3,3 +3,4 @@
+ #define REBOOT "/etc/runit/reboot"
+ #define NOSYNC "/etc/runit/nosync"
+ #define CTRLALTDEL "/etc/runit/ctrlaltdel"
++#define PWRFAIL "/etc/runit/pwrfail"
+--- a/doc/runit.8.html
++++ b/doc/runit.8.html
+@@ -51,6 +51,13 @@
+ If
+ <b>runit</b> receives an INT signal, a ctrl-alt-del keyboard request is triggered.
+ 
++If
++<b>runit</b> receives a PWR signal and the file <i>/etc/runit/pwrfail</i> exists
++and has the execute by owner permission set, <b>runit</b> sets the execute by
++owner permission on <i>/etc/runit/stopit</i> ; then it runs <i>/etc/runit/pwrfail</i>,
++waits for it to terminate and sends  itself a CONT signal.
++On platforms where PWR is not defined, USR2 is used instead.
++
+ <h2><a name='sect8'>See Also</a></h2>
+ <i>runit-init(8)</i>, <i>runsvdir(8)</i>, <i>runsvchdir(8)</i>, <i>sv(8)</i>, <i>runsv(8)</i>, <i>chpst(8)</i>,
+ <i>utmpset(8)</i>, <i>svlogd(8)</i> <p>

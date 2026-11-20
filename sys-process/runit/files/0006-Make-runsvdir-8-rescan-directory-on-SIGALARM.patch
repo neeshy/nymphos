@@ -28,8 +28,8 @@ process for 5 seconds is sub-optimal in such situation.
 +runsvdir: load runsvdir.o unix.a fmt_ptime.o byte.a time.a byte.a
 +	./load runsvdir unix.a fmt_ptime.o byte.a time.a byte.a
  
- runsvstat: load runsvstat.o unix.a byte.a time.a
- 	./load runsvstat unix.a byte.a time.a
+ sv: load sv.o unix.a byte.a time.a
+ 	./load sv unix.a byte.a time.a
 --- a/src/runsvdir.c
 +++ b/src/runsvdir.c
 @@ -15,10 +15,17 @@
@@ -39,7 +39,7 @@ process for 5 seconds is sub-optimal in such situation.
 +#include "fmt_ptime.h"
  
  #define USAGE " [-P] dir"
- #define VERSION "$Id: 28cb04495cffccf27650de3cf2981942679781cd $"
+ #define VERSION "$Id: 3ef5711e304a59f2004bf4922dc1848ef5249143 $"
  
 +/*
 + * After rescan of {svdir} that was forced by sig_alarm (as opposed to regular
@@ -60,9 +60,9 @@ process for 5 seconds is sub-optimal in such situation.
  void fatal(char *m1, char *m2) {
 @@ -53,6 +61,28 @@
  } 
- void s_term() { exitsoon =1; }
- void s_hangup() { exitsoon =2; }
-+void s_alarm() { siga = 1; }
+ void s_term(int unused) { exitsoon =1; }
+ void s_hangup(int unused) { exitsoon =2; }
++void s_alarm(int unused) { siga = 1; }
 +
 +void report_forced_rescan() {
 +  struct taia stamp;
