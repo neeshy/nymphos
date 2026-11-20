@@ -14,8 +14,8 @@ SLOT="0"
 
 RDEPEND="
 	sys-apps/seedrng
+	sys-apps/utmpset
 	sys-process/nitro
-	sys-process/runit
 	!sys-apps/sysvinit"
 
 src_compile() {
