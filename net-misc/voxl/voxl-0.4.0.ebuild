@@ -1,0 +1,261 @@
+# Copyright 2026 NymphOS Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+CRATES="
+	adler2@2.0.1
+	aho-corasick@1.1.5
+	anstream@1.0.0
+	anstyle-parse@1.0.0
+	anstyle-query@1.1.5
+	anstyle-wincon@3.0.11
+	anstyle@1.0.14
+	atomic-waker@1.1.2
+	axum-core@0.5.6
+	axum@0.8.9
+	base64@0.22.1
+	bindgen@0.72.1
+	bitflags@1.3.2
+	bitflags@2.13.2
+	block-buffer@0.10.4
+	block2@0.6.2
+	bytes@1.12.1
+	cc@1.11.1
+	cexpr@0.6.0
+	cfg-if@1.0.5
+	cfg_aliases@0.2.2
+	clang-sys@1.9.1
+	colorchoice@1.0.5
+	cpufeatures@0.2.17
+	crc32fast@1.5.2
+	crypto-common@0.1.7
+	data-encoding@2.11.1
+	defmt-macros@1.2.0
+	defmt-parser@1.1.0
+	defmt@1.2.0
+	deranged@0.5.9
+	digest@0.10.7
+	dispatch2@0.3.1
+	either@1.19.0
+	env_filter@2.0.0
+	env_logger@0.11.11
+	equivalent@1.0.3
+	errno@0.3.14
+	fdeflate@0.3.7
+	find-msvc-tools@0.1.15
+	flate2@1.1.10
+	fnv@1.0.7
+	form_urlencoded@1.2.2
+	futures-channel@0.3.34
+	futures-core@0.3.34
+	futures-sink@0.3.34
+	futures-task@0.3.34
+	futures-util@0.3.34
+	generic-array@0.14.7
+	gethostname@1.1.0
+	getrandom@0.2.17
+	getrandom@0.3.4
+	glob@0.3.4
+	h2@0.4.20
+	hashbrown@0.17.1
+	http-body-util@0.1.5
+	http-body@1.1.0
+	http@1.5.0
+	httparse@1.10.1
+	httpdate@1.0.3
+	hyper-util@0.1.21
+	hyper@1.12.0
+	indexmap@2.14.2
+	is_terminal_polyfill@1.70.2
+	itertools@0.13.0
+	itoa@1.0.18
+	jiff-core@0.1.1
+	jiff-static@0.2.38
+	jiff@0.2.38
+	libc@0.2.191
+	libloading@0.8.9
+	linux-raw-sys@0.12.1
+	lock_api@0.4.14
+	log@0.4.34
+	matchit@0.8.4
+	memchr@2.8.3
+	mime@0.3.17
+	minimal-lexical@0.2.1
+	miniz_oxide@0.8.9
+	miniz_oxide@0.9.1
+	mio@1.2.4
+	nix@0.31.3
+	nom@7.1.3
+	num-conv@0.1.0
+	objc2-app-kit@0.3.2
+	objc2-av-foundation@0.3.2
+	objc2-cloud-kit@0.3.2
+	objc2-core-audio-types@0.3.2
+	objc2-core-audio@0.3.2
+	objc2-core-data@0.3.2
+	objc2-core-foundation@0.3.2
+	objc2-core-graphics@0.3.2
+	objc2-core-image@0.3.2
+	objc2-core-media@0.3.2
+	objc2-core-text@0.3.2
+	objc2-core-video@0.3.2
+	objc2-encode@4.1.0
+	objc2-foundation@0.3.2
+	objc2-io-surface@0.3.2
+	objc2-quartz-core@0.3.2
+	objc2-screen-capture-kit@0.3.2
+	objc2-uniform-type-identifiers@0.3.2
+	objc2@0.6.5
+	once_cell@1.21.4
+	once_cell_polyfill@1.70.2
+	parking_lot@0.12.5
+	parking_lot_core@0.9.12
+	pem@3.0.6
+	percent-encoding@2.3.2
+	pin-project-lite@0.2.17
+	pkg-config@0.3.34
+	png@0.18.1
+	portable-atomic-util@0.2.8
+	portable-atomic@1.15.0
+	powerfmt@0.2.1
+	ppv-lite86@0.2.21
+	prettyplease@0.2.37
+	proc-macro2@1.0.107
+	quote@1.0.47
+	r-efi@5.3.0
+	rand@0.9.5
+	rand_chacha@0.9.0
+	rand_core@0.9.5
+	rcgen@0.13.2
+	redox_syscall@0.5.18
+	regex-automata@0.4.18
+	regex-syntax@0.8.11
+	regex@1.13.1
+	ring@0.17.14
+	rustc-hash@2.1.3
+	rustix@1.1.5
+	rustls-pki-types@1.15.1
+	rustls-webpki@0.103.16
+	rustls@0.23.46
+	ryu@1.0.23
+	scopeguard@1.2.0
+	serde@1.0.229
+	serde_core@1.0.229
+	serde_derive@1.0.229
+	serde_json@1.0.154
+	serde_path_to_error@0.1.20
+	serde_urlencoded@0.7.1
+	sha1@0.10.7
+	shlex@1.3.0
+	shlex@2.0.1
+	signal-hook-registry@1.4.8
+	simd-adler32@0.3.10
+	slab@0.4.12
+	smallvec@1.16.3
+	socket2@0.6.5
+	subtle@2.6.1
+	syn@2.0.119
+	syn@3.0.9
+	sync_wrapper@1.0.2
+	thiserror-impl@2.0.21
+	thiserror@2.0.21
+	time-core@0.1.7
+	time@0.3.45
+	tokio-macros@2.7.2
+	tokio-rustls@0.26.6
+	tokio-tungstenite@0.29.0
+	tokio-util@0.7.20
+	tokio@1.53.3
+	tower-layer@0.3.3
+	tower-service@0.3.3
+	tower@0.5.3
+	tracing-core@0.1.36
+	tracing@0.1.44
+	tungstenite@0.29.0
+	typed-path@0.12.3
+	typenum@1.20.1
+	unicode-ident@1.0.27
+	untrusted@0.9.0
+	utf8parse@0.2.2
+	vcpkg@0.2.15
+	version_check@0.9.5
+	wasi@0.11.1+wasi-snapshot-preview1
+	wasip2@1.0.4+wasi-0.2.12
+	windows-collections@0.2.0
+	windows-core@0.61.2
+	windows-future@0.2.1
+	windows-implement@0.60.2
+	windows-interface@0.59.3
+	windows-link@0.1.3
+	windows-link@0.2.1
+	windows-numerics@0.2.0
+	windows-result@0.3.4
+	windows-strings@0.4.2
+	windows-sys@0.52.0
+	windows-sys@0.61.2
+	windows-targets@0.52.6
+	windows-threading@0.1.0
+	windows@0.61.3
+	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_msvc@0.52.6
+	windows_i686_gnu@0.52.6
+	windows_i686_gnullvm@0.52.6
+	windows_i686_msvc@0.52.6
+	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_msvc@0.52.6
+	wit-bindgen@0.57.1
+	x11rb-protocol@0.13.2
+	x11rb@0.13.2
+	yasna@0.5.2
+	zerocopy-derive@0.8.63
+	zerocopy@0.8.63
+	zeroize@1.9.1
+	zip@7.3.0
+	zlib-rs@0.6.8
+	zmij@1.0.23"
+
+inherit cargo
+
+DESCRIPTION="Low-latency desktop streaming for the browser as H.264 over a WebSocket"
+HOMEPAGE="https://github.com/tembo/voxl"
+SRC_URI="${HOMEPAGE}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	${CARGO_CRATE_URIS}"
+
+LICENSE="MIT"
+# Dependent crate licenses
+LICENSE+=" Apache-2.0 BSD ISC MIT Unicode-3.0 ZLIB"
+SLOT="0"
+KEYWORDS="~amd64"
+IUSE="pulseaudio"
+
+RDEPEND="media-libs/libyuv:=
+	media-libs/opus
+	media-libs/x264:=
+	x11-libs/libX11
+	x11-libs/libXext
+	x11-libs/libxcb:=
+	pulseaudio? ( media-libs/libpulse )"
+DEPEND="${RDEPEND}"
+BDEPEND="
+	dev-util/esbuild
+	virtual/pkgconfig"
+
+src_prepare() {
+    default
+
+    local my_esbuild
+    if my_esbuild=$(best_version dev-util/esbuild); then
+		my_esbuild="${my_esbuild#dev-util/}"
+		my_esbuild="${my_esbuild%-r*}"
+		export ESBUILD="${EPREFIX}/usr/bin/${my_esbuild}"
+	else
+        die esbuild
+    fi
+}
+
+src_configure() {
+	local myfeatures=($(usev pulseaudio))
+	cargo_src_configure
+}
