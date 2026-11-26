@@ -45,8 +45,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	x11-libs/libxcb:=
 	x11-libs/libX11
-	x11-libs/libXcursor"
+	x11-libs/libXcursor
+	x11-libs/libxcb:="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
